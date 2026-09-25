@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes (শ্রেণীভিত্তিক পাতা) | জিজ্ঞাসা</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .class-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px; }
+        .class-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-align: center; box-shadow: var(--shadow-sm); transition: transform 0.2s; display: block; }
+        .class-card:hover { transform: translateY(-3px); border-color: var(--primary); }
+        .class-card i { font-size: 36px; color: var(--primary); margin-bottom: 8px; }
+        .class-card h3 { font-size: 1.1rem; }
+        @media(min-width: 768px) { .class-grid { grid-template-columns: repeat(4, 1fr); } }
+    </style>
+</head>
+<body>
+    <header class="top-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="ph-fill ph-student"></i> জিজ্ঞাসা</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Select Your Class (শ্রেণী নির্বাচন করো)</h2>
+        <p style="color: var(--text-muted); margin-bottom: 16px;">Choose your grade to access study materials.</p>
+
+        <div class="class-grid">
+            <a href="quizzes.html" class="class-card"><i class="ph ph-number-five"></i><h3>Class 5</h3></a>
+            <a href="quizzes.html" class="class-card"><i class="ph ph-number-six"></i><h3>Class 6</h3></a>
+            <a href="quizzes.html" class="class-card"><i class="ph ph-number-seven"></i><h3>Class 7</h3></a>
+            <a href="quizzes.html" class="class-card"><i class="ph ph-number-eight"></i><h3>Class 8</h3></a>
+            <a href="quizzes.html" class="class-card"><i class="ph ph-number-nine"></i><h3>Class 9</h3></a>
+            <a href="quizzes.html" class="class-card"><i class="ph ph-number-one"></i><h3>Class 10</h3></a>
+            <a href="quizzes.html" class="class-card"><i class="ph ph-graduation-cap"></i><h3>Class 11</h3></a>
+            <a href="quizzes.html" class="class-card"><i class="ph ph-certificate"></i><h3>Class 12</h3></a>
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <a href="index.html"><i class="ph ph-house"></i><span>Home</span></a>
+        <a href="classes.html" class="active"><i class="ph-fill ph-books"></i><span>Classes</span></a>
+        <a href="quizzes.html"><i class="ph ph-exam"></i><span>Quiz</span></a>
+        <a href="progress.html"><i class="ph ph-chart-line-up"></i><span>Progress</span></a>
+        <a href="about.html"><i class="ph ph-user"></i><span>Teacher</span></a>
+    </nav>
+</body>
+</html>

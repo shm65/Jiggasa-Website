@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2563eb">
+    <title>জিজ্ঞাসা (Jiggasha) | Online Learning Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Inter:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        /* Additional Home Page Styles for Widgets & Dark Mode */
+        :root {
+            --bg-main: #f9fafb;
+            --white: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --primary: #2563eb;
+            --primary-light: #eff6ff;
+        }
+
+        [data-theme="dark"] {
+            --bg-main: #111827;
+            --white: #1f2937;
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --border: #374151;
+            --primary: #3b82f6;
+            --primary-light: #1e3a8a;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .top-nav {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero {
+            background: var(--white);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        .feature-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        /* Teacher Welcome Banner */
+        .teacher-banner {
+            background: linear-gradient(135deg, var(--primary), #1d4ed8);
+            color: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .teacher-avatar {
+            width: 75px;
+            height: 75px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 38px;
+            flex-shrink: 0;
+        }
+
+        /* Widgets Grid (Clock, Calendar, Quote) */
+        .widgets-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .widget-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+        }
+
+        .clock-display {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .calendar-display {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .quote-text {
+            font-style: italic;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .quote-author {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Ad Banner Box */
+        .ad-container {
+            background: var(--white);
+            border: 2px dashed var(--border);
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            margin-top: 24px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: var(--primary-light);
+            border: none;
+            color: var(--primary);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        @media(min-width: 768px) {
+            .widgets-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Navigation -->
+    <header class="top-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="ph-fill ph-student"></i> জিজ্ঞাসা
+            </a>
+            <div class="search-box">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="text" id="global-search" placeholder="Search subject, class or topic...">
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <button class="theme-toggle" id="theme-btn" title="Toggle Dark Mode"><i class="ph ph-moon"></i></button>
+                <nav class="desktop-links">
+                    <a href="classes.html">Classes</a>
+                    <a href="quizzes.html">Quizzes</a>
+                    <a href="notes.html">Notes</a>
+                    <a href="videos.html">Videos</a>
+                    <a href="progress.html">My Progress</a>
+                    <a href="about.html">About Us</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Teacher Profile Welcome Banner -->
+        <div class="teacher-banner">
+            <div class="teacher-avatar">
+                <a href="about.html" class="teacher-avatar" aria-label="About the teacher">
+                    <img src="assets/sarawar-husen-avatar.jpg" alt="Sarawar Husen">
+                </a>
+            </div>
+            <div>
+                <h3 style="font-size: 1.3rem; margin-bottom: 4px;">Welcome to Students! 👋 আমি Sarawar Husen </h3>
+                <p style="font-size: 0.9rem; opacity: 0.9;">Math and Science Teacher (9062969715) |<br> Amgachia, South 24
+                    Parganas. <br>Explore notes, mock tests, and video lessons designed specially for you.</p>
+            </div>
+        </div>
+
+        <!-- Widgets: Clock/Calendar & Motivation Quote -->
+        <div class="widgets-grid">
+            <!-- Clock & Calendar Widget -->
+            <div class="widget-card">
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px;"><i
+                        class="ph ph-calendar"></i> Today's Schedule</div>
+                <div class="clock-display" id="live-clock">00:00:00 AM</div>
+                <div class="calendar-display" id="live-date">Loading date...</div>
+            </div>
+
+            <!-- Daily Motivation Quote -->
+            <div class="widget-card" style="display: flex; flex-direction: column; justify-content: center;">
+                <div class="quote-text">"Education is the most powerful weapon which you can use to change the world."
+                </div>
+                <div class="quote-author">— Dr. A.P.J. Abdul Kalam / Nelson Mandela</div>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero" style="text-align: center; padding: 30px 16px; border-radius: 16px; margin-top: 16px;">
+            <h1 style="font-size: 1.8rem; margin-bottom: 8px;">Interactive Learning Platform</h1>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Boost your exam preparation with free chapter
+                notes and quizzes.</p>
+            <a href="classes.html" class="btn-primary">Start Learning (শুরু করো)</a>
+        </section>
+
+        <!-- Features Grid -->
+        <section class="features">
+            <a href="quizzes.html" class="feature-card">
+                <div class="icon-circle bg-blue"><i class="ph ph-exam"></i></div>
+                <h3>Quizzes (মক টেস্ট)</h3>
+                <p>Test your knowledge instantly.</p>
+            </a>
+            <a href="notes.html" class="feature-card">
+                <div class="icon-circle bg-green"><i class="ph ph-book-open"></i></div>
+                <h3>Notes (স্টাডি মেটেরিয়াল)</h3>
+                <p>Download chapter-wise PDFs.</p>
+            </a>
+            <a href="videos.html" class="feature-card">
+                <div class="icon-circle bg-red"><i class="ph ph-youtube-logo"></i></div>
+                <h3>Video Classes (ভিডিও)</h3>
+                <p>Watch detailed explanations.</p>
+            </a>
+        </section>
+
+        <!-- Small Advertisement Banner for Monetization -->
+        <div class="ad-container">
+            <span>Advertisement / Sponsored</span>
+            <!-- Paste your Google AdSense or Ad code here in the future -->
+            <div style="padding: 10px; font-weight: 600; color: var(--text-main);">Support Free Education — Jiggasha Ads
+                Space</div>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation (Visible on Mobile) -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="active">
+            <i class="ph ph-house"></i>
+            <span>Home</span>
+        </a>
+        <a href="classes.html">
+            <i class="ph ph-books"></i>
+            <span>Classes</span>
+        </a>
+        <a href="quizzes.html">
+            <i class="ph ph-exam"></i>
+            <span>Quiz</span>
+        </a>
+        <a href="progress.html">
+            <i class="ph ph-chart-line-up"></i>
+            <span>Progress</span>
+        </a>
+        <a href="about.html">
+            <i class="ph ph-user"></i>
+            <span>Teacher</span>
+        </a>
+    </nav>
+
+    <!-- Scripts for Clock and Dark Mode -->
+    <script>
+        // 1. Live Clock & Calendar Script
+        function updateClockAndCalendar() {
+            const now = new Date();
+
+            // Time formatting
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+
+            document.getElementById('live-clock').innerText = `${String(hours).padStart(2, '0')}:${minutes}:${seconds} ${ampm}`;
+
+            // Date formatting
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('live-date').innerText = now.toLocaleDateString('en-US', options);
+        }
+        setInterval(updateClockAndCalendar, 1000);
+        updateClockAndCalendar();
+
+        // 2. Dark Mode Toggle Script
+        const themeBtn = document.getElementById('theme-btn');
+        const htmlElement = document.documentElement;
+
+        // Check saved theme preference
+        const savedTheme = localStorage.getItem('jiggasha_theme') || 'light';
+        if (savedTheme === 'dark') {
+            htmlElement.setAttribute('data-theme', 'dark');
+            themeBtn.innerHTML = '<i class="ph ph-sun"></i>';
+        }
+
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                htmlElement.removeAttribute('data-theme');
+                localStorage.setItem('jiggasha_theme', 'light');
+                themeBtn.innerHTML = '<i class="ph ph-moon"></i>';
+            } else {
+                htmlElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('jiggasha_theme', 'dark');
+                themeBtn.innerHTML = '<i class="ph ph-sun"></i>';
+            }
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

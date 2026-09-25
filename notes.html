@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Notes (স্টাডি নোটস) | জিজ্ঞাসা</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .notes-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 16px; }
+        .note-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: var(--shadow-sm); }
+        .note-info h3 { font-size: 1.1rem; margin-bottom: 4px; }
+        .note-info p { font-size: 0.85rem; color: var(--text-muted); }
+        .btn-download { background: var(--primary-light); color: var(--primary); padding: 8px 16px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 6px; }
+        .btn-download:hover { background: var(--primary); color: var(--white); }
+        @media(min-width: 768px) { .notes-grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+    <header class="top-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="ph-fill ph-student"></i> জিজ্ঞাসা</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Chapter-wise Notes (অধ্যায়ভিত্তিক নোটস)</h2>
+        <p style="color: var(--text-muted); margin-bottom: 16px;">Download or view notes for your class.</p>
+
+        <div class="notes-grid" id="notes-container">
+            <!-- Populated dynamically -->
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <a href="index.html"><i class="ph ph-house"></i><span>Home</span></a>
+        <a href="classes.html"><i class="ph ph-books"></i><span>Classes</span></a>
+        <a href="quizzes.html"><i class="ph ph-exam"></i><span>Quiz</span></a>
+        <a href="progress.html"><i class="ph ph-chart-line-up"></i><span>Progress</span></a>
+        <a href="about.html"><i class="ph ph-user"></i><span>Teacher</span></a>
+    </nav>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.getElementById("notes-container");
+            fetch("data/notes.json")
+                .then(res => res.json())
+                .then(notes => {
+                    if(notes.length === 0) {
+                        container.innerHTML = "<p>No notes available right now.</p>";
+                        return;
+                    }
+                    container.innerHTML = notes.map(n => `
+                        <div class="note-card">
+                            <div class="note-info">
+                                <div style="font-size:0.75rem; color:var(--text-muted); margin-bottom:4px;">Class ${n.class} • ${n.subject}</div>
+                                ### ${n.title}
+                                <p>Chapter: ${n.chapter}</p>
+                            </div>
+                            <a href="${n.file}" target="_blank" class="btn-download">
+                                <i class="ph ph-download-simple"></i> View/Download
+                            </a>
+                        </div>
+                    `).join("");
+                })
+                .catch(err => {
+                    container.innerHTML = "<p style='color:red;'>Could not load notes data.</p>";
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizzes (কুইজ ও মক টেস্ট) | জিজ্ঞাসা</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .filter-bar { display: flex; gap: 8px; overflow-x: auto; padding: 8px 0; margin-bottom: 16px; }
+        .filter-btn { background: var(--white); border: 1px solid var(--border); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; cursor: pointer; white-space: nowrap; }
+        .filter-btn.active { background: var(--primary); color: var(--white); border-color: var(--primary); }
+        .quiz-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+        .quiz-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 20px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; justify-content: space-between; }
+        .quiz-meta { display: flex; gap: 8px; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 8px; }
+        .quiz-meta span { background: var(--bg-main); padding: 2px 8px; border-radius: 4px; border: 1px solid var(--border); }
+        .quiz-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; }
+        .quiz-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; border-top: 1px solid var(--border); padding-top: 12px; font-size: 0.85rem; color: var(--text-muted); }
+        .btn-start { background: var(--primary); color: var(--white); padding: 6px 16px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; }
+        @media(min-width: 768px) { .quiz-grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+    <header class="top-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="ph-fill ph-student"></i> জিজ্ঞাসা</a>
+            <div class="search-box">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="text" id="quiz-search" placeholder="Search quizzes...">
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Interactive Quizzes (কুইজ সেকশন)</h2>
+        <p style="color: var(--text-muted); margin-bottom: 16px;">Select a subject and test your knowledge instantly.</p>
+
+        <!-- Filter Buttons -->
+        <div class="filter-bar" id="filter-bar">
+            <button class="filter-btn active" data-filter="all">All Quizzes</button>
+            <button class="filter-btn" data-filter="Political Science">Political Science</button>
+            <button class="filter-btn" data-filter="Mathematics">Mathematics</button>
+            <button class="filter-btn" data-filter="Physical Science">Physical Science</button>
+        </div>
+
+        <!-- Quiz Cards Container -->
+        <div class="quiz-grid" id="quiz-container">
+            <!-- Loaded dynamically via js/quizzes.js -->
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <a href="index.html"><i class="ph ph-house"></i><span>Home</span></a>
+        <a href="classes.html"><i class="ph ph-books"></i><span>Classes</span></a>
+        <a href="quizzes.html" class="active"><i class="ph-fill ph-exam"></i><span>Quiz</span></a>
+        <a href="progress.html"><i class="ph ph-chart-line-up"></i><span>Progress</span></a>
+        <a href="about.html"><i class="ph ph-user"></i><span>Teacher</span></a>
+    </nav>
+
+    <script src="js/quizzes.js"></script>
+</body>
+</html>

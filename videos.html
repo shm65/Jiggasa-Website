@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Classes (ভিডিও ক্লাস) | জিজ্ঞাসা</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        .video-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 16px; }
+        .video-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-sm); }
+        .video-container { position: relative; width: 100%; padding-bottom: 56.25%; /* 16:9 Aspect Ratio */ }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .video-info { padding: 16px; }
+        .video-info h3 { font-size: 1.05rem; margin-bottom: 4px; }
+        @media(min-width: 768px) { .video-grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+    <header class="top-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><i class="ph-fill ph-student"></i> জিজ্ঞাসা</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Video Classes (অনলাইন ভিডিও ক্লাস)</h2>
+        <p style="color: var(--text-muted); margin-bottom: 16px;">Watch detailed audio-visual lessons.</p>
+
+        <div class="video-grid" id="video-container">
+            <!-- Loaded dynamically -->
+        </div>
+    </main>
+
+    <nav class="bottom-nav">
+        <a href="index.html"><i class="ph ph-house"></i><span>Home</span></a>
+        <a href="classes.html"><i class="ph ph-books"></i><span>Classes</span></a>
+        <a href="quizzes.html"><i class="ph ph-exam"></i><span>Quiz</span></a>
+        <a href="progress.html"><i class="ph ph-chart-line-up"></i><span>Progress</span></a>
+        <a href="about.html"><i class="ph ph-user"></i><span>Teacher</span></a>
+    </nav>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.getElementById("video-container");
+            fetch("data/videos.json")
+                .then(res => res.json())
+                .then(videos => {
+                    if(videos.length === 0) {
+                        container.innerHTML = "<p>No videos available right now.</p>";
+                        return;
+                    }
+                    container.innerHTML = videos.map(v => `
+                        <div class="video-card">
+                            <div class="video-container">
+                                <iframe src="https://www.youtube.com/embed/${v.youtubeId}" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-info">
+                                <span style="font-size: 0.75rem; color: var(--text-muted);">Class ${v.class} • ${v.subject}</span>
+                                <h3>${v.title}</h3>
+                            </div>
+                        </div>
+                    `).join("");
+                })
+                .catch(err => {
+                    container.innerHTML = "<p style='color:red;'>Could not load video data.</p>";
+                });
+        });
+    </script>
+</body>
+</html>
