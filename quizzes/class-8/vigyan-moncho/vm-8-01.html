@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="bn">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <!-- Google Fonts for Bengali & English -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Atma:wght@500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Atma:wght@500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <!-- MathJax for rendering Mathematical LaTeX formulas -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -116,9 +119,17 @@
         }
 
         @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         .progress-container {
@@ -442,13 +453,29 @@
             border-radius: 3px;
         }
 
-        .dot-unvisited { background: #f8fafc; border: 1px solid #cbd5e1; }
-        .dot-answered { background: #dcfce7; border: 1px solid #86efac; }
-        .dot-review { background: #fef3c7; border: 1px solid #fde68a; }
-        .dot-active { border: 2px solid var(--primary-light); }
+        .dot-unvisited {
+            background: #f8fafc;
+            border: 1px solid #cbd5e1;
+        }
+
+        .dot-answered {
+            background: #dcfce7;
+            border: 1px solid #86efac;
+        }
+
+        .dot-review {
+            background: #fef3c7;
+            border: 1px solid #fde68a;
+        }
+
+        .dot-active {
+            border: 2px solid var(--primary-light);
+        }
 
         /* Dashboard & Review Screens */
-        .hidden { display: none !important; }
+        .hidden {
+            display: none !important;
+        }
 
         .result-dashboard {
             text-align: center;
@@ -492,9 +519,17 @@
             font-weight: 700;
         }
 
-        .stat-val.correct { color: var(--accent); }
-        .stat-val.wrong { color: var(--danger); }
-        .stat-val.unanswered { color: var(--warning); }
+        .stat-val.correct {
+            color: var(--accent);
+        }
+
+        .stat-val.wrong {
+            color: var(--danger);
+        }
+
+        .stat-val.unanswered {
+            color: var(--warning);
+        }
 
         .stat-lbl {
             font-size: 0.85rem;
@@ -545,9 +580,20 @@
             margin-bottom: 10px;
         }
 
-        .status-correct { background: #dcfce7; color: #166534; }
-        .status-wrong { background: #fee2e2; color: #991b1b; }
-        .status-unanswered { background: #fef3c7; color: #92400e; }
+        .status-correct {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-wrong {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .status-unanswered {
+            background: #fef3c7;
+            color: #92400e;
+        }
 
         .solution-box {
             background: #f8fafc;
@@ -573,23 +619,34 @@
         }
 
         @media print {
-            header, .top-bar, .nav-panel, .actions-bar, .filter-bar, .btn-group {
+
+            header,
+            .top-bar,
+            .nav-panel,
+            .actions-bar,
+            .filter-bar,
+            .btn-group {
                 display: none !important;
             }
+
             .quiz-layout {
                 display: block;
             }
-            .card, .review-card {
+
+            .card,
+            .review-card {
                 box-shadow: none;
                 border: 1px solid #ccc;
                 page-break-inside: avoid;
             }
+
             body {
                 background: white;
             }
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -640,9 +697,11 @@
                     </div>
 
                     <div class="actions-bar">
-                        <button class="btn btn-secondary" id="btn-prev" onclick="navigate(-1)">← পূর্ববর্তী (Prev)</button>
+                        <button class="btn btn-secondary" id="btn-prev" onclick="navigate(-1)">← পূর্ববর্তী
+                            (Prev)</button>
                         <div>
-                            <button class="btn btn-warning" id="btn-review" onclick="toggleMarkReview()">🔖 ফ্ল্যাগ / রিভিউ (Review)</button>
+                            <button class="btn btn-warning" id="btn-review" onclick="toggleMarkReview()">🔖 ফ্ল্যাগ /
+                                রিভিউ (Review)</button>
                         </div>
                         <button class="btn btn-primary" id="btn-next" onclick="navigate(1)">পরবর্তী (Next) →</button>
                     </div>
@@ -656,14 +715,23 @@
                     </div>
 
                     <div class="nav-legend">
-                        <div class="legend-item"><div class="legend-dot dot-unvisited"></div> অনুত্তরিত</div>
-                        <div class="legend-item"><div class="legend-dot dot-answered"></div> উত্তর দেওয়া</div>
-                        <div class="legend-item"><div class="legend-dot dot-review"></div> চিহ্নিত (Review)</div>
-                        <div class="legend-item"><div class="legend-dot dot-active"></div> বর্তমান</div>
+                        <div class="legend-item">
+                            <div class="legend-dot dot-unvisited"></div> অনুত্তরিত
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot dot-answered"></div> উত্তর দেওয়া
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot dot-review"></div> চিহ্নিত (Review)
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-dot dot-active"></div> বর্তমান
+                        </div>
                     </div>
 
                     <div style="margin-top: 25px;">
-                        <button class="btn btn-success" style="width: 100%; justify-content: center;" onclick="confirmSubmit()">
+                        <button class="btn btn-success" style="width: 100%; justify-content: center;"
+                            onclick="confirmSubmit()">
                             ✅ পরীক্ষা জমা দিন (Submit)
                         </button>
                     </div>
@@ -675,7 +743,8 @@
         <div id="result-screen" class="hidden">
             <div class="card result-dashboard">
                 <h2>পশ্চিমবঙ্গ বিজ্ঞান মঞ্চ - ২০২৫</h2>
-                <p style="color: var(--text-muted); font-size: 0.95rem;">জেলা বিজ্ঞান মানসিকতা ও মেধা অভীক্ষা - ফলাফল ড্যাশবোর্ড</p>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">জেলা বিজ্ঞান মানসিকতা ও মেধা অভীক্ষা - ফলাফল
+                    ড্যাশবোর্ড</p>
 
                 <div class="score-card">
                     <div>আপনার অর্জিত নম্বর (Your Score)</div>
@@ -699,21 +768,25 @@
                 </div>
 
                 <div class="btn-group">
-                    <button class="btn btn-primary" onclick="showReviewMode()">🔍 সমস্ত উত্তরের ব্যাখ্যা দেখুন (Review)</button>
+                    <button class="btn btn-primary" onclick="showReviewMode()">🔍 সমস্ত উত্তরের ব্যাখ্যা দেখুন
+                        (Review)</button>
                     <button class="btn btn-secondary" onclick="window.print()">🖨️ প্রিন্ট করুন / PDF সেভ করুন</button>
                     <button class="btn btn-warning" onclick="restartQuiz()">🔄 পুনরায় পরীক্ষা দিন (Restart)</button>
+                    <a href="index.html" class="btn btn-primary">🏠 হোম পেজে ফিরে যান</a>
                 </div>
             </div>
 
             <!-- Detailed Review Section -->
             <div id="review-container" class="hidden" style="margin-top: 30px;">
-                <h3 style="margin-bottom: 15px; text-align: center;">উত্তর ও বিশদ বিশ্লেষণ (Detailed Review & Solutions)</h3>
-                
+                <h3 style="margin-bottom: 15px; text-align: center;">উত্তর ও বিশদ বিশ্লেষণ (Detailed Review & Solutions)
+                </h3>
+
                 <div class="filter-bar">
                     <button class="filter-btn active" onclick="filterReview('all', this)">সবকটি (All)</button>
                     <button class="filter-btn" onclick="filterReview('correct', this)">সঠিক (Correct)</button>
                     <button class="filter-btn" onclick="filterReview('wrong', this)">ভুল (Wrong)</button>
-                    <button class="filter-btn" onclick="filterReview('unanswered', this)">অনুত্তরিত (Unanswered)</button>
+                    <button class="filter-btn" onclick="filterReview('unanswered', this)">অনুত্তরিত
+                        (Unanswered)</button>
                 </div>
 
                 <div id="review-cards-list">
@@ -1489,7 +1562,7 @@
         let timeRemainingSeconds = QUIZ_TIME_MINUTES * 60;
 
         /* INITIALIZATION */
-        window.onload = function() {
+        window.onload = function () {
             initNavigationGrid();
             loadQuestion(currentQIndex);
             startTimer();
@@ -1513,7 +1586,7 @@
             const mins = Math.floor((timeRemainingSeconds % 3600) / 60);
             const secs = timeRemainingSeconds % 60;
 
-            const formatted = 
+            const formatted =
                 (hrs < 10 ? "0" + hrs : hrs) + ":" +
                 (mins < 10 ? "0" + mins : mins) + ":" +
                 (secs < 10 ? "0" + secs : secs);
@@ -1758,4 +1831,5 @@
         }
     </script>
 </body>
+
 </html>
