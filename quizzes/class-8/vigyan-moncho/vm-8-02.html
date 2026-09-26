@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>পশ্চিম মেদিনীপুর জেলা বিজ্ঞান মানসিকতা ও মেধা অভীক্ষা - ২০২৪ | Class 8 Science Aptitude Test</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & Hind Siliguri -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --emerald-950: #022c22;
+            --emerald-900: #064e3b;
+            --emerald-800: #065f46;
+            --emerald-700: #047857;
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Hind Siliguri', 'Inter', sans-serif;
+            background:
+                radial-gradient(1200px 500px at 10% -10%, rgba(16,185,129,0.06), transparent 60%),
+                radial-gradient(900px 500px at 100% 0%, rgba(6,95,70,0.05), transparent 55%),
+                #f8fafc;
+        }
+
+        /* Custom scrollbars */
+        ::-webkit-scrollbar { width: 7px; height: 7px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Header */
+        .app-header {
+            background: linear-gradient(120deg, var(--emerald-900) 0%, var(--emerald-800) 55%, var(--emerald-700) 100%);
+            box-shadow: 0 4px 24px -6px rgba(4,32,24,0.35);
+        }
+
+        .header-icon-badge {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.14);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .header-stats {
+            background: rgba(2,20,15,0.35);
+            border: 1px solid rgba(255,255,255,0.10);
+            backdrop-filter: blur(6px);
+        }
+
+        .home-link {
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.18);
+            color: #ecfdf5;
+            transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+        }
+        .home-link:hover {
+            background: rgba(255,255,255,0.20);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+        }
+        .home-link:active { transform: translateY(0); }
+
+        .submit-btn-top {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            box-shadow: 0 4px 14px rgba(217,119,6,0.35);
+            transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+        }
+        .submit-btn-top:hover { filter: brightness(1.05); transform: translateY(-1px); box-shadow: 0 6px 18px rgba(217,119,6,0.45); }
+        .submit-btn-top:active { transform: translateY(0); }
+
+        /* Cards */
+        .card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 1.25rem;
+            box-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 8px 24px -12px rgba(15,23,42,0.08);
+            transition: box-shadow 0.2s ease;
+        }
+
+        /* Question fade transition */
+        #question-card-wrapper.hidden, #welcome-banner.hidden, #results-dashboard.hidden { display: none; }
+        .fade-in { animation: fadeInUp 0.35s ease both; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Options */
+        .option-row {
+            transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+        }
+        .option-row:hover { transform: translateY(-1px); box-shadow: 0 6px 16px -8px rgba(15,23,42,0.15); }
+        .option-row:active { transform: translateY(0); }
+
+        /* Palette buttons */
+        .palette-btn {
+            transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+        }
+        .palette-btn:hover { transform: translateY(-2px) scale(1.04); filter: brightness(1.04); }
+        .palette-btn:active { transform: translateY(0) scale(0.98); }
+
+        /* Progress bar shimmer */
+        #progress-bar-fill {
+            background-image: linear-gradient(90deg, #059669, #10b981);
+            position: relative;
+            overflow: hidden;
+        }
+        #progress-bar-fill::after {
+            content: "";
+            position: absolute; inset: 0;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+            transform: translateX(-100%);
+            animation: shimmer 2.4s infinite;
+        }
+        @keyframes shimmer { to { transform: translateX(100%); } }
+
+        /* Buttons general polish */
+        button { cursor: pointer; }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--emerald-700), var(--emerald-800));
+            transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+            box-shadow: 0 4px 14px -4px rgba(4,120,87,0.45);
+        }
+        .btn-primary:hover { filter: brightness(1.06); transform: translateY(-1px); box-shadow: 0 8px 20px -6px rgba(4,120,87,0.5); }
+        .btn-primary:active { transform: translateY(0); }
+        .btn-primary:disabled { opacity: 0.45; cursor: not-allowed; transform: none; box-shadow: none; }
+
+        .btn-secondary {
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+        }
+        .btn-secondary:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 14px -6px rgba(15,23,42,0.15); }
+        .btn-secondary:disabled { opacity: 0.45; cursor: not-allowed; }
+
+        /* Timer pulse when low */
+        .timer-warning { color: #fca5a5 !important; }
+
+        /* Results header decorative */
+        .results-hero {
+            background: radial-gradient(1000px 400px at 90% -20%, rgba(255,255,255,0.10), transparent 60%),
+                        linear-gradient(135deg, var(--emerald-900), var(--emerald-950));
+        }
+
+        /* Stat tiles hover */
+        .stat-tile { transition: transform 0.15s ease; }
+        .stat-tile:hover { transform: translateY(-2px); }
+
+        /* Modal */
+        .modal-backdrop { animation: fadeIn 0.2s ease both; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .modal-panel { animation: popIn 0.22s cubic-bezier(0.34,1.56,0.64,1) both; }
+        @keyframes popIn { from { opacity: 0; transform: scale(0.92) translateY(6px);} to { opacity: 1; transform: scale(1) translateY(0);} }
+
+        /* Review answer rows */
+        .review-opt { transition: transform 0.1s ease; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+
+    <!-- Header Navbar -->
+    <header class="app-header text-white sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between gap-4">
+
+            <div class="flex items-center space-x-3 w-full md:w-auto">
+                <div class="header-icon-badge p-2.5 rounded-xl flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-atom text-emerald-200 text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-base md:text-xl font-bold tracking-wide leading-tight">পশ্চিমবঙ্গ বিজ্ঞান মঞ্চ - পশ্চিম মেদিনীপুর জেলা কমিটি</h1>
+                    <p class="text-xs text-emerald-200 mt-0.5">অষ্টম শ্রেণি জেলা বিজ্ঞান মানসিকতা ও মেধা অভীক্ষা - ২০২৪ (Class 8 Science Aptitude &amp; Merit Test 2024)</p>
+                    <p class="text-[11px] text-emerald-300/80 mt-0.5">This test is designed by <strong>Sarawar Husen</strong> based on the question of অষ্টম শ্রেণি পশ্চিম মেদিনীপুর জেলা বিজ্ঞান মানসিকতা ও মেধা অভীক্ষা - ২০২৪</p>
+                </div>
+            </div>
+
+            <!-- Timer, Home & Submit -->
+            <div class="flex items-center gap-3 flex-wrap justify-center">
+                <div class="header-stats flex items-center space-x-2 px-4 py-2 rounded-xl">
+                    <i class="fa-regular fa-clock text-emerald-300 animate-pulse text-lg"></i>
+                    <div>
+                        <div class="text-[10px] uppercase tracking-wider text-emerald-300 font-medium">সময় বাকি (Time Remaining)</div>
+                        <div id="timer-display" class="font-mono font-bold text-lg text-white">02:15:00</div>
+                    </div>
+                </div>
+
+                <a href="../../../index.html" class="home-link px-4 py-2.5 rounded-xl text-sm font-semibold flex items-center space-x-2 no-underline">
+                    <i class="fa-solid fa-house"></i>
+                    <span>HOME</span>
+                </a>
+
+                <button onclick="confirmSubmitModal()" class="submit-btn-top text-slate-950 font-semibold px-4 py-2.5 rounded-xl text-sm flex items-center space-x-1.5">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>জমা দিন (Submit)</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main App Body -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
+
+        <!-- Left / Center: Question Card & Options -->
+        <section id="quiz-container" class="lg:col-span-3 space-y-6">
+
+            <!-- Exam Instructions / Welcome Banner (Toggleable) -->
+            <div id="welcome-banner" class="card p-6 space-y-4 fade-in">
+                <div class="flex items-center space-x-3 text-emerald-800">
+                    <i class="fa-solid fa-circle-info text-2xl"></i>
+                    <h2 class="text-xl font-bold">পরীক্ষার নির্দেশাবলী (Test Instructions)</h2>
+                </div>
+                <ul class="list-disc list-inside space-y-2 text-sm text-slate-600">
+                    <li><strong>মোট প্রশ্ন (Total Questions):</strong> ৫০টি বহু বিকল্পভিত্তিক প্রশ্ন (MCQ)।</li>
+                    <li><strong>পূর্ণমান (Total Marks):</strong> ৫০ (প্রতিটি সঠিক উত্তরের জন্য ১ নম্বর)।</li>
+                    <li><strong>সময় (Duration):</strong> ২ ঘণ্টা ১৫ মিনিট (2 Hours 15 Minutes)।</li>
+                    <li><strong>ভাষা (Language):</strong> প্রশ্নপত্র বাংলা ও ইংরেজি উভয় মাধ্যমেই দেওয়া আছে।</li>
+                    <li>আপনার সুবিধার্থে প্রশ্ন নেভিগেশন প্যালেট ব্যবহার করে যেকোনো প্রশ্নে সরাসরি যাওয়া যাবে।</li>
+                </ul>
+                <div class="pt-2">
+                    <button onclick="startQuiz()" class="btn-primary text-white font-medium px-6 py-2.5 rounded-xl flex items-center space-x-2">
+                        <span>পরীক্ষা শুরু করুন (Start Test)</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Active Question Card (Hidden initially until started) -->
+            <div id="question-card-wrapper" class="hidden space-y-6">
+
+                <!-- Question Meta bar -->
+                <div class="card p-4 flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex items-center space-x-2">
+                        <span id="q-badge" class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">প্রশ্ন ১ / ৫০</span>
+                        <span id="q-category" class="bg-slate-100 text-slate-700 text-xs font-medium px-3 py-1 rounded-full">ভৌতবিজ্ঞান (Physical Science)</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button onclick="markForReviewToggle()" id="review-btn" class="border border-amber-500 text-amber-600 hover:bg-amber-50 text-xs font-medium px-3 py-1.5 rounded-lg transition flex items-center space-x-1.5">
+                            <i class="fa-regular fa-flag"></i>
+                            <span id="review-btn-text">চিহ্নিত করুন (Mark for Review)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Question Text Box -->
+                <div id="question-text-card" class="card p-6 space-y-4 fade-in">
+                    <div class="text-lg font-semibold text-slate-900 leading-relaxed" id="question-text-bn">
+                        <!-- Bengali Question Loaded Dynamically -->
+                    </div>
+                    <div class="text-base font-medium text-slate-600 leading-relaxed border-t pt-3 border-slate-100 italic" id="question-text-en">
+                        <!-- English Question Loaded Dynamically -->
+                    </div>
+                </div>
+
+                <!-- Options Box -->
+                <div class="space-y-3" id="options-container">
+                    <!-- Options populated via JS -->
+                </div>
+
+                <!-- Bottom Navigation Buttons -->
+                <div class="flex items-center justify-between pt-2">
+                    <button onclick="prevQuestion()" id="prev-btn" class="btn-secondary bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 font-medium px-5 py-2.5 rounded-xl shadow-sm flex items-center space-x-2">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>পূর্ববর্তী (Previous)</span>
+                    </button>
+                    <div class="flex items-center space-x-3">
+                        <button onclick="clearResponse()" class="btn-secondary bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium px-4 py-2.5 rounded-xl text-sm">
+                            উত্তর মুছুন (Clear)
+                        </button>
+                        <button onclick="nextQuestion()" id="next-btn" class="btn-primary text-white font-medium px-6 py-2.5 rounded-xl flex items-center space-x-2">
+                            <span>পরবর্তী (Next)</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Dashboard View (Hidden until submission) -->
+            <div id="results-dashboard" class="hidden space-y-6">
+                <div class="results-hero text-white rounded-3xl p-8 shadow-lg relative overflow-hidden fade-in">
+                    <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div class="relative z-10 space-y-4">
+                        <div class="inline-block bg-emerald-700/80 text-emerald-200 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+                            মূল্যায়ন সম্পন্ন (Assessment Completed)
+                        </div>
+                        <h2 class="text-3xl font-bold">অভিনন্দন! আপনি পরীক্ষা সম্পন্ন করেছেন।</h2>
+                        <p class="text-emerald-200 text-sm max-w-xl">পশ্চিম মেদিনীপুর জেলা বিজ্ঞান মানসিকতা ও মেধা অভীক্ষা ২০২৪ এর আপনার ফলাফল নিচে দেওয়া হলো। সঠিক উত্তর ও ব্যাখ্যা সহ সমস্ত প্রশ্ন পর্যালোচনা করুন।</p>
+
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
+                            <div class="stat-tile bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10">
+                                <div class="text-xs text-emerald-200">মোট প্রাপ্ত নম্বর (Score)</div>
+                                <div class="text-3xl font-extrabold text-white mt-1" id="res-score">0 / 50</div>
+                            </div>
+                            <div class="stat-tile bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10">
+                                <div class="text-xs text-emerald-200">সঠিক উত্তর (Correct)</div>
+                                <div class="text-3xl font-bold text-emerald-400 mt-1" id="res-correct">0</div>
+                            </div>
+                            <div class="stat-tile bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10">
+                                <div class="text-xs text-emerald-200">ভুল উত্তর (Incorrect)</div>
+                                <div class="text-3xl font-bold text-rose-400 mt-1" id="res-incorrect">0</div>
+                            </div>
+                            <div class="stat-tile bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10">
+                                <div class="text-xs text-emerald-200">অনুত্তীর্ণ/ছেড়ে দেওয়া (Skipped)</div>
+                                <div class="text-3xl font-bold text-amber-300 mt-1" id="res-skipped">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Filter Tabs -->
+                <div class="card p-4 flex flex-wrap items-center justify-between gap-4">
+                    <div class="flex items-center flex-wrap gap-2">
+                        <span class="text-sm font-semibold text-slate-700 mr-1">বিশ্লেষণ ফিল্টার:</span>
+                        <button onclick="filterReview('all')" id="filter-all" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-emerald-700 text-white transition">সব প্রশ্ন (All)</button>
+                        <button onclick="filterReview('correct')" id="filter-correct" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition">সঠিক (Correct)</button>
+                        <button onclick="filterReview('incorrect')" id="filter-incorrect" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition">ভুল (Incorrect)</button>
+                        <button onclick="filterReview('skipped')" id="filter-skipped" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition">অনুত্তীর্ণ (Skipped)</button>
+                    </div>
+                    <button onclick="restartQuiz()" class="btn-primary text-white text-xs font-semibold px-4 py-2 rounded-lg">
+                        <i class="fa-solid fa-rotate-right mr-1.5"></i> পুনরায় পরীক্ষা দিন (Retake)
+                    </button>
+                </div>
+
+                <!-- Detailed Review Container -->
+                <div id="detailed-review-list" class="space-y-4">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Right Sidebar: Question Palette & Overview -->
+        <aside class="space-y-6 lg:sticky lg:top-24">
+
+            <!-- Progress Card -->
+            <div class="card p-5 space-y-3">
+                <div class="flex justify-between text-sm font-semibold text-slate-700">
+                    <span>অগ্রগতি (Progress)</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                    <div id="progress-bar-fill" class="h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+                <div class="text-xs text-slate-500 text-right">
+                    উত্তর দেওয়া হয়েছে: <span id="answered-count" class="font-bold text-emerald-700">০</span> / ৫০
+                </div>
+            </div>
+
+            <!-- Question Palette -->
+            <div class="card p-5 space-y-4">
+                <div class="flex items-center justify-between border-b pb-3 border-slate-100">
+                    <h3 class="font-bold text-slate-800 text-sm flex items-center space-x-2">
+                        <i class="fa-solid fa-grid-2 text-emerald-700"></i>
+                        <span>প্রশ্ন প্যালেট (Question Palette)</span>
+                    </h3>
+                </div>
+
+                <!-- Legend -->
+                <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-600">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-3.5 h-3.5 rounded bg-emerald-600"></div>
+                        <span>উত্তর দেওয়া (Answered)</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="w-3.5 h-3.5 rounded bg-amber-500"></div>
+                        <span>চিহ্নিত (Review)</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="w-3.5 h-3.5 rounded bg-slate-200 border border-slate-300"></div>
+                        <span>অনুত্তীর্ণ (Unvisited)</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="w-3.5 h-3.5 rounded bg-purple-600"></div>
+                        <span>উত্তর + চিহ্নিত</span>
+                    </div>
+                </div>
+
+                <!-- Palette Grid (50 Questions) -->
+                <div id="palette-grid" class="grid grid-cols-5 gap-2 pt-2 max-h-[380px] overflow-y-auto pr-1">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+
+            <!-- Quick Exam Info Box -->
+            <div class="bg-emerald-50 rounded-2xl p-5 border border-emerald-100 space-y-2 text-xs text-emerald-900">
+                <div class="font-bold flex items-center space-x-1.5 text-emerald-800">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <span>পরামর্শ (Tips)</span>
+                </div>
+                <p>যেকোনো প্রশ্নে সরাসরি লাফ দিতে প্যালেটের নম্বরে ক্লিক করুন। নিশ্চিত না হলে 'Mark for Review' ব্যবহার করুন।</p>
+            </div>
+
+        </aside>
+
+    </main>
+
+    <!-- Submit Confirmation Modal -->
+    <div id="submit-modal" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden modal-backdrop">
+        <div class="modal-panel bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-5">
+            <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center text-xl font-bold">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-xl font-bold text-slate-900">পরীক্ষা জমা দিতে চান? (Confirm Submission)</h3>
+                <p class="text-sm text-slate-600">আপনি সমস্ত প্রশ্ন পর্যালোচনা করেছেন কি? জমা দেওয়ার পর আর পরিবর্তন করা যাবে না।</p>
+                <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs space-y-1 text-slate-700">
+                    <div>মোট প্রশ্ন: <span class="font-bold">৫০</span></div>
+                    <div>উত্তর দেওয়া হয়েছে: <span id="modal-answered" class="font-bold text-emerald-700">০</span></div>
+                    <div>চিহ্নিত করা হয়েছে: <span id="modal-review" class="font-bold text-amber-600">০</span></div>
+                </div>
+            </div>
+            <div class="flex items-center justify-end space-x-3 pt-2">
+                <button onclick="closeSubmitModal()" class="btn-secondary bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium px-4 py-2 rounded-xl text-sm">
+                    ফিরে যান (Return)
+                </button>
+                <button onclick="executeFinalSubmit()" class="btn-primary text-white font-semibold px-5 py-2 rounded-xl text-sm">
+                    নিশ্চিত জমা দিন (Confirm Submit)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        const questionsData = [
+            {
+                id: 1,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "কোন তেজস্ক্রিয় মৌলটি প্রথম আবিষ্কৃত হয়?",
+                en: "Which radioactive element was discovered first?",
+                options: [
+                    "ইউরেনিয়াম (Uranium)",
+                    "রেডিয়াম (Radium)",
+                    "থোরিয়াম (Thorium)",
+                    "পোলোনিয়াম (Polonium)"
+                ],
+                correct: 0,
+                solution: "ইউরেনিয়াম ১৮৯৬ সালে হেনরি বেকেরেল দ্বারা প্রথম আবিষ্কৃত তেজস্ক্রিয় মৌল। (Uranium was discovered by Henri Becquerel in 1896.)"
+            },
+            {
+                id: 2,
+                category: "জীবনবিজ্ঞান (Life Science)",
+                bn: "উদ্ভিদের কোন কলা জল ও খনিজ লবণ পরিবহন করে?",
+                en: "Which plant tissue transports water and minerals?",
+                options: [
+                    "ফ্লোয়েম (Phloem)",
+                    "জাইলেম (Xylem)",
+                    "প্যারেনকাইমা (Parenchyma)",
+                    "কোলেনকাইমা (Collenchyma)"
+                ],
+                correct: 1,
+                solution: "জাইলেম কলা উদ্ভিদের মূল থেকে পাতায় জল ও খনিজ লবণ পরিবহন করে। (Xylem transports water and dissolved minerals upwards from the roots.)"
+            },
+            {
+                id: 3,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "শব্দের বেগ সবচেয়ে বেশি হয় কোন মাধ্যমে?",
+                en: "The speed of sound is maximum in which medium?",
+                options: [
+                    "বায়ু মাধ্যম (Air)",
+                    "জল মাধ্যম (Water)",
+                    "কঠিন মাধ্যম (Solid/Steel)",
+                    "শূন্য মাধ্যম (Vacuum)"
+                ],
+                correct: 2,
+                solution: "কঠিন মাধ্যমে কণার ঘনত্ব বেশি থাকায় শব্দের বেগ সবচেয়ে বেশি হয়। (Sound travels fastest in solid media due to high elasticity and density.)"
+            },
+            {
+                id: 4,
+                category: "পরিবেশ বিজ্ঞান (Environmental Science)",
+                bn: "গ্রিন হাউস গ্যাসের মধ্যে কোনটি প্রধান ভূমিকা পালন করে?",
+                en: "Which of the following plays the primary role among greenhouse gases?",
+                options: [
+                    "অক্সিজেন (Oxygen)",
+                    "নাইট্রোজেন (Nitrogen)",
+                    "কার্বন ডাই-অক্সাইড (Carbon Dioxide)",
+                    "হাইড্রোজেন (Hydrogen)"
+                ],
+                correct: 2,
+                solution: "বায়ুমণ্ডলে কার্বন ডাই-অক্সাইড গ্রিন হাউস প্রভাবে প্রধান ভূমিকা নেয়। (Carbon dioxide is the primary greenhouse gas contributing to global warming.)"
+            },
+            {
+                id: 5,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "একটি প্রিজমের কয়টি আয়তাকার তল থাকে?",
+                en: "How many rectangular faces does a standard triangular prism have?",
+                options: [
+                    "২টি (Two)",
+                    "৩টি (Three)",
+                    "৪টি (Four)",
+                    "৫টি (Five)"
+                ],
+                correct: 1,
+                solution: "একটি সাধারণ প্রিজমের ৩টি আয়তাকার পার্শ্বতল ও ২টি ত্রিভুজাকার ভূমি থাকে। (A triangular prism has 3 rectangular faces and 2 triangular bases.)"
+            },
+            {
+                id: 6,
+                category: "জীবনবিজ্ঞান (Life Science)",
+                bn: "মানবদেহের দীর্ঘতম কোষ কোনটি?",
+                en: "What is the longest cell in the human body?",
+                options: [
+                    "যকৃত কোষ (Liver cell)",
+                    "স্নায়ুকোষ বা নিউরন (Neuron)",
+                    "শ্বেত রক্তকণিকা (White Blood Cell)",
+                    "পেশী কোষ (Muscle cell)"
+                ],
+                correct: 1,
+                solution: "স্নায়ুকোষ বা নিউরন মানবদেহের দীর্ঘতম কোষ। (The neuron is the longest cell in the human body.)"
+            },
+            {
+                id: 7,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "লোহায় মোরচে ধরা কোন ধরনের পরিবর্তন?",
+                en: "Rusting of iron is which type of change?",
+                options: [
+                    "ভৌত পরিবর্তন (Physical change)",
+                    "রাসায়নিক পরিবর্তন (Chemical change)",
+                    "উভয়মুখী পরিবর্তন (Reversible change)",
+                    "কোনোটিই নয় (None of these)"
+                ],
+                correct: 1,
+                solution: "লোহায় মোরচে ধরা একটি স্থায়ী রাসায়নিক পরিবর্তন যেখানে নতুন পদার্থ (জলযোজিত ফেরিক অক্সাইড) উৎপন্ন হয়। (Rusting is a chemical change forming hydrated ferric oxide.)"
+            },
+            {
+                id: 8,
+                category: "গণিত ও বিজ্ঞান (Mathematics & Science)",
+                bn: "একটি সমবাহু ত্রিভুজের প্রতিটি কোণের মান কত?",
+                en: "What is the measure of each angle in an equilateral triangle?",
+                options: [
+                    "৬০° (60 degrees)",
+                    "৯০° (90 degrees)",
+                    "১২০° (120 degrees)",
+                    "১৮০° (180 degrees)"
+                ],
+                correct: 0,
+                solution: "সমবাহু ত্রিভুজের তিনটি কোণ সমান এবং সমষ্টি ১৮০° হওয়ায় প্রতিটি কোণ ৬০°। (Each angle of an equilateral triangle is 60 degrees.)"
+            },
+            {
+                id: 9,
+                category: "জীবনবিজ্ঞান (Life Science)",
+                bn: "কোন ভিটামিনের অভাবে স্কার্ভি রোগ হয়?",
+                en: "Deficiency of which vitamin causes scurvy?",
+                options: [
+                    "ভিটামিন এ (Vitamin A)",
+                    "ভিটামিন বি (Vitamin B)",
+                    "ভিটামিন সি (Vitamin C)",
+                    "ভিটামিন ডি (Vitamin D)"
+                ],
+                correct: 2,
+                solution: "ভিটামিন সি (অ্যাসকরবিক অ্যাসিড) এর অভাবে স্কার্ভি রোগ হয়। (Scurvy is caused by a deficiency of Vitamin C.)"
+            },
+            {
+                id: 10,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "বায়ুমণ্ডলে কোন গ্যাসের পরিমাণ সর্বাধিক?",
+                en: "Which gas is present in the highest amount in the atmosphere?",
+                options: [
+                    "অক্সিজেন (Oxygen)",
+                    "নাইট্রোজেন (Nitrogen)",
+                    "আর্গন (Argon)",
+                    "কার্বন ডাই-অক্সাইড (Carbon dioxide)"
+                ],
+                correct: 1,
+                solution: "বায়ুমণ্ডলে প্রায় ৭৮.০৯% নাইট্রোজেন গ্যাস থাকে। (Nitrogen makes up about 78.09% of Earth's atmosphere.)"
+            },
+            {
+                id: 11,
+                category: "জীবনবিজ্ঞান (Life Science)",
+                bn: "ম্যালেরিয়া রোগের বাহক কোনটি?",
+                en: "What is the vector for malaria?",
+                options: [
+                    "স্ত্রী অ্যানোফিলিস মশা (Female Anopheles mosquito)",
+                    "কিউলেক্স মশা (Culex mosquito)",
+                    "ডেঙ্গু মশা (Aedes mosquito)",
+                    "মাছি (Housefly)"
+                ],
+                correct: 0,
+                solution: "ম্যালেরিয়া রোগের পরজীবী প্লাজমোডিয়াম স্ত্রী অ্যানোফিলিস মশার মাধ্যমে ছড়ায়। (Malaria is transmitted by the female Anopheles mosquito.)"
+            },
+            {
+                id: 12,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "কোন যন্ত্রের সাহায্যে বায়ুচাপ মাপা হয়?",
+                en: "Which instrument is used to measure atmospheric pressure?",
+                options: [
+                    "থার্মোমিটার (Thermometer)",
+                    "ব্যারোমিটার (Barometer)",
+                    "হাইগ্রোমিটার (Hygrometer)",
+                    "অ্যামমিটার (Ammeter)"
+                ],
+                correct: 1,
+                solution: "ব্যারোমিটার যন্ত্রের সাহায্যে বায়ুমণ্ডলীয় চাপ মাপা হয়। (A barometer is used to measure atmospheric pressure.)"
+            },
+            {
+                id: 13,
+                category: "জীবনবিজ্ঞান (Life Science)",
+                bn: "শ্বসন প্রক্রিয়ার প্রধান অঙ্গ কোনটি?",
+                en: "What is the primary organ of respiration in humans?",
+                options: [
+                    "যকৃত (Liver)",
+                    "ফুসফুস (Lungs)",
+                    "বৃক্ক বা কিডনি (Kidney)",
+                    "হৃদপিণ্ড (Heart)"
+                ],
+                correct: 1,
+                solution: "ফুসফুস মানবদেহের প্রধান শ্বসন অঙ্গ। (The lungs are the primary respiratory organs in humans.)"
+            },
+            {
+                id: 14,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "বিশুদ্ধ জলের pH এর মান কত?",
+                en: "What is the pH value of pure water?",
+                options: [
+                    "০ (Zero)",
+                    "৭ (Seven)",
+                    "১৪ (Fourteen)",
+                    "৫ (Five)"
+                ],
+                correct: 1,
+                solution: "বিশুদ্ধ জল প্রসম (neutral) হওয়ায় এর pH এর মান ৭। (Pure water is neutral with a pH of 7.)"
+            },
+            {
+                id: 15,
+                category: "জীবনবিজ্ঞান (Life Science)",
+                bn: "রক্তে হিমোগ্লোবিনের প্রধান উপাদান কী?",
+                en: "What is the key component of hemoglobin in blood?",
+                options: [
+                    "লোহা বা আয়রন (Iron)",
+                    "ক্যালসিয়াম (Calcium)",
+                    "ম্যাগনেসিয়াম (Magnesium)",
+                    "সোডিয়াম (Sodium)"
+                ],
+                correct: 0,
+                solution: "হিমোগ্লোবিনের প্রোটিন গঠনে লোহা বা আয়রন একটি অত্যন্ত গুরুত্বপূর্ণ উপাদান। (Iron is a vital component of hemoglobin responsible for oxygen transport.)"
+            },
+            {
+                id: 16,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "কোন দর্পণে সর্বদা অসদ ও ছোট প্রতিবিম্ব গঠিত হয়?",
+                en: "Which mirror always forms a virtual and diminished image?",
+                options: [
+                    "অবতল দর্পণ (Concave mirror)",
+                    "উত্তল দর্পণ (Convex mirror)",
+                    "সমতল দর্পণ (Plane mirror)",
+                    "কোনোটিই নয় (None of these)"
+                ],
+                correct: 1,
+                solution: "উত্তল দর্পণে যেকোনো অবস্থানে বস্তুর অসদ, সোজা ও ছোট প্রতিবিম্ব গঠিত হয়। (A convex mirror always forms a virtual, erect, and diminished image.)"
+            },
+            {
+                id: 17,
+                category: "পরিবেশ বিজ্ঞান (Environmental Science)",
+                bn: "সিমলিপাল বায়োস্ফিয়ার রিজার্ভ কোন রাজ্যে অবস্থিত?",
+                en: "In which state is the Simlipal Biosphere Reserve located?",
+                options: [
+                    "পশ্চিমবঙ্গ (West Bengal)",
+                    "ওড়িশা (Odisha)",
+                    "ঝাড়খণ্ড (Jharkhand)",
+                    "আসাম (Assam)"
+                ],
+                correct: 1,
+                solution: "সিমলিপাল বায়োস্ফিয়ার রিজার্ভ ওড়িশার ময়ূরভঞ্জ জেলায় অবস্থিত। (Simlipal is located in the Mayurbhanj district of Odisha.)"
+            },
+            {
+                id: 18,
+                category: "জীবনবিজ্ঞান (Life Science)",
+                bn: "সালোকসংশ্লেষে কোন গ্যাস ব্যবহৃত হয়?",
+                en: "Which gas is consumed during photosynthesis?",
+                options: [
+                    "অক্সিজেন (Oxygen)",
+                    "কার্বন ডাই-অক্সাইড (Carbon dioxide)",
+                    "নাইট্রোজেন (Nitrogen)",
+                    "হাইড্রোজেন (Hydrogen)"
+                ],
+                correct: 1,
+                solution: "উদ্ভিদ সালোকসংশ্লেষ প্রক্রিয়ায় বায়ুমণ্ডল থেকে কার্বন ডাই-অক্সাইড গ্রহণ করে। (Plants absorb carbon dioxide during photosynthesis.)"
+            },
+            {
+                id: 19,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "কোন ধাতুটি সাধারণ উষ্ণতায় তরল অবস্থায় থাকে?",
+                en: "Which metal remains liquid at room temperature?",
+                options: [
+                    "সোডিয়াম (Sodium)",
+                    "পারদ বা মার্কারি (Mercury)",
+                    "ব্রোমিন (Bromine)",
+                    "লোহা (Iron)"
+                ],
+                correct: 1,
+                solution: "পারদ একমাত্র ধাতু যা সাধারণ উষ্ণতায় তরল থাকে (ব্রোমিন তরল হলেও তা অধাতু)। (Mercury is the only metallic element liquid at room temperature.)"
+            },
+            {
+                id: 20,
+                category: "জীবনবিজ্ঞান (Life Science)",
+                bn: "রাইজোবিয়াম ব্যাকটেরিয়া উদ্ভিদের কোথায় বসবাস করে?",
+                en: "Where do Rhizobium bacteria live in plants?",
+                options: [
+                    "পাতার কোষে (Leaf cells)",
+                    "মূলে অর্বুদ বা নোডিউল (Root nodules)",
+                    "কাণ্ডের জাইলেমে (Stem xylem)",
+                    "ফুলের পাপড়িতে (Petals)"
+                ],
+                correct: 1,
+                solution: "রাইজোবিয়াম সিম্বগোত্রীয় উদ্ভিদের মূলে অর্বুদ বা নোডিউল গঠন করে নাইট্রোজেন সংবন্ধন করে। (Rhizobium bacteria live in root nodules of leguminous plants.)"
+            },
+            {
+                id: 21,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "এস আই (SI) পদ্ধতিতে বলের একক কী?",
+                en: "What is the SI unit of force?",
+                options: [
+                    "ডাইন (Dyne)",
+                    "নিউটন (Newton)",
+                    "জুল (Joule)",
+                    "ওয়াট (Watt)"
+                ],
+                correct: 1,
+                solution: "এস আই পদ্ধতিতে বলের একক নিউটন। (The SI unit of force is the Newton.)"
+            },
+            {
+                id: 22,
+                category: "জীবনবিজ্ঞান (Life Science)",
+                bn: "মানুষের লালারসে কোন উৎসেচক থাকে?",
+                en: "Which enzyme is present in human saliva?",
+                options: [
+                    "পেপসিন (Pepsin)",
+                    "পটাইয়াল বা অ্যামাইলেজ (Ptyalin/Amylase)",
+                    "ট্রিপসিন (Trypsin)",
+                    "লিপেজ (Lipase)"
+                ],
+                correct: 1,
+                solution: "লালারসে উপস্থিত অ্যামাইলেজ বা পটাইয়াল শর্করা জাতীয় খাদ্য পরিপাকে সাহায্য করে। (Salivary amylase digests starches into simpler sugars.)"
+            },
+            {
+                id: 23,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "ওজোন স্তরের ক্ষয়ের জন্য প্রধানত দায়ী কোনটি?",
+                en: "Which of the following is primarily responsible for ozone layer depletion?",
+                options: [
+                    "কার্বন মনোক্সাইড (Carbon monoxide)",
+                    "ক্লোরোফ্লোরো কার্বন বা CFC (CFCs)",
+                    "সালফার ডাই-অক্সাইড (Sulfur dioxide)",
+                    "মিথেন (Methane)"
+                ],
+                correct: 1,
+                solution: "CFC বা ক্লোরোফ্লোরো কার্বন ওজোন গ্যাসের অণু ভেঙে ওজোন স্তর ক্ষয় করে। (CFCs release chlorine atoms that deplete the ozone layer.)"
+            },
+            {
+                id: 24,
+                category: "গণিত ও বিজ্ঞান (Mathematics & Science)",
+                bn: "একটি সমকোণী ত্রিভুজের সমকোণ সংলগ্ন বাহুদ্বয় ৩ সেমি ও ৪ সেমি হলে, অতিভুজের দৈর্ঘ্য কত?",
+                en: "If the legs of a right-angled triangle are 3 cm and 4 cm, what is the hypotenuse?",
+                options: [
+                    "৫ সেমি (5 cm)",
+                    "৭ সেমি (7 cm)",
+                    "১২ সেমি (12 cm)",
+                    "২৫ সেমি (25 cm)"
+                ],
+                correct: 0,
+                solution: "পিথাগোরাসের উপপাদ্য অনুসারে অতিভুজ = √(3² + 4²) = √25 = 5 সেমি। (According to Pythagoras theorem, hypotenuse = 5 cm.)"
+            },
+            {
+                id: 25,
+                category: "জীবনবিজ্ঞান (Life Science)",
+                bn: "কোন হরমোন রক্তে শর্করার মাত্রা নিয়ন্ত্রণ করে?",
+                en: "Which hormone regulates blood sugar levels?",
+                options: [
+                    "থাইরক্সিন (Thyroxine)",
+                    "ইনসুলিন (Insulin)",
+                    "অ্যাডরিনালিন (Adrenaline)",
+                    "গ্রোথ হরমোন (Growth hormone)"
+                ],
+                correct: 1,
+                solution: "অগ্ন্যাশয়ের আইলেটস অফ ল্যাঙ্গারহান্সের বিটা কোষ থেকে নিঃসৃত ইনসুলিন রক্তে গ্লুকোজ বা শর্করা নিয়ন্ত্রণ করে। (Insulin regulates blood glucose levels.)"
+            },
+            {
+                id: 26,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "আলোর প্রতিসরণের সময় কোনটি অপরিবর্তিত থাকে?",
+                en: "Which characteristic remains unchanged during the refraction of light?",
+                options: [
+                    "বেগ (Velocity)",
+                    "তরঙ্গদৈর্ঘ্য (Wavelength)",
+                    "কম্পাঙ্ক (Frequency)",
+                    "সবগুলি (All of these)"
+                ],
+                correct: 2,
+                solution: "আলোর প্রতিসরণে মাধ্যমের পরিবর্তনের ফলে বেগ ও তরঙ্গদৈর্ঘ্য বদলালেও কম্পাঙ্ক সর্বদা অপরিবর্তিত থাকে। (Frequency remains constant during refraction.)"
+            },
+            {
+                id: 27,
+                category: "পরিবেশ বিজ্ঞান (Environmental Science)",
+                bn: "পশ্চিমবঙ্গের রাজ্য প্রাণী কোনটি?",
+                en: "What is the state animal of West Bengal?",
+                options: [
+                    "রয়্যাল বেঙ্গল টাইগার (Royal Bengal Tiger)",
+                    "মেছো বিড়াল (Fishing Cat)",
+                    "একশৃঙ্গ গণ্ডার (One-horned Rhinoceros)",
+                    "হাতি (Elephant)"
+                ],
+                correct: 1,
+                solution: "মেছো বিড়াল (Fishing Cat) পশ্চিমবঙ্গের রাজ্য প্রাণী। (The Fishing Cat is the state animal of West Bengal.)"
+            },
+            {
+                id: 28,
+                category: "জীবনবিজ্ঞান (Life Science)",
+                bn: "কোষের 'মাস্টারমাইন্ড' বা নিয়ন্ত্রণ কেন্দ্র কাকে বলা হয়?",
+                en: "What is called the control center or 'mastermind' of the cell?",
+                options: [
+                    "মাইটোকন্ড্রিয়া (Mitochondria)",
+                    "রাইবোজোম (Ribosome)",
+                    "নিউক্লিয়াস (Nucleus)",
+                    "গলগি বডি (Golgi body)"
+                ],
+                correct: 2,
+                solution: "নিউক্লিয়াসের মধ্যে জিনগত উপাদান থাকায় একে কোষের নিয়ন্ত্রণ কেন্দ্র বলা হয়। (The nucleus controls all cellular activities as the master center.)"
+            },
+            {
+                id: 29,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "কোনটি তড়িতের সুপরিবাহী?",
+                en: "Which of the following is a good conductor of electricity?",
+                options: [
+                    "বিশুদ্ধ জল (Pure water)",
+                    "লবণাক্ত জল (Saltwater)",
+                    "প্লাস্টিক (Plastic)",
+                    "কাচ (Glass)"
+                ],
+                correct: 1,
+                solution: "লবণাক্ত জলে মুক্ত আয়ন থাকায় তা তড়িৎ পরিবহন করে। (Saltwater contains free ions and conducts electricity well.)"
+            },
+            {
+                id: 30,
+                category: "জীবনবিজ্ঞান (Life Science)",
+                bn: "মানবদেহের স্বাভাবিক উষ্ণতা কত?",
+                en: "What is the normal human body temperature?",
+                options: [
+                    "৯৮.৪° F (98.4°F)",
+                    "৩৭° C (37°C)",
+                    "উপরের দুটিই সঠিক (Both of the above)",
+                    "কোনোটিই নয় (None of the above)"
+                ],
+                correct: 2,
+                solution: "ফ্যারেনহাইট স্কেলে ৯৮.৪° F এবং সেলসিয়াস স্কেলে প্রায় ৩৭° C মানবদেহের স্বাভাবিক উষ্ণতা। (Both 98.4°F and 37°C represent normal human body temperature.)"
+            },
+            {
+                id: 31,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "জলের স্থায়ী খরতার জন্য দায়ী কোন লবণগুলি?",
+                en: "Which salts are responsible for permanent hardness of water?",
+                options: [
+                    "ক্যালসিয়াম ও ম্যাগনেসিয়ামের বাইকার্বোনেট (Bicarbonates)",
+                    "ক্যালসিয়াম ও ম্যাগনেসিয়ামের ক্লোরাইড ও সালফেট (Chlorides and Sulfates)",
+                    "সোডিয়াম ক্লোরাইড (Sodium chloride)",
+                    "পটাশিয়াম নাইট্রেট (Potassium nitrate)"
+                ],
+                correct: 1,
+                solution: "ক্যালসিয়াম ও ম্যাগনেসিয়ামের ক্লোরাইড ও সালফেট লবণ জলের স্থায়ী খরতা সৃষ্টি করে। (Chlorides and sulfates of calcium and magnesium cause permanent hardness.)"
+            },
+            {
+                id: 32,
+                category: "জীবনবিজ্ঞান (Life Science)",
+                bn: "কোন রক্তকণিকা আমাদের শরীরের রোগ প্রতিরোধে সাহায্য করে?",
+                en: "Which blood cells help protect our body against diseases?",
+                options: [
+                    "লোহিত রক্তকণিকা (Red Blood Cells)",
+                    "শ্বেত রক্তকণিকা (White Blood Cells)",
+                    "অণুচক্রিকা (Platelets)",
+                    "প্লাজমা (Plasma)"
+                ],
+                correct: 1,
+                solution: "শ্বেত রক্তকণিকা ফ্যাগোসাইটোসিস পদ্ধতিতে রোগ জীবাণু ধ্বংস করে। (White blood cells defend the body against infectious diseases.)"
+            },
+            {
+                id: 33,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "বায়ুমণ্ডলের কোন স্তরে মেরুজ্যোতি (Aurora) দেখা যায়?",
+                en: "In which layer of the atmosphere is the Aurora observed?",
+                options: [
+                    "ট্রপোস্ফিয়ার (Troposphere)",
+                    "স্ট্রাটোস্ফিয়ার (Stratosphere)",
+                    "থার্মোস্ফিয়ার বা আয়নোস্ফিয়ার (Thermosphere/Ionosphere)",
+                    "এক্সোস্ফিয়ার (Exosphere)"
+                ],
+                correct: 2,
+                solution: "থার্মোস্ফিয়ার বা আয়নোস্ফিয়ারের চার্জযুক্ত কণার কারণে মেরুজ্যোতি সৃষ্টি হয়। (Auroras occur in the thermosphere/ionosphere layer.)"
+            },
+            {
+                id: 34,
+                category: "জীবনবিজ্ঞান (Life Science)",
+                bn: "সবচেয়ে বড় ফুলযুক্ত উদ্ভিদের নাম কী?",
+                en: "What is the name of the plant with the largest flower?",
+                options: [
+                    "র‍্যাফ্লেসিয়া (Rafflesia arnoldii)",
+                    "পদ্ম (Lotus)",
+                    "সূর্যমুখী (Sunflower)",
+                    "গোলাপ (Rose)"
+                ],
+                correct: 0,
+                solution: "র‍্যাফ্লেসিয়া পৃথিবীর সবচেয়ে বড় একক ফুল উৎপন্নকারী উদ্ভিদ। (Rafflesia produces the largest individual flower in the world.)"
+            },
+            {
+                id: 35,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "কোন গ্যাসটি পচা ডিমের মতো গন্ধযুক্ত?",
+                en: "Which gas smells like rotten eggs?",
+                options: [
+                    "অ্যামোনিয়া (Ammonia)",
+                    "হাইড্রোজেন সালফাইড (Hydrogen sulfide)",
+                    "সালফার ডাই-অক্সাইড (Sulfur dioxide)",
+                    "ক্লোরিন (Chlorine)"
+                ],
+                correct: 1,
+                solution: "হাইড্রোজেন সালফাইড (H₂S) গ্যাসের গন্ধ পচা ডিমের মতো। (Hydrogen sulfide has a characteristic rotten egg odor.)"
+            },
+            {
+                id: 36,
+                category: "জীবনবিজ্ঞান (Life Science)",
+                bn: "উদ্ভিদের গৌণ বৃদ্ধি ঘটায় কোন ভাজক কলা?",
+                en: "Which meristematic tissue is responsible for secondary growth in plants?",
+                options: [
+                    "অ্যাপিক্যাল মেরিস্টেম (Apical meristem)",
+                    "ল্যাটারাল মেরিস্টেম বা ক্যাম্বিয়াম (Lateral meristem/Cambium)",
+                    "ইন্টারক্যালারি মেরিস্টেম (Intercalary meristem)",
+                    "প্যারেনকাইমা (Parenchyma)"
+                ],
+                correct: 1,
+                solution: "ল্যাটারাল মেরিস্টেম বা ক্যাম্বিয়ামের সক্রিয়তায় উদ্ভিদের কাণ্ডের ব্যাস বা গৌণ বৃদ্ধি ঘটে। (Lateral meristems/cambium cause secondary growth in girth.)"
+            },
+            {
+                id: 37,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "একটি প্রাথমিক বর্ণের নাম বলো।",
+                en: "Name one primary color of light.",
+                options: [
+                    "হলুদ (Yellow)",
+                    "নীল (Blue)",
+                    "কমলা (Orange)",
+                    "বেগুনি (Purple)"
+                ],
+                correct: 1,
+                solution: "আলোর তিনটি প্রাথমিক বর্ণ হলো লাল, সবুজ ও নীল। (Blue is one of the primary additive colors of light alongside red and green.)"
+            },
+            {
+                id: 38,
+                category: "পরিবেশ বিজ্ঞান (Environmental Science)",
+                bn: "পশ্চিম মেদিনীপুর জেলার প্রধান অরণ্য কোন ধরণের?",
+                en: "What type of forest is predominant in the Paschim Medinipur district?",
+                options: [
+                    "চিরহরিৎ অরণ্য (Evergreen forest)",
+                    "পর্ণমোচী বা শাল অরণ্য (Deciduous/Sal forest)",
+                    "ম্যানগ্রোভ অরণ্য (Mangrove forest)",
+                    "পাহাড়ি অরণ্য (Alpine forest)"
+                ],
+                correct: 1,
+                solution: "পশ্চিম মেদিনীপুর জেলা মূলত শাল ও পর্ণমোচী অরণ্য দ্বারা সমৃদ্ধ। (Paschim Medinipur is predominantly rich in Sal and deciduous forests.)"
+            },
+            {
+                id: 39,
+                category: "জীবনবিজ্ঞান (Life Science)",
+                bn: "মেলেরিয়ার ওষুধ 'কুইনাইন' কোন গাছের ছাল থেকে পাওয়া যায়?",
+                en: "Quinine, the medicine for malaria, is extracted from the bark of which tree?",
+                options: [
+                    "সিনকোনা (Cinchona)",
+                    "সর্পগন্ধা (Rauvolfia)",
+                    "তুলসী (Tulsi)",
+                    "নিম (Neem)"
+                ],
+                correct: 0,
+                solution: "সিনকোনা গাছের ছাল থেকে কুইনাইন নিষ্কাশন করা হয়। (Quinine is extracted from the bark of the Cinchona tree.)"
+            },
+            {
+                id: 40,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "কোন অধাতু বিদ্যুৎ পরিবহন করতে পারে?",
+                en: "Which non-metal can conduct electricity?",
+                options: [
+                    "হীরা (Diamond)",
+                    "গ্রাফাইট (Graphite)",
+                    "গন্ধক (Sulfur)",
+                    "ফসফরাস (Phosphorus)"
+                ],
+                correct: 1,
+                solution: "গ্রাফাইটে মুক্ত ইলেকট্রন থাকায় এটি অধাতু হওয়া সত্ত্বেও তড়িৎ পরিবহন করে। (Graphite is an allotrope of carbon that conducts electricity.)"
+            },
+            {
+                id: 41,
+                category: "জীবনবিজ্ঞান (Life Science)",
+                bn: "মানবদেহের কোন অঙ্গে পিত্তরস উৎপন্ন হয়?",
+                en: "In which organ of the human body is bile produced?",
+                options: [
+                    "অগ্ন্যাশয় (Pancreas)",
+                    "যকৃত বা লিভার (Liver)",
+                    "পিত্তথলি (Gallbladder)",
+                    "পাকস্থলী (Stomach)"
+                ],
+                correct: 1,
+                solution: "পিত্তরস যকৃতে উৎপন্ন হয় এবং পিত্তথলিতে জমা থাকে। (Bile is produced by the liver and stored in the gallbladder.)"
+            },
+            {
+                id: 42,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "টর্চলাইট বা সার্চলাইটে কোন দর্পণ ব্যবহৃত হয়?",
+                en: "Which mirror is used in flashlights or searchlights?",
+                options: [
+                    "সমতল দর্পণ (Plane mirror)",
+                    "অবতল দর্পণ (Concave mirror)",
+                    "উত্তল দর্পণ (Convex mirror)",
+                    "কোনোটিই নয় (None of these)"
+                ],
+                correct: 1,
+                solution: "অবতল দর্পণের ফোকাসে উৎস রাখলে সমান্তরাল জোরালো আলোর রশ্মিগুচ্ছ পাওয়া যায়। (Concave mirrors produce a powerful parallel beam in flashlights.)"
+            },
+            {
+                id: 43,
+                category: "জীবনবিজ্ঞান (Life Science)",
+                bn: "উদ্ভিদের মূলের অগ্রভাগে টুপি বা রুট ক্যাপের কাজ কী?",
+                en: "What is the function of the root cap in plant roots?",
+                options: [
+                    "জল শোষণ করা (Absorbing water)",
+                    "মূলের অগ্রভাগকে রক্ষা করা (Protecting the root tip)",
+                    "খাদ্য প্রস্তুত করা (Preparing food)",
+                    "পরাগায়ন ঘটানো (Pollination)"
+                ],
+                correct: 1,
+                solution: "রুট ক্যাপ মাটি ভেদ করার সময় মূলের সংবেদনশীল অগ্রভাগকে আঘাত থেকে রক্ষা করে। (The root cap protects the tender root tip as it grows through soil.)"
+            },
+            {
+                id: 44,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "নিউক্লিয়াসের ভেতরে প্রোটন ও নিউট্রনকে একত্রে কী বলা হয়?",
+                en: "What are protons and neutrons inside the nucleus collectively called?",
+                options: [
+                    "ইলেকট্রন (Electrons)",
+                    "নিউক্লিয়ন (Nucleons)",
+                    "আইসোটোপ (Isotopes)",
+                    "পজিট্রন (Positrons)"
+                ],
+                correct: 1,
+                solution: "প্রোটন ও নিউট্রন উভয়কে একত্রে নিউক্লিয়ন বলা হয়। (Protons and neutrons are collectively referred to as nucleons.)"
+            },
+            {
+                id: 45,
+                category: "জীবনবিজ্ঞান (Life Science)",
+                bn: "কোন ভিটামিন রক্ত জমাট বাঁধতে সাহায্য করে?",
+                en: "Which vitamin helps in blood clotting?",
+                options: [
+                    "ভিটামিন এ (Vitamin A)",
+                    "ভিটামিন সি (Vitamin C)",
+                    "ভিটামিন কে (Vitamin K)",
+                    "ভিটামিন ডি (Vitamin D)"
+                ],
+                correct: 2,
+                solution: "ভিটামিন কে যকৃতে প্রথ্রোম্বিন তৈরিতে সাহায্য করে রক্ত জমাট বাঁধতে সাহায্য করে। (Vitamin K is essential for blood coagulation.)"
+            },
+            {
+                id: 46,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "কাঁচ কাটার জন্য কোন হীরা বা পদার্থ ব্যবহৃত হয়?",
+                en: "Which material is used for cutting glass?",
+                options: [
+                    "গ্রাফাইট (Graphite)",
+                    "হীরা (Diamond)",
+                    "কোয়ার্টজ (Quartz)",
+                    "সিলিকন কার্বাইড (Silicon carbide)"
+                ],
+                correct: 1,
+                solution: "হীরা পৃথিবীর সবচেয়ে কঠিন প্রাকৃতিক পদার্থ হওয়ায় কাঁচ কাটার কাজে লাগে। (Diamond is the hardest natural substance used for cutting glass.)"
+            },
+            {
+                id: 47,
+                category: "পরিবেশ বিজ্ঞান (Environmental Science)",
+                bn: "বিশ্ব পরিবেশ দিবস কবে পালিত হয়?",
+                en: "When is World Environment Day celebrated?",
+                options: [
+                    "২২ এপ্রিল (April 22)",
+                    "৫ জুন (June 5)",
+                    "১৬ সেপ্টেম্বর (September 16)",
+                    "১ ডিসেম্বর (December 1)"
+                ],
+                correct: 1,
+                solution: "প্রতি বছর ৫ জুন বিশ্ব পরিবেশ দিবস পালিত হয়। (World Environment Day is celebrated annually on June 5.)"
+            },
+            {
+                id: 48,
+                category: "জীবনবিজ্ঞান (Life Science)",
+                bn: "কোন অঙ্গকে মানবদেহের 'ব্লাড ব্যাংক' বলা হয়?",
+                en: "Which organ is known as the 'blood bank' of the human body?",
+                options: [
+                    "যকৃত (Liver)",
+                    "প্লীহা বা স্প্লিন (Spleen)",
+                    "বৃক্ক (Kidney)",
+                    "হৃদপিণ্ড (Heart)"
+                ],
+                correct: 1,
+                solution: "প্লীহায় অতিরিক্ত রক্ত সঞ্চিত থাকে বলে একে মানবদেহের ব্লাড ব্যাংক বলা হয়। (The spleen acts as a blood reservoir and is called the blood bank.)"
+            },
+            {
+                id: 49,
+                category: "ভৌতবিজ্ঞান (Physical Science)",
+                bn: "একটি আদর্শ জ্বালানির উচ্চ তাপমূল্য থাকে এবং তার প্রজ্জ্বলন উষ্ণতা কীরূপ হওয়া উচিত?",
+                en: "An ideal fuel has a high calorific value and what type of ignition temperature?",
+                options: [
+                    "খুব বেশি (Very high)",
+                    "সহনীয় বা মাঝারি (Moderate)",
+                    "শূন্য (Zero)",
+                    "অত্যন্ত কম (Extremely low)"
+                ],
+                correct: 1,
+                solution: "আদর্শ জ্বালানির প্রজ্জ্বলন উষ্ণতা পরিমিত বা মাঝারি হওয়া উচিত যাতে নিরাপদে ব্যবহার করা যায়। (An ideal fuel should have a moderate ignition temperature for safety.)"
+            },
+            {
+                id: 50,
+                category: "সাধারণ জ্ঞান ও বিজ্ঞান (General Science)",
+                bn: "ভারতের প্রথম কৃত্রিম উপগ্রহের নাম কী?",
+                en: "What is the name of India's first artificial satellite?",
+                options: [
+                    "ভাস্কর (Bhaskara)",
+                    "আর্যভট্ট (Aryabhata)",
+                    "রোহিণী (Rohini)",
+                    "চন্দ্রযান (Chandrayaan)"
+                ],
+                correct: 1,
+                solution: "১৯৭৫ সালে উৎক্ষেপিত 'আর্যভট্ট' ভারতের প্রথম কৃত্রিম উপগ্রহ। (Aryabhata, launched in 1975, was India's first satellite.)"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let userAnswers = new Array(questionsData.length).fill(null); // stores selected option index or null
+        let reviewFlags = new Array(questionsData.length).fill(false); // boolean flags
+        let visitedStatus = new Array(questionsData.length).fill(false); // boolean flags
+        let testSubmitted = false;
+        let totalTimeSeconds = 2 * 3600 + 15 * 60; // 2 hours 15 mins = 8100 seconds
+        let timerInterval = null;
+
+        function startQuiz() {
+            document.getElementById('welcome-banner').classList.add('hidden');
+            document.getElementById('question-card-wrapper').classList.remove('hidden');
+            visitedStatus[0] = true;
+            renderQuestion();
+            renderPalette();
+            startTimer();
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                if (totalTimeSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    executeFinalSubmit();
+                    return;
+                }
+                totalTimeSeconds--;
+                let hrs = Math.floor(totalTimeSeconds / 3600);
+                let mins = Math.floor((totalTimeSeconds % 3600) / 60);
+                let secs = totalTimeSeconds % 60;
+                const timerEl = document.getElementById('timer-display');
+                timerEl.innerText =
+                    `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                if (totalTimeSeconds <= 300) {
+                    timerEl.classList.add('timer-warning');
+                }
+            }, 1000);
+        }
+
+        function renderQuestion() {
+            const q = questionsData[currentQuestionIndex];
+            visitedStatus[currentQuestionIndex] = true;
+
+            // Badges & Meta
+            document.getElementById('q-badge').innerText = `প্রশ্ন ${currentQuestionIndex + 1} / ${questionsData.length}`;
+            document.getElementById('q-category').innerText = q.category;
+            document.getElementById('question-text-bn').innerText = `${currentQuestionIndex + 1}. ${q.bn}`;
+            document.getElementById('question-text-en').innerText = q.en;
+
+            // Re-trigger fade-in animation on question change
+            const qCard = document.getElementById('question-text-card');
+            qCard.classList.remove('fade-in');
+            void qCard.offsetWidth;
+            qCard.classList.add('fade-in');
+
+            // Review Button State
+            const reviewBtn = document.getElementById('review-btn');
+            const reviewBtnText = document.getElementById('review-btn-text');
+            if (reviewFlags[currentQuestionIndex]) {
+                reviewBtn.className = "bg-amber-500 text-white text-xs font-medium px-3 py-1.5 rounded-lg transition flex items-center space-x-1.5 shadow-sm";
+                reviewBtnText.innerText = "চিহ্নিত করা হয়েছে (Unmark)";
+            } else {
+                reviewBtn.className = "border border-amber-500 text-amber-600 hover:bg-amber-50 text-xs font-medium px-3 py-1.5 rounded-lg transition flex items-center space-x-1.5";
+                reviewBtnText.innerText = "চিহ্নিত করুন (Mark for Review)";
+            }
+
+            // Options Container
+            const optsContainer = document.getElementById('options-container');
+            optsContainer.innerHTML = "";
+
+            q.options.forEach((optText, idx) => {
+                const isSelected = userAnswers[currentQuestionIndex] === idx;
+                const optDiv = document.createElement('div');
+                optDiv.className = `option-row p-4 rounded-2xl border cursor-pointer flex items-center space-x-3 ${
+                    isSelected
+                        ? 'border-emerald-600 bg-emerald-50/80 text-emerald-950 font-medium shadow-sm'
+                        : 'border-slate-200 bg-white hover:border-emerald-300 text-slate-700'
+                }`;
+                optDiv.onclick = () => selectOption(idx);
+
+                const optionLetter = String.fromCharCode(65 + idx); // A, B, C, D
+                optDiv.innerHTML = `
+                    <div class="w-8 h-8 rounded-xl flex items-center justify-center text-sm font-bold shrink-0 ${
+                        isSelected ? 'bg-emerald-700 text-white' : 'bg-slate-100 text-slate-600'
+                    }">${optionLetter}</div>
+                    <div class="flex-1 text-sm md:text-base">${optText}</div>
+                    <div class="w-5 h-5 rounded-full border flex items-center justify-center shrink-0 ${
+                        isSelected ? 'border-emerald-700 bg-emerald-700 text-white' : 'border-slate-300'
+                    }">
+                        ${isSelected ? '<i class="fa-solid fa-check text-xs"></i>' : ''}
+                    </div>
+                `;
+                optsContainer.appendChild(optDiv);
+            });
+
+            // Nav buttons state
+            document.getElementById('prev-btn').disabled = currentQuestionIndex === 0;
+            const nextBtn = document.getElementById('next-btn');
+            if (currentQuestionIndex === questionsData.length - 1) {
+                nextBtn.innerHTML = `<span>জমা দিন (Submit)</span> <i class="fa-solid fa-paper-plane"></i>`;
+                nextBtn.onclick = confirmSubmitModal;
+            } else {
+                nextBtn.innerHTML = `<span>পরবর্তী (Next)</span> <i class="fa-solid fa-arrow-right"></i>`;
+                nextBtn.onclick = nextQuestion;
+            }
+
+            renderPalette();
+            updateProgress();
+        }
+
+        function selectOption(optionIndex) {
+            if (testSubmitted) return;
+            userAnswers[currentQuestionIndex] = optionIndex;
+            renderQuestion();
+        }
+
+        function clearResponse() {
+            if (testSubmitted) return;
+            userAnswers[currentQuestionIndex] = null;
+            renderQuestion();
+        }
+
+        function markForReviewToggle() {
+            if (testSubmitted) return;
+            reviewFlags[currentQuestionIndex] = !reviewFlags[currentQuestionIndex];
+            renderQuestion();
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < questionsData.length - 1) {
+                currentQuestionIndex++;
+                renderQuestion();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                renderQuestion();
+            }
+        }
+
+        function jumpToQuestion(index) {
+            currentQuestionIndex = index;
+            renderQuestion();
+        }
+
+        function renderPalette() {
+            const grid = document.getElementById('palette-grid');
+            grid.innerHTML = "";
+
+            questionsData.forEach((_, idx) => {
+                const isAnswered = userAnswers[idx] !== null;
+                const isReviewed = reviewFlags[idx];
+                const isVisited = visitedStatus[idx];
+                const isCurrent = currentQuestionIndex === idx;
+
+                let bgClass = "bg-slate-100 text-slate-600 border-slate-200"; // unvisited
+                if (isAnswered && isReviewed) {
+                    bgClass = "bg-purple-600 text-white font-bold border-purple-600";
+                } else if (isAnswered) {
+                    bgClass = "bg-emerald-600 text-white font-bold border-emerald-600";
+                } else if (isReviewed) {
+                    bgClass = "bg-amber-500 text-white font-bold border-amber-500";
+                } else if (isVisited) {
+                    bgClass = "bg-slate-200 text-slate-700 border-slate-300";
+                }
+
+                if (isCurrent) {
+                    bgClass += " ring-2 ring-emerald-800 ring-offset-2";
+                }
+
+                const btn = document.createElement('button');
+                btn.className = `palette-btn h-10 rounded-xl text-xs font-semibold flex items-center justify-center border ${bgClass}`;
+                btn.innerText = idx + 1;
+                btn.onclick = () => jumpToQuestion(idx);
+                grid.appendChild(btn);
+            });
+        }
+
+        function updateProgress() {
+            const answeredCount = userAnswers.filter(ans => ans !== null).length;
+            const percent = Math.round((answeredCount / questionsData.length) * 100);
+            document.getElementById('answered-count').innerText = answeredCount;
+            document.getElementById('progress-percent').innerText = `${percent}%`;
+            document.getElementById('progress-bar-fill').style.width = `${percent}%`;
+        }
+
+        function confirmSubmitModal() {
+            const answeredCount = userAnswers.filter(ans => ans !== null).length;
+            const reviewCount = reviewFlags.filter(flag => flag).length;
+            document.getElementById('modal-answered').innerText = answeredCount;
+            document.getElementById('modal-review').innerText = reviewCount;
+            document.getElementById('submit-modal').classList.remove('hidden');
+        }
+
+        function closeSubmitModal() {
+            document.getElementById('submit-modal').classList.add('hidden');
+        }
+
+        function executeFinalSubmit() {
+            clearInterval(timerInterval);
+            closeSubmitModal();
+            testSubmitted = true;
+
+            document.getElementById('question-card-wrapper').classList.add('hidden');
+            document.querySelector('aside').classList.add('hidden');
+            document.getElementById('results-dashboard').classList.remove('hidden');
+
+            // Calculate results
+            let correct = 0;
+            let incorrect = 0;
+            let skipped = 0;
+
+            userAnswers.forEach((ans, idx) => {
+                if (ans === null) {
+                    skipped++;
+                } else if (ans === questionsData[idx].correct) {
+                    correct++;
+                } else {
+                    incorrect++;
+                }
+            });
+
+            document.getElementById('res-score').innerText = `${correct} / ${questionsData.length}`;
+            document.getElementById('res-correct').innerText = correct;
+            document.getElementById('res-incorrect').innerText = incorrect;
+            document.getElementById('res-skipped').innerText = skipped;
+
+            renderDetailedReview('all');
+        }
+
+        function restartQuiz() {
+            window.location.reload();
+        }
+
+        let currentFilter = 'all';
+
+        function filterReview(filterType) {
+            currentFilter = filterType;
+            ['all', 'correct', 'incorrect', 'skipped'].forEach(type => {
+                const btn = document.getElementById(`filter-${type}`);
+                if (type === filterType) {
+                    btn.className = "px-3 py-1.5 rounded-lg text-xs font-medium bg-emerald-700 text-white transition";
+                } else {
+                    btn.className = "px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition";
+                }
+            });
+            renderDetailedReview(filterType);
+        }
+
+        function renderDetailedReview(filter) {
+            const container = document.getElementById('detailed-review-list');
+            container.innerHTML = "";
+
+            questionsData.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                const isCorrect = userAns === q.correct;
+                const isSkipped = userAns === null;
+
+                if (filter === 'correct' && !isCorrect) return;
+                if (filter === 'incorrect' && (isSkipped || isCorrect)) return;
+                if (filter === 'skipped' && !isSkipped) return;
+
+                let statusBadge = "";
+                if (isSkipped) {
+                    statusBadge = `<span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2.5 py-1 rounded-full">অনুত্তীর্ণ (Skipped)</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2.5 py-1 rounded-full">সঠিক (Correct)</span>`;
+                } else {
+                    statusBadge = `<span class="bg-rose-100 text-rose-800 text-[10px] font-bold px-2.5 py-1 rounded-full">ভুল (Incorrect)</span>`;
+                }
+
+                const card = document.createElement('div');
+                card.className = "card p-6 space-y-4 fade-in";
+
+                let optionsHtml = '';
+                q.options.forEach((opt, oIdx) => {
+                    let optStyle = "border-slate-200 bg-slate-50 text-slate-700";
+                    if (oIdx === q.correct) {
+                        optStyle = "border-emerald-500 bg-emerald-50 text-emerald-900 font-semibold";
+                    } else if (oIdx === userAns && !isCorrect) {
+                        optStyle = "border-rose-300 bg-rose-50 text-rose-900 font-semibold";
+                    }
+
+                    optionsHtml += `
+                        <div class="review-opt p-3 rounded-xl border text-sm flex items-center justify-between ${optStyle}">
+                            <div><span class="font-bold mr-2">${String.fromCharCode(65 + oIdx)}.</span>${opt}</div>
+                            <div>
+                                ${oIdx === q.correct ? '<i class="fa-solid fa-circle-check text-emerald-600"></i>' : ''}
+                                ${oIdx === userAns && !isCorrect ? '<i class="fa-solid fa-circle-xmark text-rose-600"></i>' : ''}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-slate-500">প্রশ্ন #${idx + 1} (${q.category})</span>
+                        ${statusBadge}
+                    </div>
+                    <div class="space-y-1">
+                        <div class="text-base font-semibold text-slate-900">${q.bn}</div>
+                        <div class="text-sm italic text-slate-600">${q.en}</div>
+                    </div>
+                    <div class="space-y-2 pt-2">
+                        ${optionsHtml}
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-1">
+                        <div class="font-bold text-emerald-800 flex items-center space-x-1">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <span>সঠিক উত্তর ও ব্যাখ্যা (Solution &amp; Explanation):</span>
+                        </div>
+                        <p class="text-slate-700 leading-relaxed">${q.solution}</p>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
