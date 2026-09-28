@@ -1,27 +1,32 @@
-const CACHE_NAME = "jiggasha-cache-v1";
-const assetsToCache = [
-  "/index.html",
-  "/classes.html",
-  "/quizzes.html",
-  "/notes.html",
-  "/videos.html",
-  "/progress.html",
-  "/about.html",
-  "/css/style.css"
-];
+/* Jiggasha service worker — network-first, so new deploys always show up.
+   Cache is only used as an offline fallback. Bump CACHE on big changes. */
+const CACHE = "jiggasha-v3";
 
-self.addEventListener("install", (event) => {
+self.addEventListener("install", () => self.skipWaiting());
+
+self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(assetsToCache);
-    })
+    caches.keys()
+      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
+      .then(() => self.clients.claim())
   );
 });
 
 self.addEventListener("fetch", (event) => {
+  const req = event.request;
+  if (req.method !== "GET" || new URL(req.url).origin !== self.location.origin) return;
+
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
-    })
+    fetch(req, { cache: "no-cache" })
+      .then((res) => {
+        if (res && res.ok) {
+          const copy = res.clone();
+          caches.open(CACHE).then((c) => c.put(req, copy));
+        }
+        return res;
+      })
+      .catch(() =>
+        caches.match(req).then((hit) => hit || (req.mode === "navigate" ? caches.match("index.html") : undefined))
+      )
   );
 });
