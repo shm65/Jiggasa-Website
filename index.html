@@ -1,53 +1,56 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#4f46e5" />
   <meta name="description" content="জিজ্ঞাসা (Jiggasha) — Free online learning platform with notes, quizzes and video classes." />
   <title>জিজ্ঞাসা (Jiggasha) | Online Learning Platform</title>
+
+  <!-- Apply saved / system theme BEFORE first paint (no flash, works in every browser) -->
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('jiggasha_theme'); } catch (e) {}
+      if (t !== 'dark' && t !== 'light') {
+        t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
 
   <link rel="manifest" href="manifest.json" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Phosphor Icons (CSS version) -->
-  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
-  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+  <!-- Phosphor Icons (jsDelivr is more reliable than unpkg in Chrome) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
 
-  <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <!-- ============ TOP NAVIGATION ============ -->
   <header class="top-nav">
     <div class="nav-container">
-      <!-- Logo -->
       <a href="index.html" class="logo" aria-label="Jiggasha home">
         <i class="ph-fill ph-student"></i>
-        <span>জিজ্ঞাসা</span>
+        <span lang="bn">জিজ্ঞাসা</span>
       </a>
 
-      <!-- Search -->
       <div class="search-box">
         <i class="ph ph-magnifying-glass"></i>
-        <input type="text" id="global-search" placeholder="Search subject, class or topic..." aria-label="Search" />
+        <input type="search" id="global-search" placeholder="Search subject, class or topic..." aria-label="Search" />
       </div>
 
-      <!-- Right side actions -->
       <div class="nav-actions">
-        <button class="icon-btn" id="theme-btn" title="Toggle Dark Mode" aria-label="Toggle theme">
-          <i class="ph ph-moon"></i>
-        </button>
-
-        <!-- Desktop links -->
         <nav class="desktop-links" aria-label="Primary">
           <a href="classes.html">Classes</a>
           <a href="quizzes.html">Quizzes</a>
@@ -58,14 +61,16 @@
           <a href="contact.html">Contact Us</a>
         </nav>
 
-        <!-- Mobile hamburger -->
-        <button class="icon-btn menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <button type="button" class="icon-btn" id="theme-btn" title="Toggle dark mode" aria-label="Toggle dark mode">
+          <i class="ph ph-moon"></i>
+        </button>
+
+        <button type="button" class="icon-btn menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
           <i class="ph ph-list"></i>
         </button>
       </div>
     </div>
 
-    <!-- Mobile dropdown menu -->
     <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
       <a href="classes.html"><i class="ph ph-books"></i> Classes</a>
       <a href="quizzes.html"><i class="ph ph-exam"></i> Quizzes</a>
@@ -78,26 +83,25 @@
   </header>
 
   <!-- ============ MAIN CONTENT ============ -->
-  <main class="container">
-    <!-- Teacher Banner -->
+  <main class="container" id="main">
     <section class="teacher-banner">
       <a href="about.html" class="teacher-avatar" aria-label="About the teacher">
-        <img src="assets/sarawar-husen-avatar.jpg" alt="Sarawar Husen" />
+        <span class="avatar-fallback" aria-hidden="true">SH</span>
+        <img src="assets/sarawar-husen-avatar.jpg" alt="Sarawar Husen" width="96" height="96" onerror="this.remove()" />
       </a>
       <div class="teacher-info">
-        <h2>Welcome Students! 👋 আমি Sarawar Husen</h2>
+        <h2>Welcome Students! 👋 <span lang="bn">আমি</span> Sarawar Husen</h2>
         <p>
-          Math and Science Teacher <span class="dot">•</span> 9062969715<br />
+          Math and Science Teacher <span class="dot">•</span> <a href="tel:+919062969715">9062969715</a><br />
           Amgachia, South 24 Parganas. Explore notes, mock tests, and video lessons designed specially for you.
         </p>
       </div>
     </section>
 
-    <!-- Widgets: Clock / Date + Quote -->
     <section class="widgets-grid">
       <div class="widget-card">
         <div class="widget-label"><i class="ph ph-calendar"></i> Today's Schedule</div>
-        <div class="clock-display" id="live-clock">00:00:00 AM</div>
+        <div class="clock-display" id="live-clock">--:--:--</div>
         <div class="calendar-display" id="live-date">Loading date...</div>
       </div>
 
@@ -107,35 +111,32 @@
       </div>
     </section>
 
-    <!-- Hero -->
     <section class="hero">
       <h1>Interactive Learning Platform</h1>
       <p>Boost your exam preparation with free chapter notes, mock tests and video lessons.</p>
       <a href="classes.html" class="btn-primary">
-        <i class="ph ph-rocket-launch"></i> Start Learning (শুরু করো)
+        <i class="ph ph-rocket-launch"></i> Start Learning <span lang="bn">(শুরু করো)</span>
       </a>
     </section>
 
-    <!-- Features -->
     <section class="features">
       <a href="quizzes.html" class="feature-card">
         <div class="icon-circle bg-blue"><i class="ph ph-exam"></i></div>
-        <h3>Quizzes (মক টেস্ট)</h3>
+        <h3>Quizzes <span lang="bn">(মক টেস্ট)</span></h3>
         <p>Test your knowledge instantly.</p>
       </a>
       <a href="notes.html" class="feature-card">
         <div class="icon-circle bg-green"><i class="ph ph-book-open"></i></div>
-        <h3>Notes (স্টাডি মেটেরিয়াল)</h3>
+        <h3>Notes <span lang="bn">(স্টাডি মেটেরিয়াল)</span></h3>
         <p>Download chapter-wise PDFs.</p>
       </a>
       <a href="videos.html" class="feature-card">
         <div class="icon-circle bg-red"><i class="ph ph-youtube-logo"></i></div>
-        <h3>Video Classes (ভিডিও)</h3>
+        <h3>Video Classes <span lang="bn">(ভিডিও)</span></h3>
         <p>Watch detailed explanations.</p>
       </a>
     </section>
 
-    <!-- Ad Banner -->
     <div class="ad-container">
       <span class="ad-label">Advertisement / Sponsored</span>
       <div class="ad-text">Support Free Education — Jiggasha Ads Space</div>
@@ -147,7 +148,7 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <i class="ph-fill ph-student"></i>
-        <span>জিজ্ঞাসা (Jiggasha)</span>
+        <span><span lang="bn">জিজ্ঞাসা</span> (Jiggasha)</span>
       </div>
       <div class="footer-links">
         <a href="index.html">Home</a>
@@ -157,88 +158,20 @@
         <a href="about.html">About Us</a>
         <a href="contact.html">Contact Us</a>
       </div>
-      <p class="footer-copy">&copy; 2026 জিজ্ঞাসা (Jiggasha). All rights reserved.</p>
+      <p class="footer-copy">&copy; 2026 <span lang="bn">জিজ্ঞাসা</span> (Jiggasha). All rights reserved.</p>
     </div>
   </footer>
 
   <!-- ============ BOTTOM NAV (MOBILE) ============ -->
   <nav class="bottom-nav" aria-label="Mobile quick navigation">
-    <a href="index.html" class="active"><i class="ph ph-house"></i><span>Home</span></a>
+    <a href="index.html" class="active" aria-current="page"><i class="ph ph-house"></i><span>Home</span></a>
     <a href="classes.html"><i class="ph ph-books"></i><span>Classes</span></a>
     <a href="quizzes.html"><i class="ph ph-exam"></i><span>Quiz</span></a>
     <a href="about.html"><i class="ph ph-user"></i><span>Teacher</span></a>
     <a href="contact.html"><i class="ph ph-envelope-simple"></i><span>Contact</span></a>
   </nav>
 
-  <!-- ============ SCRIPTS ============ -->
-  <script>
-    /* ---------- Live Clock & Date ---------- */
-    (function () {
-      const clockEl = document.getElementById('live-clock');
-      const dateEl = document.getElementById('live-date');
-
-      function tick() {
-        const now = new Date();
-        let h = now.getHours();
-        const m = String(now.getMinutes()).padStart(2, '0');
-        const s = String(now.getSeconds()).padStart(2, '0');
-        const ampm = h >= 12 ? 'PM' : 'AM';
-        h = h % 12 || 12;
-        clockEl.textContent = `${String(h).padStart(2, '0')}:${m}:${s} ${ampm}`;
-        dateEl.textContent = now.toLocaleDateString('en-US', {
-          weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
-        });
-      }
-      tick();
-      setInterval(tick, 1000);
-    })();
-
-    /* ---------- Theme Toggle ---------- */
-    (function () {
-      const btn = document.getElementById('theme-btn');
-      const root = document.documentElement;
-
-      function applyTheme(theme) {
-        if (theme === 'dark') {
-          root.setAttribute('data-theme', 'dark');
-          btn.innerHTML = '<i class="ph ph-sun"></i>';
-        } else {
-          root.removeAttribute('data-theme');
-          btn.innerHTML = '<i class="ph ph-moon"></i>';
-        }
-      }
-
-      applyTheme(localStorage.getItem('jiggasha_theme') || 'light');
-
-      btn.addEventListener('click', () => {
-        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        localStorage.setItem('jiggasha_theme', next);
-        applyTheme(next);
-      });
-    })();
-
-    /* ---------- Mobile Menu ---------- */
-    (function () {
-      const toggle = document.getElementById('menu-toggle');
-      const menu = document.getElementById('mobile-menu');
-
-      toggle.addEventListener('click', () => {
-        const open = menu.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', open);
-        toggle.innerHTML = open
-          ? '<i class="ph ph-x"></i>'
-          : '<i class="ph ph-list"></i>';
-      });
-
-      // Close on outside click
-      document.addEventListener('click', (e) => {
-        if (!menu.contains(e.target) && !toggle.contains(e.target)) {
-          menu.classList.remove('open');
-          toggle.setAttribute('aria-expanded', 'false');
-          toggle.innerHTML = '<i class="ph ph-list"></i>';
-        }
-      });
-    })();
-  </script>
+  <!-- All behaviour (theme, menu, clock, service worker) lives in main.js -->
+  <script src="js/main.js" defer></script>
 </body>
 </html>
