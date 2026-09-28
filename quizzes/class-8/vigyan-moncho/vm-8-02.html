@@ -1,434 +1,654 @@
-<!DOCTYPE html>
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>পশ্চিম মেদিনীপুর জেলা বিজ্ঞান মানসিকতা ও মেধা অভীক্ষা - ২০২৪ | Class 8 Science Aptitude Test</title>
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#4f46e5">
+    <meta name="description" content="অষ্টম শ্রেণি জেলা বিজ্ঞান মানসিকতা ও মেধা অভীক্ষা - ২০২৪ | Jiggasha Science Quiz">
+    <title>অষ্টম শ্রেণি জেলা বিজ্ঞান মানসিকতা ও মেধা অভীক্ষা - ২০২৪ | Jiggasha</title>
+
+    <!-- Theme Initialization Script (Prevents Dark/Light flash) -->
+    <script>
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem('jiggasha_theme'); } catch (e) {}
+            if (t !== 'dark' && t !== 'light') {
+                t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter & Hind Siliguri -->
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons: Phosphor Icons & FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
-            --emerald-950: #022c22;
-            --emerald-900: #064e3b;
-            --emerald-800: #065f46;
-            --emerald-700: #047857;
+            color-scheme: light;
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --primary-light: #eef2ff;
+            --primary-soft: #e0e7ff;
+            --accent: #f59e0b;
+
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --surface-2: #f1f5f9;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+
+            --success: #10b981;
+            --success-light: #d1fae5;
+            --danger: #ef4444;
+            --danger-light: #fee2e2;
+            --info: #0ea5e9;
+            --info-light: #e0f2fe;
+
+            --shadow-sm: 0 1px 2px rgba(15, 23, 42, .06);
+            --shadow-md: 0 6px 18px rgba(15, 23, 42, .08);
+            --shadow-lg: 0 16px 40px rgba(15, 23, 42, .12);
+
+            --radius-sm: 10px;
+            --radius: 14px;
+            --radius-lg: 20px;
+
+            --bottom-nav-h: 64px;
         }
 
-        * { box-sizing: border-box; }
+        html[data-theme="dark"] {
+            color-scheme: dark;
+            --primary: #818cf8;
+            --primary-hover: #a5b4fc;
+            --primary-light: #1e1b4b;
+            --primary-soft: #312e81;
 
+            --bg: #0b1120;
+            --surface: #111827;
+            --surface-2: #1f2937;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #273244;
+
+            --success-light: #064e3b;
+            --danger-light: #7f1d1d;
+            --info-light: #0c4a6e;
+
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
+            --shadow-md: 0 6px 18px rgba(0, 0, 0, .45);
+            --shadow-lg: 0 16px 40px rgba(0, 0, 0, .55);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Hind Siliguri', 'Inter', sans-serif;
-            background:
-                radial-gradient(1200px 500px at 10% -10%, rgba(16,185,129,0.06), transparent 60%),
-                radial-gradient(900px 500px at 100% 0%, rgba(6,95,70,0.05), transparent 55%),
-                #f8fafc;
+            font-family: 'Hind Siliguri', 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: calc(var(--bottom-nav-h) + env(safe-area-inset-bottom, 0px) + 12px);
+            transition: background-color .3s ease, color .3s ease;
         }
 
-        /* Custom scrollbars */
+        /* Custom Scrollbars */
         ::-webkit-scrollbar { width: 7px; height: 7px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        html[data-theme="dark"] ::-webkit-scrollbar-thumb { background: #334155; }
 
-        /* Header */
-        .app-header {
-            background: linear-gradient(120deg, var(--emerald-900) 0%, var(--emerald-800) 55%, var(--emerald-700) 100%);
-            box-shadow: 0 4px 24px -6px rgba(4,32,24,0.35);
+        /* Jiggasha Navigation */
+        .top-nav {
+            position: sticky; top: 0; z-index: 100;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            transition: background-color .3s ease, border-color .3s ease;
+        }
+        .nav-container {
+            max-width: 1400px; margin-inline: auto;
+            padding: 10px 20px; display: flex; align-items: center; gap: 16px;
+        }
+        .logo {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 1.35rem; font-weight: 800; color: var(--primary);
+            flex-shrink: 0; letter-spacing: -.01em;
+        }
+        .logo i { font-size: 1.6rem; }
+
+        .search-box {
+            position: relative; flex: 1 1 200px; max-width: 360px; min-width: 0;
+        }
+        .search-box i {
+            position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+            color: var(--text-muted); font-size: 1.05rem; pointer-events: none;
+        }
+        .search-box input {
+            width: 100%; padding: 8px 14px 8px 36px;
+            border: 1px solid var(--border); border-radius: 999px;
+            background: var(--surface-2); color: var(--text); font-size: .9rem; outline: none;
+            transition: border-color .2s, box-shadow .2s;
+        }
+        .search-box input:focus {
+            border-color: var(--primary); background: var(--surface);
+            box-shadow: 0 0 0 3px var(--primary-light);
         }
 
-        .header-icon-badge {
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.14);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.12), 0 4px 10px rgba(0,0,0,0.15);
+        .desktop-links { display: none; align-items: center; gap: 4px; }
+        @media (min-width: 992px) { .desktop-links { display: flex; } }
+        .desktop-links a {
+            padding: 8px 12px; font-size: .92rem; font-weight: 600;
+            color: var(--text-muted); border-radius: 8px; transition: all .15s;
+        }
+        .desktop-links a:hover, .desktop-links a.active {
+            color: var(--primary); background: var(--primary-light);
         }
 
-        .header-stats {
-            background: rgba(2,20,15,0.35);
-            border: 1px solid rgba(255,255,255,0.10);
-            backdrop-filter: blur(6px);
+        .icon-btn {
+            width: 40px; height: 40px; border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            background: var(--primary-light); color: var(--primary);
+            font-size: 1.15rem; flex-shrink: 0; transition: background-color .2s, transform .15s;
+        }
+        .icon-btn:hover { background: var(--primary-soft); }
+        .icon-btn:active { transform: scale(.94); }
+
+        .mobile-menu {
+            display: none; position: absolute; top: 100%; left: 0; right: 0;
+            background: var(--surface); border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-md); padding: 8px 12px 12px; z-index: 99;
+        }
+        .mobile-menu.open { display: block; animation: slideDown .2s ease; }
+        .mobile-menu a {
+            display: flex; align-items: center; gap: 12px; padding: 12px;
+            border-radius: 10px; font-weight: 600; color: var(--text); transition: all .15s;
+        }
+        .mobile-menu a:hover { background: var(--primary-light); color: var(--primary); }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Exam Header / Hero Banner */
+        .exam-hero {
+            background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+            color: #ffffff;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            position: relative; overflow: hidden;
+        }
+        .exam-hero::after {
+            content: ""; position: absolute; right: -40px; top: -40px;
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,.15), transparent 70%);
+            pointer-events: none;
         }
 
-        .home-link {
-            background: rgba(255,255,255,0.10);
-            border: 1px solid rgba(255,255,255,0.18);
-            color: #ecfdf5;
-            transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
-        }
-        .home-link:hover {
-            background: rgba(255,255,255,0.20);
-            transform: translateY(-1px);
-            box-shadow: 0 6px 14px rgba(0,0,0,0.18);
-        }
-        .home-link:active { transform: translateY(0); }
-
-        .submit-btn-top {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            box-shadow: 0 4px 14px rgba(217,119,6,0.35);
-            transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
-        }
-        .submit-btn-top:hover { filter: brightness(1.05); transform: translateY(-1px); box-shadow: 0 6px 18px rgba(217,119,6,0.45); }
-        .submit-btn-top:active { transform: translateY(0); }
-
-        /* Cards */
+        /* Quiz UI Elements */
         .card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 1.25rem;
-            box-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 8px 24px -12px rgba(15,23,42,0.08);
-            transition: box-shadow 0.2s ease;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            transition: background-color .3s, border-color .3s, box-shadow .2s;
         }
 
-        /* Question fade transition */
-        #question-card-wrapper.hidden, #welcome-banner.hidden, #results-dashboard.hidden { display: none; }
-        .fade-in { animation: fadeInUp 0.35s ease both; }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Options */
         .option-row {
-            transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+            transition: all 0.15s ease;
+            border: 1px solid var(--border);
+            background: var(--surface);
         }
-        .option-row:hover { transform: translateY(-1px); box-shadow: 0 6px 16px -8px rgba(15,23,42,0.15); }
-        .option-row:active { transform: translateY(0); }
+        .option-row:hover {
+            border-color: var(--primary);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-sm);
+        }
+        .option-row.selected {
+            border-color: var(--primary);
+            background: var(--primary-light);
+            color: var(--text);
+        }
 
-        /* Palette buttons */
         .palette-btn {
-            transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+            transition: all 0.12s ease;
         }
-        .palette-btn:hover { transform: translateY(-2px) scale(1.04); filter: brightness(1.04); }
-        .palette-btn:active { transform: translateY(0) scale(0.98); }
+        .palette-btn:hover {
+            transform: scale(1.05); filter: brightness(1.05);
+        }
 
-        /* Progress bar shimmer */
+        .timer-badge {
+            background: rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(8px);
+        }
+        .timer-warning { color: #f87171 !important; animation: pulse 1s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        /* Progress Bar */
         #progress-bar-fill {
-            background-image: linear-gradient(90deg, #059669, #10b981);
-            position: relative;
-            overflow: hidden;
-        }
-        #progress-bar-fill::after {
-            content: "";
-            position: absolute; inset: 0;
-            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
-            transform: translateX(-100%);
-            animation: shimmer 2.4s infinite;
-        }
-        @keyframes shimmer { to { transform: translateX(100%); } }
-
-        /* Buttons general polish */
-        button { cursor: pointer; }
-        .btn-primary {
-            background: linear-gradient(135deg, var(--emerald-700), var(--emerald-800));
-            transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
-            box-shadow: 0 4px 14px -4px rgba(4,120,87,0.45);
-        }
-        .btn-primary:hover { filter: brightness(1.06); transform: translateY(-1px); box-shadow: 0 8px 20px -6px rgba(4,120,87,0.5); }
-        .btn-primary:active { transform: translateY(0); }
-        .btn-primary:disabled { opacity: 0.45; cursor: not-allowed; transform: none; box-shadow: none; }
-
-        .btn-secondary {
-            transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-        }
-        .btn-secondary:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 6px 14px -6px rgba(15,23,42,0.15); }
-        .btn-secondary:disabled { opacity: 0.45; cursor: not-allowed; }
-
-        /* Timer pulse when low */
-        .timer-warning { color: #fca5a5 !important; }
-
-        /* Results header decorative */
-        .results-hero {
-            background: radial-gradient(1000px 400px at 90% -20%, rgba(255,255,255,0.10), transparent 60%),
-                        linear-gradient(135deg, var(--emerald-900), var(--emerald-950));
+            background: linear-gradient(90deg, #6366f1, #4f46e5);
+            transition: width 0.3s ease;
         }
 
-        /* Stat tiles hover */
-        .stat-tile { transition: transform 0.15s ease; }
-        .stat-tile:hover { transform: translateY(-2px); }
+        /* Buttons */
+        .btn-primary-jiggasha {
+            background: #4f46e5; color: #ffffff; font-weight: 600;
+            transition: all 0.15s ease;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+        .btn-primary-jiggasha:hover {
+            background: #4338ca; transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+        }
+        .btn-primary-jiggasha:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+
+        .btn-secondary-jiggasha {
+            background: var(--surface-2); color: var(--text); font-weight: 600;
+            border: 1px solid var(--border); transition: all 0.15s ease;
+        }
+        .btn-secondary-jiggasha:hover:not(:disabled) {
+            background: var(--border); transform: translateY(-1px);
+        }
+
+        /* Mobile Bottom Nav */
+        .bottom-nav {
+            position: fixed; left: 0; right: 0; bottom: 0;
+            height: calc(var(--bottom-nav-h) + env(safe-area-inset-bottom, 0px));
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+            display: flex; justify-content: space-around; align-items: center;
+            background: var(--surface); border-top: 1px solid var(--border); z-index: 90;
+            box-shadow: 0 -4px 16px rgba(0, 0, 0, .06);
+        }
+        .bottom-nav a {
+            flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;
+            font-size: .7rem; font-weight: 600; color: var(--text-muted); padding: 6px 0; transition: color .15s;
+        }
+        .bottom-nav a i { font-size: 1.35rem; }
+        .bottom-nav a.active { color: var(--primary); }
+
+        .fade-in { animation: fadeIn 0.25s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
         /* Modal */
-        .modal-backdrop { animation: fadeIn 0.2s ease both; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .modal-panel { animation: popIn 0.22s cubic-bezier(0.34,1.56,0.64,1) both; }
-        @keyframes popIn { from { opacity: 0; transform: scale(0.92) translateY(6px);} to { opacity: 1; transform: scale(1) translateY(0);} }
-
-        /* Review answer rows */
-        .review-opt { transition: transform 0.1s ease; }
+        .modal-backdrop { animation: modalBg 0.2s ease forwards; }
+        @keyframes modalBg { from { opacity: 0; } to { opacity: 1; } }
+        .modal-panel { animation: modalPop 0.22s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+        @keyframes modalPop { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
+<body>
 
-    <!-- Header Navbar -->
-    <header class="app-header text-white sticky top-0 z-40">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between gap-4">
+    <!-- TOP NAVIGATION -->
+    <header class="top-nav">
+        <div class="nav-container">
+            <a href="../../../index.html" class="logo" aria-label="Jiggasha home">
+                <i class="ph-fill ph-student"></i>
+                <span lang="bn">জিজ্ঞাসা</span>
+            </a>
 
-            <div class="flex items-center space-x-3 w-full md:w-auto">
-                <div class="header-icon-badge p-2.5 rounded-xl flex items-center justify-center shrink-0">
-                    <i class="fa-solid fa-atom text-emerald-200 text-2xl"></i>
-                </div>
-                <div>
-                    <h1 class="text-base md:text-xl font-bold tracking-wide leading-tight">পশ্চিমবঙ্গ বিজ্ঞান মঞ্চ - পশ্চিম মেদিনীপুর জেলা কমিটি</h1>
-                    <p class="text-xs text-emerald-200 mt-0.5">অষ্টম শ্রেণি জেলা বিজ্ঞান মানসিকতা ও মেধা অভীক্ষা - ২০২৪ (Class 8 Science Aptitude &amp; Merit Test 2024)</p>
-                    <p class="text-[11px] text-emerald-300/80 mt-0.5">This test is designed by <strong>Sarawar Husen</strong> based on the question of অষ্টম শ্রেণি পশ্চিম মেদিনীপুর জেলা বিজ্ঞান মানসিকতা ও মেধা অভীক্ষা - ২০২৪</p>
-                </div>
+            <div class="search-box">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="search" id="global-search" placeholder="Search question or keyword..." aria-label="Search" oninput="handleSearch(this.value)" />
             </div>
 
-            <!-- Timer, Home & Submit -->
-            <div class="flex items-center gap-3 flex-wrap justify-center">
-                <div class="header-stats flex items-center space-x-2 px-4 py-2 rounded-xl">
-                    <i class="fa-regular fa-clock text-emerald-300 animate-pulse text-lg"></i>
-                    <div>
-                        <div class="text-[10px] uppercase tracking-wider text-emerald-300 font-medium">সময় বাকি (Time Remaining)</div>
-                        <div id="timer-display" class="font-mono font-bold text-lg text-white">02:15:00</div>
-                    </div>
-                </div>
+            <div class="nav-actions flex items-center gap-2">
+                <nav class="desktop-links" aria-label="Primary">
+                    <a href="../../../classes.html">Classes</a>
+                    <a href="../../../quizzes.html" class="active">Quizzes</a>
+                    <a href="../../../notes.html">Notes</a>
+                    <a href="../../../videos.html">Videos</a>
+                    <a href="../../../progress.html">My Progress</a>
+                    <a href="../../../about.html">About Us</a>
+                    <a href="../../../contact.html">Contact Us</a>
+                </nav>
 
-                <a href="../../../index.html" class="home-link px-4 py-2.5 rounded-xl text-sm font-semibold flex items-center space-x-2 no-underline">
-                    <i class="fa-solid fa-house"></i>
-                    <span>HOME</span>
-                </a>
+                <button type="button" class="icon-btn" id="theme-btn" title="Toggle theme" aria-label="Toggle theme">
+                    <i class="ph ph-moon" id="theme-icon"></i>
+                </button>
 
-                <button onclick="confirmSubmitModal()" class="submit-btn-top text-slate-950 font-semibold px-4 py-2.5 rounded-xl text-sm flex items-center space-x-1.5">
-                    <i class="fa-solid fa-paper-plane"></i>
-                    <span>জমা দিন (Submit)</span>
+                <button type="button" class="icon-btn menu-toggle lg:hidden" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+                    <i class="ph ph-list"></i>
                 </button>
             </div>
         </div>
+
+        <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+            <a href="../../../classes.html"><i class="ph ph-books"></i> Classes</a>
+            <a href="../../../quizzes.html" class="text-indigo-600 font-bold"><i class="ph ph-exam"></i> Quizzes</a>
+            <a href="../../../notes.html"><i class="ph ph-book-open"></i> Notes</a>
+            <a href="../../../videos.html"><i class="ph ph-youtube-logo"></i> Videos</a>
+            <a href="../../../progress.html"><i class="ph ph-chart-line-up"></i> My Progress</a>
+            <a href="../../../about.html"><i class="ph ph-user"></i> About Us</a>
+            <a href="../../../contact.html"><i class="ph ph-envelope-simple"></i> Contact Us</a>
+        </nav>
     </header>
 
-    <!-- Main App Body -->
-    <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
+    <!-- MAIN CONTAINER -->
+    <main class="max-w-[1400px] w-full mx-auto px-4 py-5 flex-1 space-y-6">
 
-        <!-- Left / Center: Question Card & Options -->
-        <section id="quiz-container" class="lg:col-span-3 space-y-6">
-
-            <!-- Exam Instructions / Welcome Banner (Toggleable) -->
-            <div id="welcome-banner" class="card p-6 space-y-4 fade-in">
-                <div class="flex items-center space-x-3 text-emerald-800">
-                    <i class="fa-solid fa-circle-info text-2xl"></i>
-                    <h2 class="text-xl font-bold">পরীক্ষার নির্দেশাবলী (Test Instructions)</h2>
+        <!-- EXAM HERO & TIMER BANNER -->
+        <section class="exam-hero p-5 md:p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="space-y-1.5 text-center md:text-left z-10">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur border border-white/15 text-xs font-semibold text-indigo-100">
+                    <i class="ph-fill ph-certificate"></i>
+                    <span>পশ্চিমবঙ্গ বিজ্ঞান মঞ্চ - পশ্চিম মেদিনীপুর জেলা কমিটি</span>
                 </div>
-                <ul class="list-disc list-inside space-y-2 text-sm text-slate-600">
-                    <li><strong>মোট প্রশ্ন (Total Questions):</strong> ৫০টি বহু বিকল্পভিত্তিক প্রশ্ন (MCQ)।</li>
-                    <li><strong>পূর্ণমান (Total Marks):</strong> ৫০ (প্রতিটি সঠিক উত্তরের জন্য ১ নম্বর)।</li>
-                    <li><strong>সময় (Duration):</strong> ২ ঘণ্টা ১৫ মিনিট (2 Hours 15 Minutes)।</li>
-                    <li><strong>ভাষা (Language):</strong> প্রশ্নপত্র বাংলা ও ইংরেজি উভয় মাধ্যমেই দেওয়া আছে।</li>
-                    <li>আপনার সুবিধার্থে প্রশ্ন নেভিগেশন প্যালেট ব্যবহার করে যেকোনো প্রশ্নে সরাসরি যাওয়া যাবে।</li>
-                </ul>
-                <div class="pt-2">
-                    <button onclick="startQuiz()" class="btn-primary text-white font-medium px-6 py-2.5 rounded-xl flex items-center space-x-2">
-                        <span>পরীক্ষা শুরু করুন (Start Test)</span>
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                </div>
+                <h1 class="text-xl md:text-2xl font-bold tracking-tight">অষ্টম শ্রেণি জেলা বিজ্ঞান মানসিকতা ও মেধা অভীক্ষা - ২০২৪</h1>
+                <p class="text-xs md:text-sm text-indigo-200">
+                    Class 8 Science Aptitude & Merit Test 2024 <span class="mx-1">•</span> Designed by <strong>Sarawar Husen</strong>
+                </p>
             </div>
 
-            <!-- Active Question Card (Hidden initially until started) -->
-            <div id="question-card-wrapper" class="hidden space-y-6">
-
-                <!-- Question Meta bar -->
-                <div class="card p-4 flex flex-wrap items-center justify-between gap-3">
-                    <div class="flex items-center space-x-2">
-                        <span id="q-badge" class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">প্রশ্ন ১ / ৫০</span>
-                        <span id="q-category" class="bg-slate-100 text-slate-700 text-xs font-medium px-3 py-1 rounded-full">ভৌতবিজ্ঞান (Physical Science)</span>
+            <div class="flex items-center gap-3 shrink-0 z-10">
+                <div class="timer-badge px-4 py-2 rounded-xl flex items-center gap-3">
+                    <i class="ph ph-timer text-2xl text-amber-300"></i>
+                    <div class="text-left">
+                        <div class="text-[10px] uppercase font-semibold text-indigo-200 tracking-wider">সময় বাকি (Timer)</div>
+                        <div id="timer-display" class="font-mono font-bold text-xl leading-none text-white">02:15:00</div>
                     </div>
-                    <div class="flex items-center space-x-2">
-                        <button onclick="markForReviewToggle()" id="review-btn" class="border border-amber-500 text-amber-600 hover:bg-amber-50 text-xs font-medium px-3 py-1.5 rounded-lg transition flex items-center space-x-1.5">
-                            <i class="fa-regular fa-flag"></i>
+                </div>
+
+                <button onclick="confirmSubmitModal()" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-4 py-2.5 rounded-xl text-xs md:text-sm flex items-center gap-2 transition shadow-md">
+                    <i class="ph ph-paper-plane-right"></i>
+                    <span>জমা দিন</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- QUIZ WORKFLOW LAYOUT -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
+
+            <!-- LEFT / MAIN WORKAREA -->
+            <section id="quiz-main-area" class="lg:col-span-3 space-y-6">
+
+                <!-- Welcome Instructions Card -->
+                <div id="welcome-banner" class="card p-6 md:p-8 space-y-5 fade-in">
+                    <div class="flex items-center gap-3 text-indigo-600 dark:text-indigo-400">
+                        <i class="ph ph-info text-3xl"></i>
+                        <h2 class="text-xl font-bold">পরীক্ষার নিয়মাবলী ও নির্দেশাবলী (Instructions)</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div class="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+                            <div class="text-xs text-slate-500 dark:text-slate-400 font-semibold">মোট প্রশ্ন (Total Questions)</div>
+                            <div class="text-lg font-bold text-indigo-600 dark:text-indigo-400">৫০টি MCQ</div>
+                        </div>
+                        <div class="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+                            <div class="text-xs text-slate-500 dark:text-slate-400 font-semibold">পূর্ণমান (Total Marks)</div>
+                            <div class="text-lg font-bold text-emerald-600 dark:text-emerald-400">৫০ নম্বর</div>
+                        </div>
+                        <div class="p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+                            <div class="text-xs text-slate-500 dark:text-slate-400 font-semibold">সময় (Duration)</div>
+                            <div class="text-lg font-bold text-amber-600 dark:text-amber-400">২ ঘণ্টা ১৫ মিনিট</div>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-300 list-disc list-inside">
+                        <li>প্রতিটি সঠিক উত্তরের জন্য <strong>১ নম্বর</strong> থাকবে। কোনো ঋণাত্মক নম্বর (Negative marking) নেই।</li>
+                        <li>প্রশ্নপত্রটি বাংলা এবং ইংরেজি উভয় ভাষায় সংকলিত হয়েছে।</li>
+                        <li>ডানপাশের <strong>Question Palette</strong> ব্যবহার করে সরাসরি যেকোনো নম্বর প্রশ্নে যাওয়া যাবে।</li>
+                        <li>সন্দেহজনক প্রশ্নগুলি 'Mark for Review' হিসেবে রাখতে পারেন।</li>
+                    </ul>
+
+                    <div class="pt-2">
+                        <button onclick="startQuiz()" class="btn-primary-jiggasha px-8 py-3 rounded-xl flex items-center gap-2 text-base">
+                            <span>পরীক্ষা শুরু করুন (Start Test)</span>
+                            <i class="ph ph-arrow-right font-bold"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Active Question Card Wrapper -->
+                <div id="question-card-wrapper" class="hidden space-y-5">
+
+                    <!-- Question Control Header -->
+                    <div class="card p-4 flex flex-wrap items-center justify-between gap-3">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <span id="q-badge" class="bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300 text-xs font-bold px-3 py-1.5 rounded-full">
+                                প্রশ্ন ১ / ৫০
+                            </span>
+                            <span id="q-category" class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-medium px-3 py-1.5 rounded-full">
+                                ভৌতবিজ্ঞান (Physical Science)
+                            </span>
+                        </div>
+
+                        <button onclick="markForReviewToggle()" id="review-btn" class="border border-amber-500 text-amber-600 hover:bg-amber-50 dark:hover:bg-amber-950/40 text-xs font-semibold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5">
+                            <i class="ph ph-bookmark-simple"></i>
                             <span id="review-btn-text">চিহ্নিত করুন (Mark for Review)</span>
                         </button>
                     </div>
-                </div>
 
-                <!-- Question Text Box -->
-                <div id="question-text-card" class="card p-6 space-y-4 fade-in">
-                    <div class="text-lg font-semibold text-slate-900 leading-relaxed" id="question-text-bn">
-                        <!-- Bengali Question Loaded Dynamically -->
+                    <!-- Question Prompt Box -->
+                    <div id="question-text-card" class="card p-6 space-y-3 fade-in">
+                        <h3 class="text-lg md:text-xl font-bold leading-relaxed" id="question-text-bn">
+                            <!-- Bengali question -->
+                        </h3>
+                        <p class="text-sm md:text-base font-medium text-slate-500 dark:text-slate-400 italic border-t border-slate-100 dark:border-slate-800 pt-3" id="question-text-en">
+                            <!-- English question -->
+                        </p>
                     </div>
-                    <div class="text-base font-medium text-slate-600 leading-relaxed border-t pt-3 border-slate-100 italic" id="question-text-en">
-                        <!-- English Question Loaded Dynamically -->
+
+                    <!-- Options Container -->
+                    <div class="space-y-3" id="options-container">
+                        <!-- Options generated dynamically -->
                     </div>
-                </div>
 
-                <!-- Options Box -->
-                <div class="space-y-3" id="options-container">
-                    <!-- Options populated via JS -->
-                </div>
-
-                <!-- Bottom Navigation Buttons -->
-                <div class="flex items-center justify-between pt-2">
-                    <button onclick="prevQuestion()" id="prev-btn" class="btn-secondary bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 font-medium px-5 py-2.5 rounded-xl shadow-sm flex items-center space-x-2">
-                        <i class="fa-solid fa-arrow-left"></i>
-                        <span>পূর্ববর্তী (Previous)</span>
-                    </button>
-                    <div class="flex items-center space-x-3">
-                        <button onclick="clearResponse()" class="btn-secondary bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium px-4 py-2.5 rounded-xl text-sm">
-                            উত্তর মুছুন (Clear)
+                    <!-- Navigation Action Buttons -->
+                    <div class="flex items-center justify-between pt-2">
+                        <button onclick="prevQuestion()" id="prev-btn" class="btn-secondary-jiggasha px-5 py-2.5 rounded-xl text-sm flex items-center gap-2">
+                            <i class="ph ph-arrow-left"></i>
+                            <span>পূর্ববর্তী (Prev)</span>
                         </button>
-                        <button onclick="nextQuestion()" id="next-btn" class="btn-primary text-white font-medium px-6 py-2.5 rounded-xl flex items-center space-x-2">
-                            <span>পরবর্তী (Next)</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Results Dashboard View (Hidden until submission) -->
-            <div id="results-dashboard" class="hidden space-y-6">
-                <div class="results-hero text-white rounded-3xl p-8 shadow-lg relative overflow-hidden fade-in">
-                    <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl">
-                        <i class="fa-solid fa-award"></i>
-                    </div>
-                    <div class="relative z-10 space-y-4">
-                        <div class="inline-block bg-emerald-700/80 text-emerald-200 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
-                            মূল্যায়ন সম্পন্ন (Assessment Completed)
-                        </div>
-                        <h2 class="text-3xl font-bold">অভিনন্দন! আপনি পরীক্ষা সম্পন্ন করেছেন।</h2>
-                        <p class="text-emerald-200 text-sm max-w-xl">পশ্চিম মেদিনীপুর জেলা বিজ্ঞান মানসিকতা ও মেধা অভীক্ষা ২০২৪ এর আপনার ফলাফল নিচে দেওয়া হলো। সঠিক উত্তর ও ব্যাখ্যা সহ সমস্ত প্রশ্ন পর্যালোচনা করুন।</p>
-
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
-                            <div class="stat-tile bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10">
-                                <div class="text-xs text-emerald-200">মোট প্রাপ্ত নম্বর (Score)</div>
-                                <div class="text-3xl font-extrabold text-white mt-1" id="res-score">0 / 50</div>
-                            </div>
-                            <div class="stat-tile bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10">
-                                <div class="text-xs text-emerald-200">সঠিক উত্তর (Correct)</div>
-                                <div class="text-3xl font-bold text-emerald-400 mt-1" id="res-correct">0</div>
-                            </div>
-                            <div class="stat-tile bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10">
-                                <div class="text-xs text-emerald-200">ভুল উত্তর (Incorrect)</div>
-                                <div class="text-3xl font-bold text-rose-400 mt-1" id="res-incorrect">0</div>
-                            </div>
-                            <div class="stat-tile bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10">
-                                <div class="text-xs text-emerald-200">অনুত্তীর্ণ/ছেড়ে দেওয়া (Skipped)</div>
-                                <div class="text-3xl font-bold text-amber-300 mt-1" id="res-skipped">0</div>
-                            </div>
+                        <div class="flex items-center gap-2.5">
+                            <button onclick="clearResponse()" class="btn-secondary-jiggasha px-4 py-2.5 rounded-xl text-xs md:text-sm">
+                                উত্তর মুছুন (Clear)
+                            </button>
+                            <button onclick="nextQuestion()" id="next-btn" class="btn-primary-jiggasha px-6 py-2.5 rounded-xl text-sm flex items-center gap-2">
+                                <span>পরবর্তী (Next)</span>
+                                <i class="ph ph-arrow-right"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Review Filter Tabs -->
-                <div class="card p-4 flex flex-wrap items-center justify-between gap-4">
-                    <div class="flex items-center flex-wrap gap-2">
-                        <span class="text-sm font-semibold text-slate-700 mr-1">বিশ্লেষণ ফিল্টার:</span>
-                        <button onclick="filterReview('all')" id="filter-all" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-emerald-700 text-white transition">সব প্রশ্ন (All)</button>
-                        <button onclick="filterReview('correct')" id="filter-correct" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition">সঠিক (Correct)</button>
-                        <button onclick="filterReview('incorrect')" id="filter-incorrect" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition">ভুল (Incorrect)</button>
-                        <button onclick="filterReview('skipped')" id="filter-skipped" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition">অনুত্তীর্ণ (Skipped)</button>
+                <!-- Results Dashboard View -->
+                <div id="results-dashboard" class="hidden space-y-6">
+                    <!-- Hero Banner -->
+                    <div class="card p-6 md:p-8 bg-gradient-to-br from-indigo-900 via-indigo-950 to-slate-950 text-white rounded-3xl space-y-6 relative overflow-hidden fade-in">
+                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-indigo-800/60 pb-6">
+                            <div>
+                                <span class="bg-emerald-500/20 text-emerald-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-emerald-500/30">
+                                    ফলাফল প্রস্তুত (Assessment Complete)
+                                </span>
+                                <h2 class="text-2xl md:text-3xl font-extrabold mt-2">পরীক্ষা সম্পন্ন হয়েছে!</h2>
+                                <p class="text-xs md:text-sm text-indigo-200 mt-1">
+                                    অষ্টম শ্রেণি জেলা বিজ্ঞান মানসিকতা ও মেধা অভীক্ষা ২০২৪ এর আপনার ফলাফল নিচে দেখুন।
+                                </p>
+                            </div>
+                            <button onclick="restartQuiz()" class="bg-white text-indigo-950 font-bold px-5 py-2.5 rounded-xl text-xs md:text-sm flex items-center gap-2 hover:bg-indigo-50 transition shrink-0">
+                                <i class="ph ph-arrows-counter-clockwise"></i>
+                                <span>পুনরায় পরীক্ষা দিন</span>
+                            </button>
+                        </div>
+
+                        <!-- Score Stat Cards -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                            <div class="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10 text-center sm:text-left">
+                                <div class="text-xs text-indigo-200">মোট প্রাপ্ত নম্বর</div>
+                                <div class="text-3xl font-black mt-1 text-white" id="res-score">0 / 50</div>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10 text-center sm:text-left">
+                                <div class="text-xs text-emerald-300">সঠিক উত্তর</div>
+                                <div class="text-3xl font-bold mt-1 text-emerald-400" id="res-correct">0</div>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10 text-center sm:text-left">
+                                <div class="text-xs text-rose-300">ভুল উত্তর</div>
+                                <div class="text-3xl font-bold mt-1 text-rose-400" id="res-incorrect">0</div>
+                            </div>
+                            <div class="bg-white/10 backdrop-blur rounded-2xl p-4 border border-white/10 text-center sm:text-left">
+                                <div class="text-xs text-amber-300">অনুত্তীর্ণ (Skipped)</div>
+                                <div class="text-3xl font-bold mt-1 text-amber-300" id="res-skipped">0</div>
+                            </div>
+                        </div>
                     </div>
-                    <button onclick="restartQuiz()" class="btn-primary text-white text-xs font-semibold px-4 py-2 rounded-lg">
-                        <i class="fa-solid fa-rotate-right mr-1.5"></i> পুনরায় পরীক্ষা দিন (Retake)
-                    </button>
-                </div>
 
-                <!-- Detailed Review Container -->
-                <div id="detailed-review-list" class="space-y-4">
-                    <!-- Populated dynamically -->
-                </div>
-            </div>
-
-        </section>
-
-        <!-- Right Sidebar: Question Palette & Overview -->
-        <aside class="space-y-6 lg:sticky lg:top-24">
-
-            <!-- Progress Card -->
-            <div class="card p-5 space-y-3">
-                <div class="flex justify-between text-sm font-semibold text-slate-700">
-                    <span>অগ্রগতি (Progress)</span>
-                    <span id="progress-percent">0%</span>
-                </div>
-                <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
-                    <div id="progress-bar-fill" class="h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
-                </div>
-                <div class="text-xs text-slate-500 text-right">
-                    উত্তর দেওয়া হয়েছে: <span id="answered-count" class="font-bold text-emerald-700">০</span> / ৫০
-                </div>
-            </div>
-
-            <!-- Question Palette -->
-            <div class="card p-5 space-y-4">
-                <div class="flex items-center justify-between border-b pb-3 border-slate-100">
-                    <h3 class="font-bold text-slate-800 text-sm flex items-center space-x-2">
-                        <i class="fa-solid fa-grid-2 text-emerald-700"></i>
-                        <span>প্রশ্ন প্যালেট (Question Palette)</span>
-                    </h3>
-                </div>
-
-                <!-- Legend -->
-                <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-600">
-                    <div class="flex items-center space-x-2">
-                        <div class="w-3.5 h-3.5 rounded bg-emerald-600"></div>
-                        <span>উত্তর দেওয়া (Answered)</span>
+                    <!-- Review Filter Controls -->
+                    <div class="card p-4 flex flex-wrap items-center justify-between gap-3">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">ফিল্টার করুন:</span>
+                            <button onclick="filterReview('all')" id="filter-all" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white transition">সব প্রশ্ন (All)</button>
+                            <button onclick="filterReview('correct')" id="filter-correct" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition">সঠিক (Correct)</button>
+                            <button onclick="filterReview('incorrect')" id="filter-incorrect" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition">ভুল (Incorrect)</button>
+                            <button onclick="filterReview('skipped')" id="filter-skipped" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition">অনুত্তীর্ণ (Skipped)</button>
+                        </div>
                     </div>
-                    <div class="flex items-center space-x-2">
-                        <div class="w-3.5 h-3.5 rounded bg-amber-500"></div>
-                        <span>চিহ্নিত (Review)</span>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <div class="w-3.5 h-3.5 rounded bg-slate-200 border border-slate-300"></div>
-                        <span>অনুত্তীর্ণ (Unvisited)</span>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <div class="w-3.5 h-3.5 rounded bg-purple-600"></div>
-                        <span>উত্তর + চিহ্নিত</span>
+
+                    <!-- Detailed Review List -->
+                    <div id="detailed-review-list" class="space-y-4">
+                        <!-- Solution cards dynamically populated -->
                     </div>
                 </div>
 
-                <!-- Palette Grid (50 Questions) -->
-                <div id="palette-grid" class="grid grid-cols-5 gap-2 pt-2 max-h-[380px] overflow-y-auto pr-1">
-                    <!-- Populated via JS -->
+            </section>
+
+            <!-- RIGHT SIDEBAR: QUESTION PALETTE -->
+            <aside id="quiz-sidebar" class="space-y-5 lg:sticky lg:top-24">
+
+                <!-- Progress Tracker -->
+                <div class="card p-5 space-y-3">
+                    <div class="flex justify-between text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                        <span>অগ্রগতি (Progress)</span>
+                        <span id="progress-percent" class="text-indigo-600 dark:text-indigo-400">0%</span>
+                    </div>
+                    <div class="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2.5 overflow-hidden">
+                        <div id="progress-bar-fill" class="h-2.5 rounded-full" style="width: 0%"></div>
+                    </div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 text-right">
+                        উত্তর দেওয়া হয়েছে: <span id="answered-count" class="font-bold text-indigo-600 dark:text-indigo-400">০</span> / ৫০
+                    </div>
                 </div>
-            </div>
 
-            <!-- Quick Exam Info Box -->
-            <div class="bg-emerald-50 rounded-2xl p-5 border border-emerald-100 space-y-2 text-xs text-emerald-900">
-                <div class="font-bold flex items-center space-x-1.5 text-emerald-800">
-                    <i class="fa-solid fa-lightbulb"></i>
-                    <span>পরামর্শ (Tips)</span>
+                <!-- Question Palette Card -->
+                <div class="card p-5 space-y-4">
+                    <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+                        <h3 class="font-bold text-sm flex items-center gap-2">
+                            <i class="ph ph-grid-four text-indigo-600 dark:text-indigo-400 text-lg"></i>
+                            <span>প্রশ্ন প্যালেট (Question Palette)</span>
+                        </h3>
+                    </div>
+
+                    <!-- Legend Indicator -->
+                    <div class="grid grid-cols-2 gap-2 text-[11px] font-medium text-slate-600 dark:text-slate-400">
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-3 h-3 rounded bg-emerald-600"></span>
+                            <span>উত্তর দেওয়া</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-3 h-3 rounded bg-amber-500"></span>
+                            <span>চিহ্নিত করা</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-3 h-3 rounded bg-purple-600"></span>
+                            <span>উত্তর + চিহ্নিত</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-3 h-3 rounded bg-slate-200 dark:bg-slate-700"></span>
+                            <span>দেখা হয়নি</span>
+                        </div>
+                    </div>
+
+                    <!-- Palette Grid (1 to 50) -->
+                    <div id="palette-grid" class="grid grid-cols-5 gap-2 max-h-[380px] overflow-y-auto pr-1 pt-1">
+                        <!-- Buttons generated dynamically -->
+                    </div>
                 </div>
-                <p>যেকোনো প্রশ্নে সরাসরি লাফ দিতে প্যালেটের নম্বরে ক্লিক করুন। নিশ্চিত না হলে 'Mark for Review' ব্যবহার করুন।</p>
-            </div>
 
-        </aside>
+                <!-- Teacher Quick Info Badge -->
+                <div class="bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-100 dark:border-indigo-900 rounded-2xl p-4 space-y-2 text-xs">
+                    <div class="font-bold text-indigo-800 dark:text-indigo-300 flex items-center gap-1.5">
+                        <i class="ph ph-chalkboard-teacher text-lg"></i>
+                        <span>শিক্ষক নির্দেশিকা:</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                        যেকোনো সংশয়ের ক্ষেত্রে প্রশ্ন পর্যালোচনা (Mark for Review) ফিচার ব্যবহার করুন। সময় সমাপ্ত হওয়ার পূর্বে নিশ্চিত হয়ে 'জমা দিন' বাটন প্রেস করুন।
+                    </p>
+                </div>
 
+            </aside>
+
+        </div>
     </main>
 
-    <!-- Submit Confirmation Modal -->
-    <div id="submit-modal" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden modal-backdrop">
-        <div class="modal-panel bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-5">
-            <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center text-xl font-bold">
-                <i class="fa-solid fa-triangle-exclamation"></i>
+    <!-- SUBMIT CONFIRMATION MODAL -->
+    <div id="submit-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden modal-backdrop">
+        <div class="modal-panel card bg-white dark:bg-slate-900 rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-5 border border-slate-200 dark:border-slate-800">
+            <div class="w-12 h-12 bg-amber-100 dark:bg-amber-950/80 text-amber-600 dark:text-amber-400 rounded-2xl flex items-center justify-center text-2xl font-bold">
+                <i class="ph ph-warning-circle"></i>
             </div>
             <div class="space-y-2">
-                <h3 class="text-xl font-bold text-slate-900">পরীক্ষা জমা দিতে চান? (Confirm Submission)</h3>
-                <p class="text-sm text-slate-600">আপনি সমস্ত প্রশ্ন পর্যালোচনা করেছেন কি? জমা দেওয়ার পর আর পরিবর্তন করা যাবে না।</p>
-                <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs space-y-1 text-slate-700">
-                    <div>মোট প্রশ্ন: <span class="font-bold">৫০</span></div>
-                    <div>উত্তর দেওয়া হয়েছে: <span id="modal-answered" class="font-bold text-emerald-700">০</span></div>
-                    <div>চিহ্নিত করা হয়েছে: <span id="modal-review" class="font-bold text-amber-600">০</span></div>
+                <h3 class="text-xl font-bold">পরীক্ষা জমা দিতে চান?</h3>
+                <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400">
+                    আপনি কি নিশ্চিত যে আপনার উত্তরসমূহ জমা দিতে চান? জমা দেওয়ার পর কোনো পরিবর্তন করা যাবে না।
+                </p>
+                <div class="bg-slate-50 dark:bg-slate-950 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 text-xs space-y-1.5">
+                    <div class="flex justify-between"><span>মোট প্রশ্ন:</span> <span class="font-bold">৫০টি</span></div>
+                    <div class="flex justify-between"><span>উত্তর দেওয়া হয়েছে:</span> <span id="modal-answered" class="font-bold text-emerald-600">০</span></div>
+                    <div class="flex justify-between"><span>চিহ্নিত করা হয়েছে:</span> <span id="modal-review" class="font-bold text-amber-500">০</span></div>
                 </div>
             </div>
-            <div class="flex items-center justify-end space-x-3 pt-2">
-                <button onclick="closeSubmitModal()" class="btn-secondary bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium px-4 py-2 rounded-xl text-sm">
+            <div class="flex items-center justify-end gap-3 pt-2">
+                <button onclick="closeSubmitModal()" class="btn-secondary-jiggasha px-4 py-2 rounded-xl text-xs font-semibold">
                     ফিরে যান (Return)
                 </button>
-                <button onclick="executeFinalSubmit()" class="btn-primary text-white font-semibold px-5 py-2 rounded-xl text-sm">
-                    নিশ্চিত জমা দিন (Confirm Submit)
+                <button onclick="executeFinalSubmit()" class="btn-primary-jiggasha px-5 py-2 rounded-xl text-xs font-semibold">
+                    নিশ্চিত জমা দিন (Confirm)
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript Application Logic -->
+    <!-- SITE FOOTER -->
+    <footer class="mt-12 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-8">
+        <div class="max-w-[1400px] mx-auto px-4 flex flex-col items-center gap-4 text-center">
+            <div class="flex items-center gap-2 font-bold text-lg text-indigo-600 dark:text-indigo-400">
+                <i class="ph-fill ph-student text-2xl"></i>
+                <span lang="bn">জিজ্ঞাসা (Jiggasha)</span>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 text-xs font-semibold text-slate-500 dark:text-slate-400">
+                <a href="../../../index.html" class="hover:text-indigo-600 transition">Home</a>
+                <a href="../../../classes.html" class="hover:text-indigo-600 transition">Classes</a>
+                <a href="../../../notes.html" class="hover:text-indigo-600 transition">Notes</a>
+                <a href="../../../quizzes.html" class="hover:text-indigo-600 transition">Quizzes</a>
+                <a href="../../../about.html" class="hover:text-indigo-600 transition">About Us</a>
+                <a href="../../../contact.html" class="hover:text-indigo-600 transition">Contact Us</a>
+            </div>
+            <p class="text-xs text-slate-400 dark:text-slate-600">
+                &copy; 2026 <span lang="bn">জিজ্ঞাসা</span> (Jiggasha) - West Midnapore Science Aptitude Test. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <nav class="bottom-nav lg:hidden" aria-label="Mobile quick navigation">
+        <a href="../../../index.html"><i class="ph ph-house"></i><span>Home</span></a>
+        <a href="../../../classes.html"><i class="ph ph-books"></i><span>Classes</span></a>
+        <a href="../../../quizzes.html" class="active"><i class="ph ph-exam"></i><span>Quiz</span></a>
+        <a href="../../../teachers.html"><i class="ph ph-user"></i><span>Teacher</span></a>
+        <a href="../../../contact.html"><i class="ph ph-envelope-simple"></i><span>Contact</span></a>
+    </nav>
+
+    <!-- JAVASCRIPT APPLICATION CODE -->
     <script>
+        // Exact 50 Questions with Bengali & English text, Options & Explanations
         const questionsData = [
             {
                 id: 1,
@@ -526,7 +746,7 @@
                     "কোনোটিই নয় (None of these)"
                 ],
                 correct: 1,
-                solution: "লোহায় মোরচে ধরা একটি স্থায়ী রাসায়নিক পরিবর্তন যেখানে নতুন পদার্থ (জলযোজিত ফেরিক অক্সাইড) উৎপন্ন হয়। (Rusting is a chemical change forming hydrated ferric oxide.)"
+                solution: "লোহায় মোরচে ধরা একটি স্থায়ী রাসায়নিক পরিবর্তন যেখানে নতুন পদার্থ উৎপন্ন হয়। (Rusting is a chemical change forming hydrated ferric oxide.)"
             },
             {
                 id: 8,
@@ -731,23 +951,23 @@
                 en: "Which enzyme is present in human saliva?",
                 options: [
                     "পেপসিন (Pepsin)",
-                    "পটাইয়াল বা অ্যামাইলেজ (Ptyalin/Amylase)",
+                    "টায়ালিন (Ptyalin)",
                     "ট্রিপসিন (Trypsin)",
-                    "লিপেজ (Lipase)"
+                    "লাইপেজ (Lipase)"
                 ],
                 correct: 1,
-                solution: "লালারসে উপস্থিত অ্যামাইলেজ বা পটাইয়াল শর্করা জাতীয় খাদ্য পরিপাকে সাহায্য করে। (Salivary amylase digests starches into simpler sugars.)"
+                solution: "লালারসে উপস্থিত টায়ালিন (অ্যামাইলেজ) উৎসেচক শ্বেতসার বা স্টার্চকে মল্টোজে পরিণত করে। (Ptyalin, present in saliva, digests starch into maltose.)"
             },
             {
                 id: 23,
-                category: "ভৌতবিজ্ঞান (Physical Science)",
-                bn: "ওজোন স্তরের ক্ষয়ের জন্য প্রধানত দায়ী কোনটি?",
-                en: "Which of the following is primarily responsible for ozone layer depletion?",
+                category: "পরিবেশ বিজ্ঞান (Environmental Science)",
+                bn: "ওজোন স্তর ক্ষয়ের প্রধান কারণ কোনটি?",
+                en: "What is the main cause of ozone layer depletion?",
                 options: [
-                    "কার্বন মনোক্সাইড (Carbon monoxide)",
-                    "ক্লোরোফ্লোরো কার্বন বা CFC (CFCs)",
-                    "সালফার ডাই-অক্সাইড (Sulfur dioxide)",
-                    "মিথেন (Methane)"
+                    "কার্বন ডাই-অক্সাইড (Carbon dioxide)",
+                    "ক্লোরোফ্লোরো কার্বন (Chlorofluorocarbon / CFC)",
+                    "মিথেন (Methane)",
+                    "নাইট্রাস অক্সাইড (Nitrous oxide)"
                 ],
                 correct: 1,
                 solution: "CFC বা ক্লোরোফ্লোরো কার্বন ওজোন গ্যাসের অণু ভেঙে ওজোন স্তর ক্ষয় করে। (CFCs release chlorine atoms that deplete the ozone layer.)"
@@ -965,7 +1185,7 @@
             {
                 id: 39,
                 category: "জীবনবিজ্ঞান (Life Science)",
-                bn: "মেলেরিয়ার ওষুধ 'কুইনাইন' কোন গাছের ছাল থেকে পাওয়া যায়?",
+                bn: "ম্যালেরিয়ার ওষুধ 'কুইনাইন' কোন গাছের ছাল থেকে পাওয়া যায়?",
                 en: "Quinine, the medicine for malaria, is extracted from the bark of which tree?",
                 options: [
                     "সিনকোনা (Cinchona)",
@@ -1133,13 +1353,46 @@
         ];
 
         let currentQuestionIndex = 0;
-        let userAnswers = new Array(questionsData.length).fill(null); // stores selected option index or null
-        let reviewFlags = new Array(questionsData.length).fill(false); // boolean flags
-        let visitedStatus = new Array(questionsData.length).fill(false); // boolean flags
+        let userAnswers = new Array(questionsData.length).fill(null);
+        let reviewFlags = new Array(questionsData.length).fill(false);
+        let visitedStatus = new Array(questionsData.length).fill(false);
         let testSubmitted = false;
-        let totalTimeSeconds = 2 * 3600 + 15 * 60; // 2 hours 15 mins = 8100 seconds
+        let totalTimeSeconds = 2 * 3600 + 15 * 60; // 2 hrs 15 mins
         let timerInterval = null;
 
+        // Theme Toggle Handler
+        const themeBtn = document.getElementById('theme-btn');
+        const themeIcon = document.getElementById('theme-icon');
+
+        function updateThemeIcon() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            themeIcon.className = isDark ? "ph ph-sun" : "ph ph-moon";
+        }
+
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', nextTheme);
+            try { localStorage.setItem('jiggasha_theme', nextTheme); } catch (e) {}
+            updateThemeIcon();
+        });
+        updateThemeIcon();
+
+        // Mobile Menu Drawer Handler
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('open');
+            if (isOpen) {
+                mobileMenu.classList.remove('open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            } else {
+                mobileMenu.classList.add('open');
+                menuToggle.setAttribute('aria-expanded', 'true');
+            }
+        });
+
+        // Quiz Core Functions
         function startQuiz() {
             document.getElementById('welcome-banner').classList.add('hidden');
             document.getElementById('question-card-wrapper').classList.remove('hidden');
@@ -1157,12 +1410,11 @@
                     return;
                 }
                 totalTimeSeconds--;
-                let hrs = Math.floor(totalTimeSeconds / 3600);
-                let mins = Math.floor((totalTimeSeconds % 3600) / 60);
-                let secs = totalTimeSeconds % 60;
+                const hrs = Math.floor(totalTimeSeconds / 3600);
+                const mins = Math.floor((totalTimeSeconds % 3600) / 60);
+                const secs = totalTimeSeconds % 60;
                 const timerEl = document.getElementById('timer-display');
-                timerEl.innerText =
-                    `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                timerEl.innerText = `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
                 if (totalTimeSeconds <= 300) {
                     timerEl.classList.add('timer-warning');
                 }
@@ -1173,66 +1425,60 @@
             const q = questionsData[currentQuestionIndex];
             visitedStatus[currentQuestionIndex] = true;
 
-            // Badges & Meta
+            // Badges
             document.getElementById('q-badge').innerText = `প্রশ্ন ${currentQuestionIndex + 1} / ${questionsData.length}`;
             document.getElementById('q-category').innerText = q.category;
             document.getElementById('question-text-bn').innerText = `${currentQuestionIndex + 1}. ${q.bn}`;
             document.getElementById('question-text-en').innerText = q.en;
 
-            // Re-trigger fade-in animation on question change
+            // Animation re-trigger
             const qCard = document.getElementById('question-text-card');
             qCard.classList.remove('fade-in');
             void qCard.offsetWidth;
             qCard.classList.add('fade-in');
 
-            // Review Button State
+            // Review button state
             const reviewBtn = document.getElementById('review-btn');
             const reviewBtnText = document.getElementById('review-btn-text');
             if (reviewFlags[currentQuestionIndex]) {
-                reviewBtn.className = "bg-amber-500 text-white text-xs font-medium px-3 py-1.5 rounded-lg transition flex items-center space-x-1.5 shadow-sm";
+                reviewBtn.className = "bg-amber-500 text-slate-950 font-bold text-xs px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 shadow-sm";
                 reviewBtnText.innerText = "চিহ্নিত করা হয়েছে (Unmark)";
             } else {
-                reviewBtn.className = "border border-amber-500 text-amber-600 hover:bg-amber-50 text-xs font-medium px-3 py-1.5 rounded-lg transition flex items-center space-x-1.5";
+                reviewBtn.className = "border border-amber-500 text-amber-600 hover:bg-amber-50 dark:hover:bg-amber-950/40 text-xs font-semibold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5";
                 reviewBtnText.innerText = "চিহ্নিত করুন (Mark for Review)";
             }
 
-            // Options Container
+            // Options rendering
             const optsContainer = document.getElementById('options-container');
             optsContainer.innerHTML = "";
 
             q.options.forEach((optText, idx) => {
                 const isSelected = userAnswers[currentQuestionIndex] === idx;
                 const optDiv = document.createElement('div');
-                optDiv.className = `option-row p-4 rounded-2xl border cursor-pointer flex items-center space-x-3 ${
-                    isSelected
-                        ? 'border-emerald-600 bg-emerald-50/80 text-emerald-950 font-medium shadow-sm'
-                        : 'border-slate-200 bg-white hover:border-emerald-300 text-slate-700'
-                }`;
+                optDiv.className = `option-row p-4 rounded-2xl cursor-pointer flex items-center gap-3 ${isSelected ? 'selected' : ''}`;
                 optDiv.onclick = () => selectOption(idx);
 
-                const optionLetter = String.fromCharCode(65 + idx); // A, B, C, D
+                const optionLetter = String.fromCharCode(65 + idx);
                 optDiv.innerHTML = `
-                    <div class="w-8 h-8 rounded-xl flex items-center justify-center text-sm font-bold shrink-0 ${
-                        isSelected ? 'bg-emerald-700 text-white' : 'bg-slate-100 text-slate-600'
-                    }">${optionLetter}</div>
-                    <div class="flex-1 text-sm md:text-base">${optText}</div>
-                    <div class="w-5 h-5 rounded-full border flex items-center justify-center shrink-0 ${
-                        isSelected ? 'border-emerald-700 bg-emerald-700 text-white' : 'border-slate-300'
-                    }">
-                        ${isSelected ? '<i class="fa-solid fa-check text-xs"></i>' : ''}
+                    <div class="w-8 h-8 rounded-xl flex items-center justify-center text-xs font-bold shrink-0 ${isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300'}">
+                        ${optionLetter}
+                    </div>
+                    <div class="flex-1 text-sm md:text-base font-medium">${optText}</div>
+                    <div class="w-5 h-5 rounded-full border flex items-center justify-center shrink-0 ${isSelected ? 'border-indigo-600 bg-indigo-600 text-white' : 'border-slate-300 dark:border-slate-700'}">
+                        ${isSelected ? '<i class="ph ph-check text-xs font-bold"></i>' : ''}
                     </div>
                 `;
                 optsContainer.appendChild(optDiv);
             });
 
-            // Nav buttons state
+            // Navigation button logic
             document.getElementById('prev-btn').disabled = currentQuestionIndex === 0;
             const nextBtn = document.getElementById('next-btn');
             if (currentQuestionIndex === questionsData.length - 1) {
-                nextBtn.innerHTML = `<span>জমা দিন (Submit)</span> <i class="fa-solid fa-paper-plane"></i>`;
+                nextBtn.innerHTML = `<span>জমা দিন</span> <i class="ph ph-paper-plane-right"></i>`;
                 nextBtn.onclick = confirmSubmitModal;
             } else {
-                nextBtn.innerHTML = `<span>পরবর্তী (Next)</span> <i class="fa-solid fa-arrow-right"></i>`;
+                nextBtn.innerHTML = `<span>পরবর্তী (Next)</span> <i class="ph ph-arrow-right"></i>`;
                 nextBtn.onclick = nextQuestion;
             }
 
@@ -1287,7 +1533,7 @@
                 const isVisited = visitedStatus[idx];
                 const isCurrent = currentQuestionIndex === idx;
 
-                let bgClass = "bg-slate-100 text-slate-600 border-slate-200"; // unvisited
+                let bgClass = "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700";
                 if (isAnswered && isReviewed) {
                     bgClass = "bg-purple-600 text-white font-bold border-purple-600";
                 } else if (isAnswered) {
@@ -1295,15 +1541,15 @@
                 } else if (isReviewed) {
                     bgClass = "bg-amber-500 text-white font-bold border-amber-500";
                 } else if (isVisited) {
-                    bgClass = "bg-slate-200 text-slate-700 border-slate-300";
+                    bgClass = "bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 border-slate-300 dark:border-slate-600";
                 }
 
                 if (isCurrent) {
-                    bgClass += " ring-2 ring-emerald-800 ring-offset-2";
+                    bgClass += " ring-2 ring-indigo-600 dark:ring-indigo-400 ring-offset-2 dark:ring-offset-slate-900";
                 }
 
                 const btn = document.createElement('button');
-                btn.className = `palette-btn h-10 rounded-xl text-xs font-semibold flex items-center justify-center border ${bgClass}`;
+                btn.className = `palette-btn h-9 rounded-xl text-xs font-semibold flex items-center justify-center border ${bgClass}`;
                 btn.innerText = idx + 1;
                 btn.onclick = () => jumpToQuestion(idx);
                 grid.appendChild(btn);
@@ -1318,6 +1564,7 @@
             document.getElementById('progress-bar-fill').style.width = `${percent}%`;
         }
 
+        // Submit Logic
         function confirmSubmitModal() {
             const answeredCount = userAnswers.filter(ans => ans !== null).length;
             const reviewCount = reviewFlags.filter(flag => flag).length;
@@ -1336,10 +1583,10 @@
             testSubmitted = true;
 
             document.getElementById('question-card-wrapper').classList.add('hidden');
-            document.querySelector('aside').classList.add('hidden');
+            document.getElementById('quiz-sidebar').classList.add('hidden');
+            document.getElementById('quiz-main-area').className = "lg:col-span-4 space-y-6";
             document.getElementById('results-dashboard').classList.remove('hidden');
 
-            // Calculate results
             let correct = 0;
             let incorrect = 0;
             let skipped = 0;
@@ -1366,16 +1613,13 @@
             window.location.reload();
         }
 
-        let currentFilter = 'all';
-
         function filterReview(filterType) {
-            currentFilter = filterType;
             ['all', 'correct', 'incorrect', 'skipped'].forEach(type => {
                 const btn = document.getElementById(`filter-${type}`);
                 if (type === filterType) {
-                    btn.className = "px-3 py-1.5 rounded-lg text-xs font-medium bg-emerald-700 text-white transition";
+                    btn.className = "px-3 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white transition";
                 } else {
-                    btn.className = "px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-200 transition";
+                    btn.className = "px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition";
                 }
             });
             renderDetailedReview(filterType);
@@ -1396,58 +1640,71 @@
 
                 let statusBadge = "";
                 if (isSkipped) {
-                    statusBadge = `<span class="bg-amber-100 text-amber-800 text-[10px] font-bold px-2.5 py-1 rounded-full">অনুত্তীর্ণ (Skipped)</span>`;
+                    statusBadge = `<span class="bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 text-[10px] font-bold px-2.5 py-1 rounded-full border border-amber-300/30">অনুত্তীর্ণ (Skipped)</span>`;
                 } else if (isCorrect) {
-                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2.5 py-1 rounded-full">সঠিক (Correct)</span>`;
+                    statusBadge = `<span class="bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 text-[10px] font-bold px-2.5 py-1 rounded-full border border-emerald-300/30">সঠিক (Correct)</span>`;
                 } else {
-                    statusBadge = `<span class="bg-rose-100 text-rose-800 text-[10px] font-bold px-2.5 py-1 rounded-full">ভুল (Incorrect)</span>`;
+                    statusBadge = `<span class="bg-rose-100 dark:bg-rose-950/80 text-rose-800 dark:text-rose-300 text-[10px] font-bold px-2.5 py-1 rounded-full border border-rose-300/30">ভুল (Incorrect)</span>`;
                 }
 
                 const card = document.createElement('div');
-                card.className = "card p-6 space-y-4 fade-in";
+                card.className = "card p-5 md:p-6 space-y-4 fade-in";
 
                 let optionsHtml = '';
                 q.options.forEach((opt, oIdx) => {
-                    let optStyle = "border-slate-200 bg-slate-50 text-slate-700";
+                    let optStyle = "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/60 text-slate-700 dark:text-slate-300";
                     if (oIdx === q.correct) {
-                        optStyle = "border-emerald-500 bg-emerald-50 text-emerald-900 font-semibold";
+                        optStyle = "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200 font-semibold";
                     } else if (oIdx === userAns && !isCorrect) {
-                        optStyle = "border-rose-300 bg-rose-50 text-rose-900 font-semibold";
+                        optStyle = "border-rose-500 bg-rose-50 dark:bg-rose-950/40 text-rose-900 dark:text-rose-200 font-semibold";
                     }
 
                     optionsHtml += `
-                        <div class="review-opt p-3 rounded-xl border text-sm flex items-center justify-between ${optStyle}">
+                        <div class="p-3 rounded-xl border text-sm flex items-center justify-between ${optStyle}">
                             <div><span class="font-bold mr-2">${String.fromCharCode(65 + oIdx)}.</span>${opt}</div>
                             <div>
-                                ${oIdx === q.correct ? '<i class="fa-solid fa-circle-check text-emerald-600"></i>' : ''}
-                                ${oIdx === userAns && !isCorrect ? '<i class="fa-solid fa-circle-xmark text-rose-600"></i>' : ''}
+                                ${oIdx === q.correct ? '<i class="ph ph-check-circle text-emerald-600 text-lg"></i>' : ''}
+                                ${oIdx === userAns && !isCorrect ? '<i class="ph ph-x-circle text-rose-600 text-lg"></i>' : ''}
                             </div>
                         </div>
                     `;
                 });
 
                 card.innerHTML = `
-                    <div class="flex items-center justify-between">
-                        <span class="text-xs font-bold text-slate-500">প্রশ্ন #${idx + 1} (${q.category})</span>
+                    <div class="flex items-center justify-between gap-2">
+                        <span class="text-xs font-bold text-slate-400">প্রশ্ন #${idx + 1} (${q.category})</span>
                         ${statusBadge}
                     </div>
                     <div class="space-y-1">
-                        <div class="text-base font-semibold text-slate-900">${q.bn}</div>
-                        <div class="text-sm italic text-slate-600">${q.en}</div>
+                        <div class="text-base md:text-lg font-bold">${q.bn}</div>
+                        <div class="text-xs md:text-sm italic text-slate-500 dark:text-slate-400">${q.en}</div>
                     </div>
-                    <div class="space-y-2 pt-2">
+                    <div class="space-y-2 pt-1">
                         ${optionsHtml}
                     </div>
-                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-1">
-                        <div class="font-bold text-emerald-800 flex items-center space-x-1">
-                            <i class="fa-solid fa-lightbulb"></i>
-                            <span>সঠিক উত্তর ও ব্যাখ্যা (Solution &amp; Explanation):</span>
+                    <div class="bg-indigo-50 dark:bg-indigo-950/40 p-4 rounded-xl border border-indigo-100 dark:border-indigo-900/60 text-xs space-y-1">
+                        <div class="font-bold text-indigo-800 dark:text-indigo-300 flex items-center gap-1.5">
+                            <i class="ph ph-lightbulb text-base"></i>
+                            <span>ব্যাখ্যা (Solution):</span>
                         </div>
-                        <p class="text-slate-700 leading-relaxed">${q.solution}</p>
+                        <p class="text-slate-700 dark:text-slate-300 leading-relaxed">${q.solution}</p>
                     </div>
                 `;
                 container.appendChild(card);
             });
+        }
+
+        // Search lookup handler
+        function handleSearch(val) {
+            if (!val || val.trim() === '') return;
+            const searchTerm = val.toLowerCase().trim();
+            const foundIdx = questionsData.findIndex(q => q.bn.toLowerCase().includes(searchTerm) || q.en.toLowerCase().includes(searchTerm));
+            if (foundIdx !== -1 && !testSubmitted) {
+                if (document.getElementById('question-card-wrapper').classList.contains('hidden')) {
+                    startQuiz();
+                }
+                jumpToQuestion(foundIdx);
+            }
         }
     </script>
 </body>

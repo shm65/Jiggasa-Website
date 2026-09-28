@@ -1,1837 +1,1119 @@
 <!DOCTYPE html>
 <html lang="bn">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEST BENGAL VIGYAN MONCHO - 2025 (Class VIII) Quiz</title>
-    <!-- Google Fonts for Bengali & English -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#4f46e5">
+    <meta name="description" content="পশ্চিমবঙ্গ বিজ্ঞান মঞ্চ - ২০২৫ (অষ্টম শ্রেণি) | Jiggasha Quiz">
+    <title>পশ্চিমবঙ্গ বিজ্ঞান মঞ্চ - ২০২৫ (অষ্টম শ্রেণি) | Jiggasha</title>
+
+    <!-- Theme Init -->
+    <script>
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem('jiggasha_theme'); } catch (e) {}
+            if (t !== 'dark' && t !== 'light') {
+                t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Atma:wght@500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-    <!-- MathJax for rendering Mathematical LaTeX formulas -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <style>
         :root {
-            --primary: #1e3a8a;
-            --primary-light: #3b82f6;
-            --primary-dark: #1e293b;
-            --accent: #059669;
-            --accent-hover: #047857;
-            --warning: #d97706;
-            --danger: #dc2626;
+            color-scheme: light;
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --primary-light: #eef2ff;
+            --primary-soft: #e0e7ff;
+            --accent: #f59e0b;
+
             --bg: #f8fafc;
-            --card-bg: #ffffff;
-            --text-dark: #0f172a;
+            --surface: #ffffff;
+            --surface-2: #f1f5f9;
+            --text: #0f172a;
             --text-muted: #64748b;
             --border: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --radius: 12px;
+
+            --success: #10b981;
+            --success-light: #d1fae5;
+            --danger: #ef4444;
+            --danger-light: #fee2e2;
+            --info: #0ea5e9;
+
+            --shadow-sm: 0 1px 2px rgba(15, 23, 42, .06);
+            --shadow-md: 0 6px 18px rgba(15, 23, 42, .08);
+            --shadow-lg: 0 16px 40px rgba(15, 23, 42, .12);
+
+            --radius-sm: 10px;
+            --radius: 14px;
+            --radius-lg: 20px;
+
+            --bottom-nav-h: 64px;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Noto Sans Bengali', 'Poppins', sans-serif;
+        html[data-theme="dark"] {
+            color-scheme: dark;
+            --primary: #818cf8;
+            --primary-hover: #a5b4fc;
+            --primary-light: #1e1b4b;
+            --primary-soft: #312e81;
+
+            --bg: #0b1120;
+            --surface: #111827;
+            --surface-2: #1f2937;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #273244;
+
+            --success-light: #064e3b;
+            --danger-light: #7f1d1d;
+
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
+            --shadow-md: 0 6px 18px rgba(0, 0, 0, .45);
+            --shadow-lg: 0 16px 40px rgba(0, 0, 0, .55);
         }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
 
         body {
-            background-color: var(--bg);
-            color: var(--text-dark);
-            line-height: 1.6;
-            padding-bottom: 40px;
+            font-family: 'Hind Siliguri', 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: calc(var(--bottom-nav-h) + env(safe-area-inset-bottom, 0px) + 12px);
+            transition: background-color .3s ease, color .3s ease;
         }
 
-        header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+        ::-webkit-scrollbar { width: 7px; height: 7px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        html[data-theme="dark"] ::-webkit-scrollbar-thumb { background: #334155; }
+
+        /* Top nav */
+        .top-nav {
+            position: sticky; top: 0; z-index: 100;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            transition: background-color .3s ease, border-color .3s ease;
+        }
+        .nav-container {
+            max-width: 1400px; margin-inline: auto;
+            padding: 10px 20px; display: flex; align-items: center; gap: 16px;
+        }
+        .logo {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 1.35rem; font-weight: 800; color: var(--primary);
+            flex-shrink: 0; letter-spacing: -.01em;
+        }
+        .logo i { font-size: 1.6rem; }
+
+        .search-box {
+            position: relative; flex: 1 1 200px; max-width: 360px; min-width: 0;
+        }
+        .search-box i {
+            position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+            color: var(--text-muted); font-size: 1.05rem; pointer-events: none;
+        }
+        .search-box input {
+            width: 100%; padding: 8px 14px 8px 36px;
+            border: 1px solid var(--border); border-radius: 999px;
+            background: var(--surface-2); color: var(--text); font-size: .9rem; outline: none;
+            transition: border-color .2s, box-shadow .2s;
+        }
+        .search-box input:focus {
+            border-color: var(--primary); background: var(--surface);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        .desktop-links { display: none; align-items: center; gap: 4px; }
+        @media (min-width: 992px) { .desktop-links { display: flex; } }
+        .desktop-links a {
+            padding: 8px 12px; font-size: .92rem; font-weight: 600;
+            color: var(--text-muted); border-radius: 8px; transition: all .15s;
+        }
+        .desktop-links a:hover, .desktop-links a.active {
+            color: var(--primary); background: var(--primary-light);
+        }
+
+        .icon-btn {
+            width: 40px; height: 40px; border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            background: var(--primary-light); color: var(--primary);
+            font-size: 1.15rem; flex-shrink: 0; transition: background-color .2s, transform .15s;
+            border: none; cursor: pointer;
+        }
+        .icon-btn:hover { background: var(--primary-soft); }
+        .icon-btn:active { transform: scale(.94); }
+
+        .mobile-menu {
+            display: none; position: absolute; top: 100%; left: 0; right: 0;
+            background: var(--surface); border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-md); padding: 8px 12px 12px; z-index: 99;
+        }
+        .mobile-menu.open { display: block; animation: slideDown .2s ease; }
+        .mobile-menu a {
+            display: flex; align-items: center; gap: 12px; padding: 12px;
+            border-radius: 10px; font-weight: 600; color: var(--text); transition: all .15s;
+            text-decoration: none;
+        }
+        .mobile-menu a:hover { background: var(--primary-light); color: var(--primary); }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Exam hero */
+        .exam-hero {
+            background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
             color: #ffffff;
-            padding: 20px 15px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            position: relative; overflow: hidden;
+        }
+        .exam-hero::after {
+            content: ""; position: absolute; right: -40px; top: -40px;
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,.15), transparent 70%);
+            pointer-events: none;
         }
 
-        header h1 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        header h2 {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #93c5fd;
-        }
-
-        .sub-header-info {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            font-size: 0.9rem;
-            margin-top: 8px;
-            color: #cbd5e1;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 15px;
-        }
-
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--card-bg);
-            padding: 15px 20px;
+        /* Cards */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
             border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 15px;
+            box-shadow: var(--shadow-sm);
+            transition: background-color .3s, border-color .3s, box-shadow .2s;
         }
 
-        .timer-box {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary);
-            background: #eff6ff;
-            padding: 8px 16px;
-            border-radius: 30px;
-            border: 1px solid #bfdbfe;
+        /* Options */
+        .option-row {
+            transition: all 0.15s ease;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            cursor: pointer;
         }
-
-        .timer-box.warning {
-            color: var(--danger);
-            background: #fef2f2;
-            border-color: #fecaca;
-            animation: pulse 1s infinite;
+        .option-row:hover {
+            border-color: var(--primary);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-sm);
         }
-
-        @keyframes pulse {
-            0% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.7;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        .progress-container {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .progress-label {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-
-        .progress-bar {
-            height: 10px;
-            background: #e2e8f0;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
+        .option-row.selected {
+            border-color: var(--primary);
             background: var(--primary-light);
-            width: 0%;
+            color: var(--text);
+        }
+
+        .palette-btn {
+            transition: all 0.12s ease;
+        }
+        .palette-btn:hover {
+            transform: scale(1.05); filter: brightness(1.05);
+        }
+
+        .timer-badge {
+            background: rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(8px);
+        }
+        .timer-warning { color: #f87171 !important; animation: pulse 1s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        #progress-bar-fill {
+            background: linear-gradient(90deg, #6366f1, #4f46e5);
             transition: width 0.3s ease;
         }
 
-        .quiz-layout {
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 20px;
+        /* Buttons */
+        .btn-primary-jiggasha {
+            background: #4f46e5; color: #ffffff; font-weight: 600;
+            transition: all 0.15s ease;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+            border: none; cursor: pointer;
         }
-
-        @media (max-width: 850px) {
-            .quiz-layout {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 25px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-        }
-
-        .question-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #f1f5f9;
-        }
-
-        .section-badge {
-            background: #e0e7ff;
-            color: #3730a3;
-            font-size: 0.8rem;
-            font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-        }
-
-        .source-page {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .question-box {
-            margin-bottom: 25px;
-        }
-
-        .bengali-q {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
-
-        .english-q {
-            font-size: 1rem;
-            font-weight: 500;
-            color: #475569;
-            font-style: italic;
-            padding-left: 12px;
-            border-left: 3px solid var(--primary-light);
-            margin-bottom: 15px;
-        }
-
-        .options-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .option-btn {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            background: #f8fafc;
-            border: 2px solid var(--border);
-            border-radius: var(--radius);
-            padding: 14px 18px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-align: left;
-            width: 100%;
-        }
-
-        .option-btn:hover {
-            border-color: var(--primary-light);
-            background: #f0f9ff;
-        }
-
-        .option-btn.selected {
-            border-color: var(--primary-light);
-            background: #eff6ff;
-            box-shadow: 0 0 0 1px var(--primary-light);
-        }
-
-        .option-label {
-            font-weight: 700;
-            background: #e2e8f0;
-            color: var(--text-dark);
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 0.9rem;
-        }
-
-        .option-btn.selected .option-label {
-            background: var(--primary-light);
-            color: #ffffff;
-        }
-
-        .option-text-container {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .opt-bn {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-
-        .opt-en {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .input-text-answer {
-            width: 100%;
-            padding: 12px 15px;
-            font-size: 1rem;
-            border: 2px solid var(--border);
-            border-radius: var(--radius);
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .input-text-answer:focus {
-            border-color: var(--primary-light);
-        }
-
-        .actions-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 30px;
-            padding-top: 15px;
-            border-top: 1px solid var(--border);
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            border-radius: var(--radius);
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: #ffffff;
-        }
-
-        .btn-primary:hover {
-            background: #1d4ed8;
-        }
-
-        .btn-secondary {
-            background: #f1f5f9;
-            color: var(--text-dark);
-            border: 1px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            background: #e2e8f0;
-        }
-
-        .btn-warning {
-            background: #fef3c7;
-            color: #92400e;
-            border: 1px solid #fde68a;
-        }
-
-        .btn-warning:hover {
-            background: #fde68a;
-        }
-
-        .btn-success {
-            background: var(--accent);
-            color: #ffffff;
+        .btn-primary-jiggasha:hover {
+            background: #4338ca; transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
         }
+        .btn-primary-jiggasha:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
 
-        .btn-success:hover {
-            background: var(--accent-hover);
+        .btn-secondary-jiggasha {
+            background: var(--surface-2); color: var(--text); font-weight: 600;
+            border: 1px solid var(--border); transition: all 0.15s ease; cursor: pointer;
         }
-
-        /* Nav Panel */
-        .nav-panel {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            padding: 20px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-            height: fit-content;
-        }
-
-        .nav-panel h3 {
-            font-size: 1.05rem;
-            margin-bottom: 15px;
-            color: var(--text-dark);
-            border-bottom: 2px solid #f1f5f9;
-            padding-bottom: 8px;
-        }
-
-        .grid-nav {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 8px;
-            max-height: 380px;
-            overflow-y: auto;
-            padding-right: 5px;
-        }
-
-        .nav-btn {
-            aspect-ratio: 1;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            background: #f8fafc;
-            color: var(--text-dark);
-            font-weight: 600;
-            font-size: 0.85rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-
-        .nav-btn:hover {
-            border-color: var(--primary-light);
-        }
-
-        .nav-btn.active {
-            outline: 2px solid var(--primary-light);
-            outline-offset: 1px;
-        }
-
-        .nav-btn.answered {
-            background: #dcfce7;
-            color: #166534;
-            border-color: #86efac;
-        }
-
-        .nav-btn.review {
-            background: #fef3c7;
-            color: #92400e;
-            border-color: #fde68a;
-        }
-
-        .nav-legend {
-            margin-top: 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .legend-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 3px;
-        }
-
-        .dot-unvisited {
-            background: #f8fafc;
-            border: 1px solid #cbd5e1;
-        }
-
-        .dot-answered {
-            background: #dcfce7;
-            border: 1px solid #86efac;
-        }
-
-        .dot-review {
-            background: #fef3c7;
-            border: 1px solid #fde68a;
-        }
-
-        .dot-active {
-            border: 2px solid var(--primary-light);
-        }
-
-        /* Dashboard & Review Screens */
-        .hidden {
-            display: none !important;
-        }
-
-        .result-dashboard {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .score-card {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            color: white;
-            border-radius: var(--radius);
-            padding: 30px;
-            margin: 20px 0;
-            box-shadow: var(--shadow);
-        }
-
-        .score-big {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1;
-            margin: 10px 0;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin: 25px 0;
-        }
-
-        .stat-box {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 15px;
-            border-radius: var(--radius);
-            text-align: center;
-        }
-
-        .stat-val {
-            font-size: 1.6rem;
-            font-weight: 700;
-        }
-
-        .stat-val.correct {
-            color: var(--accent);
-        }
-
-        .stat-val.wrong {
-            color: var(--danger);
-        }
-
-        .stat-val.unanswered {
-            color: var(--warning);
+        .btn-secondary-jiggasha:hover:not(:disabled) {
+            background: var(--border); transform: translateY(-1px);
         }
+        .btn-secondary-jiggasha:disabled { opacity: 0.5; cursor: not-allowed; }
 
-        .stat-lbl {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 4px;
+        .btn-warning-jiggasha {
+            background: #fef3c7; color: #92400e;
+            border: 1px solid #fde68a; font-weight: 600;
+            transition: all 0.15s ease; cursor: pointer;
         }
-
-        .filter-bar {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+        .btn-warning-jiggasha:hover { background: #fde68a; }
+        html[data-theme="dark"] .btn-warning-jiggasha {
+            background: #78350f; color: #fef3c7; border-color: #92400e;
         }
 
-        .filter-btn {
-            padding: 8px 16px;
-            border-radius: 20px;
-            border: 1px solid var(--border);
-            background: white;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 500;
+        /* Bottom nav */
+        .bottom-nav {
+            position: fixed; left: 0; right: 0; bottom: 0;
+            height: calc(var(--bottom-nav-h) + env(safe-area-inset-bottom, 0px));
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+            display: flex; justify-content: space-around; align-items: center;
+            background: var(--surface); border-top: 1px solid var(--border); z-index: 90;
+            box-shadow: 0 -4px 16px rgba(0, 0, 0, .06);
         }
-
-        .filter-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
+        .bottom-nav a {
+            flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;
+            font-size: .7rem; font-weight: 600; color: var(--text-muted); padding: 6px 0; transition: color .15s;
+            text-decoration: none;
         }
+        .bottom-nav a i { font-size: 1.35rem; }
+        .bottom-nav a.active { color: var(--primary); }
 
-        .review-card {
-            background: white;
-            border-radius: var(--radius);
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 1px solid var(--border);
-            text-align: left;
-            box-shadow: var(--shadow);
-        }
+        .fade-in { animation: fadeIn 0.25s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
-        .review-status {
-            display: inline-block;
-            font-size: 0.8rem;
-            font-weight: 700;
-            padding: 3px 10px;
-            border-radius: 12px;
-            margin-bottom: 10px;
-        }
+        .modal-backdrop { animation: modalBg 0.2s ease forwards; }
+        @keyframes modalBg { from { opacity: 0; } to { opacity: 1; } }
+        .modal-panel { animation: modalPop 0.22s cubic-bezier(0.34,1.56,0.64,1) forwards; }
+        @keyframes modalPop { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
 
-        .status-correct {
-            background: #dcfce7;
-            color: #166534;
-        }
+        .hidden { display: none !important; }
 
-        .status-wrong {
-            background: #fee2e2;
-            color: #991b1b;
-        }
+        /* Bilingual option text */
+        .opt-bn { font-size: .95rem; font-weight: 500; color: var(--text); }
+        .opt-en { font-size: .82rem; color: var(--text-muted); }
 
-        .status-unanswered {
-            background: #fef3c7;
-            color: #92400e;
-        }
+        .bengali-q { font-size: 1.1rem; font-weight: 700; color: var(--text); line-height: 1.7; }
+        .english-q { font-size: .92rem; color: var(--text-muted); font-style: italic; }
 
+        /* Solution box */
         .solution-box {
-            background: #f8fafc;
-            border-left: 4px solid var(--primary-light);
-            padding: 15px;
-            margin-top: 15px;
-            border-radius: 0 var(--radius) var(--radius) 0;
+            background: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 14px 16px;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
         }
-
-        .solution-title {
-            font-weight: 700;
-            color: var(--primary-dark);
-            margin-bottom: 5px;
-            font-size: 0.95rem;
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        @media print {
-
-            header,
-            .top-bar,
-            .nav-panel,
-            .actions-bar,
-            .filter-bar,
-            .btn-group {
-                display: none !important;
-            }
-
-            .quiz-layout {
-                display: block;
-            }
-
-            .card,
-            .review-card {
-                box-shadow: none;
-                border: 1px solid #ccc;
-                page-break-inside: avoid;
-            }
-
-            body {
-                background: white;
-            }
-        }
+        html[data-theme="dark"] .solution-box { background: rgba(79,70,229,.12); }
     </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>পশ্চিমবঙ্গ বিজ্ঞান মঞ্চ</h1>
-        <h2>জেলা বিজ্ঞান মানসিকতা ও মেধা অভীক্ষা - ২০২৫ (অষ্টম শ্রেণি)</h2>
-        <div class="sub-header-info">
-            <span>পূর্ণমান: ১০০</span>
-            <span>সময়: ২ ঘণ্টা ১৫ মিনিট</span>
-            <span>শ্রেণি: অষ্টম (Class VIII)</span>
-        </div>
-    </header>
+    <!-- TOP NAV -->
+    <header class="top-nav">
+        <div class="nav-container">
+            <a href="../../../index.html" class="logo" aria-label="Jiggasha home" style="text-decoration:none;">
+                <i class="ph-fill ph-student"></i>
+                <span lang="bn">জিজ্ঞাসা</span>
+            </a>
 
-    <div class="container">
-
-        <!-- QUIZ INTERFACE -->
-        <div id="quiz-screen">
-            <div class="top-bar">
-                <div class="timer-box" id="timer-box">
-                    ⏱️ <span id="timer-display">02:15:00</span>
-                </div>
-                <div class="progress-container">
-                    <div class="progress-label">
-                        <span>প্রশ্ন অগ্রগতি (Progress)</span>
-                        <span id="progress-text">1 / 44</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progress-fill"></div>
-                    </div>
-                </div>
+            <div class="search-box">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="search" id="global-search" placeholder="Search question or keyword..." aria-label="Search" oninput="handleSearch(this.value)" />
             </div>
 
-            <div class="quiz-layout">
-                <!-- Question Card -->
-                <div class="card">
-                    <div class="question-meta">
-                        <span class="section-badge" id="section-badge">পরিবেশ ও বিজ্ঞান</span>
-                        <span class="source-page" id="source-page">PDF Page 2</span>
-                    </div>
+            <div class="nav-actions flex items-center gap-2">
+                <nav class="desktop-links" aria-label="Primary">
+                    <a href="../../../classes.html">Classes</a>
+                    <a href="../../../quizzes.html" class="active">Quizzes</a>
+                    <a href="../../../notes.html">Notes</a>
+                    <a href="../../../videos.html">Videos</a>
+                    <a href="../../../progress.html">My Progress</a>
+                    <a href="../../../about.html">About Us</a>
+                    <a href="../../../contact.html">Contact Us</a>
+                </nav>
 
-                    <div class="question-box">
-                        <div class="bengali-q" id="bengali-q">...</div>
-                        <div class="english-q" id="english-q">...</div>
-                    </div>
+                <button type="button" class="icon-btn" id="theme-btn" title="Toggle theme" aria-label="Toggle theme">
+                    <i class="ph ph-moon" id="theme-icon"></i>
+                </button>
 
-                    <!-- Dynamic Options Container -->
-                    <div id="options-container">
-                        <!-- Options or Text input will be inserted dynamically -->
-                    </div>
+                <button type="button" class="icon-btn menu-toggle lg:hidden" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
 
-                    <div class="actions-bar">
-                        <button class="btn btn-secondary" id="btn-prev" onclick="navigate(-1)">← পূর্ববর্তী
-                            (Prev)</button>
-                        <div>
-                            <button class="btn btn-warning" id="btn-review" onclick="toggleMarkReview()">🔖 ফ্ল্যাগ /
-                                রিভিউ (Review)</button>
-                        </div>
-                        <button class="btn btn-primary" id="btn-next" onclick="navigate(1)">পরবর্তী (Next) →</button>
+        <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+            <a href="../../../classes.html"><i class="ph ph-books"></i> Classes</a>
+            <a href="../../../quizzes.html" style="color:var(--primary);font-weight:700;"><i class="ph ph-exam"></i> Quizzes</a>
+            <a href="../../../notes.html"><i class="ph ph-book-open"></i> Notes</a>
+            <a href="../../../videos.html"><i class="ph ph-youtube-logo"></i> Videos</a>
+            <a href="../../../progress.html"><i class="ph ph-chart-line-up"></i> My Progress</a>
+            <a href="../../../about.html"><i class="ph ph-user"></i> About Us</a>
+            <a href="../../../contact.html"><i class="ph ph-envelope-simple"></i> Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main class="max-w-[1400px] w-full mx-auto px-4 py-5 flex-1 space-y-6">
+
+        <!-- EXAM HERO -->
+        <section class="exam-hero p-5 md:p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="space-y-1.5 text-center md:text-left z-10">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur border border-white/15 text-xs font-semibold text-indigo-100">
+                    <i class="ph-fill ph-certificate"></i>
+                    <span>পশ্চিমবঙ্গ বিজ্ঞান মঞ্চ</span>
+                </div>
+                <h1 class="text-xl md:text-2xl font-bold tracking-tight">জেলা বিজ্ঞান মানসিকতা ও মেধা অভীক্ষা - ২০২৫ (অষ্টম শ্রেণি)</h1>
+                <p class="text-xs md:text-sm text-indigo-200">
+                    Class VIII Science Aptitude & Merit Test 2025 <span class="mx-1">•</span> পূর্ণমান: ১০০ <span class="mx-1">•</span> সময়: ২ ঘণ্টা ১৫ মিনিট
+                </p>
+            </div>
+
+            <div class="flex items-center gap-3 shrink-0 z-10">
+                <div class="timer-badge px-4 py-2 rounded-xl flex items-center gap-3">
+                    <i class="ph ph-timer text-2xl text-amber-300"></i>
+                    <div class="text-left">
+                        <div class="text-[10px] uppercase font-semibold text-indigo-200 tracking-wider">সময় বাকি (Timer)</div>
+                        <div id="timer-display" class="font-mono font-bold text-xl leading-none text-white">02:15:00</div>
                     </div>
                 </div>
 
-                <!-- Navigation Sidebar -->
-                <div class="nav-panel">
-                    <h3>প্রশ্ন নেভিগেশন (Palette)</h3>
-                    <div class="grid-nav" id="grid-nav">
-                        <!-- Navigation Buttons inserted via JS -->
+                <button onclick="confirmSubmit()" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-4 py-2.5 rounded-xl text-xs md:text-sm flex items-center gap-2 transition shadow-md border-0 cursor-pointer">
+                    <i class="ph ph-paper-plane-right"></i>
+                    <span>জমা দিন</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- QUIZ LAYOUT -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
+
+            <!-- MAIN AREA -->
+            <section id="quiz-main-area" class="lg:col-span-3 space-y-6">
+
+                <!-- WELCOME BANNER -->
+                <div id="welcome-banner" class="card p-6 md:p-8 space-y-5 fade-in">
+                    <div class="flex items-center gap-3" style="color:var(--primary);">
+                        <i class="ph ph-info text-3xl"></i>
+                        <h2 class="text-xl font-bold">পরীক্ষার নিয়মাবলী ও নির্দেশাবলী (Instructions)</h2>
                     </div>
 
-                    <div class="nav-legend">
-                        <div class="legend-item">
-                            <div class="legend-dot dot-unvisited"></div> অনুত্তরিত
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div class="p-3.5 rounded-xl border" style="border-color:var(--border);background:var(--surface-2);">
+                            <div class="text-xs font-semibold" style="color:var(--text-muted);">মোট প্রশ্ন (Total Questions)</div>
+                            <div class="text-lg font-bold" style="color:var(--primary);">৪৪টি MCQ</div>
                         </div>
-                        <div class="legend-item">
-                            <div class="legend-dot dot-answered"></div> উত্তর দেওয়া
+                        <div class="p-3.5 rounded-xl border" style="border-color:var(--border);background:var(--surface-2);">
+                            <div class="text-xs font-semibold" style="color:var(--text-muted);">পূর্ণমান (Total Marks)</div>
+                            <div class="text-lg font-bold" style="color:var(--success);">১০০ নম্বর</div>
                         </div>
-                        <div class="legend-item">
-                            <div class="legend-dot dot-review"></div> চিহ্নিত (Review)
-                        </div>
-                        <div class="legend-item">
-                            <div class="legend-dot dot-active"></div> বর্তমান
+                        <div class="p-3.5 rounded-xl border" style="border-color:var(--border);background:var(--surface-2);">
+                            <div class="text-xs font-semibold" style="color:var(--text-muted);">সময় (Duration)</div>
+                            <div class="text-lg font-bold" style="color:#d97706;">২ ঘণ্টা ১৫ মিনিট</div>
                         </div>
                     </div>
 
-                    <div style="margin-top: 25px;">
-                        <button class="btn btn-success" style="width: 100%; justify-content: center;"
-                            onclick="confirmSubmit()">
-                            ✅ পরীক্ষা জমা দিন (Submit)
+                    <ul class="space-y-2 text-sm list-disc list-inside" style="color:var(--text-muted);">
+                        <li>প্রতিটি সঠিক উত্তরের জন্য নম্বর থাকবে। কোনো ঋণাত্মক নম্বর (Negative marking) নেই।</li>
+                        <li>প্রশ্নপত্রটি বাংলা এবং ইংরেজি উভয় ভাষায় সংকলিত হয়েছে।</li>
+                        <li>ডানপাশের <strong>Question Palette</strong> ব্যবহার করে সরাসরি যেকোনো নম্বর প্রশ্নে যাওয়া যাবে।</li>
+                        <li>সন্দেহজনক প্রশ্নগুলি 'Mark for Review' হিসেবে রাখতে পারেন।</li>
+                    </ul>
+
+                    <div class="pt-2">
+                        <button onclick="startQuiz()" class="btn-primary-jiggasha px-8 py-3 rounded-xl flex items-center gap-2 text-base">
+                            <span>পরীক্ষা শুরু করুন (Start Test)</span>
+                            <i class="ph ph-arrow-right font-bold"></i>
                         </button>
                     </div>
                 </div>
+
+                <!-- QUESTION WRAPPER -->
+                <div id="question-card-wrapper" class="hidden space-y-5">
+
+                    <div class="card p-4 flex flex-wrap items-center justify-between gap-3">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <span id="q-badge" class="text-xs font-bold px-3 py-1.5 rounded-full" style="background:var(--primary-light);color:var(--primary);">
+                                প্রশ্ন ১ / ৪৪
+                            </span>
+                            <span id="q-category" class="text-xs font-medium px-3 py-1.5 rounded-full" style="background:var(--surface-2);color:var(--text-muted);">
+                                পরিবেশ ও বিজ্ঞান
+                            </span>
+                            <span id="q-source" class="text-xs font-medium px-3 py-1.5 rounded-full" style="background:var(--surface-2);color:var(--text-muted);">
+                                PDF Page 2
+                            </span>
+                        </div>
+
+                        <button onclick="toggleMarkReview()" id="review-btn" class="text-xs font-semibold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 border-0 cursor-pointer" style="border:1px solid #f59e0b;color:#d97706;background:transparent;">
+                            <i class="ph ph-bookmark-simple"></i>
+                            <span id="review-btn-text">চিহ্নিত করুন (Mark for Review)</span>
+                        </button>
+                    </div>
+
+                    <div id="question-text-card" class="card p-6 space-y-3 fade-in">
+                        <h3 class="bengali-q" id="question-text-bn"></h3>
+                        <p class="english-q border-t pt-3" style="border-color:var(--border);" id="question-text-en"></p>
+                    </div>
+
+                    <div class="space-y-3" id="options-container"></div>
+
+                    <div class="flex items-center justify-between pt-2 flex-wrap gap-2">
+                        <button onclick="navigate(-1)" id="prev-btn" class="btn-secondary-jiggasha px-5 py-2.5 rounded-xl text-sm flex items-center gap-2">
+                            <i class="ph ph-arrow-left"></i>
+                            <span>পূর্ববর্তী (Prev)</span>
+                        </button>
+
+                        <div class="flex items-center gap-2.5">
+                            <button onclick="clearResponse()" class="btn-secondary-jiggasha px-4 py-2.5 rounded-xl text-xs md:text-sm">
+                                উত্তর মুছুন (Clear)
+                            </button>
+                            <button onclick="navigate(1)" id="next-btn" class="btn-primary-jiggasha px-6 py-2.5 rounded-xl text-sm flex items-center gap-2">
+                                <span>পরবর্তী (Next)</span>
+                                <i class="ph ph-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RESULTS DASHBOARD -->
+                <div id="results-dashboard" class="hidden space-y-6">
+                    <div class="card p-6 md:p-8 text-white rounded-3xl space-y-6 relative overflow-hidden fade-in" style="background:linear-gradient(135deg,#1e3a8a 0%,#0f172a 100%);">
+                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b pb-6" style="border-color:rgba(99,102,241,.4);">
+                            <div>
+                                <span class="text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider" style="background:rgba(16,185,129,.2);color:#6ee7b7;border:1px solid rgba(16,185,129,.3);">
+                                    ফলাফল প্রস্তুত (Assessment Complete)
+                                </span>
+                                <h2 class="text-2xl md:text-3xl font-extrabold mt-2">পরীক্ষা সম্পন্ন হয়েছে!</h2>
+                                <p class="text-xs md:text-sm text-indigo-200 mt-1">
+                                    পশ্চিমবঙ্গ বিজ্ঞান মঞ্চ - ২০২৫ (অষ্টম শ্রেণি) এর আপনার ফলাফল নিচে দেখুন।
+                                </p>
+                            </div>
+                            <button onclick="restartQuiz()" class="bg-white text-indigo-950 font-bold px-5 py-2.5 rounded-xl text-xs md:text-sm flex items-center gap-2 hover:bg-indigo-50 transition shrink-0 border-0 cursor-pointer">
+                                <i class="ph ph-arrows-counter-clockwise"></i>
+                                <span>পুনরায় পরীক্ষা দিন</span>
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                            <div class="backdrop-blur rounded-2xl p-4 border text-center sm:text-left" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.1);">
+                                <div class="text-xs text-indigo-200">মোট প্রাপ্ত নম্বর</div>
+                                <div class="text-3xl font-black mt-1 text-white" id="res-score">0 / 100</div>
+                            </div>
+                            <div class="backdrop-blur rounded-2xl p-4 border text-center sm:text-left" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.1);">
+                                <div class="text-xs" style="color:#6ee7b7;">সঠিক উত্তর</div>
+                                <div class="text-3xl font-bold mt-1" style="color:#34d399;" id="res-correct">0</div>
+                            </div>
+                            <div class="backdrop-blur rounded-2xl p-4 border text-center sm:text-left" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.1);">
+                                <div class="text-xs" style="color:#fca5a5;">ভুল উত্তর</div>
+                                <div class="text-3xl font-bold mt-1" style="color:#f87171;" id="res-incorrect">0</div>
+                            </div>
+                            <div class="backdrop-blur rounded-2xl p-4 border text-center sm:text-left" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.1);">
+                                <div class="text-xs" style="color:#fcd34d;">অনুত্তীর্ণ</div>
+                                <div class="text-3xl font-bold mt-1" style="color:#fbbf24;" id="res-skipped">0</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card p-4 flex flex-wrap items-center justify-between gap-3">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <span class="text-xs font-bold uppercase tracking-wider" style="color:var(--text-muted);">ফিল্টার করুন:</span>
+                            <button onclick="filterReview('all', this)" id="filter-all" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-white transition border-0 cursor-pointer" style="background:var(--primary);">সব প্রশ্ন (All)</button>
+                            <button onclick="filterReview('correct', this)" id="filter-correct" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition border-0 cursor-pointer" style="background:var(--surface-2);color:var(--text-muted);">সঠিক (Correct)</button>
+                            <button onclick="filterReview('wrong', this)" id="filter-wrong" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition border-0 cursor-pointer" style="background:var(--surface-2);color:var(--text-muted);">ভুল (Wrong)</button>
+                            <button onclick="filterReview('unanswered', this)" id="filter-unanswered" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition border-0 cursor-pointer" style="background:var(--surface-2);color:var(--text-muted);">অনুত্তীর্ণ (Skipped)</button>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="window.print()" class="btn-secondary-jiggasha px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5">
+                                <i class="ph ph-printer"></i>
+                                <span>প্রিন্ট / PDF</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="detailed-review-list" class="space-y-4"></div>
+                </div>
+
+            </section>
+
+            <!-- SIDEBAR -->
+            <aside id="quiz-sidebar" class="space-y-5 lg:sticky lg:top-24">
+
+                <div class="card p-5 space-y-3">
+                    <div class="flex justify-between text-xs font-bold uppercase tracking-wider" style="color:var(--text-muted);">
+                        <span>অগ্রগতি (Progress)</span>
+                        <span id="progress-percent" style="color:var(--primary);">0%</span>
+                    </div>
+                    <div class="w-full rounded-full h-2.5 overflow-hidden" style="background:var(--surface-2);">
+                        <div id="progress-bar-fill" class="h-2.5 rounded-full" style="width: 0%"></div>
+                    </div>
+                    <div class="text-xs text-right" style="color:var(--text-muted);">
+                        উত্তর দেওয়া হয়েছে: <span id="answered-count" class="font-bold" style="color:var(--primary);">০</span> / ৪৪
+                    </div>
+                </div>
+
+                <div class="card p-5 space-y-4">
+                    <div class="flex items-center justify-between border-b pb-3" style="border-color:var(--border);">
+                        <h3 class="font-bold text-sm flex items-center gap-2">
+                            <i class="ph ph-grid-four text-lg" style="color:var(--primary);"></i>
+                            <span>প্রশ্ন প্যালেট (Palette)</span>
+                        </h3>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 text-[11px] font-medium" style="color:var(--text-muted);">
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-3 h-3 rounded" style="background:#059669;"></span>
+                            <span>উত্তর দেওয়া</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-3 h-3 rounded" style="background:#f59e0b;"></span>
+                            <span>চিহ্নিত করা</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-3 h-3 rounded" style="background:#7c3aed;"></span>
+                            <span>উত্তর + চিহ্নিত</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-3 h-3 rounded" style="background:#e2e8f0;"></span>
+                            <span>দেখা হয়নি</span>
+                        </div>
+                    </div>
+
+                    <div id="palette-grid" class="grid grid-cols-5 gap-2 max-h-[380px] overflow-y-auto pr-1 pt-1"></div>
+                </div>
+
+                <div class="rounded-2xl p-4 space-y-2 text-xs border" style="background:var(--primary-light);border-color:var(--primary-soft);">
+                    <div class="font-bold flex items-center gap-1.5" style="color:var(--primary);">
+                        <i class="ph ph-chalkboard-teacher text-lg"></i>
+                        <span>শিক্ষক নির্দেশিকা:</span>
+                    </div>
+                    <p class="leading-relaxed" style="color:var(--text-muted);">
+                        যেকোনো সংশয়ের ক্ষেত্রে প্রশ্ন পর্যালোচনা (Mark for Review) ফিচার ব্যবহার করুন। সময় সমাপ্ত হওয়ার পূর্বে নিশ্চিত হয়ে 'জমা দিন' বাটন প্রেস করুন।
+                    </p>
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- SUBMIT MODAL -->
+    <div id="submit-modal" class="fixed inset-0 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden modal-backdrop" style="background:rgba(2,6,23,.7);">
+        <div class="modal-panel card rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-5" style="background:var(--surface);border:1px solid var(--border);">
+            <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl font-bold" style="background:#fef3c7;color:#d97706;">
+                <i class="ph ph-warning-circle"></i>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-xl font-bold">পরীক্ষা জমা দিতে চান?</h3>
+                <p class="text-xs md:text-sm" style="color:var(--text-muted);">
+                    আপনি কি নিশ্চিত যে আপনার উত্তরসমূহ জমা দিতে চান? জমা দেওয়ার পর কোনো পরিবর্তন করা যাবে না।
+                </p>
+                <div class="p-3.5 rounded-xl border text-xs space-y-1.5" style="background:var(--surface-2);border-color:var(--border);">
+                    <div class="flex justify-between"><span>মোট প্রশ্ন:</span> <span class="font-bold">৪৪টি</span></div>
+                    <div class="flex justify-between"><span>উত্তর দেওয়া হয়েছে:</span> <span id="modal-answered" class="font-bold" style="color:var(--success);">০</span></div>
+                    <div class="flex justify-between"><span>চিহ্নিত করা হয়েছে:</span> <span id="modal-review" class="font-bold" style="color:#d97706;">০</span></div>
+                </div>
+            </div>
+            <div class="flex items-center justify-end gap-3 pt-2">
+                <button onclick="closeSubmitModal()" class="btn-secondary-jiggasha px-4 py-2 rounded-xl text-xs font-semibold">
+                    ফিরে যান (Return)
+                </button>
+                <button onclick="executeFinalSubmit()" class="btn-primary-jiggasha px-5 py-2 rounded-xl text-xs font-semibold">
+                    নিশ্চিত জমা দিন (Confirm)
+                </button>
             </div>
         </div>
-
-        <!-- RESULT DASHBOARD SCREEN -->
-        <div id="result-screen" class="hidden">
-            <div class="card result-dashboard">
-                <h2>পশ্চিমবঙ্গ বিজ্ঞান মঞ্চ - ২০২৫</h2>
-                <p style="color: var(--text-muted); font-size: 0.95rem;">জেলা বিজ্ঞান মানসিকতা ও মেধা অভীক্ষা - ফলাফল
-                    ড্যাশবোর্ড</p>
-
-                <div class="score-card">
-                    <div>আপনার অর্জিত নম্বর (Your Score)</div>
-                    <div class="score-big" id="score-display">0 / 100</div>
-                    <div id="percentage-display" style="font-size: 1.2rem; font-weight: 600; opacity: 0.9;">0%</div>
-                </div>
-
-                <div class="stats-grid">
-                    <div class="stat-box">
-                        <div class="stat-val correct" id="stat-correct">0</div>
-                        <div class="stat-lbl">সঠিক (Correct)</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-val wrong" id="stat-wrong">0</div>
-                        <div class="stat-lbl">ভুল (Wrong)</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-val unanswered" id="stat-unanswered">0</div>
-                        <div class="stat-lbl">উত্তর দেওয়া হয়নি (Unanswered)</div>
-                    </div>
-                </div>
-
-                <div class="btn-group">
-                    <button class="btn btn-primary" onclick="showReviewMode()">🔍 সমস্ত উত্তরের ব্যাখ্যা দেখুন
-                        (Review)</button>
-                    <button class="btn btn-secondary" onclick="window.print()">🖨️ প্রিন্ট করুন / PDF সেভ করুন</button>
-                    <button class="btn btn-warning" onclick="restartQuiz()">🔄 পুনরায় পরীক্ষা দিন (Restart)</button>
-                    <a href="../../../index.html" class="btn btn-primary">
-                        🏠 হোম পেজে ফিরে যান
-                    </a>
-                </div>
-            </div>
-
-            <!-- Detailed Review Section -->
-            <div id="review-container" class="hidden" style="margin-top: 30px;">
-                <h3 style="margin-bottom: 15px; text-align: center;">উত্তর ও বিশদ বিশ্লেষণ (Detailed Review & Solutions)
-                </h3>
-
-                <div class="filter-bar">
-                    <button class="filter-btn active" onclick="filterReview('all', this)">সবকটি (All)</button>
-                    <button class="filter-btn" onclick="filterReview('correct', this)">সঠিক (Correct)</button>
-                    <button class="filter-btn" onclick="filterReview('wrong', this)">ভুল (Wrong)</button>
-                    <button class="filter-btn" onclick="filterReview('unanswered', this)">অনুত্তরিত
-                        (Unanswered)</button>
-                </div>
-
-                <div id="review-cards-list">
-                    <!-- Review cards generated dynamically -->
-                </div>
-            </div>
-        </div>
-
     </div>
 
+    <!-- FOOTER -->
+    <footer class="mt-12 border-t py-8" style="background:var(--surface);border-color:var(--border);">
+        <div class="max-w-[1400px] mx-auto px-4 flex flex-col items-center gap-4 text-center">
+            <div class="flex items-center gap-2 font-bold text-lg" style="color:var(--primary);">
+                <i class="ph-fill ph-student text-2xl"></i>
+                <span lang="bn">জিজ্ঞাসা (Jiggasha)</span>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 text-xs font-semibold" style="color:var(--text-muted);">
+                <a href="../../../index.html" class="hover:opacity-80 transition" style="color:inherit;text-decoration:none;">Home</a>
+                <a href="../../../classes.html" class="hover:opacity-80 transition" style="color:inherit;text-decoration:none;">Classes</a>
+                <a href="../../../notes.html" class="hover:opacity-80 transition" style="color:inherit;text-decoration:none;">Notes</a>
+                <a href="../../../quizzes.html" class="hover:opacity-80 transition" style="color:inherit;text-decoration:none;">Quizzes</a>
+                <a href="../../../about.html" class="hover:opacity-80 transition" style="color:inherit;text-decoration:none;">About Us</a>
+                <a href="../../../contact.html" class="hover:opacity-80 transition" style="color:inherit;text-decoration:none;">Contact Us</a>
+            </div>
+            <p class="text-xs" style="color:var(--text-muted);">
+                &copy; 2026 <span lang="bn">জিজ্ঞাসা</span> (Jiggasha) - West Bengal Vigyan Moncho Quiz. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- BOTTOM NAV -->
+    <nav class="bottom-nav lg:hidden" aria-label="Mobile quick navigation">
+        <a href="../../../index.html"><i class="ph ph-house"></i><span>Home</span></a>
+        <a href="../../../classes.html"><i class="ph ph-books"></i><span>Classes</span></a>
+        <a href="../../../quizzes.html" class="active"><i class="ph ph-exam"></i><span>Quiz</span></a>
+        <a href="../../../teachers.html"><i class="ph ph-user"></i><span>Teacher</span></a>
+        <a href="../../../contact.html"><i class="ph ph-envelope-simple"></i><span>Contact</span></a>
+    </nav>
+
     <script>
-        /* CONFIGURATION SETTINGS */
-        const QUIZ_TIME_MINUTES = 135; // 2 Hours 15 Minutes as per exam PDF
-        const MARKS_CORRECT = 1;
-        const MARKS_WRONG = 0;
-        const MARKS_UNANSWERED = 0;
-        const RANDOMIZE_QUESTIONS = false;
-        const RANDOMIZE_OPTIONS = false;
+        /* ============ CONFIG ============ */
+        const QUIZ_TIME_MINUTES = 135;
+        const MARKS_CORRECT = 100 / 44; // per-question marks proportionally
 
-        /* QUESTION DATA STRUCTURE FROM PDF SOURCE */
+        /* ============ QUESTION DATA ============ */
         const rawQuestions = [
-            // SECTION 1: Environment & Science (পরিবেশ ও বিজ্ঞান)
-            {
-                id: 1,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "1. a) বহুরূপতা দেখা যায় না-",
-                englishQuestion: "1. a) Allotropy is not shown by-",
-                options: [
-                    { label: "i", bengali: "O (অক্সিজেন)", english: "O (Oxygen)" },
-                    { label: "ii", bengali: "S (সালফার)", english: "S (Sulphur)" },
-                    { label: "iii", bengali: "Na (সোডিয়াম)", english: "Na (Sodium)" },
-                    { label: "iv", bengali: "C (কার্বন)", english: "C (Carbon)" }
-                ],
-                correctAnswer: "iii",
-                solutionBengali: "সমাধান: সোডিয়াম (Na) একটি ক্ষার ধাতু, যা বহুরূপতা (Allotropy) প্রদর্শন করে না। অক্সিজেন (O₂/O₃), সালফার (S), এবং কার্বনের (হীরক, গ্রাফাইট) রূপভেদ দেখা যায়।",
-                solutionEnglish: "Solution: Sodium (Na) is an alkali metal and does not show allotropy. Oxygen, Sulphur, and Carbon exhibit allotropic forms.",
-                sourcePage: 2
-            },
-            {
-                id: 2,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "1. b) পদ্ম পাতায় জলবিন্দু চকচক করার কারণ হল, আলোর-",
-                englishQuestion: "1. b) Water droplets on a lotus leaf shine due to-",
-                options: [
-                    { label: "i", bengali: "প্রতিসরণ", english: "Refraction" },
-                    { label: "ii", bengali: "আভ্যন্তরীণ পূর্ণ প্রতিফলন", english: "Total Internal Reflection" },
-                    { label: "iii", bengali: "শোষণ", english: "Absorption" },
-                    { label: "iv", bengali: "প্রতিফলন", english: "Reflection" }
-                ],
-                correctAnswer: "ii",
-                solutionBengali: "সমাধান: পদ্ম পাতার উপরে থাকা সূক্ষ্ম মোমজাতীয় আবরণের কারণে জলবিন্দুর বায়ু-জল তলে আলোর আভ্যন্তরীণ পূর্ণ প্রতিফলন ঘটে, যার ফলে জলবিন্দু চকচক করে।",
-                solutionEnglish: "Solution: Due to the waxy layer on lotus leaves, light undergoes Total Internal Reflection inside the water droplet, making it glitter.",
-                sourcePage: 2
-            },
-            {
-                id: 3,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "1. c) SRI পদ্ধতি কোন্ চাষের সাথে সম্পর্কিত-",
-                englishQuestion: "1. c) The SRI method is associated with the cultivation of-",
-                options: [
-                    { label: "i", bengali: "আলু", english: "Potato" },
-                    { label: "ii", bengali: "আখ", english: "Sugarcane" },
-                    { label: "iii", bengali: "পাট", english: "Jute" },
-                    { label: "iv", bengali: "ধান", english: "Rice / Paddy" }
-                ],
-                correctAnswer: "iv",
-                solutionBengali: "সমাধান: SRI এর পুরো নাম হল System of Rice Intensification, যা কম জল ও কম বীজ ব্যবহারে ধান চাষের একটি পরিবেশবান্ধব ও উন্নত পদ্ধতি।",
-                solutionEnglish: "Solution: SRI stands for System of Rice Intensification, an eco-friendly methodology for increasing paddy yield with less water.",
-                sourcePage: 2
-            },
-            {
-                id: 4,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "1. d) মিশ্রগ্রন্থি বলা হয়-",
-                englishQuestion: "1. d) Which of the following is called a mixed gland?",
-                options: [
-                    { label: "i", bengali: "থাইরয়েড", english: "Thyroid" },
-                    { label: "ii", bengali: "অ্যাড্রিনাল", english: "Adrenal" },
-                    { label: "iii", bengali: "অগ্ন্যাশয়", english: "Pancreas" },
-                    { label: "iv", bengali: "পিটুইটারী", english: "Pituitary" }
-                ],
-                correctAnswer: "iii",
-                solutionBengali: "সমাধান: অগ্ন্যাশয় (Pancreas) উৎসেচক (বহিঃক্ষরা) এবং হরমোন (অন্তঃক্ষরা) উভয়ই নিঃসরণ করে বলে একে মিশ্রগ্রন্থি বলা হয়।",
-                solutionEnglish: "Solution: Pancreas acts as both an exocrine gland (secreting enzymes) and an endocrine gland (secreting hormones like insulin), so it is called a mixed gland.",
-                sourcePage: 2
-            },
-            {
-                id: 5,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "1. e) ক্যানসারের ঔষধ ট্যাকসল (Taxol) পাওয়া যায়-",
-                englishQuestion: "1. e) The anti-cancer drug Taxol is obtained from-",
-                options: [
-                    { label: "i", bengali: "প্যাপাভার থেকে", english: "Papaver" },
-                    { label: "ii", bengali: "ব্যাকোপা থেকে", english: "Bacopa" },
-                    { label: "iii", bengali: "র‍্যাফ্লেসিয়া থেকে", english: "Rafflesia" },
-                    { label: "iv", bengali: "ট্যাক্সাস থেকে", english: "Taxus" }
-                ],
-                correctAnswer: "iv",
-                solutionBengali: "সমাধান: ট্যাক্সাস (Taxus baccata / Pacific Yew) নামক পাইন জাতীয় উদ্ভিদের ছাল ও পাতা থেকে ক্যানসার প্রতিরোধী ঔষধ ট্যাকসল নিষ্কাশন করা হয়।",
-                solutionEnglish: "Solution: Taxol is a anti-cancer chemotherapy medication harvested from the Pacific Yew tree (Taxus species).",
-                sourcePage: 2
-            },
-            {
-                id: 6,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "1. f) পৃথিবীর অভিকর্ষজ ত্বরণ 'g' হলে, চাঁদে অভিকর্ষজ ত্বরণ হবে-",
-                englishQuestion: "1. f) If the acceleration due to gravity on Earth is 'g', then on the Moon it will be-",
-                options: [
-                    { label: "i", bengali: "g / 6", english: "g / 6" },
-                    { label: "ii", bengali: "6g", english: "6g" },
-                    { label: "iii", bengali: "g / 3", english: "g / 3" },
-                    { label: "iv", bengali: "g / 36", english: "g / 36" }
-                ],
-                correctAnswer: "i",
-                solutionBengali: "সমাধান: চাঁদের ভর ও ব্যাসার্ধ পৃথিবীর তুলনায় ছোট হওয়ায় চাঁদে অভিকর্ষজ ত্বরণের মান পৃথিবীর মান 'g' এর প্রায় ১/৬ অংশ (g/6)।",
-                solutionEnglish: "Solution: Gravity on the Moon is roughly 1/6th of that on the surface of Earth ($g_{moon} = g/6$).",
-                sourcePage: 2
-            },
-            // 2. Odd one out
-            {
-                id: 7,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "2. a) বিজাতীয় শব্দ চিহ্নিত কর (Find the odd one out):",
-                englishQuestion: "2. a) Identify the odd term out:",
-                options: [
-                    { label: "i", bengali: "ক্যালসিয়াম (Calcium)", english: "Calcium" },
-                    { label: "ii", bengali: "মলিবডেনাম (Molybdenum)", english: "Molybdenum" },
-                    { label: "iii", bengali: "জিঙ্ক (Zinc)", english: "Zinc" },
-                    { label: "iv", bengali: "ম্যাঙ্গানিজ (Manganese)", english: "Manganese" }
-                ],
-                correctAnswer: "i",
-                solutionBengali: "সমাধান: ক্যালসিয়াম হল উদ্ভিদের অতিমাত্রিক উপাদান (Macro-nutrient), কিন্তু মলিবডেনাম, জিঙ্ক ও ম্যাঙ্গানিজ হল স্বল্পমাত্রিক উপাদান (Micro-nutrient)।",
-                solutionEnglish: "Solution: Calcium is a plant macro-nutrient, whereas Molybdenum, Zinc, and Manganese are micro-nutrients.",
-                sourcePage: 2
-            },
-            {
-                id: 8,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "2. b) বিজাতীয় শব্দ চিহ্নিত কর (Find the odd one out):",
-                englishQuestion: "2. b) Identify the odd term out:",
-                options: [
-                    { label: "i", bengali: "মলটেজ (Maltase)", english: "Maltase" },
-                    { label: "ii", bengali: "পেপসিন (Pepsin)", english: "Pepsin" },
-                    { label: "iii", bengali: "টায়ালিন (Ptyalin)", english: "Ptyalin" },
-                    { label: "iv", bengali: "লাইপেজ (Lipase)", english: "Lipase" }
-                ],
-                correctAnswer: "ii",
-                solutionBengali: "সমাধান: পেপসিন আম্লিক মাধ্যমে (পাকস্থলীতে) কাজ করে এবং প্রোটিন পরিপাক করে, বাকিগুলি অন্য পরিপাক উৎসেচক।",
-                solutionEnglish: "Solution: Pepsin functions specifically in acidic medium (stomach) breaking down proteins.",
-                sourcePage: 2
-            },
-            {
-                id: 9,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "2. c) বিজাতীয় শব্দ চিহ্নিত কর (Find the odd one out):",
-                englishQuestion: "2. c) Identify the odd chemical compound:",
-                options: [
-                    { label: "i", bengali: "NO₂", english: "NO₂" },
-                    { label: "ii", bengali: "Na₂O", english: "Na₂O" },
-                    { label: "iii", bengali: "P₂O₅", english: "P₂O₅" },
-                    { label: "iv", bengali: "CO₂", english: "CO₂" }
-                ],
-                correctAnswer: "ii",
-                solutionBengali: "সমাধান: Na₂O (সোডিয়াম অক্সাইড) একটি ক্ষারকীয় অক্সাইড (ধাতব অক্সাইড), কিন্তু NO₂, P₂O₅, ও CO₂ হলো আম্লিক অক্সাইড (অধাতব অক্সাইড)।",
-                solutionEnglish: "Solution: Na₂O is a basic metal oxide, whereas NO₂, P₂O₅, and CO₂ are acidic non-metal oxides.",
-                sourcePage: 2
-            },
-            {
-                id: 10,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "2. d) বিজাতীয় শব্দ চিহ্নিত কর (Find the odd one out):",
-                englishQuestion: "2. d) Identify the odd term out:",
-                options: [
-                    { label: "i", bengali: "ACTH", english: "ACTH" },
-                    { label: "ii", bengali: "GTH", english: "GTH" },
-                    { label: "iii", bengali: "STH", english: "STH" },
-                    { label: "iv", bengali: "TSH", english: "TSH" }
-                ],
-                correctAnswer: "iii",
-                solutionBengali: "সমাধান: STH (সমোটোট্রপিক হরমোন) সরাসরি দেহের সার্বিক বৃদ্ধি ঘটায়, কিন্তু ACTH, GTH, ও TSH ট্রপিক হরমোন হিসেবে অন্যান্য গ্রন্থিকে উদ্দীপিত করে।",
-                solutionEnglish: "Solution: STH directly affects body tissue growth, whereas ACTH, GTH, and TSH act specifically on other target glands.",
-                sourcePage: 2
-            },
-            {
-                id: 11,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "2. e) বিজাতীয় শব্দ চিহ্নিত কর (Find the odd one out):",
-                englishQuestion: "2. e) Identify the odd organism out:",
-                options: [
-                    { label: "i", bengali: "লাইকেন (Lichen)", english: "Lichen" },
-                    { label: "ii", bengali: "রাইজোবিয়াম (Rhizobium)", english: "Rhizobium" },
-                    { label: "iii", bengali: "এশ্চেরিটিয়া (Escherichia)", english: "Escherichia" },
-                    { label: "iv", bengali: "প্লাজমোডিয়াম (Plasmodium)", english: "Plasmodium" }
-                ],
-                correctAnswer: "iv",
-                solutionBengali: "সমাধান: প্লাজমোডিয়াম (Plasmodium) হল একটি ক্ষতিকারক এককোষী পরজীবী প্রোটোজোয়া (ম্যালেরিয়া রোগ সৃষ্টিকারী), বাকিগুলি মিথোজীবী বা উপকারী অনুজীব।",
-                solutionEnglish: "Solution: Plasmodium is a pathogenic protozoan parasite causing Malaria, whereas others are symbiotic or normal flora.",
-                sourcePage: 2
-            },
-            {
-                id: 12,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "2. f) বিজাতীয় শব্দ চিহ্নিত কর (Find the odd one out):",
-                englishQuestion: "2. f) Identify the odd substance out:",
-                options: [
-                    { label: "i", bengali: "হাইড্রোজেন ক্লোরাইড (HCl)", english: "Hydrogen Chloride" },
-                    { label: "ii", bengali: "সোডিয়াম ক্লোরাইড (NaCl)", english: "Sodium Chloride" },
-                    { label: "iii", bengali: "মিথেন (CH₄)", english: "Methane" },
-                    { label: "iv", bengali: "জল (H₂O)", english: "Water" }
-                ],
-                correctAnswer: "ii",
-                solutionBengali: "সমাধান: সোডিয়াম ক্লোরাইড (NaCl) একটি তড়িৎযোজী (আয়নীয়) যৌগ, বাকিগুলি সমযোজী যৌগ।",
-                solutionEnglish: "Solution: Sodium Chloride (NaCl) is an ionic/electrovalent compound, while HCl, CH₄, and H₂O are covalent compounds.",
-                sourcePage: 2
-            },
-            // True / False
-            {
-                id: 13,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "3. a) সত্য/মিথ্যা: বজ্রপাতের সময় খোলা জায়গায় গাছের নীচে দাঁড়ানোর চেয়ে মোটর গাড়ির ভিতরে থাকা নিরাপদ।",
-                englishQuestion: "3. a) True/False: During thunderstorms, staying inside a car is safer than standing under a tree in the open.",
-                options: [
-                    { label: "i", bengali: "সত্য (True)", english: "True" },
-                    { label: "ii", bengali: "মিথ্যা (False)", english: "False" }
-                ],
-                correctAnswer: "i",
-                solutionBengali: "সমাধান: সত্য। মোটর গাড়ির ধাতব কাঠামো ফ্যারাডে খাঁচার (Faraday Cage) ন্যায় কাজ করে তড়িৎ আধানকে বাইরের তলে সীমাবদ্ধ রাখে।",
-                solutionEnglish: "Solution: True. The metallic shell of a car acts as a Faraday Cage shielding occupants from electricity.",
-                sourcePage: 2
-            },
-            {
-                id: 14,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "3. b) সত্য/মিথ্যা: সেমিনাল মূল নষ্ট হয়ে গুচ্ছমূল তৈরী করে।",
-                englishQuestion: "3. b) True/False: Seminal root disappears to produce fibrous root system.",
-                options: [
-                    { label: "i", bengali: "সত্য (True)", english: "True" },
-                    { label: "ii", bengali: "মিথ্যা (False)", english: "False" }
-                ],
-                correctAnswer: "i",
-                solutionBengali: "সমাধান: সত্য। একবীজপত্রী উদ্ভিদে প্রাথমিক বা সেমিনাল মূল শীঘ্রই বিনষ্ট হয়ে কাণ্ডের গোড়া থেকে গুচ্ছমূল উৎপন্ন হয়।",
-                solutionEnglish: "Solution: True. In monocots, primary/seminal roots are short-lived and replaced by fibrous roots.",
-                sourcePage: 2
-            },
-            {
-                id: 15,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "3. c) সত্য/মিথ্যা: 'জিঙ্ক অক্সাইড' (ZnO) 'দার্শনিকের উল' (Philosopher's Wool) নামে পরিচিত।",
-                englishQuestion: "3. c) True/False: Zinc Oxide (ZnO) is known as 'Philosopher's Wool'.",
-                options: [
-                    { label: "i", bengali: "সত্য (True)", english: "True" },
-                    { label: "ii", bengali: "মিথ্যা (False)", english: "False" }
-                ],
-                correctAnswer: "i",
-                solutionBengali: "সমাধান: সত্য। দস্তা বায়ুতে দহন করলে উলের মতো নরম সাদা জিঙ্ক অক্সাইড (ZnO) তৈরি হয়, যাকে দার্শনিকের উল বলা হয়।",
-                solutionEnglish: "Solution: True. Zinc oxide was called philosopher's wool because burning zinc in air produces wool-like white tufts.",
-                sourcePage: 2
-            },
-            {
-                id: 16,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "3. d) সত্য/মিথ্যা: 'Looking glass tree' হল- রাবার গাছ।",
-                englishQuestion: "3. d) True/False: 'Looking glass tree' refers to the rubber tree.",
-                options: [
-                    { label: "i", bengali: "সত্য (True)", english: "True" },
-                    { label: "ii", bengali: "মিথ্যা (False)", english: "False" }
-                ],
-                correctAnswer: "ii",
-                solutionBengali: "সমাধান: মিথ্যা। 'Looking glass tree' হলো সুন্দরী গাছ (Heritiera fomes), কারণ এর পাতার নিচের দিক চকচকে রূপালী রুপ ধারণ করে।",
-                solutionEnglish: "Solution: False. The 'Looking glass tree' is Heritiera fomes (Sundari tree), not rubber tree.",
-                sourcePage: 2
-            },
-            {
-                id: 17,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "3. e) সত্য/মিথ্যা: 60° কোণে থাকা দুইটি দর্পণের মাঝখানে একটি বস্তু রাখলে বস্তুটির চারটি প্রতিবিম্ব তৈরি হয়।",
-                englishQuestion: "3. e) True/False: If an object is placed between two mirrors angled at 60°, four images are formed.",
-                options: [
-                    { label: "i", bengali: "সত্য (True)", english: "True" },
-                    { label: "ii", bengali: "মিথ্যা (False)", english: "False" }
-                ],
-                correctAnswer: "ii",
-                solutionBengali: "সমাধান: মিথ্যা। প্রতিবিম্ব সংখ্যা $N = \\frac{360^{\\circ}}{\\theta} - 1 = \\frac{360}{60} - 1 = 6 - 1 = 5$ টি প্রতিবিম্ব গঠিত হয়।",
-                solutionEnglish: "Solution: False. The number of images is $N = (360/60) - 1 = 5$, not 4.",
-                sourcePage: 2
-            },
-            // Relation identification
-            {
-                id: 18,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "4. a) নীচের কোন্ বিষয়টি অপর তিনটির সঙ্গে সম্পর্কযুক্ত?",
-                englishQuestion: "4. a) Which single term encompasses the other three?",
-                options: [
-                    { label: "i", bengali: "জালক (Capillaries)", english: "Capillaries" },
-                    { label: "ii", bengali: "রক্তসংবহনতন্ত্র (Circulatory System)", english: "Circulatory System" },
-                    { label: "iii", bengali: "ধমনী (Artery)", english: "Artery" },
-                    { label: "iv", bengali: "শিরা (Vein)", english: "Vein" }
-                ],
-                correctAnswer: "ii",
-                solutionBengali: "সমাধান: ধমনী, শিরা এবং জালক—এই তিনটি অঙ্গই 'রক্তসংবহনতন্ত্র'-এর অংশ।",
-                solutionEnglish: "Solution: Artery, vein, and capillaries are components of the Circulatory System.",
-                sourcePage: 3
-            },
-            {
-                id: 19,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "4. b) নীচের কোন্ বিষয়টি অপর তিনটির সঙ্গে সম্পর্কযুক্ত?",
-                englishQuestion: "4. b) Which single term encompasses the other three?",
-                options: [
-                    { label: "i", bengali: "প্রোটন (Proton)", english: "Proton" },
-                    { label: "ii", bengali: "নিউট্রন (Neutron)", english: "Neutron" },
-                    { label: "iii", bengali: "ইলেকট্রন (Electron)", english: "Electron" },
-                    { label: "iv", bengali: "পরমাণু (Atom)", english: "Atom" }
-                ],
-                correctAnswer: "iv",
-                solutionBengali: "সমাধান: প্রোটন, নিউট্রন ও ইলেকট্রন—তিনটিই পরমাণুর গঠনকারী মৌলিক কণা।",
-                solutionEnglish: "Solution: Proton, neutron, and electron are constituent subatomic particles of an Atom.",
-                sourcePage: 3
-            },
-            {
-                id: 20,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "4. c) নীচের কোন্ বিষয়টি অপর তিনটির সঙ্গে সম্পর্কযুক্ত?",
-                englishQuestion: "4. c) Which single term encompasses the other three?",
-                options: [
-                    { label: "i", bengali: "প্রস্বেদন (Transpiration)", english: "Transpiration" },
-                    { label: "ii", bengali: "লেন্টিসেল (Lenticel)", english: "Lenticel" },
-                    { label: "iii", bengali: "পত্ররন্ধ্র (Stomata)", english: "Stomata" },
-                    { label: "iv", bengali: "কিউটিক্যাল (Cuticle)", english: "Cuticle" }
-                ],
-                correctAnswer: "i",
-                solutionBengali: "সমাধান: লেন্টিসেল, পত্ররন্ধ্র এবং কিউটিক্যাল—তিনটিই উদ্ভিদের প্রস্বেদন প্রক্রিয়ার মাধ্যম।",
-                solutionEnglish: "Solution: Lenticels, stomata, and cuticle are all structures through which Transpiration occurs.",
-                sourcePage: 3
-            },
-            {
-                id: 21,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "4. d) নীচের কোন্ বিষয়টি অপর তিনটির সঙ্গে সম্পর্কযুক্ত?",
-                englishQuestion: "4. d) Which single term encompasses the other three?",
-                options: [
-                    { label: "i", bengali: "গ্রাফাইট (Graphite)", english: "Graphite" },
-                    { label: "ii", bengali: "কার্বোনেডো (Carbonado)", english: "Carbonado" },
-                    { label: "iii", bengali: "কার্বন (Carbon)", english: "Carbon" },
-                    { label: "iv", bengali: "গ্যাস কার্বন (Gas Carbon)", english: "Gas Carbon" }
-                ],
-                correctAnswer: "iii",
-                solutionBengali: "সমাধান: গ্রাফাইট, কার্বোনেডো ও গ্যাস কার্বন—সবকটিই কার্বন মৌলের বিভিন্ন রূপভেদ।",
-                solutionEnglish: "Solution: Graphite, carbonado, and gas carbon are all allotropes/forms of Carbon.",
-                sourcePage: 3
-            },
-            {
-                id: 22,
-                section: "পরিবেশ ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "4. e) নীচের কোন্ বিষয়টি অপর তিনটির সঙ্গে সম্পর্কযুক্ত?",
-                englishQuestion: "4. e) Which single term encompasses the other three?",
-                options: [
-                    { label: "i", bengali: "ইনসিটু সংরক্ষণ (In-situ Conservation)", english: "In-situ Conservation" },
-                    { label: "ii", bengali: "ন্যাশনাল পার্ক (National Park)", english: "National Park" },
-                    { label: "iii", bengali: "অভয়ারণ্য (Sanctuary)", english: "Sanctuary" },
-                    { label: "iv", bengali: "বায়োস্ফিয়ার রিজার্ভ (Biosphere Reserve)", english: "Biosphere Reserve" }
-                ],
-                correctAnswer: "i",
-                solutionBengali: "সমাধান: ন্যাশনাল পার্ক, অভয়ারণ্য এবং বায়োস্ফিয়ার রিজার্ভ—তিনটিই ইন-সিটু সংরক্ষণের বিভিন্ন পদ্ধতি।",
-                solutionEnglish: "Solution: National parks, sanctuaries, and biosphere reserves are modes of In-situ conservation.",
-                sourcePage: 3
-            },
-
-            // SECTION 2: MATHEMATICS (গণিত)
-            {
-                id: 23,
-                section: "গণিত",
-                type: "mcq",
-                bengaliQuestion: "1. a) যদি $n$ একটি পূর্ণসংখ্যা হয় এবং $n > 1$ হয়, তবে $n(n^2 - 1)$ সর্বদা বিভাজ্য হবে-",
-                englishQuestion: "1. a) If $n$ is an integer and $n > 1$, then $n(n^2 - 1)$ is always divisible by-",
-                options: [
-                    { label: "i", bengali: "4 দ্বারা", english: "4" },
-                    { label: "ii", bengali: "5 দ্বারা", english: "5" },
-                    { label: "iii", bengali: "6 দ্বারা", english: "6" },
-                    { label: "iv", bengali: "9 দ্বারা", english: "9" }
-                ],
-                correctAnswer: "iii",
-                solutionBengali: "সমাধান: $n(n^2-1) = (n-1)n(n+1)$। তিনটি পরপর পূর্ণসংখ্যার গুণফল সর্বদা $3! = 6$ দ্বারা বিভাজ্য। (উদাহরণ: $n=2 \\Rightarrow 1 \\times 2 \\times 3 = 6$)।",
-                solutionEnglish: "Solution: $n(n^2-1) = (n-1)n(n+1)$ is the product of 3 consecutive integers, which is always divisible by $3! = 6$.",
-                sourcePage: 5
-            },
-            {
-                id: 24,
-                section: "গণিত",
-                type: "mcq",
-                bengaliQuestion: "1. b) একটি সুষম বহুভুজের অন্তঃকোণগুলির সমষ্টি $540^{\\circ}$ হলে উহার বাহুসংখ্যা হবে-",
-                englishQuestion: "1. b) If the sum of interior angles of a regular polygon is $540^{\\circ}$, the number of sides is-",
-                options: [
-                    { label: "i", bengali: "6", english: "6" },
-                    { label: "ii", bengali: "5", english: "5" },
-                    { label: "iii", bengali: "7", english: "7" },
-                    { label: "iv", bengali: "11", english: "11" }
-                ],
-                correctAnswer: "ii",
-                solutionBengali: "সমাধান: বহুভুজের অন্তঃকোণগুলির সমষ্টি $=(2n - 4) \\times 90^{\\circ} = 540^{\\circ} \\Rightarrow 2n - 4 = 6 \\Rightarrow 2n = 10 \\Rightarrow n = 5$ (পঞ্চভুজ)।",
-                solutionEnglish: "Solution: Sum of interior angles $=(2n-4) \\times 90^{\\circ} = 540^{\\circ} \\implies 2n-4 = 6 \\implies n = 5$.",
-                sourcePage: 5
-            },
-            {
-                id: 25,
-                section: "গণিত",
-                type: "mcq",
-                bengaliQuestion: "1. c) $x + \\frac{1}{x} = -2$ হলে, $x^{99} + \\frac{1}{x^{100}}$ এর মান হল-",
-                englishQuestion: "1. c) If $x + \\frac{1}{x} = -2$, then the value of $x^{99} + \\frac{1}{x^{100}}$ is-",
-                options: [
-                    { label: "i", bengali: "0", english: "0" },
-                    { label: "ii", bengali: "1", english: "1" },
-                    { label: "iii", bengali: "-1", english: "-1" },
-                    { label: "iv", bengali: "199", english: "199" }
-                ],
-                correctAnswer: "i",
-                solutionBengali: "সমাধান: $x + 1/x = -2 \\Rightarrow x^2 + 2x + 1 = 0 \\Rightarrow (x+1)^2 = 0 \\Rightarrow x = -1$।\nঅতএব, $x^{99} + \\frac{1}{x^{100}} = (-1)^{99} + \\frac{1}{(-1)^{100}} = -1 + 1 = 0$।",
-                solutionEnglish: "Solution: $x + 1/x = -2 \\implies x = -1$. Therefore, $(-1)^{99} + 1/(-1)^{100} = -1 + 1 = 0$.",
-                sourcePage: 5
-            },
-            {
-                id: 26,
-                section: "গণিত",
-                type: "mcq",
-                bengaliQuestion: "1. d) ক্রয়মূল্য ও বিক্রয়মূল্যের অনুপাত 9 : 10 হলে, লাভের হার হবে-",
-                englishQuestion: "1. d) If the ratio of Cost Price to Selling Price is 9 : 10, the profit percentage is-",
-                options: [
-                    { label: "i", bengali: "10%", english: "10%" },
-                    { label: "ii", bengali: "11 (1/9) %", english: "11 (1/9) %" },
-                    { label: "iii", bengali: "10 (1/3) %", english: "10 (1/3) %" },
-                    { label: "iv", bengali: "3 (1/9) %", english: "3 (1/9) %" }
-                ],
-                correctAnswer: "ii",
-                solutionBengali: "সমাধান: ধরি ক্রয়মূল্য = 9 টাকা, বিক্রয়মূল্য = 10 টাকা। লাভ = 1 টাকা।\nশতকরা লাভ $= \\frac{1}{9} \\times 100\\% = 11\\frac{1}{9}\\%$।",
-                solutionEnglish: "Solution: Cost Price = 9, Selling Price = 10. Profit = 1. Profit % $= (1/9) \\times 100\\% = 11\\frac{1}{9}\\%$.",
-                sourcePage: 5
-            },
-            {
-                id: 27,
-                section: "গণিত",
-                type: "mcq",
-                bengaliQuestion: "1. e) $x^0 + y^0 + z^0$ এর মান কত? (যেখানে $x, y, z \\neq 0$)",
-                englishQuestion: "1. e) What is the value of $x^0 + y^0 + z^0$? (where $x, y, z \\neq 0$)",
-                options: [
-                    { label: "i", bengali: "0", english: "0" },
-                    { label: "ii", bengali: "1", english: "1" },
-                    { label: "iii", bengali: "3", english: "3" },
-                    { label: "iv", bengali: "কোনটিই নয়", english: "None of these" }
-                ],
-                correctAnswer: "iii",
-                solutionBengali: "সমাধান: যেকোনো অশূন্য সংখ্যার সূচক 0 হলে তার মান 1 হয় ($a^0 = 1$)।\nঅতএব, $x^0 + y^0 + z^0 = 1 + 1 + 1 = 3$।",
-                solutionEnglish: "Solution: Any non-zero number raised to exponent 0 equals 1. Thus $1 + 1 + 1 = 3$.",
-                sourcePage: 5
-            },
-            {
-                id: 28,
-                section: "গণিত",
-                type: "mcq",
-                bengaliQuestion: "1. f) $y = 7$ সরলরেখাটি-",
-                englishQuestion: "1. f) The straight line $y = 7$ is-",
-                options: [
-                    { label: "i", bengali: "মূলবিন্দুগামী", english: "Passing through origin" },
-                    { label: "ii", bengali: "x-অক্ষের সমান্তরাল", english: "Parallel to x-axis" },
-                    { label: "iii", bengali: "y-অক্ষের সমান্তরাল", english: "Parallel to y-axis" },
-                    { label: "iv", bengali: "কোনটিই নয়", english: "None of these" }
-                ],
-                correctAnswer: "ii",
-                solutionBengali: "সমাধান: $y = k$ (ধ্রুবক) আকারের যেকোনো সরলরেখা $x$-অক্ষের সমান্তরাল হয়।",
-                solutionEnglish: "Solution: Any line of the form $y = c$ (constant) is parallel to the x-axis.",
-                sourcePage: 5
-            },
-            {
-                id: 29,
-                section: "গণিত",
-                type: "mcq",
-                bengaliQuestion: "2. a) (5, 2a + 6) বিন্দুটি x-অক্ষের উপর অবস্থিত হলে, a-এর মান কত?",
-                englishQuestion: "2. a) If the point (5, 2a + 6) lies on the x-axis, then value of 'a' is-",
-                options: [
-                    { label: "i", bengali: "a = -3", english: "a = -3" },
-                    { label: "ii", bengali: "a = 3", english: "a = 3" },
-                    { label: "iii", bengali: "a = 0", english: "a = 0" },
-                    { label: "iv", bengali: "a = -5", english: "a = -5" }
-                ],
-                correctAnswer: "i",
-                solutionBengali: "সমাধান: $x$-অক্ষের উপর যেকোনো বিন্দুর $y$-স্থানাঙ্ক 0 হয়।\nসুতরাং, $2a + 6 = 0 \\Rightarrow 2a = -6 \\Rightarrow a = -3$।",
-                solutionEnglish: "Solution: On the x-axis, y-coordinate is 0. So $2a + 6 = 0 \\implies a = -3$.",
-                sourcePage: 5
-            },
-            {
-                id: 30,
-                section: "গণিত",
-                type: "mcq",
-                bengaliQuestion: "2. b) ABC ত্রিভুজের AB > AC এবং BQ ও CP দুটি মধ্যমা হলে, BQ ও CP-এর মধ্যে সম্পর্ক কি?",
-                englishQuestion: "2. b) In $\\triangle ABC$, if $AB > AC$ and BQ, CP are medians, then relationship between BQ and CP is-",
-                options: [
-                    { label: "i", bengali: "BQ < CP", english: "BQ < CP" },
-                    { label: "ii", bengali: "BQ > CP", english: "BQ > CP" },
-                    { label: "iii", bengali: "BQ = CP", english: "BQ = CP" },
-                    { label: "iv", bengali: "কোনটিই নয়", english: "None of these" }
-                ],
-                correctAnswer: "i",
-                solutionBengali: "সমাধান: ত্রিভুজের বৃহত্তর বাহুর বিপরীত মধ্যমা ক্ষুদ্রতর হয়। যেহেতু $AB > AC$, তাই $AC$ বাহুর মধ্যমা $BQ < CP$ (AB বাহুর মধ্যমা)।",
-                solutionEnglish: "Solution: In a triangle, the median drawn to the shorter side is longer. Since $AB > AC$, median $BQ < CP$.",
-                sourcePage: 5
-            },
-            {
-                id: 31,
-                section: "গণিত",
-                type: "mcq",
-                bengaliQuestion: "2. c) 2, 10, 30, 68, 130, 222, ... শ্রেণিটির ৭ম (7th) পদটি কত?",
-                englishQuestion: "2. c) What is the 7th term of the sequence: 2, 10, 30, 68, 130, 222, ...?",
-                options: [
-                    { label: "i", bengali: "343", english: "343" },
-                    { label: "ii", bengali: "350", english: "350" },
-                    { label: "iii", bengali: "336", english: "336" },
-                    { label: "iv", bengali: "512", english: "512" }
-                ],
-                correctAnswer: "ii",
-                solutionBengali: "সমাধান: শ্রেণিটির পদগুলির নিয়ম হলো $n^3 + n$:\n$1st: 1^3+1=2$, $2nd: 2^3+2=10$, $3rd: 3^3+3=30$, ...\nসুতরাং $7th$ পদ $= 7^3 + 7 = 343 + 7 = 350$।",
-                solutionEnglish: "Solution: Pattern is $n^3 + n$. For $n=7$, $7^3 + 7 = 343 + 7 = 350$.",
-                sourcePage: 5
-            },
-            {
-                id: 32,
-                section: "গণিত",
-                type: "mcq",
-                bengaliQuestion: "2. d) পঞ্চভুজের কর্ণের সংখ্যা কতটি?",
-                englishQuestion: "2. d) What is the number of diagonals in a pentagon?",
-                options: [
-                    { label: "i", bengali: "5 টি", english: "5" },
-                    { label: "ii", bengali: "10 টি", english: "10" },
-                    { label: "iii", bengali: "8 টি", english: "8" },
-                    { label: "iv", bengali: "6 টি", english: "6" }
-                ],
-                correctAnswer: "i",
-                solutionBengali: "সমাধান: $n$-সংখ্যক বাহুযুক্ত বহুভুজের কর্ণের সংখ্যা $= \\frac{n(n-3)}{2}$।\nপঞ্চভুজের ক্ষেত্রে ($n=5$): $\\frac{5(5-3)}{2} = \\frac{5 \\times 2}{2} = 5$ টি।",
-                solutionEnglish: "Solution: Number of diagonals $= n(n-3)/2 = 5(2)/2 = 5$.",
-                sourcePage: 5
-            },
-
-            // SECTION 3: GENERAL KNOWLEDGE & SCIENCE (সাধারণ জ্ঞান ও বিজ্ঞান)
-            {
-                id: 33,
-                section: "সাধারণ জ্ঞান ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "1. a) 'হুল' (Hul) কথার অর্থ হলো-",
-                englishQuestion: "1. a) The word 'Hul' means-",
-                options: [
-                    { label: "i", bengali: "দাঙ্গা", english: "Rioting" },
-                    { label: "ii", bengali: "বিদ্রোহ", english: "Rebellion / Revolt" },
-                    { label: "iii", bengali: "বিপ্লব", english: "Revolution" },
-                    { label: "iv", bengali: "অভ্যুত্থান", english: "Uprising" }
-                ],
-                correctAnswer: "ii",
-                solutionBengali: "সমাধান: সাঁওতালি ভাষায় 'হুল' শব্দের অর্থ হল 'বিদ্রোহ'। ১৮৫৫ সালের ঐতিহাসিক সাঁওতাল বিদ্রোহ 'সাঁওতাল হুল' নামে পরিচিত।",
-                solutionEnglish: "Solution: In the Santali language, 'Hul' signifies 'Rebellion' (e.g., Santal Hul of 1855).",
-                sourcePage: 8
-            },
-            {
-                id: 34,
-                section: "সাধারণ জ্ঞান ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "1. b) বনস্পতি ঘি তৈরিতে কোন্ গ্যাস ব্যবহৃত হয়?",
-                englishQuestion: "1. b) Which gas is used in the manufacture of Vanaspati Ghee?",
-                options: [
-                    { label: "i", bengali: "কার্বন-ডাই-অক্সাইড", english: "Carbon dioxide" },
-                    { label: "ii", bengali: "নাইট্রোজেন", english: "Nitrogen" },
-                    { label: "iii", bengali: "হাইড্রোজেন", english: "Hydrogen" },
-                    { label: "iv", bengali: "অক্সিজেন", english: "Oxygen" }
-                ],
-                correctAnswer: "iii",
-                solutionBengali: "সমাধান: উদ্ভিদ তেলকে নিকেল অনুঘটকের উপস্থিতিতে হাইড্রোজিনেশন (Hydrogenation) প্রক্রিয়ায় হাইড্রোজেন ($H_2$) গ্যাস চালনা করে বনস্পতি ঘি তৈরি করা হয়।",
-                solutionEnglish: "Solution: Hydrogen gas is bubbled through vegetable oil in the presence of a nickel catalyst (Hydrogenation).",
-                sourcePage: 8
-            },
-            {
-                id: 35,
-                section: "সাধারণ জ্ঞান ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "1. c) কলকাতা বিশ্ববিদ্যালয় স্থাপিত হয়-",
-                englishQuestion: "1. c) Calcutta University was established in the year-",
-                options: [
-                    { label: "i", bengali: "1833 খ্রীঃ", english: "1833 AD" },
-                    { label: "ii", bengali: "1853 খ্রীঃ", english: "1853 AD" },
-                    { label: "iii", bengali: "1857 খ্রীঃ", english: "1857 AD" },
-                    { label: "iv", bengali: "1873 খ্রীঃ", english: "1873 AD" }
-                ],
-                correctAnswer: "iii",
-                solutionBengali: "সমাধান: ২৪ শে জানুয়ারি ১৮৫৭ খ্রিস্টাব্দে কলকাতা বিশ্ববিদ্যালয় প্রতিষ্ঠিত হয়। (Source note: PDF option shows 1873/1853, correct historical year is 1857 AD).",
-                solutionEnglish: "Solution: Calcutta University was established on 24th January 1857.",
-                sourcePage: 8
-            },
-            {
-                id: 36,
-                section: "সাধারণ জ্ঞান ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "1. d) এম.এস. স্বামীনাথন যে বিষয়ের সঙ্গে যুক্ত, সেটি হল-",
-                englishQuestion: "1. d) M. S. Swaminathan was associated with-",
-                options: [
-                    { label: "i", bengali: "কৃষি বিজ্ঞান (Agricultural Science)", english: "Agricultural Science" },
-                    { label: "ii", bengali: "নৃ বিজ্ঞান (Anthropology)", english: "Anthropology" },
-                    { label: "iii", bengali: "পরিবেশ বিদ্যা (Environmental Science)", english: "Environmental Science" },
-                    { label: "iv", bengali: "সমাজবিজ্ঞান (Sociology)", english: "Sociology" }
-                ],
-                correctAnswer: "i",
-                solutionBengali: "সমাধান: ড. এম. এস. স্বামীনাথন ভারতে সবুজ বিপ্লবের জনক (Father of Green Revolution in India) হিসেবে খ্যাত একজন প্রখ্যাত কৃষিবিজ্ঞানী।",
-                solutionEnglish: "Solution: Dr. M. S. Swaminathan was a renowned Agricultural Scientist, known as the Father of Indian Green Revolution.",
-                sourcePage: 8
-            },
-            {
-                id: 37,
-                section: "সাধারণ জ্ঞান ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "1. e) আধার কার্ডে (Aadhaar Card) কতগুলো নম্বর থাকে?",
-                englishQuestion: "1. e) How many digits are there in an Aadhaar Card number?",
-                options: [
-                    { label: "i", bengali: "16 টি", english: "16 digits" },
-                    { label: "ii", bengali: "12 টি", english: "12 digits" },
-                    { label: "iii", bengali: "10 টি", english: "10 digits" },
-                    { label: "iv", bengali: "14 টি", english: "14 digits" }
-                ],
-                correctAnswer: "ii",
-                solutionBengali: "সমাধান: ভারতের আধার কার্ডে ১২ অঙ্কের (12-digit) অনন্য সনাক্তকরণ নম্বর থাকে।",
-                solutionEnglish: "Solution: An Aadhaar number is a 12-digit unique identity number issued by UIDAI.",
-                sourcePage: 8
-            },
-            {
-                id: 38,
-                section: "সাধারণ জ্ঞান ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "2. A. a) সাপে কামড়ালে কোন্টির প্রয়োগই একমাত্র সঠিক চিকিৎসাপদ্ধতি?",
-                englishQuestion: "2. A. a) What is the only correct medical treatment for a snake bite?",
-                options: [
-                    { label: "i", bengali: "অ্যান্টিভেনম সিরাম (AVS)", english: "Anti-Venom Serum (AVS)" },
-                    { label: "ii", bengali: "অ্যান্টিবায়োটিক (Antibiotics)", english: "Antibiotics" },
-                    { label: "iii", bengali: "ঝাড়ফুঁক (Ojha/Exorcism)", english: "Faith healing" },
-                    { label: "iv", bengali: "প্যারাসিটামল (Paracetamol)", english: "Paracetamol" }
-                ],
-                correctAnswer: "i",
-                solutionBengali: "সমাধান: বিষধর সাপের কামড়ে একমাত্র সঠিক ও বৈজ্ঞানিক চিকিৎসা হলো দ্রুত হাসপাতালে গিয়ে অ্যান্টিভেনম সিরাম (Anti-Venom Serum - AVS) ইনজেকশন দেওয়া।",
-                solutionEnglish: "Solution: Administering Anti-Venom Serum (AVS) at a hospital is the only scientifically proven treatment for snake bites.",
-                sourcePage: 8
-            },
-            {
-                id: 39,
-                section: "সাধারণ জ্ঞান ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "2. A. b) বিশ্ব জল দিবস (World Water Day) পালিত হয় কোন্ তারিখে?",
-                englishQuestion: "2. A. b) World Water Day is celebrated on which date?",
-                options: [
-                    { label: "i", bengali: "২২শে মার্চ (22nd March)", english: "22nd March" },
-                    { label: "ii", bengali: "৫ই জুন (5th June)", english: "5th June" },
-                    { label: "iii", bengali: "২২শে এপ্রিল (22nd April)", english: "22nd April" },
-                    { label: "iv", bengali: "১৬ই সেপ্টেম্বর (16th September)", english: "16th September" }
-                ],
-                correctAnswer: "i",
-                solutionBengali: "সমাধান: প্রতি বছর ২২শে মার্চ তারিখে বিশ্বজুড়ে 'বিশ্ব জল দিবস' পালিত হয়।",
-                solutionEnglish: "Solution: World Water Day is observed every year on March 22nd.",
-                sourcePage: 8
-            },
-            {
-                id: 40,
-                section: "সাধারণ জ্ঞান ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "2. B. a) অনুরূপ সম্পর্ক: লাইনাস পাউলিং: No More War :: _____ : Silent Spring",
-                englishQuestion: "2. B. a) Analogy: Linus Pauling : No More War :: _____ : Silent Spring",
-                options: [
-                    { label: "i", bengali: "র‍্যাচেল কার্সন (Rachel Carson)", english: "Rachel Carson" },
-                    { label: "ii", bengali: "চার্লস ডারউইন (Charles Darwin)", english: "Charles Darwin" },
-                    { label: "iii", bengali: "অ্যান্ডি ওয়ারহল (Andy Warhol)", english: "Andy Warhol" },
-                    { label: "iv", bengali: "জন কিটস (John Keats)", english: "John Keats" }
-                ],
-                correctAnswer: "i",
-                solutionBengali: "সমাধান: বিখ্যাত 'Silent Spring' বইটি রচনা করেছিলেন বিশিষ্ট পরিবেশবিদ ও জীববিজ্ঞানী র‍্যাচেল কার্সন (Rachel Carson)।",
-                solutionEnglish: "Solution: 'Silent Spring' is an environmental science book written by Rachel Carson.",
-                sourcePage: 8
-            },
-            {
-                id: 41,
-                section: "সাধারণ জ্ঞান ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "2. B. b) অনুরূপ সম্পর্ক: উড়োজাহাজ: রাইট ভ্রাতৃদ্বয় :: সাইকেল: _____",
-                englishQuestion: "2. B. b) Analogy: Aeroplane : Wright Brothers :: Bicycle : _____",
-                options: [
-                    { label: "i", bengali: "কার্ল ভন ড্রেস / ম্যাকমিলান (Karl Drais / Kirkpatrick Macmillan)", english: "Karl Drais / Kirkpatrick Macmillan" },
-                    { label: "ii", bengali: "এডিসন (Edison)", english: "Edison" },
-                    { label: "iii", bengali: "গ্যালিলিও (Galileo)", english: "Galileo" },
-                    { label: "iv", bengali: "মার Marconi (Marconi)", english: "Marconi" }
-                ],
-                correctAnswer: "i",
-                solutionBengali: "সমাধান: বাইসাইকেলের প্রাথমিক আবিষ্কর্তা ছিলেন জার্মানির কার্ল ভন ড্রেস (১৮১৭) এবং আধুনিক পেডাল সাইকেল উদ্ভাবক কির্কপ্যাট্রিক ম্যাকমিলান।",
-                solutionEnglish: "Solution: Karl Drais invented the running machine (early bicycle) and Kirkpatrick Macmillan invented the pedal bicycle.",
-                sourcePage: 8
-            },
-            {
-                id: 42,
-                section: "সাধারণ জ্ঞান ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "3. a-d) স্তম্ভ মেলাও: চার্লস ব্যাবেজ, প্রফুল্লচন্দ্র রায়, মার্টিন কুপার, শুভাংশু শুক্লা",
-                englishQuestion: "3. Match columns: Babbage, P. C. Ray, Martin Cooper, Shubhanshu Shukla",
-                options: [
-                    { label: "i", bengali: "ব্যাবেজ: কম্পিউটারের জনক, প্রফুল্লচন্দ্র: বেঙ্গল কেমিক্যাল, মার্টিন কুপার: মোবাইলের জনক, শুভাংশু শুক্লা: মহাকাশচারী", english: "Babbage: Computer, P.C.Ray: Bengal Chemical, Cooper: Mobile, Shukla: Astronaut" },
-                    { label: "ii", bengali: "অন্যান্য সমন্বয় (Incorrect combination)", english: "Incorrect combination" }
-                ],
-                correctAnswer: "i",
-                solutionBengali: "সমাধান: চার্লস ব্যাবেজ -> কম্পিউটারের জনক, প্রফুল্লচন্দ্র রায় -> বেঙ্গল কেমিক্যাল, মার্টিন কুপার -> মোবাইলের জনক, শুভাংশু শুক্লা -> ভারতীয় মহাকাশচারী (Ax-4 মিশন)।",
-                solutionEnglish: "Solution: Babbage -> Father of Computer, P.C. Ray -> Bengal Chemicals, Martin Cooper -> Father of Mobile, Shubhanshu Shukla -> Astronaut.",
-                sourcePage: 8
-            },
-            {
-                id: 43,
-                section: "সাধারণ জ্ঞান ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "4. b) আমি একজন যুক্তিবাদী, বিজ্ঞানমনস্ক চিন্তাবিদ ও লেখক। বিদ্যাসাগরের সমসাময়িক ও 'তত্ত্ববোধিনী' পত্রিকার সম্পাদক ছিলাম। আমি কে এবং আমার জন্ম কোথায়?",
-                englishQuestion: "4. b) I was a rationalist thinker, writer, contemporary of Vidyasagar and editor of 'Tattwabodhini Patrika'. Who am I and where was I born?",
-                options: [
-                    { label: "i", bengali: "অক্ষয়কুমার দত্ত (জন্ম: চোরবাগান, কলকাতা / বর্ধমান)", english: "Akshay Kumar Datta (Born: Calcutta/Burdwan)" },
-                    { label: "ii", bengali: "দেবেন্দ্রনাথ ঠাকুর", english: "Debendranath Tagore" },
-                    { label: "iii", bengali: "রামমোহন রায়", english: "Raja Ram Mohan Roy" },
-                    { label: "iv", bengali: "ঈশ্বরচন্দ্র বিদ্যাসাগর", english: "Ishwar Chandra Vidyasagar" }
-                ],
-                correctAnswer: "i",
-                solutionBengali: "সমাধান: উক্ত ব্যক্তিত্ব হলেন বিখ্যাত প্রাবন্ধিক অক্ষয়কুমার দত্ত। তাঁর জন্ম তৎকালীন বর্ধমান জেলার চুপী গ্রামে (১৮২০)।",
-                solutionEnglish: "Solution: The person is Akshay Kumar Datta, editor of Tattwabodhini Patrika, born at Chupi village, Burdwan.",
-                sourcePage: 9
-            },
-            {
-                id: 44,
-                section: "সাধারণ জ্ঞান ও বিজ্ঞান",
-                type: "mcq",
-                bengaliQuestion: "4. d) কোন্ গ্রহের আহ্নিক গতি (Rotation) তার বার্ষিক গতি (Revolution) অপেক্ষা ধীর/বেশি সময় নেয়?",
-                englishQuestion: "4. d) Which planet's rotation period is longer than its orbital revolution period?",
-                options: [
-                    { label: "i", bengali: "শুক্র (Venus)", english: "Venus" },
-                    { label: "ii", bengali: "মঙ্গল (Mars)", english: "Mars" },
-                    { label: "iii", bengali: "বৃহস্পতি (Jupiter)", english: "Jupiter" },
-                    { label: "iv", bengali: "বুধ (Mercury)", english: "Mercury" }
-                ],
-                correctAnswer: "i",
-                solutionBengali: "সমাধান: শুক্র গ্রহের (Venus) নিজ অক্ষের চারপাশে ঘুরতে সময় লাগে ২৪৩ পৃথিবী-দিন, কিন্তু সূর্যের চারপাশে একবার পরিক্রমণ করতে সময় লাগে ২২৫ পৃথিবী-দিন। অর্থাৎ এর একদিন এর এক বছরের চেয়ে বড়।",
-                solutionEnglish: "Solution: Venus takes 243 Earth days to rotate once on its axis, but only 225 Earth days to complete one orbit around the Sun.",
-                sourcePage: 10
-            }
+            { id: 1, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "1. a) বহুরূপতা দেখা যায় না-", englishQuestion: "1. a) Allotropy is not shown by-", options: [ { label: "i", bengali: "O (অক্সিজেন)", english: "O (Oxygen)" }, { label: "ii", bengali: "S (সালফার)", english: "S (Sulphur)" }, { label: "iii", bengali: "Na (সোডিয়াম)", english: "Na (Sodium)" }, { label: "iv", bengali: "C (কার্বন)", english: "C (Carbon)" } ], correctAnswer: "iii", solutionBengali: "সমাধান: সোডিয়াম (Na) একটি ক্ষার ধাতু, যা বহুরূপতা (Allotropy) প্রদর্শন করে না। অক্সিজেন (O₂/O₃), সালফার (S), এবং কার্বনের (হীরক, গ্রাফাইট) রূপভেদ দেখা যায়।", solutionEnglish: "Solution: Sodium (Na) is an alkali metal and does not show allotropy.", sourcePage: 2 },
+            { id: 2, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "1. b) পদ্ম পাতায় জলবিন্দু চকচক করার কারণ হল, আলোর-", englishQuestion: "1. b) Water droplets on a lotus leaf shine due to-", options: [ { label: "i", bengali: "প্রতিসরণ", english: "Refraction" }, { label: "ii", bengali: "আভ্যন্তরীণ পূর্ণ প্রতিফলন", english: "Total Internal Reflection" }, { label: "iii", bengali: "শোষণ", english: "Absorption" }, { label: "iv", bengali: "প্রতিফলন", english: "Reflection" } ], correctAnswer: "ii", solutionBengali: "সমাধান: পদ্ম পাতার উপরে থাকা সূক্ষ্ম মোমজাতীয় আবরণের কারণে জলবিন্দুর বায়ু-জল তলে আলোর আভ্যন্তরীণ পূর্ণ প্রতিফলন ঘটে, যার ফলে জলবিন্দু চকচক করে।", solutionEnglish: "Solution: Due to the waxy layer on lotus leaves, light undergoes Total Internal Reflection inside the water droplet.", sourcePage: 2 },
+            { id: 3, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "1. c) SRI পদ্ধতি কোন্ চাষের সাথে সম্পর্কিত-", englishQuestion: "1. c) The SRI method is associated with the cultivation of-", options: [ { label: "i", bengali: "আলু", english: "Potato" }, { label: "ii", bengali: "আখ", english: "Sugarcane" }, { label: "iii", bengali: "পাট", english: "Jute" }, { label: "iv", bengali: "ধান", english: "Rice / Paddy" } ], correctAnswer: "iv", solutionBengali: "সমাধান: SRI এর পুরো নাম হল System of Rice Intensification, যা কম জল ও কম বীজ ব্যবহারে ধান চাষের একটি পরিবেশবান্ধব ও উন্নত পদ্ধতি।", solutionEnglish: "Solution: SRI stands for System of Rice Intensification, an eco-friendly methodology for increasing paddy yield.", sourcePage: 2 },
+            { id: 4, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "1. d) মিশ্রগ্রন্থি বলা হয়-", englishQuestion: "1. d) Which of the following is called a mixed gland?", options: [ { label: "i", bengali: "থাইরয়েড", english: "Thyroid" }, { label: "ii", bengali: "অ্যাড্রিনাল", english: "Adrenal" }, { label: "iii", bengali: "অগ্ন্যাশয়", english: "Pancreas" }, { label: "iv", bengali: "পিটুইটারী", english: "Pituitary" } ], correctAnswer: "iii", solutionBengali: "সমাধান: অগ্ন্যাশয় (Pancreas) উৎসেচক (বহিঃক্ষরা) এবং হরমোন (অন্তঃক্ষরা) উভয়ই নিঃসরণ করে বলে একে মিশ্রগ্রন্থি বলা হয়।", solutionEnglish: "Solution: Pancreas acts as both an exocrine gland and an endocrine gland, so it is called a mixed gland.", sourcePage: 2 },
+            { id: 5, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "1. e) ক্যানসারের ঔষধ ট্যাকসল (Taxol) পাওয়া যায়-", englishQuestion: "1. e) The anti-cancer drug Taxol is obtained from-", options: [ { label: "i", bengali: "প্যাপাভার থেকে", english: "Papaver" }, { label: "ii", bengali: "ব্যাকোপা থেকে", english: "Bacopa" }, { label: "iii", bengali: "র‍্যাফ্লেসিয়া থেকে", english: "Rafflesia" }, { label: "iv", bengali: "ট্যাক্সাস থেকে", english: "Taxus" } ], correctAnswer: "iv", solutionBengali: "সমাধান: ট্যাক্সাস (Taxus baccata / Pacific Yew) নামক পাইন জাতীয় উদ্ভিদের ছাল ও পাতা থেকে ক্যানসার প্রতিরোধী ঔষধ ট্যাকসল নিষ্কাশন করা হয়।", solutionEnglish: "Solution: Taxol is an anti-cancer chemotherapy medication harvested from the Pacific Yew tree (Taxus species).", sourcePage: 2 },
+            { id: 6, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "1. f) পৃথিবীর অভিকর্ষজ ত্বরণ 'g' হলে, চাঁদে অভিকর্ষজ ত্বরণ হবে-", englishQuestion: "1. f) If the acceleration due to gravity on Earth is 'g', then on the Moon it will be-", options: [ { label: "i", bengali: "g / 6", english: "g / 6" }, { label: "ii", bengali: "6g", english: "6g" }, { label: "iii", bengali: "g / 3", english: "g / 3" }, { label: "iv", bengali: "g / 36", english: "g / 36" } ], correctAnswer: "i", solutionBengali: "সমাধান: চাঁদের ভর ও ব্যাসার্ধ পৃথিবীর তুলনায় ছোট হওয়ায় চাঁদে অভিকর্ষজ ত্বরণের মান পৃথিবীর মান 'g' এর প্রায় ১/৬ অংশ (g/6)।", solutionEnglish: "Solution: Gravity on the Moon is roughly 1/6th of that on the surface of Earth.", sourcePage: 2 },
+            { id: 7, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "2. a) বিজাতীয় শব্দ চিহ্নিত কর:", englishQuestion: "2. a) Identify the odd term out:", options: [ { label: "i", bengali: "ক্যালসিয়াম (Calcium)", english: "Calcium" }, { label: "ii", bengali: "মলিবডেনাম (Molybdenum)", english: "Molybdenum" }, { label: "iii", bengali: "জিঙ্ক (Zinc)", english: "Zinc" }, { label: "iv", bengali: "ম্যাঙ্গানিজ (Manganese)", english: "Manganese" } ], correctAnswer: "i", solutionBengali: "সমাধান: ক্যালসিয়াম হল উদ্ভিদের অতিমাত্রিক উপাদান (Macro-nutrient), কিন্তু মলিবডেনাম, জিঙ্ক ও ম্যাঙ্গানিজ হল স্বল্পমাত্রিক উপাদান (Micro-nutrient)।", solutionEnglish: "Solution: Calcium is a plant macro-nutrient, whereas others are micro-nutrients.", sourcePage: 2 },
+            { id: 8, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "2. b) বিজাতীয় শব্দ চিহ্নিত কর:", englishQuestion: "2. b) Identify the odd term out:", options: [ { label: "i", bengali: "মলটেজ (Maltase)", english: "Maltase" }, { label: "ii", bengali: "পেপসিন (Pepsin)", english: "Pepsin" }, { label: "iii", bengali: "টায়ালিন (Ptyalin)", english: "Ptyalin" }, { label: "iv", bengali: "লাইপেজ (Lipase)", english: "Lipase" } ], correctAnswer: "ii", solutionBengali: "সমাধান: পেপসিন আম্লিক মাধ্যমে (পাকস্থলীতে) কাজ করে এবং প্রোটিন পরিপাক করে, বাকিগুলি অন্য পরিপাক উৎসেচক।", solutionEnglish: "Solution: Pepsin functions specifically in acidic medium (stomach) breaking down proteins.", sourcePage: 2 },
+            { id: 9, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "2. c) বিজাতীয় শব্দ চিহ্নিত কর:", englishQuestion: "2. c) Identify the odd chemical compound:", options: [ { label: "i", bengali: "NO₂", english: "NO₂" }, { label: "ii", bengali: "Na₂O", english: "Na₂O" }, { label: "iii", bengali: "P₂O₅", english: "P₂O₅" }, { label: "iv", bengali: "CO₂", english: "CO₂" } ], correctAnswer: "ii", solutionBengali: "সমাধান: Na₂O (সোডিয়াম অক্সাইড) একটি ক্ষারকীয় অক্সাইড (ধাতব অক্সাইড), কিন্তু NO₂, P₂O₅, ও CO₂ হলো আম্লিক অক্সাইড (অধাতব অক্সাইড)।", solutionEnglish: "Solution: Na₂O is a basic metal oxide, whereas others are acidic non-metal oxides.", sourcePage: 2 },
+            { id: 10, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "2. d) বিজাতীয় শব্দ চিহ্নিত কর:", englishQuestion: "2. d) Identify the odd term out:", options: [ { label: "i", bengali: "ACTH", english: "ACTH" }, { label: "ii", bengali: "GTH", english: "GTH" }, { label: "iii", bengali: "STH", english: "STH" }, { label: "iv", bengali: "TSH", english: "TSH" } ], correctAnswer: "iii", solutionBengali: "সমাধান: STH (সমোটোট্রপিক হরমোন) সরাসরি দেহের সার্বিক বৃদ্ধি ঘটায়, কিন্তু ACTH, GTH, ও TSH ট্রপিক হরমোন হিসেবে অন্যান্য গ্রন্থিকে উদ্দীপিত করে।", solutionEnglish: "Solution: STH directly affects body tissue growth, whereas ACTH, GTH, and TSH act specifically on other target glands.", sourcePage: 2 },
+            { id: 11, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "2. e) বিজাতীয় শব্দ চিহ্নিত কর:", englishQuestion: "2. e) Identify the odd organism out:", options: [ { label: "i", bengali: "লাইকেন (Lichen)", english: "Lichen" }, { label: "ii", bengali: "রাইজোবিয়াম (Rhizobium)", english: "Rhizobium" }, { label: "iii", bengali: "এশ্চেরিটিয়া (Escherichia)", english: "Escherichia" }, { label: "iv", bengali: "প্লাজমোডিয়াম (Plasmodium)", english: "Plasmodium" } ], correctAnswer: "iv", solutionBengali: "সমাধান: প্লাজমোডিয়াম (Plasmodium) হল একটি ক্ষতিকারক এককোষী পরজীবী প্রোটোজোয়া (ম্যালেরিয়া রোগ সৃষ্টিকারী), বাকিগুলি মিথোজীবী বা উপকারী অনুজীব।", solutionEnglish: "Solution: Plasmodium is a pathogenic protozoan parasite causing Malaria, whereas others are symbiotic or normal flora.", sourcePage: 2 },
+            { id: 12, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "2. f) বিজাতীয় শব্দ চিহ্নিত কর:", englishQuestion: "2. f) Identify the odd substance out:", options: [ { label: "i", bengali: "হাইড্রোজেন ক্লোরাইড (HCl)", english: "Hydrogen Chloride" }, { label: "ii", bengali: "সোডিয়াম ক্লোরাইড (NaCl)", english: "Sodium Chloride" }, { label: "iii", bengali: "মিথেন (CH₄)", english: "Methane" }, { label: "iv", bengali: "জল (H₂O)", english: "Water" } ], correctAnswer: "ii", solutionBengali: "সমাধান: সোডিয়াম ক্লোরাইড (NaCl) একটি তড়িৎযোজী (আয়নীয়) যৌগ, বাকিগুলি সমযোজী যৌগ।", solutionEnglish: "Solution: Sodium Chloride (NaCl) is an ionic/electrovalent compound, while HCl, CH₄, and H₂O are covalent compounds.", sourcePage: 2 },
+            { id: 13, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "3. a) সত্য/মিথ্যা: বজ্রপাতের সময় খোলা জায়গায় গাছের নীচে দাঁড়ানোর চেয়ে মোটর গাড়ির ভিতরে থাকা নিরাপদ।", englishQuestion: "3. a) True/False: During thunderstorms, staying inside a car is safer than standing under a tree in the open.", options: [ { label: "i", bengali: "সত্য (True)", english: "True" }, { label: "ii", bengali: "মিথ্যা (False)", english: "False" } ], correctAnswer: "i", solutionBengali: "সমাধান: সত্য। মোটর গাড়ির ধাতব কাঠামো ফ্যারাডে খাঁচার (Faraday Cage) ন্যায় কাজ করে তড়িৎ আধানকে বাইরের তলে সীমাবদ্ধ রাখে।", solutionEnglish: "Solution: True. The metallic shell of a car acts as a Faraday Cage shielding occupants from electricity.", sourcePage: 2 },
+            { id: 14, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "3. b) সত্য/মিথ্যা: সেমিনাল মূল নষ্ট হয়ে গুচ্ছমূল তৈরী করে।", englishQuestion: "3. b) True/False: Seminal root disappears to produce fibrous root system.", options: [ { label: "i", bengali: "সত্য (True)", english: "True" }, { label: "ii", bengali: "মিথ্যা (False)", english: "False" } ], correctAnswer: "i", solutionBengali: "সমাধান: সত্য। একবীজপত্রী উদ্ভিদে প্রাথমিক বা সেমিনাল মূল শীঘ্রই বিনষ্ট হয়ে কাণ্ডের গোড়া থেকে গুচ্ছমূল উৎপন্ন হয়।", solutionEnglish: "Solution: True. In monocots, primary/seminal roots are short-lived and replaced by fibrous roots.", sourcePage: 2 },
+            { id: 15, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "3. c) সত্য/মিথ্যা: 'জিঙ্ক অক্সাইড' (ZnO) 'দার্শনিকের উল' (Philosopher's Wool) নামে পরিচিত।", englishQuestion: "3. c) True/False: Zinc Oxide (ZnO) is known as 'Philosopher's Wool'.", options: [ { label: "i", bengali: "সত্য (True)", english: "True" }, { label: "ii", bengali: "মিথ্যা (False)", english: "False" } ], correctAnswer: "i", solutionBengali: "সমাধান: সত্য। দস্তা বায়ুতে দহন করলে উলের মতো নরম সাদা জিঙ্ক অক্সাইড (ZnO) তৈরি হয়, যাকে দার্শনিকের উল বলা হয়।", solutionEnglish: "Solution: True. Zinc oxide was called philosopher's wool because burning zinc in air produces wool-like white tufts.", sourcePage: 2 },
+            { id: 16, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "3. d) সত্য/মিথ্যা: 'Looking glass tree' হল- রাবার গাছ।", englishQuestion: "3. d) True/False: 'Looking glass tree' refers to the rubber tree.", options: [ { label: "i", bengali: "সত্য (True)", english: "True" }, { label: "ii", bengali: "মিথ্যা (False)", english: "False" } ], correctAnswer: "ii", solutionBengali: "সমাধান: মিথ্যা। 'Looking glass tree' হলো সুন্দরী গাছ (Heritiera fomes), কারণ এর পাতার নিচের দিক চকচকে রূপালী রূপ ধারণ করে।", solutionEnglish: "Solution: False. The 'Looking glass tree' is Heritiera fomes (Sundari tree), not rubber tree.", sourcePage: 2 },
+            { id: 17, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "3. e) সত্য/মিথ্যা: 60° কোণে থাকা দুইটি দর্পণের মাঝখানে একটি বস্তু রাখলে বস্তুটির চারটি প্রতিবিম্ব তৈরি হয়।", englishQuestion: "3. e) True/False: If an object is placed between two mirrors angled at 60°, four images are formed.", options: [ { label: "i", bengali: "সত্য (True)", english: "True" }, { label: "ii", bengali: "মিথ্যা (False)", english: "False" } ], correctAnswer: "ii", solutionBengali: "সমাধান: মিথ্যা। প্রতিবিম্ব সংখ্যা N = 360°/θ - 1 = 360/60 - 1 = 6 - 1 = 5 টি প্রতিবিম্ব গঠিত হয়।", solutionEnglish: "Solution: False. The number of images is N = (360/60) - 1 = 5, not 4.", sourcePage: 2 },
+            { id: 18, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "4. a) নীচের কোন্ বিষয়টি অপর তিনটির সঙ্গে সম্পর্কযুক্ত?", englishQuestion: "4. a) Which single term encompasses the other three?", options: [ { label: "i", bengali: "জালক (Capillaries)", english: "Capillaries" }, { label: "ii", bengali: "রক্তসংবহনতন্ত্র (Circulatory System)", english: "Circulatory System" }, { label: "iii", bengali: "ধমনী (Artery)", english: "Artery" }, { label: "iv", bengali: "শিরা (Vein)", english: "Vein" } ], correctAnswer: "ii", solutionBengali: "সমাধান: ধমনী, শিরা এবং জালক—এই তিনটি অঙ্গই 'রক্তসংবহনতন্ত্র'-এর অংশ।", solutionEnglish: "Solution: Artery, vein, and capillaries are components of the Circulatory System.", sourcePage: 3 },
+            { id: 19, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "4. b) নীচের কোন্ বিষয়টি অপর তিনটির সঙ্গে সম্পর্কযুক্ত?", englishQuestion: "4. b) Which single term encompasses the other three?", options: [ { label: "i", bengali: "প্রোটন (Proton)", english: "Proton" }, { label: "ii", bengali: "নিউট্রন (Neutron)", english: "Neutron" }, { label: "iii", bengali: "ইলেকট্রন (Electron)", english: "Electron" }, { label: "iv", bengali: "পরমাণু (Atom)", english: "Atom" } ], correctAnswer: "iv", solutionBengali: "সমাধান: প্রোটন, নিউট্রন ও ইলেকট্রন—তিনটিই পরমাণুর গঠনকারী মৌলিক কণা।", solutionEnglish: "Solution: Proton, neutron, and electron are constituent subatomic particles of an Atom.", sourcePage: 3 },
+            { id: 20, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "4. c) নীচের কোন্ বিষয়টি অপর তিনটির সঙ্গে সম্পর্কযুক্ত?", englishQuestion: "4. c) Which single term encompasses the other three?", options: [ { label: "i", bengali: "প্রস্বেদন (Transpiration)", english: "Transpiration" }, { label: "ii", bengali: "লেন্টিসেল (Lenticel)", english: "Lenticel" }, { label: "iii", bengali: "পত্ররন্ধ্র (Stomata)", english: "Stomata" }, { label: "iv", bengali: "কিউটিক্যাল (Cuticle)", english: "Cuticle" } ], correctAnswer: "i", solutionBengali: "সমাধান: লেন্টিসেল, পত্ররন্ধ্র এবং কিউটিক্যাল—তিনটিই উদ্ভিদের প্রস্বেদন প্রক্রিয়ার মাধ্যম।", solutionEnglish: "Solution: Lenticels, stomata, and cuticle are all structures through which Transpiration occurs.", sourcePage: 3 },
+            { id: 21, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "4. d) নীচের কোন্ বিষয়টি অপর তিনটির সঙ্গে সম্পর্কযুক্ত?", englishQuestion: "4. d) Which single term encompasses the other three?", options: [ { label: "i", bengali: "গ্রাফাইট (Graphite)", english: "Graphite" }, { label: "ii", bengali: "কার্বোনেডো (Carbonado)", english: "Carbonado" }, { label: "iii", bengali: "কার্বন (Carbon)", english: "Carbon" }, { label: "iv", bengali: "গ্যাস কার্বন (Gas Carbon)", english: "Gas Carbon" } ], correctAnswer: "iii", solutionBengali: "সমাধান: গ্রাফাইট, কার্বোনেডো ও গ্যাস কার্বন—সবকটিই কার্বন মৌলের বিভিন্ন রূপভেদ।", solutionEnglish: "Solution: Graphite, carbonado, and gas carbon are all allotropes/forms of Carbon.", sourcePage: 3 },
+            { id: 22, section: "পরিবেশ ও বিজ্ঞান", bengaliQuestion: "4. e) নীচের কোন্ বিষয়টি অপর তিনটির সঙ্গে সম্পর্কযুক্ত?", englishQuestion: "4. e) Which single term encompasses the other three?", options: [ { label: "i", bengali: "ইনসিটু সংরক্ষণ (In-situ Conservation)", english: "In-situ Conservation" }, { label: "ii", bengali: "ন্যাশনাল পার্ক (National Park)", english: "National Park" }, { label: "iii", bengali: "অভয়ারণ্য (Sanctuary)", english: "Sanctuary" }, { label: "iv", bengali: "বায়োস্ফিয়ার রিজার্ভ (Biosphere Reserve)", english: "Biosphere Reserve" } ], correctAnswer: "i", solutionBengali: "সমাধান: ন্যাশনাল পার্ক, অভয়ারণ্য এবং বায়োস্ফিয়ার রিজার্ভ—তিনটিই ইন-সিটু সংরক্ষণের বিভিন্ন পদ্ধতি।", solutionEnglish: "Solution: National parks, sanctuaries, and biosphere reserves are modes of In-situ conservation.", sourcePage: 3 },
+            { id: 23, section: "গণিত", bengaliQuestion: "1. a) যদি n একটি পূর্ণসংখ্যা হয় এবং n > 1 হয়, তবে n(n² - 1) সর্বদা বিভাজ্য হবে-", englishQuestion: "1. a) If n is an integer and n > 1, then n(n² - 1) is always divisible by-", options: [ { label: "i", bengali: "4 দ্বারা", english: "4" }, { label: "ii", bengali: "5 দ্বারা", english: "5" }, { label: "iii", bengali: "6 দ্বারা", english: "6" }, { label: "iv", bengali: "9 দ্বারা", english: "9" } ], correctAnswer: "iii", solutionBengali: "সমাধান: n(n²-1) = (n-1)n(n+1)। তিনটি পরপর পূর্ণসংখ্যার গুণফল সর্বদা 3! = 6 দ্বারা বিভাজ্য।", solutionEnglish: "Solution: n(n²-1) = (n-1)n(n+1) is the product of 3 consecutive integers, which is always divisible by 6.", sourcePage: 5 },
+            { id: 24, section: "গণিত", bengaliQuestion: "1. b) একটি সুষম বহুভুজের অন্তঃকোণগুলির সমষ্টি 540° হলে উহার বাহুসংখ্যা হবে-", englishQuestion: "1. b) If the sum of interior angles of a regular polygon is 540°, the number of sides is-", options: [ { label: "i", bengali: "6", english: "6" }, { label: "ii", bengali: "5", english: "5" }, { label: "iii", bengali: "7", english: "7" }, { label: "iv", bengali: "11", english: "11" } ], correctAnswer: "ii", solutionBengali: "সমাধান: বহুভুজের অন্তঃকোণগুলির সমষ্টি = (2n - 4) × 90° = 540° ⇒ 2n - 4 = 6 ⇒ 2n = 10 ⇒ n = 5 (পঞ্চভুজ)।", solutionEnglish: "Solution: Sum = (2n-4) × 90° = 540° ⇒ 2n-4 = 6 ⇒ n = 5.", sourcePage: 5 },
+            { id: 25, section: "গণিত", bengaliQuestion: "1. c) x + 1/x = -2 হলে, x⁹⁹ + 1/x¹⁰⁰ এর মান হল-", englishQuestion: "1. c) If x + 1/x = -2, then the value of x⁹⁹ + 1/x¹⁰⁰ is-", options: [ { label: "i", bengali: "0", english: "0" }, { label: "ii", bengali: "1", english: "1" }, { label: "iii", bengali: "-1", english: "-1" }, { label: "iv", bengali: "199", english: "199" } ], correctAnswer: "i", solutionBengali: "সমাধান: x + 1/x = -2 ⇒ x² + 2x + 1 = 0 ⇒ (x+1)² = 0 ⇒ x = -1। অতএব, x⁹⁹ + 1/x¹⁰⁰ = (-1)⁹⁹ + 1/(-1)¹⁰⁰ = -1 + 1 = 0।", solutionEnglish: "Solution: x = -1. Therefore, (-1)⁹⁹ + 1/(-1)¹⁰⁰ = -1 + 1 = 0.", sourcePage: 5 },
+            { id: 26, section: "গণিত", bengaliQuestion: "1. d) ক্রয়মূল্য ও বিক্রয়মূল্যের অনুপাত 9 : 10 হলে, লাভের হার হবে-", englishQuestion: "1. d) If the ratio of Cost Price to Selling Price is 9 : 10, the profit percentage is-", options: [ { label: "i", bengali: "10%", english: "10%" }, { label: "ii", bengali: "11 (1/9) %", english: "11 (1/9) %" }, { label: "iii", bengali: "10 (1/3) %", english: "10 (1/3) %" }, { label: "iv", bengali: "3 (1/9) %", english: "3 (1/9) %" } ], correctAnswer: "ii", solutionBengali: "সমাধান: ধরি ক্রয়মূল্য = 9 টাকা, বিক্রয়মূল্য = 10 টাকা। লাভ = 1 টাকা। শতকরা লাভ = (1/9) × 100% = 11 1/9 %।", solutionEnglish: "Solution: CP = 9, SP = 10. Profit = 1. Profit % = (1/9) × 100% = 11 1/9 %.", sourcePage: 5 },
+            { id: 27, section: "গণিত", bengaliQuestion: "1. e) x⁰ + y⁰ + z⁰ এর মান কত? (যেখানে x, y, z ≠ 0)", englishQuestion: "1. e) What is the value of x⁰ + y⁰ + z⁰? (where x, y, z ≠ 0)", options: [ { label: "i", bengali: "0", english: "0" }, { label: "ii", bengali: "1", english: "1" }, { label: "iii", bengali: "3", english: "3" }, { label: "iv", bengali: "কোনটিই নয়", english: "None of these" } ], correctAnswer: "iii", solutionBengali: "সমাধান: যেকোনো অশূন্য সংখ্যার সূচক 0 হলে তার মান 1 হয় (a⁰ = 1)। অতএব, x⁰ + y⁰ + z⁰ = 1 + 1 + 1 = 3।", solutionEnglish: "Solution: Any non-zero number raised to exponent 0 equals 1. Thus 1 + 1 + 1 = 3.", sourcePage: 5 },
+            { id: 28, section: "গণিত", bengaliQuestion: "1. f) y = 7 সরলরেখাটি-", englishQuestion: "1. f) The straight line y = 7 is-", options: [ { label: "i", bengali: "মূলবিন্দুগামী", english: "Passing through origin" }, { label: "ii", bengali: "x-অক্ষের সমান্তরাল", english: "Parallel to x-axis" }, { label: "iii", bengali: "y-অক্ষের সমান্তরাল", english: "Parallel to y-axis" }, { label: "iv", bengali: "কোনটিই নয়", english: "None of these" } ], correctAnswer: "ii", solutionBengali: "সমাধান: y = k (ধ্রুবক) আকারের যেকোনো সরলরেখা x-অক্ষের সমান্তরাল হয়।", solutionEnglish: "Solution: Any line of the form y = c (constant) is parallel to the x-axis.", sourcePage: 5 },
+            { id: 29, section: "গণিত", bengaliQuestion: "2. a) (5, 2a + 6) বিন্দুটি x-অক্ষের উপর অবস্থিত হলে, a-এর মান কত?", englishQuestion: "2. a) If the point (5, 2a + 6) lies on the x-axis, then value of 'a' is-", options: [ { label: "i", bengali: "a = -3", english: "a = -3" }, { label: "ii", bengali: "a = 3", english: "a = 3" }, { label: "iii", bengali: "a = 0", english: "a = 0" }, { label: "iv", bengali: "a = -5", english: "a = -5" } ], correctAnswer: "i", solutionBengali: "সমাধান: x-অক্ষের উপর যেকোনো বিন্দুর y-স্থানাঙ্ক 0 হয়। সুতরাং, 2a + 6 = 0 ⇒ 2a = -6 ⇒ a = -3।", solutionEnglish: "Solution: On the x-axis, y-coordinate is 0. So 2a + 6 = 0 ⇒ a = -3.", sourcePage: 5 },
+            { id: 30, section: "গণিত", bengaliQuestion: "2. b) ABC ত্রিভুজের AB > AC এবং BQ ও CP দুটি মধ্যমা হলে, BQ ও CP-এর মধ্যে সম্পর্ক কি?", englishQuestion: "2. b) In △ABC, if AB > AC and BQ, CP are medians, then relationship between BQ and CP is-", options: [ { label: "i", bengali: "BQ < CP", english: "BQ < CP" }, { label: "ii", bengali: "BQ > CP", english: "BQ > CP" }, { label: "iii", bengali: "BQ = CP", english: "BQ = CP" }, { label: "iv", bengali: "কোনটিই নয়", english: "None of these" } ], correctAnswer: "i", solutionBengali: "সমাধান: ত্রিভুজের বৃহত্তর বাহুর বিপরীত মধ্যমা ক্ষুদ্রতর হয়। যেহেতু AB > AC, তাই AC বাহুর মধ্যমা BQ < CP (AB বাহুর মধ্যমা)।", solutionEnglish: "Solution: In a triangle, the median drawn to the shorter side is longer. Since AB > AC, median BQ < CP.", sourcePage: 5 },
+            { id: 31, section: "গণিত", bengaliQuestion: "2. c) 2, 10, 30, 68, 130, 222, ... শ্রেণিটির ৭ম (7th) পদটি কত?", englishQuestion: "2. c) What is the 7th term of the sequence: 2, 10, 30, 68, 130, 222, ...?", options: [ { label: "i", bengali: "343", english: "343" }, { label: "ii", bengali: "350", english: "350" }, { label: "iii", bengali: "336", english: "336" }, { label: "iv", bengali: "512", english: "512" } ], correctAnswer: "ii", solutionBengali: "সমাধান: শ্রেণিটির পদগুলির নিয়ম হলো n³ + n: 1st: 1³+1=2, 2nd: 2³+2=10,... সুতরাং 7th পদ = 7³ + 7 = 343 + 7 = 350।", solutionEnglish: "Solution: Pattern is n³ + n. For n=7, 7³ + 7 = 343 + 7 = 350.", sourcePage: 5 },
+            { id: 32, section: "গণিত", bengaliQuestion: "2. d) পঞ্চভুজের কর্ণের সংখ্যা কতটি?", englishQuestion: "2. d) What is the number of diagonals in a pentagon?", options: [ { label: "i", bengali: "5 টি", english: "5" }, { label: "ii", bengali: "10 টি", english: "10" }, { label: "iii", bengali: "8 টি", english: "8" }, { label: "iv", bengali: "6 টি", english: "6" } ], correctAnswer: "i", solutionBengali: "সমাধান: n-সংখ্যক বাহুযুক্ত বহুভুজের কর্ণের সংখ্যা = n(n-3)/2। পঞ্চভুজের ক্ষেত্রে (n=5): 5(5-3)/2 = 5 × 2 / 2 = 5 টি।", solutionEnglish: "Solution: Number of diagonals = n(n-3)/2 = 5(2)/2 = 5.", sourcePage: 5 },
+            { id: 33, section: "সাধারণ জ্ঞান ও বিজ্ঞান", bengaliQuestion: "1. a) 'হুল' (Hul) কথার অর্থ হলো-", englishQuestion: "1. a) The word 'Hul' means-", options: [ { label: "i", bengali: "দাঙ্গা", english: "Rioting" }, { label: "ii", bengali: "বিদ্রোহ", english: "Rebellion / Revolt" }, { label: "iii", bengali: "বিপ্লব", english: "Revolution" }, { label: "iv", bengali: "অভ্যুত্থান", english: "Uprising" } ], correctAnswer: "ii", solutionBengali: "সমাধান: সাঁওতালি ভাষায় 'হুল' শব্দের অর্থ হল 'বিদ্রোহ'। ১৮৫৫ সালের ঐতিহাসিক সাঁওতাল বিদ্রোহ 'সাঁওতাল হুল' নামে পরিচিত।", solutionEnglish: "Solution: In the Santali language, 'Hul' signifies 'Rebellion' (e.g., Santal Hul of 1855).", sourcePage: 8 },
+            { id: 34, section: "সাধারণ জ্ঞান ও বিজ্ঞান", bengaliQuestion: "1. b) বনস্পতি ঘি তৈরিতে কোন্ গ্যাস ব্যবহৃত হয়?", englishQuestion: "1. b) Which gas is used in the manufacture of Vanaspati Ghee?", options: [ { label: "i", bengali: "কার্বন-ডাই-অক্সাইড", english: "Carbon dioxide" }, { label: "ii", bengali: "নাইট্রোজেন", english: "Nitrogen" }, { label: "iii", bengali: "হাইড্রোজেন", english: "Hydrogen" }, { label: "iv", bengali: "অক্সিজেন", english: "Oxygen" } ], correctAnswer: "iii", solutionBengali: "সমাধান: উদ্ভিদ তেলকে নিকেল অনুঘটকের উপস্থিতিতে হাইড্রোজিনেশন (Hydrogenation) প্রক্রিয়ায় হাইড্রোজেন (H₂) গ্যাস চালনা করে বনস্পতি ঘি তৈরি করা হয়।", solutionEnglish: "Solution: Hydrogen gas is bubbled through vegetable oil in the presence of a nickel catalyst (Hydrogenation).", sourcePage: 8 },
+            { id: 35, section: "সাধারণ জ্ঞান ও বিজ্ঞান", bengaliQuestion: "1. c) কলকাতা বিশ্ববিদ্যালয় স্থাপিত হয়-", englishQuestion: "1. c) Calcutta University was established in the year-", options: [ { label: "i", bengali: "1833 খ্রীঃ", english: "1833 AD" }, { label: "ii", bengali: "1853 খ্রীঃ", english: "1853 AD" }, { label: "iii", bengali: "1857 খ্রীঃ", english: "1857 AD" }, { label: "iv", bengali: "1873 খ্রীঃ", english: "1873 AD" } ], correctAnswer: "iii", solutionBengali: "সমাধান: ২৪ শে জানুয়ারি ১৮৫৭ খ্রিস্টাব্দে কলকাতা বিশ্ববিদ্যালয় প্রতিষ্ঠিত হয়।", solutionEnglish: "Solution: Calcutta University was established on 24th January 1857.", sourcePage: 8 },
+            { id: 36, section: "সাধারণ জ্ঞান ও বিজ্ঞান", bengaliQuestion: "1. d) এম.এস. স্বামীনাথন যে বিষয়ের সঙ্গে যুক্ত, সেটি হল-", englishQuestion: "1. d) M. S. Swaminathan was associated with-", options: [ { label: "i", bengali: "কৃষি বিজ্ঞান (Agricultural Science)", english: "Agricultural Science" }, { label: "ii", bengali: "নৃ বিজ্ঞান (Anthropology)", english: "Anthropology" }, { label: "iii", bengali: "পরিবেশ বিদ্যা (Environmental Science)", english: "Environmental Science" }, { label: "iv", bengali: "সমাজবিজ্ঞান (Sociology)", english: "Sociology" } ], correctAnswer: "i", solutionBengali: "সমাধান: ড. এম. এস. স্বামীনাথন ভারতে সবুজ বিপ্লবের জনক (Father of Green Revolution in India) হিসেবে খ্যাত একজন প্রখ্যাত কৃষিবিজ্ঞানী।", solutionEnglish: "Solution: Dr. M. S. Swaminathan was a renowned Agricultural Scientist, known as the Father of Indian Green Revolution.", sourcePage: 8 },
+            { id: 37, section: "সাধারণ জ্ঞান ও বিজ্ঞান", bengaliQuestion: "1. e) আধার কার্ডে (Aadhaar Card) কতগুলো নম্বর থাকে?", englishQuestion: "1. e) How many digits are there in an Aadhaar Card number?", options: [ { label: "i", bengali: "16 টি", english: "16 digits" }, { label: "ii", bengali: "12 টি", english: "12 digits" }, { label: "iii", bengali: "10 টি", english: "10 digits" }, { label: "iv", bengali: "14 টি", english: "14 digits" } ], correctAnswer: "ii", solutionBengali: "সমাধান: ভারতের আধার কার্ডে ১২ অঙ্কের (12-digit) অনন্য সনাক্তকরণ নম্বর থাকে।", solutionEnglish: "Solution: An Aadhaar number is a 12-digit unique identity number issued by UIDAI.", sourcePage: 8 },
+            { id: 38, section: "সাধারণ জ্ঞান ও বিজ্ঞান", bengaliQuestion: "2. A. a) সাপে কামড়ালে কোন্টির প্রয়োগই একমাত্র সঠিক চিকিৎসাপদ্ধতি?", englishQuestion: "2. A. a) What is the only correct medical treatment for a snake bite?", options: [ { label: "i", bengali: "অ্যান্টিভেনম সিরাম (AVS)", english: "Anti-Venom Serum (AVS)" }, { label: "ii", bengali: "অ্যান্টিবায়োটিক (Antibiotics)", english: "Antibiotics" }, { label: "iii", bengali: "ঝাড়ফুঁক (Ojha/Exorcism)", english: "Faith healing" }, { label: "iv", bengali: "প্যারাসিটামল (Paracetamol)", english: "Paracetamol" } ], correctAnswer: "i", solutionBengali: "সমাধান: বিষধর সাপের কামড়ে একমাত্র সঠিক ও বৈজ্ঞানিক চিকিৎসা হলো দ্রুত হাসপাতালে গিয়ে অ্যান্টিভেনম সিরাম (Anti-Venom Serum - AVS) ইনজেকশন দেওয়া।", solutionEnglish: "Solution: Administering Anti-Venom Serum (AVS) at a hospital is the only scientifically proven treatment for snake bites.", sourcePage: 8 },
+            { id: 39, section: "সাধারণ জ্ঞান ও বিজ্ঞান", bengaliQuestion: "2. A. b) বিশ্ব জল দিবস (World Water Day) পালিত হয় কোন্ তারিখে?", englishQuestion: "2. A. b) World Water Day is celebrated on which date?", options: [ { label: "i", bengali: "২২শে মার্চ (22nd March)", english: "22nd March" }, { label: "ii", bengali: "৫ই জুন (5th June)", english: "5th June" }, { label: "iii", bengali: "২২শে এপ্রিল (22nd April)", english: "22nd April" }, { label: "iv", bengali: "১৬ই সেপ্টেম্বর (16th September)", english: "16th September" } ], correctAnswer: "i", solutionBengali: "সমাধান: প্রতি বছর ২২শে মার্চ তারিখে বিশ্বজুড়ে 'বিশ্ব জল দিবস' পালিত হয়।", solutionEnglish: "Solution: World Water Day is observed every year on March 22nd.", sourcePage: 8 },
+            { id: 40, section: "সাধারণ জ্ঞান ও বিজ্ঞান", bengaliQuestion: "2. B. a) অনুরূপ সম্পর্ক: লাইনাস পাউলিং: No More War :: _____ : Silent Spring", englishQuestion: "2. B. a) Analogy: Linus Pauling : No More War :: _____ : Silent Spring", options: [ { label: "i", bengali: "র‍্যাচেল কার্সন (Rachel Carson)", english: "Rachel Carson" }, { label: "ii", bengali: "চার্লস ডারউইন (Charles Darwin)", english: "Charles Darwin" }, { label: "iii", bengali: "অ্যান্ডি ওয়ারহল (Andy Warhol)", english: "Andy Warhol" }, { label: "iv", bengali: "জন কিটস (John Keats)", english: "John Keats" } ], correctAnswer: "i", solutionBengali: "সমাধান: বিখ্যাত 'Silent Spring' বইটি রচনা করেছিলেন বিশিষ্ট পরিবেশবিদ ও জীববিজ্ঞানী র‍্যাচেল কার্সন (Rachel Carson)।", solutionEnglish: "Solution: 'Silent Spring' is an environmental science book written by Rachel Carson.", sourcePage: 8 },
+            { id: 41, section: "সাধারণ জ্ঞান ও বিজ্ঞান", bengaliQuestion: "2. B. b) অনুরূপ সম্পর্ক: উড়োজাহাজ: রাইট ভ্রাতৃদ্বয় :: সাইকেল: _____", englishQuestion: "2. B. b) Analogy: Aeroplane : Wright Brothers :: Bicycle : _____", options: [ { label: "i", bengali: "কার্ল ভন ড্রেস / ম্যাকমিলান (Karl Drais / Kirkpatrick Macmillan)", english: "Karl Drais / Kirkpatrick Macmillan" }, { label: "ii", bengali: "এডিসন (Edison)", english: "Edison" }, { label: "iii", bengali: "গ্যালিলিও (Galileo)", english: "Galileo" }, { label: "iv", bengali: "মার্কনি (Marconi)", english: "Marconi" } ], correctAnswer: "i", solutionBengali: "সমাধান: বাইসাইকেলের প্রাথমিক আবিষ্কর্তা ছিলেন জার্মানির কার্ল ভন ড্রেস (১৮১৭) এবং আধুনিক পেডাল সাইকেল উদ্ভাবক কির্কপ্যাট্রিক ম্যাকমিলান।", solutionEnglish: "Solution: Karl Drais invented the running machine (early bicycle) and Kirkpatrick Macmillan invented the pedal bicycle.", sourcePage: 8 },
+            { id: 42, section: "সাধারণ জ্ঞান ও বিজ্ঞান", bengaliQuestion: "3. a-d) স্তম্ভ মেলাও: চার্লস ব্যাবেজ, প্রফুল্লচন্দ্র রায়, মার্টিন কুপার, শুভাংশু শুক্লা", englishQuestion: "3. Match columns: Babbage, P. C. Ray, Martin Cooper, Shubhanshu Shukla", options: [ { label: "i", bengali: "ব্যাবেজ: কম্পিউটারের জনক, প্রফুল্লচন্দ্র: বেঙ্গল কেমিক্যাল, মার্টিন কুপার: মোবাইলের জনক, শুভাংশু শুক্লা: মহাকাশচারী", english: "Babbage: Computer, P.C.Ray: Bengal Chemical, Cooper: Mobile, Shukla: Astronaut" }, { label: "ii", bengali: "অন্যান্য সমন্বয় (Incorrect combination)", english: "Incorrect combination" } ], correctAnswer: "i", solutionBengali: "সমাধান: চার্লস ব্যাবেজ -> কম্পিউটারের জনক, প্রফুল্লচন্দ্র রায় -> বেঙ্গল কেমিক্যাল, মার্টিন কুপার -> মোবাইলের জনক, শুভাংশু শুক্লা -> ভারতীয় মহাকাশচারী (Ax-4 মিশন)।", solutionEnglish: "Solution: Babbage -> Father of Computer, P.C. Ray -> Bengal Chemicals, Martin Cooper -> Father of Mobile, Shubhanshu Shukla -> Astronaut.", sourcePage: 8 },
+            { id: 43, section: "সাধারণ জ্ঞান ও বিজ্ঞান", bengaliQuestion: "4. b) আমি একজন যুক্তিবাদী, বিজ্ঞানমনস্ক চিন্তাবিদ ও লেখক। বিদ্যাসাগরের সমসাময়িক ও 'তত্ত্ববোধিনী' পত্রিকার সম্পাদক ছিলাম। আমি কে এবং আমার জন্ম কোথায়?", englishQuestion: "4. b) I was a rationalist thinker, writer, contemporary of Vidyasagar and editor of 'Tattwabodhini Patrika'. Who am I and where was I born?", options: [ { label: "i", bengali: "অক্ষয়কুমার দত্ত (জন্ম: চোরবাগান, কলকাতা / বর্ধমান)", english: "Akshay Kumar Datta (Born: Calcutta/Burdwan)" }, { label: "ii", bengali: "দেবেন্দ্রনাথ ঠাকুর", english: "Debendranath Tagore" }, { label: "iii", bengali: "রামমোহন রায়", english: "Raja Ram Mohan Roy" }, { label: "iv", bengali: "ঈশ্বরচন্দ্র বিদ্যাসাগর", english: "Ishwar Chandra Vidyasagar" } ], correctAnswer: "i", solutionBengali: "সমাধান: উক্ত ব্যক্তিত্ব হলেন বিখ্যাত প্রাবন্ধিক অক্ষয়কুমার দত্ত। তাঁর জন্ম তৎকালীন বর্ধমান জেলার চুপী গ্রামে (১৮২০)।", solutionEnglish: "Solution: The person is Akshay Kumar Datta, editor of Tattwabodhini Patrika, born at Chupi village, Burdwan.", sourcePage: 9 },
+            { id: 44, section: "সাধারণ জ্ঞান ও বিজ্ঞান", bengaliQuestion: "4. d) কোন্ গ্রহের আহ্নিক গতি (Rotation) তার বার্ষিক গতি (Revolution) অপেক্ষা ধীর/বেশি সময় নেয়?", englishQuestion: "4. d) Which planet's rotation period is longer than its orbital revolution period?", options: [ { label: "i", bengali: "শুক্র (Venus)", english: "Venus" }, { label: "ii", bengali: "মঙ্গল (Mars)", english: "Mars" }, { label: "iii", bengali: "বৃহস্পতি (Jupiter)", english: "Jupiter" }, { label: "iv", bengali: "বুধ (Mercury)", english: "Mercury" } ], correctAnswer: "i", solutionBengali: "সমাধান: শুক্র গ্রহের (Venus) নিজ অক্ষের চারপাশে ঘুরতে সময় লাগে ২৪৩ পৃথিবী-দিন, কিন্তু সূর্যের চারপাশে একবার পরিক্রমণ করতে সময় লাগে ২২৫ পৃথিবী-দিন। অর্থাৎ এর একদিন এর এক বছরের চেয়ে বড়।", solutionEnglish: "Solution: Venus takes 243 Earth days to rotate once on its axis, but only 225 Earth days to complete one orbit around the Sun.", sourcePage: 10 }
         ];
 
-        /* STATE VARIABLES */
-        let currentQIndex = 0;
-        let userAnswers = {}; // { qId: answerLabel }
-        let reviewFlags = {}; // { qId: true/false }
+        /* ============ STATE ============ */
+        let currentQuestionIndex = 0;
+        let userAnswers = {};
+        let reviewFlags = {};
+        let visitedStatus = {};
+        let testSubmitted = false;
+        let totalTimeSeconds = QUIZ_TIME_MINUTES * 60;
         let timerInterval = null;
-        let timeRemainingSeconds = QUIZ_TIME_MINUTES * 60;
 
-        /* INITIALIZATION */
-        window.onload = function () {
-            initNavigationGrid();
-            loadQuestion(currentQIndex);
-            startTimer();
-        };
+        /* ============ THEME ============ */
+        const themeBtn = document.getElementById('theme-btn');
+        const themeIcon = document.getElementById('theme-icon');
+        function updateThemeIcon() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            themeIcon.className = isDark ? "ph ph-sun" : "ph ph-moon";
+        }
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', nextTheme);
+            try { localStorage.setItem('jiggasha_theme', nextTheme); } catch (e) {}
+            updateThemeIcon();
+        });
+        updateThemeIcon();
 
+        /* ============ MOBILE MENU ============ */
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('open');
+            mobileMenu.classList.toggle('open');
+            menuToggle.setAttribute('aria-expanded', String(!isOpen));
+        });
+
+        /* ============ TIMER ============ */
         function startTimer() {
             updateTimerDisplay();
             timerInterval = setInterval(() => {
-                timeRemainingSeconds--;
+                totalTimeSeconds--;
                 updateTimerDisplay();
-                if (timeRemainingSeconds <= 0) {
+                if (totalTimeSeconds <= 0) {
                     clearInterval(timerInterval);
-                    alert("সময় সমাপ্ত! আপনার পরীক্ষা স্বয়ংক্রিয়ভাবে জমা হচ্ছে।");
-                    submitQuiz();
+                    alert("সময় সমাপ্ত! আপনার পরীক্ষা স্বয়ংক্রিয়ভাবে জমা হচ্ছে।");
+                    executeFinalSubmit();
                 }
             }, 1000);
         }
 
         function updateTimerDisplay() {
-            const hrs = Math.floor(timeRemainingSeconds / 3600);
-            const mins = Math.floor((timeRemainingSeconds % 3600) / 60);
-            const secs = timeRemainingSeconds % 60;
-
-            const formatted =
-                (hrs < 10 ? "0" + hrs : hrs) + ":" +
-                (mins < 10 ? "0" + mins : mins) + ":" +
-                (secs < 10 ? "0" + secs : secs);
-
+            const hrs = Math.floor(totalTimeSeconds / 3600);
+            const mins = Math.floor((totalTimeSeconds % 3600) / 60);
+            const secs = totalTimeSeconds % 60;
+            const formatted = `${String(hrs).padStart(2,'0')}:${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
             const displayEl = document.getElementById("timer-display");
             displayEl.innerText = formatted;
-
-            const timerBox = document.getElementById("timer-box");
-            if (timeRemainingSeconds < 300) { // last 5 mins
-                timerBox.classList.add("warning");
+            if (totalTimeSeconds < 300) {
+                displayEl.classList.add("timer-warning");
             }
         }
 
-        function initNavigationGrid() {
-            const gridNav = document.getElementById("grid-nav");
-            gridNav.innerHTML = "";
-            rawQuestions.forEach((q, idx) => {
-                const btn = document.createElement("button");
-                btn.className = "nav-btn";
-                btn.id = `nav-btn-${idx}`;
-                btn.innerText = idx + 1;
-                btn.onclick = () => jumpToQuestion(idx);
-                gridNav.appendChild(btn);
-            });
+        /* ============ QUIZ START ============ */
+        function startQuiz() {
+            document.getElementById('welcome-banner').classList.add('hidden');
+            document.getElementById('question-card-wrapper').classList.remove('hidden');
+            visitedStatus[0] = true;
+            renderQuestion();
+            renderPalette();
+            startTimer();
         }
 
-        function updateProgress() {
-            const answeredCount = Object.keys(userAnswers).length;
-            const total = rawQuestions.length;
-            document.getElementById("progress-text").innerText = `${currentQIndex + 1} / ${total}`;
-            const pct = ((currentQIndex + 1) / total) * 100;
-            document.getElementById("progress-fill").style.width = `${pct}%`;
-        }
+        /* ============ RENDER QUESTION ============ */
+        function renderQuestion() {
+            const q = rawQuestions[currentQuestionIndex];
+            visitedStatus[currentQuestionIndex] = true;
 
-        function updateNavStatus() {
-            rawQuestions.forEach((q, idx) => {
-                const btn = document.getElementById(`nav-btn-${idx}`);
-                btn.className = "nav-btn";
-                if (idx === currentQIndex) btn.classList.add("active");
-                if (userAnswers[q.id]) btn.classList.add("answered");
-                if (reviewFlags[q.id]) btn.classList.add("review");
-            });
-        }
+            document.getElementById('q-badge').innerText = `প্রশ্ন ${currentQuestionIndex + 1} / ${rawQuestions.length}`;
+            document.getElementById('q-category').innerText = q.section;
+            document.getElementById('q-source').innerText = `PDF Page ${q.sourcePage}`;
+            document.getElementById('question-text-bn').innerText = q.bengaliQuestion;
+            document.getElementById('question-text-en').innerText = q.englishQuestion;
 
-        function loadQuestion(index) {
-            currentQIndex = index;
-            const q = rawQuestions[index];
+            // Animation re-trigger
+            const qCard = document.getElementById('question-text-card');
+            qCard.classList.remove('fade-in');
+            void qCard.offsetWidth;
+            qCard.classList.add('fade-in');
 
-            document.getElementById("section-badge").innerText = q.section;
-            document.getElementById("source-page").innerText = `PDF Page ${q.sourcePage}`;
-            document.getElementById("bengali-q").innerText = q.bengaliQuestion;
-            document.getElementById("english-q").innerText = q.englishQuestion;
+            // Review button
+            const reviewBtn = document.getElementById('review-btn');
+            const reviewBtnText = document.getElementById('review-btn-text');
+            if (reviewFlags[q.id]) {
+                reviewBtn.style.background = "#f59e0b";
+                reviewBtn.style.color = "#0f172a";
+                reviewBtn.style.borderColor = "#f59e0b";
+                reviewBtnText.innerText = "চিহ্নিত করা হয়েছে (Unmark)";
+            } else {
+                reviewBtn.style.background = "transparent";
+                reviewBtn.style.color = "#d97706";
+                reviewBtn.style.borderColor = "#f59e0b";
+                reviewBtnText.innerText = "চিহ্নিত করুন (Mark for Review)";
+            }
 
-            const optContainer = document.getElementById("options-container");
-            optContainer.innerHTML = "";
+            // Options
+            const optsContainer = document.getElementById('options-container');
+            optsContainer.innerHTML = "";
 
-            q.options.forEach(opt => {
-                const optBtn = document.createElement("div");
-                optBtn.className = "option-btn";
-                if (userAnswers[q.id] === opt.label) {
-                    optBtn.classList.add("selected");
-                }
-                optBtn.onclick = () => selectOption(q.id, opt.label);
+            q.options.forEach((opt) => {
+                const isSelected = userAnswers[q.id] === opt.label;
+                const optDiv = document.createElement('div');
+                optDiv.className = `option-row p-4 rounded-2xl flex items-center gap-3 ${isSelected ? 'selected' : ''}`;
+                optDiv.onclick = () => selectOption(q.id, opt.label);
 
-                optBtn.innerHTML = `
-                    <div class="option-label">${opt.label.toUpperCase()}</div>
-                    <div class="option-text-container">
+                optDiv.innerHTML = `
+                    <div class="w-8 h-8 rounded-xl flex items-center justify-center text-xs font-bold shrink-0" style="${isSelected ? 'background:#4f46e5;color:#fff;' : 'background:var(--surface-2);color:var(--text-muted);'}">
+                        ${opt.label.toUpperCase()}
+                    </div>
+                    <div class="flex-1">
                         <div class="opt-bn">${opt.bengali}</div>
                         <div class="opt-en">${opt.english}</div>
                     </div>
+                    <div class="w-5 h-5 rounded-full border flex items-center justify-center shrink-0" style="${isSelected ? 'border-color:#4f46e5;background:#4f46e5;color:#fff;' : 'border-color:var(--border);'}">
+                        ${isSelected ? '<i class="ph ph-check text-xs font-bold"></i>' : ''}
+                    </div>
                 `;
-                optContainer.appendChild(optBtn);
+                optsContainer.appendChild(optDiv);
             });
 
-            // Button controls
-            document.getElementById("btn-prev").disabled = (index === 0);
-            const nextBtn = document.getElementById("btn-next");
-            if (index === rawQuestions.length - 1) {
-                nextBtn.innerText = "শেষ প্রশ্ন (Last Q)";
+            // Navigation buttons
+            document.getElementById('prev-btn').disabled = currentQuestionIndex === 0;
+            const nextBtn = document.getElementById('next-btn');
+            if (currentQuestionIndex === rawQuestions.length - 1) {
+                nextBtn.innerHTML = `<span>শেষ প্রশ্ন (Last)</span> <i class="ph ph-flag-checkered"></i>`;
             } else {
-                nextBtn.innerText = "পরবর্তী (Next) →";
+                nextBtn.innerHTML = `<span>পরবর্তী (Next)</span> <i class="ph ph-arrow-right"></i>`;
             }
 
-            const reviewBtn = document.getElementById("btn-review");
-            if (reviewFlags[q.id]) {
-                reviewBtn.style.background = "#fde68a";
-            } else {
-                reviewBtn.style.background = "#fef3c7";
-            }
-
+            renderPalette();
             updateProgress();
-            updateNavStatus();
 
-            // Typeset MathJax if formulas are rendered
-            if (window.MathJax) {
-                MathJax.typesetPromise();
+            // MathJax
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                MathJax.typesetPromise().catch(() => {});
             }
         }
 
+        /* ============ OPTION SELECT ============ */
         function selectOption(qId, label) {
+            if (testSubmitted) return;
             userAnswers[qId] = label;
-            loadQuestion(currentQIndex);
+            renderQuestion();
         }
 
+        function clearResponse() {
+            if (testSubmitted) return;
+            const q = rawQuestions[currentQuestionIndex];
+            delete userAnswers[q.id];
+            renderQuestion();
+        }
+
+        /* ============ NAVIGATION ============ */
         function navigate(direction) {
-            const newIndex = currentQIndex + direction;
+            const newIndex = currentQuestionIndex + direction;
             if (newIndex >= 0 && newIndex < rawQuestions.length) {
-                loadQuestion(newIndex);
+                currentQuestionIndex = newIndex;
+                renderQuestion();
             }
         }
 
         function jumpToQuestion(index) {
-            loadQuestion(index);
+            currentQuestionIndex = index;
+            renderQuestion();
         }
 
+        /* ============ REVIEW TOGGLE ============ */
         function toggleMarkReview() {
-            const q = rawQuestions[currentQIndex];
+            if (testSubmitted) return;
+            const q = rawQuestions[currentQuestionIndex];
             reviewFlags[q.id] = !reviewFlags[q.id];
-            loadQuestion(currentQIndex);
+            renderQuestion();
         }
 
-        function confirmSubmit() {
-            const unanswered = rawQuestions.length - Object.keys(userAnswers).length;
-            let msg = "আপনি কি নিশ্চিত যে পরীক্ষা জমা দিতে চান?";
-            if (unanswered > 0) {
-                msg += `\nআপনার এখনো ${unanswered} টি প্রশ্ন অনুত্তরিত রয়েছে।`;
-            }
-            if (confirm(msg)) {
-                submitQuiz();
-            }
-        }
-
-        function submitQuiz() {
-            clearInterval(timerInterval);
-            document.getElementById("quiz-screen").classList.add("hidden");
-            document.getElementById("result-screen").classList.remove("hidden");
-
-            let correctCount = 0;
-            let wrongCount = 0;
-            let unansweredCount = 0;
-
-            rawQuestions.forEach(q => {
-                const ans = userAnswers[q.id];
-                if (!ans) {
-                    unansweredCount++;
-                } else if (ans === q.correctAnswer) {
-                    correctCount++;
-                } else {
-                    wrongCount++;
-                }
-            });
-
-            const totalScore = (correctCount * MARKS_CORRECT) + (wrongCount * MARKS_WRONG);
-            const totalMax = rawQuestions.length * MARKS_CORRECT;
-            const pct = Math.round((totalScore / totalMax) * 100);
-
-            document.getElementById("score-display").innerText = `${totalScore} / ${totalMax}`;
-            document.getElementById("percentage-display").innerText = `${pct}% নম্বর পেয়েছেন`;
-            document.getElementById("stat-correct").innerText = correctCount;
-            document.getElementById("stat-wrong").innerText = wrongCount;
-            document.getElementById("stat-unanswered").innerText = unansweredCount;
-        }
-
-        function showReviewMode() {
-            const container = document.getElementById("review-container");
-            container.classList.remove("hidden");
-            renderReviewCards('all');
-            container.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function renderReviewCards(filter) {
-            const listContainer = document.getElementById("review-cards-list");
-            listContainer.innerHTML = "";
+        /* ============ PALETTE ============ */
+        function renderPalette() {
+            const grid = document.getElementById('palette-grid');
+            grid.innerHTML = "";
 
             rawQuestions.forEach((q, idx) => {
-                const userAns = userAnswers[q.id];
-                const isCorrect = userAns === q.correctAnswer;
-                const isUnanswered = !userAns;
+                const isAnswered = userAnswers[q.id] !== undefined;
+                const isReviewed = reviewFlags[q.id];
+                const isVisited = visitedStatus[idx];
+                const isCurrent = currentQuestionIndex === idx;
 
-                if (filter === 'correct' && (!isCorrect || isUnanswered)) return;
-                if (filter === 'wrong' && (isCorrect || isUnanswered)) return;
-                if (filter === 'unanswered' && !isUnanswered) return;
-
-                let statusBadge = "";
-                if (isUnanswered) {
-                    statusBadge = `<span class="review-status status-unanswered">⚠️ অনুত্তরিত (Unanswered)</span>`;
-                } else if (isCorrect) {
-                    statusBadge = `<span class="review-status status-correct">✓ সঠিক (Correct)</span>`;
-                } else {
-                    statusBadge = `<span class="review-status status-wrong">✗ ভুল (Incorrect)</span>`;
+                let style = "background:var(--surface-2);color:var(--text-muted);border:1px solid var(--border);";
+                if (isAnswered && isReviewed) {
+                    style = "background:#7c3aed;color:#fff;border:1px solid #7c3aed;font-weight:700;";
+                } else if (isAnswered) {
+                    style = "background:#059669;color:#fff;border:1px solid #059669;font-weight:700;";
+                } else if (isReviewed) {
+                    style = "background:#f59e0b;color:#fff;border:1px solid #f59e0b;font-weight:700;";
+                } else if (isVisited) {
+                    style = "background:var(--surface);color:var(--text);border:1px solid var(--border);";
                 }
 
-                const card = document.createElement("div");
-                card.className = "review-card";
+                if (isCurrent) {
+                    style += "box-shadow:0 0 0 2px var(--primary), 0 0 0 4px var(--primary-light);";
+                }
 
-                card.innerHTML = `
-                    ${statusBadge}
-                    <div style="font-size:0.8rem; color: var(--text-muted); margin-bottom: 5px;">
-                        প্রশ্ন ${idx + 1} | ${q.section} (Page ${q.sourcePage})
-                    </div>
-                    <div style="font-weight: 600; font-size: 1.05rem; margin-bottom: 5px;">${q.bengaliQuestion}</div>
-                    <div style="font-style: italic; color: #475569; margin-bottom: 12px;">${q.englishQuestion}</div>
+                const btn = document.createElement('button');
+                btn.className = "palette-btn h-9 rounded-xl text-xs font-semibold flex items-center justify-center";
+                btn.style.cssText = style;
+                btn.innerText = idx + 1;
+                btn.onclick = () => jumpToQuestion(idx);
+                grid.appendChild(btn);
+            });
+        }
 
-                    <div style="margin-bottom: 8px; font-size: 0.95rem;">
-                        <strong>আপনার উত্তর:</strong> ${userAns ? userAns.toUpperCase() : "দেওয়া হয়নি"} | 
-                        <strong>সঠিক উত্তর:</strong> ${q.correctAnswer.toUpperCase()}
-                    </div>
+        /* ============ PROGRESS ============ */
+        function updateProgress() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const percent = Math.round((answeredCount / rawQuestions.length) * 100);
+            document.getElementById('answered-count').innerText = answeredCount;
+            document.getElementById('progress-percent').innerText = `${percent}%`;
+            document.getElementById('progress-bar-fill').style.width = `${percent}%`;
+        }
 
-                    <div class="solution-box">
-                        <div class="solution-title">ব্যাখ্যা ও সমাধান:</div>
-                        <div style="font-size: 0.95rem; margin-bottom: 6px;">${q.solutionBengali}</div>
-                        <div style="font-size: 0.9rem; color: #475569;">${q.solutionEnglish}</div>
-                    </div>
-                `;
+        /* ============ SUBMIT ============ */
+        function confirmSubmit() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const reviewCount = Object.values(reviewFlags).filter(Boolean).length;
+            document.getElementById('modal-answered').innerText = answeredCount;
+            document.getElementById('modal-review').innerText = reviewCount;
+            document.getElementById('submit-modal').classList.remove('hidden');
+        }
 
-                listContainer.appendChild(card);
+        function closeSubmitModal() {
+            document.getElementById('submit-modal').classList.add('hidden');
+        }
+
+        function executeFinalSubmit() {
+            clearInterval(timerInterval);
+            closeSubmitModal();
+            testSubmitted = true;
+
+            document.getElementById('question-card-wrapper').classList.add('hidden');
+            document.getElementById('quiz-sidebar').classList.add('hidden');
+            document.getElementById('quiz-main-area').className = "lg:col-span-4 space-y-6";
+            document.getElementById('results-dashboard').classList.remove('hidden');
+
+            let correct = 0, incorrect = 0, skipped = 0;
+            rawQuestions.forEach(q => {
+                const ans = userAnswers[q.id];
+                if (ans === undefined) skipped++;
+                else if (ans === q.correctAnswer) correct++;
+                else incorrect++;
             });
 
-            if (window.MathJax) {
-                MathJax.typesetPromise();
-            }
+            const score = Math.round((correct / rawQuestions.length) * 100);
+
+            document.getElementById('res-score').innerText = `${score} / 100`;
+            document.getElementById('res-correct').innerText = correct;
+            document.getElementById('res-incorrect').innerText = incorrect;
+            document.getElementById('res-skipped').innerText = skipped;
+
+            renderDetailedReview('all');
         }
 
-        function filterReview(filter, btn) {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            renderReviewCards(filter);
-        }
-
+        /* ============ RESTART ============ */
         function restartQuiz() {
             if (confirm("আপনি কি নতুন করে পরীক্ষাটি শুরু করতে চান?")) {
                 userAnswers = {};
                 reviewFlags = {};
-                timeRemainingSeconds = QUIZ_TIME_MINUTES * 60;
-                document.getElementById("result-screen").classList.add("hidden");
-                document.getElementById("review-container").classList.add("hidden");
-                document.getElementById("quiz-screen").classList.remove("hidden");
-                currentQIndex = 0;
-                loadQuestion(0);
-                startTimer();
+                visitedStatus = {};
+                testSubmitted = false;
+                totalTimeSeconds = QUIZ_TIME_MINUTES * 60;
+                currentQuestionIndex = 0;
+
+                document.getElementById('results-dashboard').classList.add('hidden');
+                document.getElementById('quiz-sidebar').classList.remove('hidden');
+                document.getElementById('quiz-main-area').className = "lg:col-span-3 space-y-6";
+                document.getElementById('welcome-banner').classList.remove('hidden');
+                document.getElementById('question-card-wrapper').classList.add('hidden');
+
+                // Reset filter buttons
+                document.getElementById('filter-all').style.background = "var(--primary)";
+                document.getElementById('filter-all').style.color = "#fff";
+                ['correct', 'wrong', 'unanswered'].forEach(f => {
+                    const b = document.getElementById('filter-' + f);
+                    b.style.background = "var(--surface-2)";
+                    b.style.color = "var(--text-muted)";
+                });
+            }
+        }
+
+        /* ============ DETAILED REVIEW ============ */
+        function filterReview(filterType, btn) {
+            ['all', 'correct', 'wrong', 'unanswered'].forEach(type => {
+                const b = document.getElementById(`filter-${type}`);
+                if (type === filterType) {
+                    b.style.background = "var(--primary)";
+                    b.style.color = "#fff";
+                } else {
+                    b.style.background = "var(--surface-2)";
+                    b.style.color = "var(--text-muted)";
+                }
+            });
+            renderDetailedReview(filterType);
+        }
+
+        function renderDetailedReview(filter) {
+            const container = document.getElementById('detailed-review-list');
+            container.innerHTML = "";
+
+            rawQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[q.id];
+                const isCorrect = userAns === q.correctAnswer;
+                const isSkipped = userAns === undefined;
+
+                if (filter === 'correct' && (!isCorrect || isSkipped)) return;
+                if (filter === 'wrong' && (isCorrect || isSkipped)) return;
+                if (filter === 'unanswered' && !isSkipped) return;
+
+                let statusBadge = "";
+                if (isSkipped) {
+                    statusBadge = `<span class="text-[10px] font-bold px-2.5 py-1 rounded-full" style="background:#fef3c7;color:#92400e;border:1px solid #fde68a;">অনুত্তীর্ণ (Skipped)</span>`;
+                } else if (isCorrect) {
+                    statusBadge = `<span class="text-[10px] font-bold px-2.5 py-1 rounded-full" style="background:#d1fae5;color:#065f46;border:1px solid #6ee7b7;">সঠিক (Correct)</span>`;
+                } else {
+                    statusBadge = `<span class="text-[10px] font-bold px-2.5 py-1 rounded-full" style="background:#fee2e2;color:#991b1b;border:1px solid #fca5a5;">ভুল (Incorrect)</span>`;
+                }
+
+                const card = document.createElement('div');
+                card.className = "card p-5 md:p-6 space-y-4 fade-in";
+
+                let optionsHtml = '';
+                q.options.forEach((opt) => {
+                    let optStyle = "border:1px solid var(--border);background:var(--surface-2);color:var(--text);";
+                    if (opt.label === q.correctAnswer) {
+                        optStyle = "border:1px solid #10b981;background:#d1fae5;color:#065f46;font-weight:600;";
+                    } else if (opt.label === userAns && !isCorrect) {
+                        optStyle = "border:1px solid #ef4444;background:#fee2e2;color:#991b1b;font-weight:600;";
+                    }
+                    optionsHtml += `
+                        <div class="p-3 rounded-xl text-sm flex items-center justify-between" style="${optStyle}">
+                            <div><span class="font-bold mr-2">${opt.label.toUpperCase()}.</span>${opt.bengali} <span style="opacity:.7;font-size:.85em;">(${opt.english})</span></div>
+                            <div>
+                                ${opt.label === q.correctAnswer ? '<i class="ph ph-check-circle text-lg" style="color:#10b981;"></i>' : ''}
+                                ${opt.label === userAns && !isCorrect ? '<i class="ph ph-x-circle text-lg" style="color:#ef4444;"></i>' : ''}
+                            </div>
+                        </div>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between gap-2 flex-wrap">
+                        <span class="text-xs font-bold" style="color:var(--text-muted);">প্রশ্ন #${idx + 1} (${q.section} • Page ${q.sourcePage})</span>
+                        ${statusBadge}
+                    </div>
+                    <div class="space-y-1">
+                        <div class="text-base md:text-lg font-bold">${q.bengaliQuestion}</div>
+                        <div class="text-xs md:text-sm italic" style="color:var(--text-muted);">${q.englishQuestion}</div>
+                    </div>
+                    <div class="space-y-2 pt-1">${optionsHtml}</div>
+                    <div class="solution-box text-xs space-y-1">
+                        <div class="font-bold flex items-center gap-1.5" style="color:var(--primary);">
+                            <i class="ph ph-lightbulb text-base"></i>
+                            <span>ব্যাখ্যা (Solution):</span>
+                        </div>
+                        <p style="color:var(--text);">${q.solutionBengali}</p>
+                        <p style="color:var(--text-muted);font-style:italic;">${q.solutionEnglish}</p>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                MathJax.typesetPromise().catch(() => {});
+            }
+        }
+
+        /* ============ SEARCH ============ */
+        function handleSearch(val) {
+            if (!val || val.trim() === '') return;
+            const searchTerm = val.toLowerCase().trim();
+            const foundIdx = rawQuestions.findIndex(q =>
+                q.bengaliQuestion.toLowerCase().includes(searchTerm) ||
+                q.englishQuestion.toLowerCase().includes(searchTerm)
+            );
+            if (foundIdx !== -1 && !testSubmitted) {
+                if (document.getElementById('question-card-wrapper').classList.contains('hidden')) {
+                    startQuiz();
+                }
+                jumpToQuestion(foundIdx);
             }
         }
     </script>
 </body>
-
 </html>
