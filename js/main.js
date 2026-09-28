@@ -107,6 +107,34 @@
     setInterval(tick, 1000);
   }
 
+  /* ---------- Random inspirational quote (new one on every load) ---------- */
+  var quoteEl = document.getElementById("quote-text");
+  var authorEl = document.getElementById("quote-author");
+  if (quoteEl && authorEl) {
+    var QUOTES = [
+      ["Education is the most powerful weapon which you can use to change the world.", "Nelson Mandela"],
+      ["Dream, dream, dream. Dreams transform into thoughts, and thoughts result in action.", "Dr. A.P.J. Abdul Kalam"],
+      ["Arise, awake, and stop not till the goal is reached.", "Swami Vivekananda"],
+      ["Education is the manifestation of the perfection already in man.", "Swami Vivekananda"],
+      ["The beautiful thing about learning is that no one can take it away from you.", "B.B. King"],
+      ["Education is not the learning of facts, but the training of the mind to think.", "Albert Einstein"],
+      ["It's not that I'm so smart, it's just that I stay with problems longer.", "Albert Einstein"],
+      ["Success is the sum of small efforts, repeated day in and day out.", "Robert Collier"],
+      ["An investment in knowledge pays the best interest.", "Benjamin Franklin"],
+      ["Learning never exhausts the mind.", "Leonardo da Vinci"],
+      ["The roots of education are bitter, but the fruit is sweet.", "Aristotle"]
+    ];
+    var idx = Math.floor(Math.random() * QUOTES.length);
+    try {
+      // never show the same quote twice in a row
+      var last = parseInt(localStorage.getItem("jiggasha_last_quote"), 10);
+      if (QUOTES.length > 1 && idx === last) idx = (idx + 1 + Math.floor(Math.random() * (QUOTES.length - 1))) % QUOTES.length;
+      localStorage.setItem("jiggasha_last_quote", String(idx));
+    } catch (e) {}
+    quoteEl.textContent = "\u201C" + QUOTES[idx][0] + "\u201D";
+    authorEl.textContent = "\u2014 " + QUOTES[idx][1];
+  }
+
   /* ---------- Service worker (PWA) ---------- */
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", function () {
