@@ -1,49 +1,639 @@
 <!DOCTYPE html>
 <html lang="bn">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#4f46e5">
+    <meta name="description" content="জিজ্ঞাসা - শ্রেণীভিত্তিক পাতা | Class selection page for Jiggasha">
     <title>Classes (শ্রেণীভিত্তিক পাতা) | জিজ্ঞাসা</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Theme Init -->
+    <script>
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem('jiggasha_theme'); } catch (e) { }
+            if (t !== 'dark' && t !== 'light') {
+                t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons: Phosphor Icons & FontAwesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        .class-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px; }
-        .class-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-align: center; box-shadow: var(--shadow-sm); transition: transform 0.2s; display: block; }
-        .class-card:hover { transform: translateY(-3px); border-color: var(--primary); }
-        .class-card i { font-size: 36px; color: var(--primary); margin-bottom: 8px; }
-        .class-card h3 { font-size: 1.1rem; }
-        @media(min-width: 768px) { .class-grid { grid-template-columns: repeat(4, 1fr); } }
+        :root {
+            color-scheme: light;
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --primary-light: #eef2ff;
+            --primary-soft: #e0e7ff;
+            --accent: #f59e0b;
+
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --surface-2: #f1f5f9;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+
+            --success: #10b981;
+            --success-light: #d1fae5;
+            --danger: #ef4444;
+            --danger-light: #fee2e2;
+            --info: #0ea5e9;
+            --info-light: #e0f2fe;
+
+            --shadow-sm: 0 1px 2px rgba(15, 23, 42, .06);
+            --shadow-md: 0 6px 18px rgba(15, 23, 42, .08);
+            --shadow-lg: 0 16px 40px rgba(15, 23, 42, .12);
+
+            --radius-sm: 10px;
+            --radius: 14px;
+            --radius-lg: 20px;
+
+            --bottom-nav-h: 64px;
+        }
+
+        html[data-theme="dark"] {
+            color-scheme: dark;
+            --primary: #818cf8;
+            --primary-hover: #a5b4fc;
+            --primary-light: #1e1b4b;
+            --primary-soft: #312e81;
+
+            --bg: #0b1120;
+            --surface: #111827;
+            --surface-2: #1f2937;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #273244;
+
+            --success-light: #064e3b;
+            --danger-light: #7f1d1d;
+            --info-light: #0c4a6e;
+
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
+            --shadow-md: 0 6px 18px rgba(0, 0, 0, .45);
+            --shadow-lg: 0 16px 40px rgba(0, 0, 0, .55);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Hind Siliguri', 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+            /* only safe-area */
+            transition: background-color .3s ease, color .3s ease;
+        }
+
+        /* Reserve space for the fixed bottom-nav ONLY when it's visible (mobile/tablet) */
+        @media (max-width: 1023.98px) {
+            body {
+                padding-bottom: calc(var(--bottom-nav-h) + env(safe-area-inset-bottom, 0px));
+            }
+        }
+
+        /* Custom Scrollbars */
+        ::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        html[data-theme="dark"] ::-webkit-scrollbar-thumb {
+            background: #334155;
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            transition: background-color .3s ease, border-color .3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin-inline: auto;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--primary);
+            flex-shrink: 0;
+            letter-spacing: -.01em;
+            text-decoration: none;
+        }
+
+        .logo i {
+            font-size: 1.6rem;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1 1 200px;
+            max-width: 360px;
+            min-width: 0;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            pointer-events: none;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 8px 14px 8px 36px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: var(--surface-2);
+            color: var(--text);
+            font-size: .9rem;
+            outline: none;
+            transition: border-color .2s, box-shadow .2s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary);
+            background: var(--surface);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        .desktop-links {
+            display: none;
+            align-items: center;
+            gap: 4px;
+        }
+
+        @media (min-width: 992px) {
+            .desktop-links {
+                display: flex;
+            }
+        }
+
+        .desktop-links a {
+            padding: 8px 12px;
+            font-size: .92rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            border-radius: 8px;
+            transition: all .15s;
+            text-decoration: none;
+        }
+
+        .desktop-links a:hover,
+        .desktop-links a.active {
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 1.15rem;
+            flex-shrink: 0;
+            transition: background-color .2s, transform .15s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .icon-btn:hover {
+            background: var(--primary-soft);
+        }
+
+        .icon-btn:active {
+            transform: scale(.94);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-md);
+            padding: 8px 12px 12px;
+            z-index: 99;
+        }
+
+        .mobile-menu.open {
+            display: block;
+            animation: slideDown .2s ease;
+        }
+
+        .mobile-menu a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            color: var(--text);
+            transition: all .15s;
+            text-decoration: none;
+        }
+
+        .mobile-menu a:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 16px 40px;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* Class Grid */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .class-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .class-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px 16px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: transform .2s, border-color .2s, box-shadow .2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .class-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .class-card i {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .class-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: auto;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 32px 16px;
+            text-align: center;
+        }
+
+        .site-footer .footer-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .site-footer .footer-logo i {
+            font-size: 1.5rem;
+        }
+
+        .site-footer .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            font-size: .85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .site-footer .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color .15s;
+        }
+
+        .site-footer .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .site-footer .copyright {
+            font-size: .75rem;
+            color: var(--text-muted);
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: calc(var(--bottom-nav-h) + env(safe-area-inset-bottom, 0px));
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            z-index: 90;
+            box-shadow: 0 -4px 16px rgba(0, 0, 0, .06);
+        }
+
+        .bottom-nav a {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            font-size: .7rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            padding: 6px 0;
+            transition: color .15s;
+            text-decoration: none;
+        }
+
+        .bottom-nav a i {
+            font-size: 1.35rem;
+        }
+
+        .bottom-nav a.active {
+            color: var(--primary);
+        }
+
+        .fade-in {
+            animation: fadeIn 0.25s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
     </style>
 </head>
+
 <body>
+
+    <!-- TOP NAVIGATION -->
     <header class="top-nav">
         <div class="nav-container">
-            <a href="index.html" class="logo"><i class="ph-fill ph-student"></i> জিজ্ঞাসা</a>
+            <a href="index.html" class="logo" aria-label="Jiggasha home">
+                <i class="ph-fill ph-student"></i>
+                <span lang="bn">জিজ্ঞাসা</span>
+            </a>
+
+            <div class="search-box">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="search" id="global-search" placeholder="Search..." aria-label="Search"
+                    oninput="handleSearch(this.value)" />
+            </div>
+
+            <div class="nav-actions flex items-center gap-2">
+                <nav class="desktop-links" aria-label="Primary">
+                    <a href="classes.html" class="active">Classes</a>
+                    <a href="quizzes.html">Quizzes</a>
+                    <a href="notes.html">Notes</a>
+                    <a href="videos.html">Videos</a>
+                    <a href="progress.html">My Progress</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact Us</a>
+                </nav>
+
+                <button type="button" class="icon-btn" id="theme-btn" title="Toggle theme" aria-label="Toggle theme">
+                    <i class="ph ph-moon" id="theme-icon"></i>
+                </button>
+
+                <button type="button" class="icon-btn menu-toggle lg:hidden" id="menu-toggle" aria-label="Open menu"
+                    aria-expanded="false">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
         </div>
+
+        <!-- Mobile Menu -->
+        <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+            <a href="classes.html" style="color:var(--primary);font-weight:700;"><i class="ph ph-books"></i> Classes</a>
+            <a href="quizzes.html"><i class="ph ph-exam"></i> Quizzes</a>
+            <a href="notes.html"><i class="ph ph-book-open"></i> Notes</a>
+            <a href="videos.html"><i class="ph ph-youtube-logo"></i> Videos</a>
+            <a href="progress.html"><i class="ph ph-chart-line-up"></i> My Progress</a>
+            <a href="about.html"><i class="ph ph-user"></i> About Us</a>
+            <a href="contact.html"><i class="ph ph-envelope-simple"></i> Contact Us</a>
+        </nav>
     </header>
 
+    <!-- MAIN CONTENT -->
     <main class="container">
-        <h2>Select Your Class (শ্রেণী নির্বাচন করো)</h2>
-        <p style="color: var(--text-muted); margin-bottom: 16px;">Choose your grade to access study materials.</p>
+        <div class="fade-in">
+            <h2 style="font-size:1.6rem; font-weight:800; margin-bottom:4px;">Select Your Class</h2>
+            <p style="color: var(--text-muted); margin-bottom: 24px;">শ্রেণী নির্বাচন করো — Choose your grade to access
+                study materials.</p>
 
-        <div class="class-grid">
-            <a href="quizzes.html" class="class-card"><i class="ph ph-number-five"></i><h3>Class 5</h3></a>
-            <a href="quizzes.html" class="class-card"><i class="ph ph-number-six"></i><h3>Class 6</h3></a>
-            <a href="quizzes.html" class="class-card"><i class="ph ph-number-seven"></i><h3>Class 7</h3></a>
-            <a href="quizzes.html" class="class-card"><i class="ph ph-number-eight"></i><h3>Class 8</h3></a>
-            <a href="quizzes.html" class="class-card"><i class="ph ph-number-nine"></i><h3>Class 9</h3></a>
-            <a href="quizzes.html" class="class-card"><i class="ph ph-number-one"></i><h3>Class 10</h3></a>
-            <a href="quizzes.html" class="class-card"><i class="ph ph-graduation-cap"></i><h3>Class 11</h3></a>
-            <a href="quizzes.html" class="class-card"><i class="ph ph-certificate"></i><h3>Class 12</h3></a>
+            <div class="class-grid">
+                <a href="quizzes.html" class="class-card">
+                    <i class="ph ph-number-five"></i>
+                    <h3>Class 5</h3>
+                </a>
+                <a href="quizzes.html" class="class-card">
+                    <i class="ph ph-number-six"></i>
+                    <h3>Class 6</h3>
+                </a>
+                <a href="quizzes.html" class="class-card">
+                    <i class="ph ph-number-seven"></i>
+                    <h3>Class 7</h3>
+                </a>
+                <a href="quizzes.html" class="class-card">
+                    <i class="ph ph-number-eight"></i>
+                    <h3>Class 8</h3>
+                </a>
+                <a href="quizzes.html" class="class-card">
+                    <i class="ph ph-number-nine"></i>
+                    <h3>Class 9</h3>
+                </a>
+                <a href="quizzes.html" class="class-card">
+                    <i class="ph ph-number-one"></i>
+                    <h3>Class 10</h3>
+                </a>
+                <a href="quizzes.html" class="class-card">
+                    <i class="ph ph-graduation-cap"></i>
+                    <h3>Class 11</h3>
+                </a>
+                <a href="quizzes.html" class="class-card">
+                    <i class="ph ph-certificate"></i>
+                    <h3>Class 12</h3>
+                </a>
+            </div>
         </div>
     </main>
 
-    <nav class="bottom-nav">
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <i class="ph-fill ph-student"></i>
+            <span lang="bn">জিজ্ঞাসা (Jiggasha)</span>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="classes.html">Classes</a>
+            <a href="notes.html">Notes</a>
+            <a href="quizzes.html">Quizzes</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <p class="copyright">
+            &copy; 2026 <span lang="bn">জিজ্ঞাসা</span> (Jiggasha) - All rights reserved.
+        </p>
+    </footer>
+
+    <!-- BOTTOM NAVIGATION -->
+    <nav class="bottom-nav lg:hidden" aria-label="Mobile quick navigation">
         <a href="index.html"><i class="ph ph-house"></i><span>Home</span></a>
         <a href="classes.html" class="active"><i class="ph-fill ph-books"></i><span>Classes</span></a>
         <a href="quizzes.html"><i class="ph ph-exam"></i><span>Quiz</span></a>
         <a href="progress.html"><i class="ph ph-chart-line-up"></i><span>Progress</span></a>
         <a href="about.html"><i class="ph ph-user"></i><span>Teacher</span></a>
     </nav>
+
+    <script>
+        // Theme Toggle
+        const themeBtn = document.getElementById('theme-btn');
+        const themeIcon = document.getElementById('theme-icon');
+
+        function updateThemeIcon() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            themeIcon.className = isDark ? "ph ph-sun" : "ph ph-moon";
+        }
+
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', nextTheme);
+            try { localStorage.setItem('jiggasha_theme', nextTheme); } catch (e) { }
+            updateThemeIcon();
+        });
+        updateThemeIcon();
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('open');
+            mobileMenu.classList.toggle('open');
+            menuToggle.setAttribute('aria-expanded', String(!isOpen));
+        });
+
+        // Search placeholder (non-functional for classes page)
+        function handleSearch(val) {
+            // Search functionality can be added later
+            if (val.trim() !== '') {
+                console.log('Searching for:', val);
+            }
+        }
+    </script>
 </body>
+
 </html>

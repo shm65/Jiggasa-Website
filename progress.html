@@ -2,41 +2,737 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#4f46e5">
+    <meta name="description" content="My Progress (আমার প্রোগ্রেস) | জিজ্ঞাসা - Track your quiz history and learning journey">
     <title>My Progress (আমার প্রোগ্রেস) | জিজ্ঞাসা</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Theme Init -->
+    <script>
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem('jiggasha_theme'); } catch (e) {}
+            if (t !== 'dark' && t !== 'light') {
+                t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        .progress-box { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-top: 16px; box-shadow: var(--shadow-sm); }
-        .history-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); }
+        :root {
+            color-scheme: light;
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --primary-light: #eef2ff;
+            --primary-soft: #e0e7ff;
+            --accent: #f59e0b;
+
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --surface-2: #f1f5f9;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+
+            --success: #10b981;
+            --success-light: #d1fae5;
+            --danger: #ef4444;
+            --danger-light: #fee2e2;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --info: #0ea5e9;
+
+            --shadow-sm: 0 1px 2px rgba(15, 23, 42, .06);
+            --shadow-md: 0 6px 18px rgba(15, 23, 42, .08);
+            --shadow-lg: 0 16px 40px rgba(15, 23, 42, .12);
+
+            --radius-sm: 10px;
+            --radius: 14px;
+            --radius-lg: 20px;
+
+            --bottom-nav-h: 64px;
+        }
+
+        html[data-theme="dark"] {
+            color-scheme: dark;
+            --primary: #818cf8;
+            --primary-hover: #a5b4fc;
+            --primary-light: #1e1b4b;
+            --primary-soft: #312e81;
+
+            --bg: #0b1120;
+            --surface: #111827;
+            --surface-2: #1f2937;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #273244;
+
+            --success-light: #064e3b;
+            --danger-light: #7f1d1d;
+            --warning-light: #78350f;
+
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
+            --shadow-md: 0 6px 18px rgba(0, 0, 0, .45);
+            --shadow-lg: 0 16px 40px rgba(0, 0, 0, .55);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Hind Siliguri', 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+            transition: background-color .3s ease, color .3s ease;
+        }
+
+        @media (max-width: 1023.98px) {
+            body {
+                padding-bottom: calc(var(--bottom-nav-h) + env(safe-area-inset-bottom, 0px));
+            }
+        }
+
+        ::-webkit-scrollbar { width: 7px; height: 7px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        html[data-theme="dark"] ::-webkit-scrollbar-thumb { background: #334155; }
+
+        /* ============ TOP NAV ============ */
+        .top-nav {
+            position: sticky; top: 0; z-index: 100;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            transition: background-color .3s ease, border-color .3s ease;
+        }
+        .nav-container {
+            max-width: 1400px; margin-inline: auto;
+            padding: 10px 20px; display: flex; align-items: center; gap: 16px;
+        }
+        .logo {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 1.35rem; font-weight: 800; color: var(--primary);
+            flex-shrink: 0; letter-spacing: -.01em;
+            text-decoration: none;
+        }
+        .logo i { font-size: 1.6rem; }
+
+        .search-box {
+            position: relative; flex: 1 1 200px; max-width: 360px; min-width: 0;
+        }
+        .search-box i {
+            position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+            color: var(--text-muted); font-size: 1.05rem; pointer-events: none;
+        }
+        .search-box input {
+            width: 100%; padding: 8px 14px 8px 36px;
+            border: 1px solid var(--border); border-radius: 999px;
+            background: var(--surface-2); color: var(--text); font-size: .9rem; outline: none;
+            transition: border-color .2s, box-shadow .2s;
+        }
+        .search-box input:focus {
+            border-color: var(--primary); background: var(--surface);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        .desktop-links { display: none; align-items: center; gap: 4px; }
+        @media (min-width: 992px) { .desktop-links { display: flex; } }
+        .desktop-links a {
+            padding: 8px 12px; font-size: .92rem; font-weight: 600;
+            color: var(--text-muted); border-radius: 8px; transition: all .15s;
+            text-decoration: none;
+        }
+        .desktop-links a:hover, .desktop-links a.active {
+            color: var(--primary); background: var(--primary-light);
+        }
+
+        .icon-btn {
+            width: 40px; height: 40px; border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            background: var(--primary-light); color: var(--primary);
+            font-size: 1.15rem; flex-shrink: 0; transition: background-color .2s, transform .15s;
+            border: none; cursor: pointer;
+        }
+        .icon-btn:hover { background: var(--primary-soft); }
+        .icon-btn:active { transform: scale(.94); }
+
+        .mobile-menu {
+            display: none; position: absolute; top: 100%; left: 0; right: 0;
+            background: var(--surface); border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-md); padding: 8px 12px 12px; z-index: 99;
+        }
+        .mobile-menu.open { display: block; animation: slideDown .2s ease; }
+        .mobile-menu a {
+            display: flex; align-items: center; gap: 12px; padding: 12px;
+            border-radius: 10px; font-weight: 600; color: var(--text); transition: all .15s;
+            text-decoration: none;
+        }
+        .mobile-menu a:hover { background: var(--primary-light); color: var(--primary); }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ============ MAIN ============ */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 32px 16px 48px;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* Page header */
+        .page-header {
+            margin-bottom: 24px;
+        }
+        .page-header .eyebrow {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: .72rem; font-weight: 700; letter-spacing: .05em;
+            text-transform: uppercase;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 4px 12px;
+            border-radius: 999px;
+            margin-bottom: 12px;
+        }
+        .page-header h1 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -.02em;
+            margin-bottom: 6px;
+        }
+        .page-header p {
+            font-size: .95rem;
+            color: var(--text-muted);
+        }
+
+        /* Storage notice */
+        .storage-notice {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: var(--primary-light);
+            border: 1px solid var(--primary-soft);
+            border-radius: var(--radius);
+            padding: 14px 16px;
+            margin-bottom: 20px;
+            font-size: .85rem;
+            color: var(--text);
+            line-height: 1.55;
+        }
+        .storage-notice i {
+            font-size: 1.3rem;
+            color: var(--primary);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .storage-notice strong { font-weight: 700; }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        @media (min-width: 640px) {
+            .stats-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        .stat-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px;
+            box-shadow: var(--shadow-sm);
+            transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+        .stat-icon {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+        .stat-value {
+            font-size: 1.6rem;
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--text);
+        }
+        .stat-label {
+            font-size: .75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Section header */
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+        }
+        .section-header h2 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-header h2 i {
+            color: var(--primary);
+            font-size: 1.35rem;
+        }
+
+        /* History list card */
+        .history-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .history-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 16px 18px;
+            border-bottom: 1px solid var(--border);
+            transition: background-color .15s;
+        }
         .history-item:last-child { border-bottom: none; }
-        .note-storage { background: var(--primary-light); color: var(--primary); padding: 12px; border-radius: 8px; font-size: 0.85rem; margin-bottom: 16px; }
+        .history-item:hover { background: var(--surface-2); }
+
+        .history-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            min-width: 0;
+            flex: 1;
+        }
+
+        .history-icon {
+            width: 42px; height: 42px;
+            border-radius: 12px;
+            display: inline-flex; align-items: center; justify-content: center;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .history-text { min-width: 0; flex: 1; }
+        .history-title {
+            font-size: .95rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 3px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .history-date {
+            font-size: .78rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .history-date i { font-size: .9rem; }
+
+        .history-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 11px;
+            border-radius: 999px;
+            font-size: .75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+        .badge-completed {
+            background: var(--success-light);
+            color: #065f46;
+        }
+        html[data-theme="dark"] .badge-completed {
+            color: #6ee7b7;
+        }
+        .badge-score {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 56px 24px;
+            background: var(--surface);
+            border: 1px dashed var(--border);
+            border-radius: var(--radius);
+        }
+        .empty-icon {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            color: var(--primary);
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+        }
+        .empty-state h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .empty-state p {
+            font-size: .9rem;
+            color: var(--text-muted);
+            max-width: 380px;
+            margin: 0 auto 20px;
+            line-height: 1.6;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: var(--radius-sm);
+            font-size: .88rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all .15s ease;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, .3);
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(79, 70, 229, .4);
+        }
+        .btn-danger {
+            background: var(--danger-light);
+            color: var(--danger);
+            border: 1px solid var(--danger);
+        }
+        .btn-danger:hover {
+            background: var(--danger);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: auto;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 32px 16px;
+            text-align: center;
+        }
+        .site-footer .footer-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+        .site-footer .footer-logo i { font-size: 1.5rem; }
+        .site-footer .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            font-size: .85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .site-footer .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color .15s;
+        }
+        .site-footer .footer-links a:hover { color: var(--primary); }
+        .site-footer .copyright {
+            font-size: .75rem;
+            color: var(--text-muted);
+        }
+
+        /* Bottom nav */
+        .bottom-nav {
+            position: fixed; left: 0; right: 0; bottom: 0;
+            height: calc(var(--bottom-nav-h) + env(safe-area-inset-bottom, 0px));
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+            display: flex; justify-content: space-around; align-items: center;
+            background: var(--surface); border-top: 1px solid var(--border); z-index: 90;
+            box-shadow: 0 -4px 16px rgba(0, 0, 0, .06);
+        }
+        .bottom-nav a {
+            flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;
+            font-size: .7rem; font-weight: 600; color: var(--text-muted); padding: 6px 0;
+            transition: color .15s; text-decoration: none;
+        }
+        .bottom-nav a i { font-size: 1.35rem; }
+        .bottom-nav a.active { color: var(--primary); }
+
+        @media (min-width: 1024px) {
+            .bottom-nav { display: none; }
+        }
+
+        .fade-in { animation: fadeIn 0.3s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Confirm modal */
+        .modal-backdrop {
+            position: fixed; inset: 0;
+            background: rgba(2, 6, 23, .7);
+            backdrop-filter: blur(4px);
+            z-index: 999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+        .modal-backdrop.show {
+            display: flex;
+            animation: modalBg .2s ease forwards;
+        }
+        @keyframes modalBg { from { opacity: 0; } to { opacity: 1; } }
+
+        .modal-panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            max-width: 420px;
+            width: 100%;
+            padding: 24px;
+            box-shadow: var(--shadow-lg);
+            animation: modalPop .22s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.92); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-icon {
+            width: 52px; height: 52px;
+            border-radius: 14px;
+            background: var(--danger-light);
+            color: var(--danger);
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 14px;
+        }
+        .modal-panel h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+        .modal-panel p {
+            font-size: .88rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+        .modal-actions .btn { padding: 9px 16px; font-size: .85rem; }
     </style>
 </head>
 <body>
+
+    <!-- ============ TOP NAV ============ -->
     <header class="top-nav">
         <div class="nav-container">
-            <a href="index.html" class="logo"><i class="ph-fill ph-student"></i> জিজ্ঞাসা</a>
+            <a href="index.html" class="logo" aria-label="Jiggasha home">
+                <i class="ph-fill ph-student"></i>
+                <span lang="bn">জিজ্ঞাসা</span>
+            </a>
+
+            <div class="search-box">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="search" id="global-search" placeholder="Search..." aria-label="Search" />
+            </div>
+
+            <div class="nav-actions flex items-center gap-2">
+                <nav class="desktop-links" aria-label="Primary">
+                    <a href="index.html">Home</a>
+                    <a href="classes.html">Classes</a>
+                    <a href="quizzes.html">Quizzes</a>
+                    <a href="notes.html">Notes</a>
+                    <a href="progress.html" class="active">My Progress</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact Us</a>
+                </nav>
+
+                <button type="button" class="icon-btn" id="theme-btn" title="Toggle theme" aria-label="Toggle theme">
+                    <i class="ph ph-moon" id="theme-icon"></i>
+                </button>
+
+                <button type="button" class="icon-btn lg:hidden" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
         </div>
+
+        <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+            <a href="index.html"><i class="ph ph-house"></i> Home</a>
+            <a href="classes.html"><i class="ph ph-books"></i> Classes</a>
+            <a href="quizzes.html"><i class="ph ph-exam"></i> Quizzes</a>
+            <a href="notes.html"><i class="ph ph-book-open"></i> Notes</a>
+            <a href="progress.html" style="color:var(--primary);font-weight:700;"><i class="ph ph-chart-line-up"></i> My Progress</a>
+            <a href="about.html"><i class="ph ph-user"></i> About Us</a>
+            <a href="contact.html"><i class="ph ph-envelope-simple"></i> Contact Us</a>
+        </nav>
     </header>
 
-    <main class="container">
-        <h2>My Learning Progress (ছাত্রছাত্রীর অগ্রগতি)</h2>
-        
-        <div class="progress-box">
-            <div class="note-storage">
-                <i class="ph ph-info"></i> Note: Your quiz activity is saved securely on this device's browser memory (localStorage).
-            </div>
+    <!-- ============ MAIN ============ -->
+    <main class="container fade-in">
 
-            <h3>Attempted Quizzes History</h3>
-            <div id="history-list" style="margin-top: 12px;">
-                <!-- Populated by JS -->
-            </div>
-            <button id="clear-history" style="margin-top: 16px; background: #dc2626; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">Clear History</button>
+        <!-- Page header -->
+        <div class="page-header">
+            <span class="eyebrow">
+                <i class="ph-fill ph-chart-line-up"></i>
+                Learning Dashboard
+            </span>
+            <h1>My Learning Progress</h1>
+            <p>ছাত্রছাত্রীর অগ্রগতি — Track your quiz history and learning journey.</p>
         </div>
+
+        <!-- Storage notice -->
+        <div class="storage-notice">
+            <i class="ph-fill ph-shield-check"></i>
+            <div>
+                <strong>Privacy Notice:</strong> Your quiz activity is saved securely on this device's browser memory (localStorage). Nothing is uploaded to any server.
+            </div>
+        </div>
+
+        <!-- Stats grid (dynamic) -->
+        <div class="stats-grid" id="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon" style="background:var(--primary-light);color:var(--primary);">
+                    <i class="ph-fill ph-exam"></i>
+                </div>
+                <div class="stat-value" id="stat-total">0</div>
+                <div class="stat-label">Total Attempts</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon" style="background:var(--success-light);color:var(--success);">
+                    <i class="ph-fill ph-trophy"></i>
+                </div>
+                <div class="stat-value" id="stat-best">0%</div>
+                <div class="stat-label">Best Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon" style="background:var(--warning-light);color:var(--warning);">
+                    <i class="ph-fill ph-target"></i>
+                </div>
+                <div class="stat-value" id="stat-avg">0%</div>
+                <div class="stat-label">Average Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon" style="background:var(--primary-light);color:var(--primary);">
+                    <i class="ph-fill ph-calendar-check"></i>
+                </div>
+                <div class="stat-value" id="stat-last" style="font-size:1rem;">—</div>
+                <div class="stat-label">Last Attempt</div>
+            </div>
+        </div>
+
+        <!-- Section header -->
+        <div class="section-header">
+            <h2>
+                <i class="ph-fill ph-clock-counter-clockwise"></i>
+                Attempted Quizzes History
+            </h2>
+            <button id="clear-history" class="btn btn-danger" style="display:none;">
+                <i class="ph ph-trash"></i>
+                <span>Clear History</span>
+            </button>
+        </div>
+
+        <!-- History list container -->
+        <div id="history-container">
+            <!-- Populated dynamically -->
+        </div>
+
     </main>
 
-    <nav class="bottom-nav">
+    <!-- ============ CONFIRM MODAL ============ -->
+    <div class="modal-backdrop" id="confirm-modal">
+        <div class="modal-panel">
+            <div class="modal-icon">
+                <i class="ph-fill ph-warning-circle"></i>
+            </div>
+            <h3>Clear all history?</h3>
+            <p>This will permanently delete all your quiz attempts from this device. This action cannot be undone.</p>
+            <div class="modal-actions">
+                <button class="btn" id="modal-cancel" style="background:var(--surface-2);color:var(--text);border:1px solid var(--border);">Cancel</button>
+                <button class="btn" id="modal-confirm" style="background:var(--danger);color:#fff;">Yes, Clear</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <i class="ph-fill ph-student"></i>
+            <span lang="bn">জিজ্ঞাসা (Jiggasha)</span>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="classes.html">Classes</a>
+            <a href="notes.html">Notes</a>
+            <a href="quizzes.html">Quizzes</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <p class="copyright">
+            &copy; 2026 <span lang="bn">জিজ্ঞাসা</span> (Jiggasha) - All rights reserved.
+        </p>
+    </footer>
+
+    <!-- ============ BOTTOM NAV ============ -->
+    <nav class="bottom-nav" aria-label="Mobile quick navigation">
         <a href="index.html"><i class="ph ph-house"></i><span>Home</span></a>
         <a href="classes.html"><i class="ph ph-books"></i><span>Classes</span></a>
         <a href="quizzes.html"><i class="ph ph-exam"></i><span>Quiz</span></a>
@@ -45,38 +741,208 @@
     </nav>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const listContainer = document.getElementById("history-list");
-            const clearBtn = document.getElementById("clear-history");
-            
-            function loadHistory() {
-                let history = JSON.parse(localStorage.getItem("jiggasha_attempts")) || [];
-                if(history.length === 0) {
-                    listContainer.innerHTML = "<p style='color: var(--text-muted);'>No quiz attempts recorded yet. Take a quiz to see your history!</p>";
-                    clearBtn.style.display = "none";
-                    return;
-                }
-                clearBtn.style.display = "block";
-                listContainer.innerHTML = history.map(h => `
-                    <div class="history-item">
-                        <div>
-                            <strong>${h.title}</strong>
-                            <div style="font-size: 0.75rem; color: var(--text-muted);">Attempted on: ${h.date}</div>
-                        </div>
-                        <span style="color: #16a34a; font-weight: 600; font-size: 0.85rem;"><i class="ph ph-check-circle"></i> Completed</span>
-                    </div>
-                `).join("");
+        /* ============ THEME ============ */
+        const themeBtn = document.getElementById('theme-btn');
+        const themeIcon = document.getElementById('theme-icon');
+        function updateThemeIcon() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            themeIcon.className = isDark ? "ph ph-sun" : "ph ph-moon";
+        }
+        themeBtn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            try { localStorage.setItem('jiggasha_theme', next); } catch (e) {}
+            updateThemeIcon();
+        });
+        updateThemeIcon();
+
+        /* ============ MOBILE MENU ============ */
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('open');
+            mobileMenu.classList.toggle('open');
+            menuToggle.setAttribute('aria-expanded', String(!isOpen));
+        });
+
+        /* ============ PROGRESS DATA ============ */
+        const STORAGE_KEY = "jiggasha_attempts";
+        const historyContainer = document.getElementById("history-container");
+        const clearBtn = document.getElementById("clear-history");
+
+        function loadHistory() {
+            let history = [];
+            try {
+                history = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+            } catch (e) {
+                history = [];
             }
 
-            clearBtn.addEventListener("click", () => {
-                if(confirm("Are you sure you want to clear your local history?")) {
-                    localStorage.removeItem("jiggasha_attempts");
-                    loadHistory();
-                }
-            });
+            if (!Array.isArray(history) || history.length === 0) {
+                renderEmptyState();
+                updateStats([]);
+                clearBtn.style.display = "none";
+                return;
+            }
 
+            // Sort by date descending (most recent first)
+            history.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+
+            renderHistory(history);
+            updateStats(history);
+            clearBtn.style.display = "inline-flex";
+        }
+
+        function renderEmptyState() {
+            historyContainer.innerHTML = `
+                <div class="empty-state">
+                    <div class="empty-icon">
+                        <i class="ph-fill ph-clipboard-text"></i>
+                    </div>
+                    <h3>No quiz attempts yet</h3>
+                    <p>Take your first quiz to start tracking your progress. Your scores and history will appear here.</p>
+                    <a href="quizzes.html" class="btn btn-primary">
+                        <i class="ph ph-exam"></i>
+                        <span>Browse Quizzes</span>
+                    </a>
+                </div>
+            `;
+        }
+
+        function renderHistory(history) {
+            historyContainer.innerHTML = `
+                <div class="history-card">
+                    ${history.map(h => {
+                        const score = extractScore(h);
+                        const scoreBadge = score !== null
+                            ? `<span class="history-badge badge-score"><i class="ph ph-target"></i>${score}%</span>`
+                            : '';
+                        const completedBadge = `<span class="history-badge badge-completed"><i class="ph ph-check-circle"></i>Completed</span>`;
+
+                        return `
+                            <div class="history-item">
+                                <div class="history-info">
+                                    <div class="history-icon">
+                                        <i class="ph-fill ph-exam"></i>
+                                    </div>
+                                    <div class="history-text">
+                                        <div class="history-title">${escapeHtml(h.title || 'Untitled Quiz')}</div>
+                                        <div class="history-date">
+                                            <i class="ph ph-calendar"></i>
+                                            <span>${escapeHtml(h.date || 'Unknown date')}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display:flex; gap:6px; align-items:center; flex-wrap:wrap; justify-content:flex-end;">
+                                    ${scoreBadge}
+                                    ${completedBadge}
+                                </div>
+                            </div>
+                        `;
+                    }).join("")}
+                </div>
+            `;
+        }
+
+        function extractScore(h) {
+            // Support flexible schemas: score field, or correct/total
+            if (typeof h.score === 'number') return Math.round(h.score);
+            if (typeof h.percentage === 'number') return Math.round(h.percentage);
+            if (typeof h.correct === 'number' && typeof h.total === 'number' && h.total > 0) {
+                return Math.round((h.correct / h.total) * 100);
+            }
+            return null;
+        }
+
+        function updateStats(history) {
+            const totalEl = document.getElementById('stat-total');
+            const bestEl = document.getElementById('stat-best');
+            const avgEl = document.getElementById('stat-avg');
+            const lastEl = document.getElementById('stat-last');
+
+            totalEl.innerText = history.length;
+
+            const scores = history.map(extractScore).filter(s => s !== null);
+
+            if (scores.length === 0) {
+                bestEl.innerText = '—';
+                avgEl.innerText = '—';
+            } else {
+                bestEl.innerText = Math.max(...scores) + '%';
+                const avg = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
+                avgEl.innerText = avg + '%';
+            }
+
+            if (history.length > 0 && history[0].date) {
+                // Show relative time for the last attempt
+                lastEl.innerText = formatRelativeDate(history[0].date);
+            } else {
+                lastEl.innerText = '—';
+            }
+        }
+
+        function formatRelativeDate(dateStr) {
+            try {
+                const d = new Date(dateStr);
+                if (isNaN(d.getTime())) return '—';
+                const now = new Date();
+                const diffMs = now - d;
+                const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+                if (diffDays === 0) return 'Today';
+                if (diffDays === 1) return 'Yesterday';
+                if (diffDays < 7) return `${diffDays}d ago`;
+                if (diffDays < 30) return `${Math.floor(diffDays / 7)}w ago`;
+                return d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
+            } catch (e) {
+                return '—';
+            }
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        /* ============ CLEAR CONFIRMATION ============ */
+        const modal = document.getElementById('confirm-modal');
+        const modalCancel = document.getElementById('modal-cancel');
+        const modalConfirm = document.getElementById('modal-confirm');
+
+        clearBtn.addEventListener('click', () => {
+            modal.classList.add('show');
+        });
+
+        modalCancel.addEventListener('click', () => {
+            modal.classList.remove('show');
+        });
+
+        modalConfirm.addEventListener('click', () => {
+            try {
+                localStorage.removeItem(STORAGE_KEY);
+            } catch (e) {}
+            modal.classList.remove('show');
             loadHistory();
         });
+
+        // Close modal on backdrop click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.remove('show');
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('show')) {
+                modal.classList.remove('show');
+            }
+        });
+
+        /* ============ INIT ============ */
+        document.addEventListener("DOMContentLoaded", loadHistory);
     </script>
 </body>
 </html>

@@ -1,1227 +1,1228 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>About Us | Jiggasa — জিজ্ঞাসা</title>
-
-<meta name="description"
-content="Learn about Jiggasa, an educational platform created by Sarawar Husen to help students learn Mathematics, Science, Coding and Political Science through lessons, quizzes and interactive learning.">
-
-<style>
-/* =========================
-   GLOBAL
-========================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    color: #172033;
-    background: #f7f9fc;
-    line-height: 1.7;
-}
-
-.container {
-    width: min(1120px, 92%);
-    margin: auto;
-}
-
-section {
-    padding: 90px 0;
-}
-
-a {
-    text-decoration: none;
-}
-
-/* =========================
-   NAVBAR
-========================= */
-
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: rgba(255,255,255,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid #e7eaf0;
-}
-
-.nav-inner {
-    height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    font-size: 25px;
-    font-weight: 800;
-    color: #2563eb;
-}
-
-.logo span {
-    color: #172033;
-}
-
-.nav-links {
-    display: flex;
-    gap: 28px;
-}
-
-.nav-links a {
-    color: #4b5563;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.nav-links a:hover {
-    color: #2563eb;
-}
-.founder-photo {
-    width: 280px;
-    height: 320px;
-    border-radius: 24px;
-    overflow: hidden;
-}
-
-.founder-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    min-height: 620px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(37,99,235,0.13), transparent 30%),
-        radial-gradient(circle at 80% 30%, rgba(124,58,237,0.12), transparent 30%),
-        linear-gradient(135deg, #f8fbff, #eef4ff);
-}
-
-.hero-content {
-    max-width: 850px;
-    margin: auto;
-}
-
-.badge {
-    display: inline-block;
-    padding: 8px 18px;
-    border-radius: 30px;
-    background: #e8f0ff;
-    color: #2563eb;
-    font-weight: 700;
-    margin-bottom: 25px;
-}
-
-.hero h1 {
-    font-size: clamp(45px, 7vw, 82px);
-    line-height: 1.05;
-    font-weight: 850;
-    margin-bottom: 18px;
-}
-
-.hero h1 span {
-    color: #2563eb;
-}
-
-.bengali {
-    font-size: 1.1em;
-}
-
-.hero h2 {
-    font-size: clamp(22px, 3vw, 32px);
-    margin-bottom: 20px;
-}
-
-.hero p {
-    max-width: 720px;
-    margin: auto;
-    font-size: 18px;
-    color: #5b6475;
-}
-
-.hero-buttons {
-    margin-top: 35px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    padding: 13px 25px;
-    border-radius: 10px;
-    font-weight: 700;
-    transition: 0.3s;
-    display: inline-block;
-}
-
-.btn-primary {
-    color: white;
-    background: #2563eb;
-    box-shadow: 0 8px 25px rgba(37,99,235,0.25);
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    background: #1d4ed8;
-}
-
-.btn-secondary {
-    color: #2563eb;
-    background: white;
-    border: 1px solid #dbe3f0;
-}
-
-.btn-secondary:hover {
-    transform: translateY(-3px);
-}
-
-/* =========================
-   SECTION HEADINGS
-========================= */
-
-.section-heading {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 55px;
-}
-
-.section-heading .small-title {
-    color: #2563eb;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-size: 13px;
-}
-
-.section-heading h2 {
-    font-size: clamp(30px, 4vw, 45px);
-    margin: 10px 0 15px;
-}
-
-.section-heading p {
-    color: #697386;
-}
-
-/* =========================
-   STORY
-========================= */
-
-.story {
-    background: white;
-}
-
-.story-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.story-text h2 {
-    font-size: 40px;
-    margin-bottom: 20px;
-}
-
-.story-text p {
-    color: #606b7d;
-    margin-bottom: 18px;
-}
-
-.question-box {
-    margin-top: 30px;
-    padding: 25px;
-    border-left: 4px solid #2563eb;
-    background: #f4f7ff;
-    border-radius: 0 12px 12px 0;
-}
-
-.question-box strong {
-    display: block;
-    font-size: 20px;
-    color: #172033;
-}
-
-.visual-card {
-    min-height: 400px;
-    border-radius: 30px;
-    padding: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background:
-        linear-gradient(145deg, #2563eb, #7c3aed);
-    color: white;
-    box-shadow: 0 25px 60px rgba(37,99,235,0.22);
-}
-
-.big-word {
-    text-align: center;
-}
-
-.big-word .bangla {
-    font-size: clamp(55px, 8vw, 90px);
-    font-weight: 900;
-}
-
-.big-word p {
-    margin-top: 10px;
-    opacity: 0.9;
-    font-size: 18px;
-}
-
-/* =========================
-   SUBJECT CARDS
-========================= */
-
-.subjects {
-    background: #f7f9fc;
-}
-
-.subject-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
-.subject-card {
-    background: white;
-    padding: 30px 24px;
-    border-radius: 18px;
-    border: 1px solid #e7eaf0;
-    transition: 0.35s;
-}
-
-.subject-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 18px 40px rgba(20,30,60,0.09);
-}
-
-.icon {
-    width: 55px;
-    height: 55px;
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 27px;
-    margin-bottom: 20px;
-    background: #eef4ff;
-}
-
-.subject-card h3 {
-    margin-bottom: 10px;
-}
-
-.subject-card p {
-    color: #697386;
-    font-size: 15px;
-}
-
-/* =========================
-   FEATURES
-========================= */
-
-.features {
-    background: white;
-}
-
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.feature {
-    padding: 28px;
-    border-radius: 18px;
-    background: #f8faff;
-    border: 1px solid #e8edf5;
-}
-
-.feature-number {
-    color: #2563eb;
-    font-weight: 900;
-    font-size: 14px;
-}
-
-.feature h3 {
-    margin: 8px 0;
-}
-
-.feature p {
-    color: #697386;
-}
-
-/* =========================
-   FOUNDER
-========================= */
-
-.founder {
-    background: #101827;
-    color: white;
-}
-
-.founder-grid {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 55px;
-    align-items: center;
-}
-
-.founder-photo {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    background:
-        linear-gradient(135deg, #2563eb, #7c3aed);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 75px;
-    font-weight: 800;
-    border: 8px solid rgba(255,255,255,0.1);
-}
-
-.founder-content .label {
-    color: #7da7ff;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-.founder-content h2 {
-    font-size: 45px;
-    margin: 8px 0;
-}
-
-.founder-content h3 {
-    color: #b8c1d3;
-    font-weight: 500;
-    margin-bottom: 20px;
-}
-
-.founder-content p {
-    color: #c4ccda;
-    margin-bottom: 15px;
-}
-
-/* =========================
-   STATS
-========================= */
-
-.stats {
-    background: #eef4ff;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    text-align: center;
-    gap: 25px;
-}
-
-.stat {
-    padding: 25px;
-}
-
-.stat-number {
-    font-size: 45px;
-    font-weight: 900;
-    color: #2563eb;
-}
-
-.stat p {
-    color: #697386;
-}
-
-/* =========================
-   PHILOSOPHY
-========================= */
-
-.philosophy {
-    background: white;
-    text-align: center;
-}
-
-.quote {
-    max-width: 800px;
-    margin: auto;
-}
-
-.quote-mark {
-    font-size: 70px;
-    color: #2563eb;
-    line-height: 0.5;
-}
-
-.quote h2 {
-    font-size: clamp(30px, 4vw, 48px);
-    margin: 25px 0;
-}
-
-.quote p {
-    color: #697386;
-    font-size: 18px;
-}
-
-/* =========================
-   CTA
-========================= */
-
-.cta {
-    padding: 90px 0;
-    background: linear-gradient(135deg, #2563eb, #4f46e5);
-    color: white;
-    text-align: center;
-}
-
-.cta h2 {
-    font-size: clamp(32px, 5vw, 55px);
-    margin-bottom: 15px;
-}
-
-.cta p {
-    max-width: 650px;
-    margin: auto;
-    opacity: 0.9;
-}
-
-.cta .btn {
-    margin-top: 30px;
-    background: white;
-    color: #2563eb;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-    background: #0b1220;
-    color: #9ca7ba;
-    padding: 35px 0;
-    text-align: center;
-}
-
-footer strong {
-    color: white;
-}
-
-/* =========================
-   ANIMATION
-========================= */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(35px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 900px) {
-
-    .subject-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .story-grid,
-    .founder-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .visual-card {
-        min-height: 300px;
-    }
-
-    .founder-photo {
-        margin: auto;
-    }
-
-    .feature-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 600px) {
-
-    section {
-        padding: 65px 0;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .hero {
-        min-height: 560px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    .subject-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .story-text h2,
-    .founder-content h2 {
-        font-size: 32px;
-    }
-
-    .visual-card {
-        min-height: 250px;
-    }
-
-    .big-word .bangla {
-        font-size: 60px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<!-- =========================
-     NAVBAR
-========================= -->
-
-<nav class="navbar">
-    <div class="container nav-inner">
-
-        <a href="index.html" class="logo">
-            Jiggasa <span>জিজ্ঞাসা</span>
-        </a>
-
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#subjects">Subjects</a>
-            <a href="#founder">Founder</a>
-            <a href="#vision">Vision</a>
-        </div>
-
-    </div>
-</nav>
-
-
-<!-- =========================
-     HERO
-========================= -->
-
-<header class="hero">
-
-    <div class="container hero-content reveal">
-
-        <span class="badge">WELCOME TO JIGGASA</span>
-
-        <h1>
-            Learn to <span>Question.</span>
-        </h1>
-
-        <h2>
-            জিজ্ঞাসা থেকেই শেখার শুরু।
-        </h2>
-
-        <p>
-            Jiggasa is a student-focused learning platform created to make
-            Mathematics, Science, Coding and Political Science easier,
-            clearer and more engaging through lessons, quizzes and practice.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="#about" class="btn btn-primary">
-                Explore Jiggasa
-            </a>
-
-            <a href="#founder" class="btn btn-secondary">
-                Meet the Founder
-            </a>
-
-        </div>
-
-    </div>
-
-</header>
-
-
-<!-- =========================
-     OUR STORY
-========================= -->
-
-<section id="about" class="story">
-
-    <div class="container story-grid">
-
-        <div class="story-text reveal">
-
-            <div class="section-heading" style="text-align:left;margin:0 0 25px;">
-                <span class="small-title">OUR STORY</span>
-                <h2>Why Jiggasa?</h2>
-            </div>
-
-            <p>
-                Every student is curious. But sometimes a topic is difficult,
-                an explanation is not enough, or a student simply needs more
-                time and practice.
-            </p>
-
-            <p>
-                Jiggasa was created to make learning available beyond the
-                traditional classroom — allowing students to watch,
-                practise, revise and learn at their own pace.
-            </p>
-
-            <div class="question-box">
-                <strong>
-                    "The right question can open the door to understanding."
-                </strong>
-                <span>
-                    That idea is at the heart of Jiggasa.
-                </span>
-            </div>
-
-        </div>
-
-
-        <div class="visual-card reveal">
-
-            <div class="big-word">
-
-                <div class="bangla">জিজ্ঞাসা</div>
-
-                <p>
-                    Curiosity • Inquiry • Learning
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     SUBJECTS
-========================= -->
-
-<section id="subjects" class="subjects">
-
-    <div class="container">
-
-        <div class="section-heading reveal">
-
-            <span class="small-title">LEARNING AREAS</span>
-
-            <h2>
-                Explore. Understand. Practise.
-            </h2>
-
-            <p>
-                Jiggasa brings different learning experiences together
-                in one student-friendly platform.
-            </p>
-
-        </div>
-
-
-        <div class="subject-grid">
-
-            <div class="subject-card reveal">
-
-                <div class="icon">∑</div>
-
-                <h3>Mathematics</h3>
-
-                <p>
-                    Build strong concepts, mathematical reasoning and
-                    problem-solving skills through explanations and practice.
-                </p>
-
-            </div>
-
-
-            <div class="subject-card reveal">
-
-                <div class="icon">🔬</div>
-
-                <h3>Science</h3>
-
-                <p>
-                    Understand scientific concepts through clear lessons,
-                    examples, visual explanations and quizzes.
-                </p>
-
-            </div>
-
-
-            <div class="subject-card reveal">
-
-                <div class="icon">💻</div>
-
-                <h3>Coding</h3>
-
-                <p>
-                    Develop logical thinking and programming fundamentals
-                    through beginner-friendly coding lessons and practice.
-                </p>
-
-            </div>
-
-
-            <div class="subject-card reveal">
-
-                <div class="icon">🏛️</div>
-
-                <h3>Political Science</h3>
-
-                <p>
-                    Explore democracy, government, constitution, rights and
-                    political concepts through structured learning.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     HOW JIGGASA HELPS
-========================= -->
-
-<section class="features">
-
-    <div class="container">
-
-        <div class="section-heading reveal">
-
-            <span class="small-title">THE JIGGASA EXPERIENCE</span>
-
-            <h2>
-                More Than Just Reading
-            </h2>
-
-            <p>
-                Learning becomes stronger when students actively interact
-                with what they learn.
-            </p>
-
-        </div>
-
-
-        <div class="feature-grid">
-
-            <div class="feature reveal">
-
-                <span class="feature-number">01</span>
-
-                <h3>🎬 Video Lessons</h3>
-
-                <p>
-                    Learn difficult concepts through structured,
-                    easy-to-follow video explanations.
-                </p>
-
-            </div>
-
-
-            <div class="feature reveal">
-
-                <span class="feature-number">02</span>
-
-                <h3>🧠 Interactive Quizzes</h3>
-
-                <p>
-                    Test your understanding and discover where you
-                    need more practice.
-                </p>
-
-            </div>
-
-
-            <div class="feature reveal">
-
-                <span class="feature-number">03</span>
-
-                <h3>📖 Revision</h3>
-
-                <p>
-                    Revisit concepts whenever you need them and learn
-                    at your own pace.
-                </p>
-
-            </div>
-
-
-            <div class="feature reveal">
-
-                <span class="feature-number">04</span>
-
-                <h3>💡 Think & Solve</h3>
-
-                <p>
-                    Go beyond memorisation and develop reasoning,
-                    curiosity and independent learning habits.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     FOUNDER
-========================= -->
-
-<section id="founder" class="founder">
-
-    <div class="container founder-grid">
-
-        <div class="founder-photo reveal">
-            <img src="assets/sarawar-husen-avatar.jpg" alt="Sarawar Husen">
-        </div>
-
-
-        <div class="founder-content reveal">
-
-            <span class="label">
-                FOUNDER & EDUCATOR
-            </span>
-
-            <h2>
-                Sarawar Husen
-            </h2>
-
-            <h3>
-                Creator of Jiggasa (জিজ্ঞাসা)
-            </h3>
-
-            <p>
-                Jiggasa was created by Sarawar Husen with the belief that
-                education should encourage students to understand,
-                question and think independently.
-            </p>
-
-            <p>
-                Rather than focusing only on completing a syllabus,
-                Jiggasa aims to create a learning environment where
-                students can explore concepts, practise regularly and
-                gradually become confident learners.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     STATS
-========================= -->
-
-<section class="stats">
-
-    <div class="container">
-
-        <div class="stats-grid">
-
-            <div class="stat reveal">
-                <div class="stat-number" data-target="4">0</div>
-                <p>Core Learning Areas</p>
-            </div>
-
-            <div class="stat reveal">
-                <div class="stat-number" data-target="100">0</div>
-                <p>% Focus on Learning</p>
-            </div>
-
-            <div class="stat reveal">
-                <div class="stat-number">∞</div>
-                <p>Questions to Explore</p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     PHILOSOPHY
-========================= -->
-
-<section id="vision" class="philosophy">
-
-    <div class="container quote reveal">
-
-        <div class="quote-mark">“</div>
-
-        <h2>
-            Questions are not a sign of weakness.
-            They are the beginning of knowledge.
-        </h2>
-
-        <p>
-            At Jiggasa, we want students to feel comfortable asking
-            "Why?", "How?", and "What if?"
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     VISION
-========================= -->
-
-<section class="story">
-
-    <div class="container">
-
-        <div class="section-heading reveal">
-
-            <span class="small-title">OUR VISION</span>
-
-            <h2>
-                Building Independent Learners
-            </h2>
-
-            <p>
-                Our goal is to help students develop skills that remain
-                useful far beyond the classroom.
-            </p>
-
-        </div>
-
-
-        <div class="feature-grid">
-
-            <div class="feature reveal">
-                <h3>🧠 Think Critically</h3>
-                <p>
-                    Understand information instead of simply memorising it.
-                </p>
-            </div>
-
-            <div class="feature reveal">
-                <h3>🔎 Stay Curious</h3>
-                <p>
-                    Keep asking questions and exploring new ideas.
-                </p>
-            </div>
-
-            <div class="feature reveal">
-                <h3>🧩 Solve Problems</h3>
-                <p>
-                    Develop logical approaches to academic and practical problems.
-                </p>
-            </div>
-
-            <div class="feature reveal">
-                <h3>🚀 Keep Learning</h3>
-                <p>
-                    Build the confidence to continue learning independently.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     CTA
-========================= -->
-
-<section class="cta">
-
-    <div class="container reveal">
-
-        <h2>
-            Ready to Start Your Learning Journey?
-        </h2>
-
-        <p>
-            Explore lessons, challenge yourself with quizzes,
-            practise coding and keep asking questions.
-        </p>
-
-        <a href="index.html" class="btn">
-            Start Learning →
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-    <div class="container">
-
-        <p>
-            © <span id="year"></span>
-            <strong>Jiggasa (জিজ্ঞাসা)</strong>.
-            Built for curious learners.
-        </p>
-
-    </div>
-
-</footer>
-
-
-<script>
-
-/* =========================
-   CURRENT YEAR
-========================= */
-
-document.getElementById("year").textContent =
-    new Date().getFullYear();
-
-
-/* =========================
-   SCROLL REVEAL
-========================= */
-
-const revealElements =
-    document.querySelectorAll(".reveal");
-
-const revealObserver =
-    new IntersectionObserver((entries) => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add("active");
-
-                revealObserver.unobserve(entry.target);
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#4f46e5">
+    <meta name="description" content="Learn about Jiggasa (জিজ্ঞাসা) — an educational platform created by Sarawar Husen to help students learn Mathematics, Science, Coding and Political Science.">
+    <title>About Us | Jiggasa — জিজ্ঞাসা</title>
+
+    <!-- Theme Init -->
+    <script>
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem('jiggasha_theme'); } catch (e) {}
+            if (t !== 'dark' && t !== 'light') {
+                t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
             }
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
 
-        });
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    }, {
-        threshold: 0.12
-    });
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-revealElements.forEach(element => {
-    revealObserver.observe(element);
-});
+    <style>
+        :root {
+            color-scheme: light;
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --primary-light: #eef2ff;
+            --primary-soft: #e0e7ff;
+            --accent: #f59e0b;
 
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --surface-2: #f1f5f9;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
 
-/* =========================
-   NUMBER COUNTER
-========================= */
+            --success: #10b981;
+            --success-light: #d1fae5;
+            --danger: #ef4444;
+            --danger-light: #fee2e2;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
 
-const counters =
-    document.querySelectorAll(".stat-number[data-target]");
+            --shadow-sm: 0 1px 2px rgba(15, 23, 42, .06);
+            --shadow-md: 0 6px 18px rgba(15, 23, 42, .08);
+            --shadow-lg: 0 16px 40px rgba(15, 23, 42, .12);
 
-let counterStarted = false;
+            --radius-sm: 10px;
+            --radius: 14px;
+            --radius-lg: 20px;
 
-const counterObserver =
-    new IntersectionObserver((entries) => {
-
-        if (entries[0].isIntersecting && !counterStarted) {
-
-            counterStarted = true;
-
-            counters.forEach(counter => {
-
-                const target =
-                    Number(counter.dataset.target);
-
-                let current = 0;
-
-                const increment =
-                    Math.max(1, Math.ceil(target / 40));
-
-                const updateCounter = () => {
-
-                    current += increment;
-
-                    if (current >= target) {
-                        counter.textContent = target;
-                        return;
-                    }
-
-                    counter.textContent = current;
-
-                    requestAnimationFrame(updateCounter);
-                };
-
-                updateCounter();
-
-            });
-
+            --bottom-nav-h: 64px;
         }
 
-    }, {
-        threshold: 0.5
-    });
+        html[data-theme="dark"] {
+            color-scheme: dark;
+            --primary: #818cf8;
+            --primary-hover: #a5b4fc;
+            --primary-light: #1e1b4b;
+            --primary-soft: #312e81;
 
+            --bg: #0b1120;
+            --surface: #111827;
+            --surface-2: #1f2937;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #273244;
 
-counterObserver.observe(
-    document.querySelector(".stats")
-);
+            --success-light: #064e3b;
+            --danger-light: #7f1d1d;
+            --warning-light: #78350f;
 
-</script>
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
+            --shadow-md: 0 6px 18px rgba(0, 0, 0, .45);
+            --shadow-lg: 0 16px 40px rgba(0, 0, 0, .55);
+        }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Hind Siliguri', 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+            transition: background-color .3s ease, color .3s ease;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 1023.98px) {
+            body {
+                padding-bottom: calc(var(--bottom-nav-h) + env(safe-area-inset-bottom, 0px));
+            }
+        }
+
+        a { text-decoration: none; }
+
+        ::-webkit-scrollbar { width: 7px; height: 7px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        html[data-theme="dark"] ::-webkit-scrollbar-thumb { background: #334155; }
+
+        /* ============ TOP NAV ============ */
+        .top-nav {
+            position: sticky; top: 0; z-index: 100;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            transition: background-color .3s ease, border-color .3s ease;
+        }
+        .nav-container {
+            max-width: 1400px; margin-inline: auto;
+            padding: 10px 20px; display: flex; align-items: center; gap: 16px;
+        }
+        .logo {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 1.35rem; font-weight: 800; color: var(--primary);
+            flex-shrink: 0; letter-spacing: -.01em;
+            text-decoration: none;
+        }
+        .logo i { font-size: 1.6rem; }
+
+        .search-box {
+            position: relative; flex: 1 1 200px; max-width: 360px; min-width: 0;
+        }
+        .search-box i {
+            position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+            color: var(--text-muted); font-size: 1.05rem; pointer-events: none;
+        }
+        .search-box input {
+            width: 100%; padding: 8px 14px 8px 36px;
+            border: 1px solid var(--border); border-radius: 999px;
+            background: var(--surface-2); color: var(--text); font-size: .9rem; outline: none;
+            transition: border-color .2s, box-shadow .2s;
+        }
+        .search-box input:focus {
+            border-color: var(--primary); background: var(--surface);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        .desktop-links { display: none; align-items: center; gap: 4px; }
+        @media (min-width: 992px) { .desktop-links { display: flex; } }
+        .desktop-links a {
+            padding: 8px 12px; font-size: .92rem; font-weight: 600;
+            color: var(--text-muted); border-radius: 8px; transition: all .15s;
+            text-decoration: none;
+        }
+        .desktop-links a:hover, .desktop-links a.active {
+            color: var(--primary); background: var(--primary-light);
+        }
+
+        .icon-btn {
+            width: 40px; height: 40px; border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            background: var(--primary-light); color: var(--primary);
+            font-size: 1.15rem; flex-shrink: 0; transition: background-color .2s, transform .15s;
+            border: none; cursor: pointer;
+        }
+        .icon-btn:hover { background: var(--primary-soft); }
+        .icon-btn:active { transform: scale(.94); }
+
+        .mobile-menu {
+            display: none; position: absolute; top: 100%; left: 0; right: 0;
+            background: var(--surface); border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-md); padding: 8px 12px 12px; z-index: 99;
+        }
+        .mobile-menu.open { display: block; animation: slideDown .2s ease; }
+        .mobile-menu a {
+            display: flex; align-items: center; gap: 12px; padding: 12px;
+            border-radius: 10px; font-weight: 600; color: var(--text); transition: all .15s;
+            text-decoration: none;
+        }
+        .mobile-menu a:hover { background: var(--primary-light); color: var(--primary); }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ============ CONTAINER ============ */
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 16px;
+            width: 100%;
+        }
+
+        /* ============ SECTIONS ============ */
+        section { padding: 80px 0; }
+
+        /* ============ HERO ============ */
+        .hero {
+            padding: 80px 0 96px;
+            text-align: center;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(79, 70, 229, .13), transparent 30%),
+                radial-gradient(circle at 80% 30%, rgba(124, 58, 237, .12), transparent 30%),
+                linear-gradient(135deg, var(--primary-light), var(--bg));
+        }
+        html[data-theme="dark"] .hero {
+            background:
+                radial-gradient(circle at 20% 20%, rgba(129, 140, 248, .12), transparent 30%),
+                radial-gradient(circle at 80% 30%, rgba(167, 139, 250, .10), transparent 30%),
+                linear-gradient(135deg, #0b1120, #111827);
+        }
+
+        .hero-content { max-width: 850px; margin: auto; }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 16px;
+            border-radius: 999px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: .78rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 7vw, 76px);
+            line-height: 1.05;
+            font-weight: 800;
+            letter-spacing: -.03em;
+            margin-bottom: 18px;
+            color: var(--text);
+        }
+        .hero h1 span { color: var(--primary); }
+
+        .hero h2 {
+            font-size: clamp(20px, 3vw, 30px);
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .hero p {
+            max-width: 720px;
+            margin: auto;
+            font-size: 1.02rem;
+            color: var(--text-muted);
+        }
+
+        .hero-buttons {
+            margin-top: 32px;
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 13px 26px;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: .95rem;
+            transition: all .2s ease;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 8px 22px rgba(79, 70, 229, .28);
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(79, 70, 229, .38);
+        }
+
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--primary);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ============ SECTION HEADING ============ */
+        .section-heading {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 48px;
+        }
+        .section-heading .small-title {
+            color: var(--primary);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            font-size: .72rem;
+        }
+        .section-heading h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 800;
+            letter-spacing: -.02em;
+            margin: 10px 0 12px;
+            color: var(--text);
+        }
+        .section-heading p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* ============ STORY ============ */
+        .story { background: var(--surface); }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            align-items: center;
+        }
+
+        .story-text h2 {
+            font-size: clamp(28px, 3.4vw, 38px);
+            font-weight: 800;
+            letter-spacing: -.02em;
+            margin-bottom: 18px;
+        }
+        .story-text p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .question-box {
+            margin-top: 26px;
+            padding: 22px 24px;
+            border-left: 4px solid var(--primary);
+            background: var(--primary-light);
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+        .question-box strong {
+            display: block;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+        .question-box span {
+            color: var(--text-muted);
+            font-size: .9rem;
+        }
+
+        .visual-card {
+            min-height: 380px;
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #4f46e5, #7c3aed);
+            color: #ffffff;
+            box-shadow: 0 25px 60px rgba(79, 70, 229, .28);
+            position: relative;
+            overflow: hidden;
+        }
+        .visual-card::after {
+            content: "";
+            position: absolute;
+            right: -60px; top: -60px;
+            width: 220px; height: 220px;
+            background: radial-gradient(circle, rgba(255,255,255,.18), transparent 70%);
+            pointer-events: none;
+        }
+
+        .big-word { text-align: center; position: relative; z-index: 1; }
+        .big-word .bangla {
+            font-size: clamp(52px, 7vw, 84px);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -.02em;
+        }
+        .big-word p {
+            margin-top: 14px;
+            opacity: .92;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* ============ SUBJECTS ============ */
+        .subjects { background: var(--bg); }
+
+        .subject-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .subject-card {
+            background: var(--surface);
+            padding: 28px 22px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .subject-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: var(--primary);
+            opacity: 0;
+            transition: opacity .3s ease;
+        }
+        .subject-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+        .subject-card:hover::before { opacity: 1; }
+
+        .subject-card .icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 18px;
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+        .subject-card h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        .subject-card p {
+            color: var(--text-muted);
+            font-size: .88rem;
+            line-height: 1.6;
+        }
+
+        /* ============ FEATURES ============ */
+        .features { background: var(--surface); }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .feature {
+            padding: 26px;
+            border-radius: var(--radius);
+            background: var(--bg);
+            border: 1px solid var(--border);
+            transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+        }
+        .feature:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .feature-number {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 800;
+            font-size: .75rem;
+            letter-spacing: .1em;
+            background: var(--primary-light);
+            padding: 3px 10px;
+            border-radius: 999px;
+            margin-bottom: 12px;
+        }
+        .feature h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin: 8px 0 6px;
+            color: var(--text);
+        }
+        .feature p {
+            color: var(--text-muted);
+            font-size: .9rem;
+            line-height: 1.65;
+        }
+
+        /* ============ FOUNDER ============ */
+        .founder {
+            background: linear-gradient(135deg, #0b1120 0%, #1e1b4b 100%);
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+        .founder::after {
+            content: "";
+            position: absolute;
+            right: -80px; top: -80px;
+            width: 280px; height: 280px;
+            background: radial-gradient(circle, rgba(129, 140, 248, .2), transparent 70%);
+            pointer-events: none;
+        }
+
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 48px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .founder-photo {
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid rgba(255, 255, 255, .1);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, .5);
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 0 auto;
+        }
+        .founder-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .founder-content .label {
+            display: inline-block;
+            color: #a5b4fc;
+            font-weight: 800;
+            letter-spacing: .12em;
+            font-size: .72rem;
+            margin-bottom: 10px;
+        }
+        .founder-content h2 {
+            font-size: clamp(30px, 4vw, 44px);
+            font-weight: 800;
+            letter-spacing: -.02em;
+            margin: 6px 0 8px;
+            color: #ffffff;
+        }
+        .founder-content h3 {
+            color: #c7d2fe;
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
+        .founder-content p {
+            color: #cbd5e1;
+            margin-bottom: 14px;
+            font-size: .95rem;
+            line-height: 1.75;
+        }
+
+        /* ============ STATS ============ */
+        .stats { background: var(--primary-light); }
+        html[data-theme="dark"] .stats { background: #111827; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            text-align: center;
+            gap: 24px;
+        }
+
+        .stat {
+            padding: 22px 12px;
+            border-radius: var(--radius);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            transition: transform .2s ease, border-color .2s ease;
+        }
+        .stat:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+        }
+
+        .stat-number {
+            font-size: clamp(36px, 5vw, 48px);
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.1;
+            letter-spacing: -.02em;
+        }
+        .stat p {
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: .88rem;
+            margin-top: 6px;
+        }
+
+        /* ============ PHILOSOPHY ============ */
+        .philosophy {
+            background: var(--surface);
+            text-align: center;
+        }
+        .quote {
+            max-width: 800px;
+            margin: auto;
+        }
+        .quote-mark {
+            font-size: 5rem;
+            color: var(--primary);
+            line-height: .5;
+            font-family: Georgia, serif;
+            font-weight: 700;
+        }
+        .quote h2 {
+            font-size: clamp(26px, 3.6vw, 42px);
+            font-weight: 800;
+            letter-spacing: -.02em;
+            margin: 26px 0 22px;
+            line-height: 1.25;
+            color: var(--text);
+        }
+        .quote p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* ============ CTA ============ */
+        .cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: #ffffff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta::before {
+            content: "";
+            position: absolute;
+            left: -60px; bottom: -60px;
+            width: 260px; height: 260px;
+            background: radial-gradient(circle, rgba(255,255,255,.15), transparent 70%);
+            pointer-events: none;
+        }
+        .cta::after {
+            content: "";
+            position: absolute;
+            right: -60px; top: -60px;
+            width: 260px; height: 260px;
+            background: radial-gradient(circle, rgba(255,255,255,.12), transparent 70%);
+            pointer-events: none;
+        }
+        .cta h2 {
+            font-size: clamp(28px, 5vw, 48px);
+            font-weight: 800;
+            letter-spacing: -.02em;
+            margin-bottom: 14px;
+            position: relative;
+            z-index: 1;
+        }
+        .cta p {
+            max-width: 620px;
+            margin: auto;
+            opacity: .92;
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
+            line-height: 1.65;
+        }
+        .cta .btn {
+            margin-top: 28px;
+            background: #ffffff;
+            color: #4f46e5;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, .25);
+        }
+        .cta .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, .35);
+            background: #f8fafc;
+        }
+
+        /* ============ FOOTER ============ */
+        .site-footer {
+            margin-top: auto;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 32px 16px;
+            text-align: center;
+        }
+        .site-footer .footer-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+        .site-footer .footer-logo i { font-size: 1.5rem; }
+        .site-footer .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            font-size: .85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .site-footer .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color .15s;
+        }
+        .site-footer .footer-links a:hover { color: var(--primary); }
+        .site-footer .copyright {
+            font-size: .75rem;
+            color: var(--text-muted);
+        }
+        .site-footer .copyright strong { color: var(--text); }
+
+        /* ============ BOTTOM NAV ============ */
+        .bottom-nav {
+            position: fixed; left: 0; right: 0; bottom: 0;
+            height: calc(var(--bottom-nav-h) + env(safe-area-inset-bottom, 0px));
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+            display: flex; justify-content: space-around; align-items: center;
+            background: var(--surface); border-top: 1px solid var(--border); z-index: 90;
+            box-shadow: 0 -4px 16px rgba(0, 0, 0, .06);
+        }
+        .bottom-nav a {
+            flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;
+            font-size: .7rem; font-weight: 600; color: var(--text-muted); padding: 6px 0;
+            transition: color .15s; text-decoration: none;
+        }
+        .bottom-nav a i { font-size: 1.35rem; }
+        .bottom-nav a.active { color: var(--primary); }
+
+        @media (min-width: 1024px) {
+            .bottom-nav { display: none; }
+        }
+
+        /* ============ ANIMATIONS ============ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 900px) {
+            .subject-grid { grid-template-columns: repeat(2, 1fr); }
+            .story-grid, .founder-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 32px;
+            }
+            .story-text h2 { text-align: center; }
+            .question-box { text-align: left; }
+            .visual-card { min-height: 280px; padding: 32px 24px; }
+            .founder-photo { width: 200px; height: 200px; font-size: 3.5rem; }
+            .feature-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            section { padding: 60px 0; }
+            .hero { padding: 60px 0 72px; }
+            .hero p { font-size: .95rem; }
+            .subject-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .visual-card { min-height: 240px; }
+            .big-word .bangla { font-size: 56px; }
+            .btn { padding: 11px 22px; font-size: .9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============ TOP NAV ============ -->
+    <header class="top-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo" aria-label="Jiggasha home">
+                <i class="ph-fill ph-student"></i>
+                <span lang="bn">জিজ্ঞাসা</span>
+            </a>
+
+            <div class="search-box">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="search" id="global-search" placeholder="Search..." aria-label="Search" />
+            </div>
+
+            <div class="nav-actions flex items-center gap-2">
+                <nav class="desktop-links" aria-label="Primary">
+                    <a href="index.html">Home</a>
+                    <a href="classes.html">Classes</a>
+                    <a href="quizzes.html">Quizzes</a>
+                    <a href="notes.html">Notes</a>
+                    <a href="videos.html">Videos</a>
+                    <a href="progress.html">My Progress</a>
+                    <a href="about.html" class="active">About Us</a>
+                </nav>
+
+                <button type="button" class="icon-btn" id="theme-btn" title="Toggle theme" aria-label="Toggle theme">
+                    <i class="ph ph-moon" id="theme-icon"></i>
+                </button>
+
+                <button type="button" class="icon-btn lg:hidden" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+            <a href="index.html"><i class="ph ph-house"></i> Home</a>
+            <a href="classes.html"><i class="ph ph-books"></i> Classes</a>
+            <a href="quizzes.html"><i class="ph ph-exam"></i> Quizzes</a>
+            <a href="notes.html"><i class="ph ph-book-open"></i> Notes</a>
+            <a href="videos.html"><i class="ph ph-youtube-logo"></i> Videos</a>
+            <a href="progress.html"><i class="ph ph-chart-line-up"></i> My Progress</a>
+            <a href="about.html" style="color:var(--primary);font-weight:700;"><i class="ph ph-user"></i> About Us</a>
+            <a href="contact.html"><i class="ph ph-envelope-simple"></i> Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <header class="hero">
+        <div class="container hero-content reveal">
+            <span class="badge">
+                <i class="ph-fill ph-sparkle"></i>
+                Welcome to Jiggasa
+            </span>
+
+            <h1>
+                Learn to <span>Question.</span>
+            </h1>
+
+            <h2>জিজ্ঞাসা থেকেই শেখার শুরু।</h2>
+
+            <p>
+                Jiggasa is a student-focused learning platform created to make
+                Mathematics, Science, Coding and Political Science easier,
+                clearer and more engaging through lessons, quizzes and practice.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-primary">
+                    <i class="ph ph-compass"></i>
+                    Explore Jiggasa
+                </a>
+                <a href="#founder" class="btn btn-secondary">
+                    <i class="ph ph-user"></i>
+                    Meet the Founder
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============ OUR STORY ============ -->
+    <section id="about" class="story">
+        <div class="container story-grid">
+            <div class="story-text reveal">
+                <span class="small-title" style="color:var(--primary);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;">Our Story</span>
+                <h2 style="margin-top:8px;">Why Jiggasa?</h2>
+
+                <p>
+                    Every student is curious. But sometimes a topic is difficult,
+                    an explanation is not enough, or a student simply needs more
+                    time and practice.
+                </p>
+
+                <p>
+                    Jiggasa was created to make learning available beyond the
+                    traditional classroom — allowing students to watch,
+                    practise, revise and learn at their own pace.
+                </p>
+
+                <div class="question-box">
+                    <strong>"The right question can open the door to understanding."</strong>
+                    <span>That idea is at the heart of Jiggasa.</span>
+                </div>
+            </div>
+
+            <div class="visual-card reveal">
+                <div class="big-word">
+                    <div class="bangla">জিজ্ঞাসা</div>
+                    <p>Curiosity • Inquiry • Learning</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SUBJECTS ============ -->
+    <section id="subjects" class="subjects">
+        <div class="container">
+            <div class="section-heading reveal">
+                <span class="small-title">Learning Areas</span>
+                <h2>Explore. Understand. Practise.</h2>
+                <p>
+                    Jiggasa brings different learning experiences together
+                    in one student-friendly platform.
+                </p>
+            </div>
+
+            <div class="subject-grid">
+                <div class="subject-card reveal">
+                    <div class="icon"><i class="ph-fill ph-math-operations"></i></div>
+                    <h3>Mathematics</h3>
+                    <p>Build strong concepts, mathematical reasoning and problem-solving skills through explanations and practice.</p>
+                </div>
+
+                <div class="subject-card reveal">
+                    <div class="icon"><i class="ph-fill ph-flask"></i></div>
+                    <h3>Science</h3>
+                    <p>Understand scientific concepts through clear lessons, examples, visual explanations and quizzes.</p>
+                </div>
+
+                <div class="subject-card reveal">
+                    <div class="icon"><i class="ph-fill ph-code"></i></div>
+                    <h3>Coding</h3>
+                    <p>Develop logical thinking and programming fundamentals through beginner-friendly coding lessons and practice.</p>
+                </div>
+
+                <div class="subject-card reveal">
+                    <div class="icon"><i class="ph-fill ph-bank"></i></div>
+                    <h3>Political Science</h3>
+                    <p>Explore democracy, government, constitution, rights and political concepts through structured learning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ HOW JIGGASA HELPS ============ -->
+    <section class="features">
+        <div class="container">
+            <div class="section-heading reveal">
+                <span class="small-title">The Jiggasa Experience</span>
+                <h2>More Than Just Reading</h2>
+                <p>Learning becomes stronger when students actively interact with what they learn.</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature reveal">
+                    <span class="feature-number">01</span>
+                    <h3>🎬 Video Lessons</h3>
+                    <p>Learn difficult concepts through structured, easy-to-follow video explanations.</p>
+                </div>
+                <div class="feature reveal">
+                    <span class="feature-number">02</span>
+                    <h3>🧠 Interactive Quizzes</h3>
+                    <p>Test your understanding and discover where you need more practice.</p>
+                </div>
+                <div class="feature reveal">
+                    <span class="feature-number">03</span>
+                    <h3>📖 Revision</h3>
+                    <p>Revisit concepts whenever you need them and learn at your own pace.</p>
+                </div>
+                <div class="feature reveal">
+                    <span class="feature-number">04</span>
+                    <h3>💡 Think &amp; Solve</h3>
+                    <p>Go beyond memorisation and develop reasoning, curiosity and independent learning habits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOUNDER ============ -->
+    <section id="founder" class="founder">
+        <div class="container founder-grid">
+            <div class="founder-photo reveal">
+                <img src="assets/sarawar-husen-avatar.jpg" alt="Sarawar Husen"
+                     onerror="this.style.display='none'; this.parentNode.innerHTML='SH';">
+            </div>
+
+            <div class="founder-content reveal">
+                <span class="label">Founder &amp; Educator</span>
+                <h2>Sarawar Husen</h2>
+                <h3>Creator of Jiggasa (জিজ্ঞাসা)</h3>
+
+                <p>
+                    Jiggasa was created by Sarawar Husen with the belief that
+                    education should encourage students to understand,
+                    question and think independently.
+                </p>
+
+                <p>
+                    Rather than focusing only on completing a syllabus,
+                    Jiggasa aims to create a learning environment where
+                    students can explore concepts, practise regularly and
+                    gradually become confident learners.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat reveal">
+                    <div class="stat-number" data-target="4">0</div>
+                    <p>Core Learning Areas</p>
+                </div>
+                <div class="stat reveal">
+                    <div class="stat-number" data-target="100">0</div>
+                    <p>% Focus on Learning</p>
+                </div>
+                <div class="stat reveal">
+                    <div class="stat-number">∞</div>
+                    <p>Questions to Explore</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PHILOSOPHY ============ -->
+    <section id="vision" class="philosophy">
+        <div class="container quote reveal">
+            <div class="quote-mark">"</div>
+            <h2>Questions are not a sign of weakness. They are the beginning of knowledge.</h2>
+            <p>
+                At Jiggasa, we want students to feel comfortable asking
+                "Why?", "How?", and "What if?"
+            </p>
+        </div>
+    </section>
+
+    <!-- ============ VISION ============ -->
+    <section class="story" style="padding-top:0;">
+        <div class="container">
+            <div class="section-heading reveal">
+                <span class="small-title">Our Vision</span>
+                <h2>Building Independent Learners</h2>
+                <p>Our goal is to help students develop skills that remain useful far beyond the classroom.</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature reveal">
+                    <h3>🧠 Think Critically</h3>
+                    <p>Understand information instead of simply memorising it.</p>
+                </div>
+                <div class="feature reveal">
+                    <h3>🔎 Stay Curious</h3>
+                    <p>Keep asking questions and exploring new ideas.</p>
+                </div>
+                <div class="feature reveal">
+                    <h3>🧩 Solve Problems</h3>
+                    <p>Develop logical approaches to academic and practical problems.</p>
+                </div>
+                <div class="feature reveal">
+                    <h3>🚀 Keep Learning</h3>
+                    <p>Build the confidence to continue learning independently.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta">
+        <div class="container reveal">
+            <h2>Ready to Start Your Learning Journey?</h2>
+            <p>
+                Explore lessons, challenge yourself with quizzes,
+                practise coding and keep asking questions.
+            </p>
+            <a href="index.html" class="btn">
+                <span>Start Learning</span>
+                <i class="ph ph-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+        <div class="footer-logo">
+            <i class="ph-fill ph-student"></i>
+            <span lang="bn">জিজ্ঞাসা (Jiggasa)</span>
+        </div>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="classes.html">Classes</a>
+            <a href="notes.html">Notes</a>
+            <a href="quizzes.html">Quizzes</a>
+            <a href="videos.html">Videos</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <p class="copyright">
+            &copy; <span id="year"></span>
+            <strong>Jiggasa (জিজ্ঞাসা)</strong> — Built for curious learners.
+        </p>
+    </footer>
+
+    <!-- ============ BOTTOM NAV ============ -->
+    <nav class="bottom-nav" aria-label="Mobile quick navigation">
+        <a href="index.html"><i class="ph ph-house"></i><span>Home</span></a>
+        <a href="classes.html"><i class="ph ph-books"></i><span>Classes</span></a>
+        <a href="quizzes.html"><i class="ph ph-exam"></i><span>Quiz</span></a>
+        <a href="progress.html"><i class="ph ph-chart-line-up"></i><span>Progress</span></a>
+        <a href="about.html" class="active"><i class="ph-fill ph-user"></i><span>Teacher</span></a>
+    </nav>
+
+    <script>
+        /* ============ THEME ============ */
+        const themeBtn = document.getElementById('theme-btn');
+        const themeIcon = document.getElementById('theme-icon');
+        function updateThemeIcon() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            themeIcon.className = isDark ? "ph ph-sun" : "ph ph-moon";
+        }
+        themeBtn.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            try { localStorage.setItem('jiggasha_theme', next); } catch (e) {}
+            updateThemeIcon();
+        });
+        updateThemeIcon();
+
+        /* ============ MOBILE MENU ============ */
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.contains('open');
+            mobileMenu.classList.toggle('open');
+            menuToggle.setAttribute('aria-expanded', String(!isOpen));
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+        });
+
+        /* ============ CURRENT YEAR ============ */
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        /* ============ SCROLL REVEAL ============ */
+        const revealElements = document.querySelectorAll(".reveal");
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        /* ============ NUMBER COUNTER ============ */
+        const counters = document.querySelectorAll(".stat-number[data-target]");
+        let counterStarted = false;
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !counterStarted) {
+                counterStarted = true;
+                counters.forEach(counter => {
+                    const target = Number(counter.dataset.target);
+                    let current = 0;
+                    const increment = Math.max(1, Math.ceil(target / 40));
+
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current >= target) {
+                            counter.textContent = target;
+                            return;
+                        }
+                        counter.textContent = current;
+                        requestAnimationFrame(updateCounter);
+                    };
+                    updateCounter();
+                });
+            }
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector(".stats");
+        if (statsSection) counterObserver.observe(statsSection);
+
+        /* ============ SMOOTH ANCHOR SCROLL (with sticky header offset) ============ */
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#' || targetId.length < 2) return;
+                const target = document.querySelector(targetId);
+                if (!target) return;
+                e.preventDefault();
+                const offset = 80; // sticky header height
+                const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                window.scrollTo({ top, behavior: 'smooth' });
+            });
+        });
+    </script>
 </body>
 </html>
-
